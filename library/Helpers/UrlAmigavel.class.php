@@ -1,0 +1,182 @@
+<?php
+/**
+ * UrlAmigavel.class [ HELPER ]
+ * Realização a gestão da dos controladores e metodos a serem executados
+ * e pega os Parâmetos via GET!
+ * @copyright (c) 2014, Leo Bessa
+ */
+  class UrlAmigavel{
+        private static $url;
+        private static $explode;
+        private static $params;
+        
+        /** @var Retorna o valor do Modulo solicitado **/
+        public static $modulo;
+        
+        /** @var Retorna o valor do Controller solicitado **/
+        public static $controller;
+        
+        /** @var Retorna o valor do Metodo solicitado **/
+        public static $action;
+      
+        
+       /**
+        * Realização a gestão da dos controladores e metodos a serem executados
+        * e pega os Parâmetos via GET!       
+        */
+        public function  __construct(){
+            self::setUrl();
+            self::setExplode();
+            self::setModulo();
+            self::setController();
+            self::setAction();
+            self::setParams();
+        }
+        
+        /**
+        * <b>PegaParametro:</b> Pega todos os parêmetros passados pela URL
+        * @param STRING $name = Passando o nome do parametro a ser retornado.        
+        * @return ARRAY Retorna um array de parâmetros ou caso mensione o parâmetro a ser pesquisado
+        * retorno com o valor de uma variavel solicitada
+        */
+        public static function PegaParametro( $name = null ){
+            if ( $name != null ):
+                if(array_key_exists($name, self::$params)):
+                    return self::$params[$name];
+                endif;
+            else:
+                return self::$params;
+            endif;
+        }
+        
+        /**
+        * <b>pegaControllerAction:</b> Gerencia e inicia o controlador e metodo a ser executado      
+        * @return INCLUDE Retorna a inclusão do arquivo solicitado.
+        * @return Valor padão para Controller (INDEX) e metodo (INDEX)
+        * @return Realiza a Inclusão da View com o mesmo nome da action dentro da Pasta View.
+        * Ex.: <br>Nome do Arquivo <b>cadastro.View.php</b>
+        */
+        public function pegaControllerAction(){
+            $erro_404 = false;  
+//           echo "Modulo: ".self::$modulo;
+//            if(!is_dir("../admin/".self::$modulo)):
+//                self::$modulo = SITE;
+//                self::$controller = "index";
+//                self::$action = "index";
+//                $erro_404 = true;
+//             elseif(self::$controller == ""):
+//                    self::$controller = "index";
+//                    self::$action = "index";               
+//             elseif(self::$action == ""):
+//                    self::$action = "index";  
+//             endif; 
+            
+            if(self::$controller == ""):
+                    self::$controller = "index";
+                    self::$action = "index";               
+             elseif(self::$action == ""):
+                    self::$action = "index";  
+             endif;
+            
+             $controller_path = self::$modulo."/Controller/" . self::$controller . '.Controller.php';
+             if((!file_exists($controller_path)) && (!file_exists("Controller/" . self::$controller . '.Controller.php'))):
+                    self::$controller = "index";
+                    self::$action = "index";
+                    $erro_404 = true;  
+            endif;   
+            
+            $controller_path = self::$modulo."/Controller/" . self::$controller . '.Controller.php';
+            
+            if(!file_exists($controller_path)):
+                $controller_path = "Controller/" . self::$controller . '.Controller.php';
+            endif;
+            require_once($controller_path);
+            $app = new self::$controller();
+            
+                if( !method_exists($app, self::$action) ):                     
+                     self::$action = "index";
+                     $erro_404 = true;
+                endif;
+                
+            $action = self::$action;
+            $app->$action();
+            
+            extract((array) $app);
+            
+           if($erro_404):
+                $arquivo_include = 'View/'.ERRO_404.'.View.php';                
+                $action = ERRO_404;
+           else:
+                $arquivo_include = 'View/'.self::$action.'.View.php';
+                $action = self::$action;
+           endif;
+           
+           if (file_exists($arquivo_include) && !is_dir($arquivo_include)):
+               include $arquivo_include;
+           elseif (file_exists(self::$modulo."/".$arquivo_include) && !is_dir(self::$modulo."/".$arquivo_include)):
+               include self::$modulo."/".$arquivo_include;
+           else:
+               Valida::Mensagem("A View <b>".$action.".View.php</b> no Módulo <b>".self::$modulo."</b> não foi encontrada!", 3);
+           endif;            
+        }
+        
+        /*************************/
+        /**** METODOS PRIVADOS ***/
+        /*************************/
+        
+         private static function setUrl(){
+            $url = (isset($_GET['url']) && $_GET['url'] != "" ? $_GET['url'] : "index.php?url=/index/index");
+            self::$url = $url.'/';
+//            $post = (isset($_POST) ?  $_POST : array());
+//            foreach ($post as $key => $valor):
+//                self::$url .= $key."/".$valor."/";
+//            endforeach;
+        }
+
+        private static function setExplode(){
+            self::$explode = explode( '/' , self::$url );
+        }
+        
+        private static function setModulo(){
+            self::$modulo = self::$explode[0];
+        }
+        
+        private static function setController(){
+            self::$controller = self::$explode[1];
+        }    
+        
+        private static function setAction(){
+            $ac = (!isset(self::$explode[2]) || self::$explode[2] == null || self::$explode[2] == 'index' ? 'index' : self::$explode[2]);
+            self::$action = $ac;
+        }
+
+        private static function setParams(){  
+            unset( self::$explode[0], self::$explode[1], self::$explode[2] );
+                array_pop( self::$explode );
+
+            if ( end( self::$explode ) == null )
+                array_pop( self::$explode );
+           
+            $i = 0;
+            $ind = array(); 
+            $value = array();
+            if( !empty (self::$explode) ){
+                foreach ( self::$explode as $val ){
+                    if ( $i % 2 == 0 ){
+                        $ind[] = $val;
+                    }else{
+                        $value[] = $val;
+                    }
+                    $i++;
+                }
+            }else{
+                $ind = array();
+                $value = array();
+            }
+            if( count($ind) == count($value) && !empty($ind) && !empty($value) )
+                self::$params = array_combine($ind, $value);
+            else
+                self::$params = array();      
+            
+        }
+    }
