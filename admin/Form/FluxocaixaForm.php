@@ -1,0 +1,545 @@
+<?php
+
+/**
+ * FluxoCaixaForm [ FORM ]
+ * @copyright (c) 2021, Leo Bessa
+ */
+class FluxocaixaForm
+{
+    public static function CadastrarFluxocaixa($res)
+    {
+        $id = "CadastrarFluxocaixa";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Cadastrar", 12);
+
+        $options = [];
+        $formulario
+            ->setId(CO_CATEGORIA_FC)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Categoria PAI")
+            ->setTamanhoInput(12)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_CODIGO)
+            ->setTamanhoInput(2)
+            ->setClasses('disabilita')
+            ->setLabel("Código")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_TEXTO)
+            ->setTamanhoInput(10)
+            ->setLabel("Nome da Categoria")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, []);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function TransfSaldo($res)
+    {
+        $id = "TransfSaldo";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Transferir", 12);
+
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA_ORIGEM)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta de Origem")
+            ->setTamanhoInput(5)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_SALDO_ORIGEM_ANT)
+            ->setTamanhoInput(4)
+            ->setClasses('disabilita')
+            ->setLabel("Saldo Origem")
+            ->setInfo("Saldo Atual da conta de Origem")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('t-' . DT_REALIZADO)
+            ->setTamanhoInput(3)
+            ->setClasses('data')
+            ->setLabel("Data Realizado")
+            ->CriaInpunt();
+
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA_DESTINO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta de Destino")
+            ->setTamanhoInput(5)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_SALDO_DESTINO_ANT)
+            ->setTamanhoInput(4)
+            ->setClasses('disabilita')
+            ->setLabel("Saldo Destino")
+            ->setInfo("Saldo Atual da conta de Destino")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_TRANSFERIDO)
+            ->setTamanhoInput(3)
+            ->setClasses('moeda')
+            ->setInfo('Valor a ser Transferido')
+            ->setLabel("Valor")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, []);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function CadastrarContaBancaria($res)
+    {
+        $id = "CadastrarContaBancaria";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Cadastrar", 12);
+
+        $label_options2 = array("<i class='fa fa-check fa-white'></i>", "<i class='fa fa-times fa-white'></i>", "verde", "vermelho");
+        $formulario
+            ->setLabel("Status")
+            ->setId(ST_STATUS)
+            ->setClasses('checked')
+            ->setType(TiposCampoEnum::CHECKBOX)
+            ->setTamanhoInput(3)
+            ->setInfo('Conta Ativa?')
+            ->setOptions($label_options2)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NO_BANCO)
+            ->setTamanhoInput(9)
+            ->setLabel("Banco")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_AGENCIA)
+            ->setTamanhoInput(3)
+            ->setClasses('numero')
+            ->setLabel("Agência")
+            ->setInfo('Somente números')
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_CONTA)
+            ->setTamanhoInput(6)
+            ->setClasses('numero')
+            ->setInfo('Somente números, com digito')
+            ->setLabel("Conta")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_SALDO)
+            ->setTamanhoInput(3)
+            ->setClasses('moeda')
+            ->setInfo('Saldo atual da Conta')
+            ->setLabel("Saldo")
+            ->CriaInpunt();
+
+        $formulario
+            ->setType(TiposCampoEnum::TEXTAREA)
+            ->setId(DS_OBSERVACAO)
+            ->setLabel("Observação")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, [CO_CONTA_BANCARIA]);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function Representacao($res)
+    {
+        $id = "Representacao";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Cadastrar", 12);
+
+
+        $formulario
+            ->setId(NO_REPRESENTACAO)
+            ->setTamanhoInput(12)
+            ->setInfo("Nome Cliente ou Fornecedor")
+            ->setLabel("Nome")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_EMAIL)
+            ->setIcon("fa-envelope fa")
+            ->setClasses("email")
+            ->setTamanhoInput(8)
+            ->setLabel("Email")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_TEL1)
+            ->setTamanhoInput(4)
+            ->setIcon("fa fa-mobile-phone")
+            ->setLabel("Telefone Celular")
+            ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;'></i> WhatsApp")
+            ->setClasses("tel")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, [CO_REPRESENTACAO]);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function CentroCustos($res)
+    {
+        $id = "CentroCustos";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Cadastrar", 12);
+
+
+        $formulario
+            ->setId(NO_CENTRO_CUSTOS)
+            ->setTamanhoInput(12)
+            ->setInfo("Nome (Filial / Setores / Projetos)")
+            ->setLabel("Nome")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, [CO_CENTRO_CUSTO]);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function FCEntrada($res)
+    {
+        $id = "FCEntrada";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Salvar", 12);
+
+        $tp_pagamentos = TipoPagamentoEnum::$descricao;
+        unset($tp_pagamentos[0]);
+        $formulario
+            ->setId(TP_PAGAMENTO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Forma de Pagamento")
+            ->setTamanhoInput(4)
+            ->setClasses("ob")
+            ->setOptions($tp_pagamentos)
+            ->CriaInpunt();
+
+        $options = [];
+        $formulario
+            ->setId(CO_CATEGORIA_FC)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Categoria")
+            ->setTamanhoInput(8)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('e-' . DT_VENCIMENTO)
+            ->setTamanhoInput(6)
+            ->setClasses('data')
+            ->setLabel("Data A Receber")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('e-' . DT_REALIZADO)
+            ->setTamanhoInput(6)
+            ->setClasses('data')
+            ->setLabel("Data Pago")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR)
+            ->setTamanhoInput(6)
+            ->setClasses('moeda')
+            ->setLabel("Valor a Receber")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_PAGO)
+            ->setTamanhoInput(6)
+            ->setClasses('moeda')
+            ->setLabel("Valor Pago")
+            ->CriaInpunt();
+
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta")
+            ->setTamanhoInput(4)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+
+        $formulario
+            ->setId(CO_REPRESENTACAO)
+            ->setAutocomplete(
+                RepresentacaoEntidade::TABELA,
+                NO_REPRESENTACAO,
+                RepresentacaoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Cliente")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+
+        $formulario
+            ->setId(CO_CENTRO_CUSTO)
+            ->setAutocomplete(
+                CentroCustoEntidade::TABELA,
+                NO_CENTRO_CUSTOS,
+                CentroCustoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Centro de Custos")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $formulario
+            ->setType(TiposCampoEnum::TEXTAREA)
+            ->setId(DS_DESCRICAO)
+            ->setLabel("Descrição")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, [CO_FLUXO_CAIXA]);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function FCSaida($res)
+    {
+        $id = "FCSaida";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Salvar", 12);
+
+        $tp_pagamentos = TipoPagamentoEnum::$descricao;
+        unset($tp_pagamentos[0]);
+        $formulario
+            ->setId(TP_PAGAMENTO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Forma de Pagamento")
+            ->setTamanhoInput(4)
+            ->setClasses("ob")
+            ->setOptions($tp_pagamentos)
+            ->CriaInpunt();
+
+        $options = [];
+        $formulario
+            ->setId(CO_CATEGORIA_FC)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Categoria")
+            ->setTamanhoInput(8)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('s-' . DT_VENCIMENTO)
+            ->setTamanhoInput(6)
+            ->setClasses('data')
+            ->setLabel("Data A Pagar")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('s-' . DT_REALIZADO)
+            ->setTamanhoInput(6)
+            ->setClasses('data')
+            ->setLabel("Data Pago")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR)
+            ->setTamanhoInput(6)
+            ->setClasses('moeda')
+            ->setLabel("Valor a Pagar")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_PAGO)
+            ->setTamanhoInput(6)
+            ->setClasses('moeda')
+            ->setLabel("Valor Pago")
+            ->CriaInpunt();
+
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta")
+            ->setTamanhoInput(4)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+
+        $formulario
+            ->setId(CO_REPRESENTACAO)
+            ->setAutocomplete(
+                RepresentacaoEntidade::TABELA,
+                NO_REPRESENTACAO,
+                RepresentacaoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Fornecedor")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+
+        $formulario
+            ->setId(CO_CENTRO_CUSTO)
+            ->setAutocomplete(
+                CentroCustoEntidade::TABELA,
+                NO_CENTRO_CUSTOS,
+                CentroCustoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Centro de Custos")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $formulario
+            ->setType(TiposCampoEnum::TEXTAREA)
+            ->setId(DS_DESCRICAO)
+            ->setLabel("Descrição")
+            ->CriaInpunt();
+
+        Form::CriaInputHidden($formulario, $res, [CO_FLUXO_CAIXA]);
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+    public static function PesquisaLancamento()
+    {
+        $id = "PesquisaLancamento";
+
+        $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
+            "Pesquisar", 12);
+
+        $options = CategoriaFcService::getComboTodasCategoriasFC();
+        $formulario
+            ->setId(CO_CATEGORIA_FC)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Categoria")
+            ->setTamanhoInput(4)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $options3 = TipoFluxoCaixaEnum::$descricao;
+        array_unshift($options3,Mensagens::MSG_SEM_ITEM_SELECIONADO);
+        $formulario
+            ->setId(TP_FLUXO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Tipo de Lançamento")
+            ->setTamanhoInput(4)
+            ->setOptions($options3)
+            ->CriaInpunt();
+
+        $options2 = StatusPagamentoFCEnum::$descricao;
+        array_unshift($options2,Mensagens::MSG_SEM_ITEM_SELECIONADO);
+        $formulario
+            ->setId(ST_PAGAMENTO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Status Pag.")
+            ->setTamanhoInput(4)
+            ->setOptions($options2)
+            ->CriaInpunt();
+
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta")
+            ->setTamanhoInput(4)
+            ->setOptions($options)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(CO_REPRESENTACAO)
+            ->setAutocomplete(
+                RepresentacaoEntidade::TABELA,
+                NO_REPRESENTACAO,
+                RepresentacaoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Fornecedor")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(CO_CENTRO_CUSTO)
+            ->setAutocomplete(
+                CentroCustoEntidade::TABELA,
+                NO_CENTRO_CUSTOS,
+                CentroCustoEntidade::CHAVE
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Centro de Custos")
+            ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $tp_pagamentos = TipoPagamentoEnum::$descricao;
+        $tp_pagamentos[0] = 'Todos';
+
+        $formulario
+            ->setId(TP_PAGAMENTO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Forma de Pagamento")
+            ->setTamanhoInput(4)
+            ->setClasses("ob")
+            ->setOptions($tp_pagamentos)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('dt_inicio_lanc')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(4)
+            ->setClasses("data dt1")
+            ->setLabel("Lançado Inicío")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('dt_fim_lanc')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(4)
+            ->setClasses("data dt2")
+            ->setLabel("Fim")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId( DT_VENCIMENTO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Vencimento")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId( DT_REALIZADO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Data de Pagamento")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_PAGO)
+            ->setTamanhoInput(4)
+            ->setClasses('moeda')
+            ->setLabel("Valor")
+            ->CriaInpunt();
+
+
+        return $formulario->finalizaForm(false, false);
+    }
+
+
+}

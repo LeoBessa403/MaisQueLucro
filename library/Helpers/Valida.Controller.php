@@ -2,53 +2,64 @@
 /* 
  * Controla as validações dos Formuláriso
  */
-require_once '../Config.inc.php';
-$valida   = new Valida();
+if (file_exists("../Config.inc.php")):
+    include "../Config.inc.php";
+else:
+    include "Config.inc.php";
+endif;
+$valida = new Valida();
 
-if(isset($_GET['valida'])){    
-    
-	switch($_GET['valida']){
-/*****************************
-VALIDA O CPF
-*****************************/
-	case 'valcpf':
-            $cpf = $_GET['cpf'];    
-            echo $valida->ValCPF($cpf);            
-        break;
-/*****************************
-VALIDA CNPJ
-****************************/
-        case 'valcnpj':   
-            $cnpj = $_GET['cnpj'];    
-            echo $valida->ValCNPJ($cnpj);
-         break;
-/*****************************
-VALIDA O EMAIL
-*****************************/	
-        case 'valemail':  
-            $email = $_GET['email'];    
+if (isset($_GET['valida'])) {
+
+    switch ($_GET['valida']) {
+        /*****************************
+         * VALIDA O CPF
+         *****************************/
+        case 'valcpf':
+            $cpf = $_GET['cpf'];
+            echo $valida->ValCPF(Valida::RetiraMascara($cpf));
+            break;
+        /*****************************
+         * VALIDA CNPJ
+         ****************************/
+        case 'valcnpj':
+            $cnpj = $_GET['cnpj'];
+            echo $valida->ValCNPJ(Valida::RetiraMascara($cnpj));
+            break;
+        /*****************************
+         * VALIDA O EMAIL
+         *****************************/
+        case 'valemail':
+            $email = $_GET['email'];
             echo $valida->ValEmail($email);
-        break;
-/*****************************
-Deleta Registros do Banco da Grid
-*****************************/	
-        case 'deleta_registro': 
-            $id     = $_GET['id'];    
-            $metodo = "deleta".$_GET['registro'];
-            $objeto = $_GET['registro']."Model";
-            $obj    = new $objeto();
-            if($_GET['registro'] == "ProdutoCompra"):
-                echo $obj->$metodo($id,Session::getSession("compra","id_negociacao"));
-            elseif($_GET['registro'] == "ProdutoVenda"):
-                echo $obj->$metodo($id,Session::getSession("venda","id_negociacao"));
-            else:
-                echo $obj->$metodo($id);
-            endif;
-        break;
-    
+            break;
+        /*****************************
+         * Deleta Registros do Banco da Grid
+         *****************************/
+        case 'deleta_registro':
+            $id = $_GET['id'];
+            $objeto = $_GET['entidade'] . "Model";
+            $obj = new $objeto();
+            echo $obj->Deleta($id);
+            Notificacoes::geraMensagem('Deletado com Sucesso', TiposMensagemEnum::SUCESSO);
+            break;
+        /*****************************
+         * Deleta Registros do Banco da Grid
+         *****************************/
+        case 'msg_valida':
+            $msg = new Mensagens();
+            echo $msg->$_GET['msg'];
+            break;     break;
+        /*****************************
+         * Executa os ajax
+         *****************************/
+        case 'ajax':
+            echo 'ola 33';
+            break;
+
 ////////////////////////////////////////////////////////////////////////
 /////////////////// PARTICULARIDADES DO SISTEMA ////////////////////////
 //////////////////////////////////////////////////////////////////////// 
-    
-            
-}}
+
+    }
+}

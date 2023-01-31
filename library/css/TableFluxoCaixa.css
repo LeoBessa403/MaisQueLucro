@@ -1,0 +1,184 @@
+:root {
+    --cor-1: rgb(135,206,250);
+    --cor-2: rgba(135,206,250,0.8);
+    --cor-3: white;
+    --cor-4: rgba(70,130,180,0.8);
+    --cor-5: rgb(70,130,180);
+    --cor-6: rgba(173,216,230,0.8);
+    --cor-7: #00008B;
+    --cor-cinza: #ccc;
+    --bg-color-1: linear-gradient(65deg, var(--cor-1), var(--cor-2) 180%);
+}
+
+.grid-container {
+    display: grid;
+    overflow: auto;
+    height: 700px;
+    width: 100%;
+    color: #00eaff;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.grid-col {
+    width: 330px;
+    min-width: 330px;
+}
+
+.segundo-periodo {
+    width: 350px !important;
+    min-width: 350px !important;
+}
+
+.ultimaLinha {
+    border-bottom: 2px solid var(--cor-1);
+}
+
+.grid-col--fixed-left .grid-item {
+    border-left: 2px solid var(--cor-1);
+}
+
+.grid-col .grid-item--header{
+    border-top: 2px solid var(--cor-1);
+}
+
+.grid-item--header {
+    height: 40px;
+    min-height: 40px;
+    position: sticky;
+    position: -webkit-sticky;
+    background: var(--cor-3);
+    top: 0;
+}
+
+.grid-col--fixed-left {
+    position: sticky;
+    left: 0;
+    z-index: 800;
+    background: var(--cor-3);
+    width: 250px;
+}
+
+.grid-item {
+    height: 40px;
+    /*border-bottom: 0.1px solid #fafafa;*/
+    font-weight: 700;
+}
+
+.grid-item-filha, .grid-item-neta{
+    font-weight: 500 !important;
+    font-size: 1.1em !important;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid var(--cor-1);
+}
+
+table th {
+    background-color: var(--cor-4);
+    color: var(--cor-3);
+    text-align: center;
+    font-size: 1.2em;
+    /*border-right: 0.1px solid #fafafa;*/
+}
+
+.total table th {
+    background-color: var(--cor-5);
+    font-size: 1.3em;
+}
+
+table tbody td.grid-top {
+    background-color: var(--cor-2);
+    color: var(--cor-7);
+    text-align: center;
+    /*border-right: 0.1px solid #fafafa;*/
+    font-size: 1.1em;
+}
+
+.total table tbody td.grid-top {
+    background-color: var(--cor-1);
+    font-size: 1.1em;
+}
+
+table tbody td:nth-child(1), table tbody td:nth-child(2) {
+    width: 34%;
+}
+
+table tbody td:nth-child(3), table tbody td:nth-child(4) {
+    width: 16%;
+}
+
+table tbody td {
+    background-color: var(--cor-3);
+    color: var(--cor-2);
+    text-align: center;
+    /*border-right: 0.1px solid #fafafa;*/
+}
+
+.total table tbody td {
+    background-color: #C0C0C0;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.total .grid-item-filha td, .total .grid-item-neta td {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+}
+
+.grid-col--fixed-left .catPai {
+    font-size: 1.1em;
+    background-color: #737373;
+    padding: 2px 2px 2px 5px;
+    color: var(--cor-3);
+    font-weight: bolder;
+    /*border-bottom: 0.1px solid black;*/
+}
+
+.grid-col--fixed-left .catFilha {
+    background-color: #A6A6A6;
+    font-size: 1.1em;
+    padding: 2px 2px 2px 15px;
+    /*border-bottom: 0.1px solid #737373;*/
+    font-weight: 400;
+}
+
+.grid-col--fixed-left .catNeta {
+    background-color: #D9D9D9;
+    padding: 3px 3px 3px 25px;
+    /*border-bottom: 0.1px solid #737373;*/
+    /*border-right: 0.1px solid #737373;*/
+    font-weight: 300;
+}
+
+.linhaHover{
+    background-color: var(--cor-6) !important;
+    color: var(--cor-7) !important;
+    font-size: 1.1em;
+    border-bottom: 0.1px solid var(--cor-3) !important;
+    border-top: 0.1px solid var(--cor-3) !important;
+}
+
+#TableFluxoCaixa i{
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+#TableFluxoCaixa i:hover{
+    background-color: var(--cor-7);
+    color: var(--cor-2) !important;
+    border-radius: 50%;
+}
+
+.periodo{
+    width: 80px;
+    display: inline-block;
+    font-weight: bolder;
+    color: var(--cor-7) !important;
+}
