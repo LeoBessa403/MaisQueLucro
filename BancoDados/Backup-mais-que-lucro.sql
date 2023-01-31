@@ -1,10 +1,10 @@
--- Atualizado em: 14/06/2022 10:23:02
--- AMBIENTE: http://localhost/MaisQueLucro/
--- BANCO: maisquelucro10
+-- Atualizado em: 31/01/2023 13:35:03
+-- AMBIENTE: http://localhost/AtacadaoBessa/
+-- BANCO: atacadao10
 
-CREATE DATABASE IF NOT EXISTS maisquelucro10;
+CREATE DATABASE IF NOT EXISTS atacadao10;
 
-USE maisquelucro10;
+USE atacadao10;
 
 DROP TABLE IF EXISTS TB_ANOTACAO;
 
@@ -12,11 +12,11 @@ DROP TABLE IF EXISTS TB_ANOTACAO;
 CREATE TABLE `TB_ANOTACAO` (
   `co_anotacao` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
-  `ds_observacao` text DEFAULT NULL,
-  `ds_titulo` varchar(80) DEFAULT NULL,
+  `ds_observacao` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ds_titulo` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_historia` int(11) NOT NULL,
   PRIMARY KEY (`co_anotacao`,`co_historia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -197,7 +197,7 @@ CREATE TABLE `TB_CONTATO` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060','0','','maisquelucro@gmail.com','','','','');
+INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060','0','','sistema@atacadaobessa.com.br','','','','');
 
 
 
@@ -328,10 +328,10 @@ DROP TABLE IF EXISTS TB_FUNCIONALIDADE;
 
 CREATE TABLE `TB_FUNCIONALIDADE` (
   `co_funcionalidade` int(11) NOT NULL AUTO_INCREMENT,
-  `no_funcionalidade` varchar(150) CHARACTER SET latin1 NOT NULL,
-  `ds_action` varchar(120) CHARACTER SET latin1 DEFAULT NULL,
-  `st_status` varchar(1) CHARACTER SET latin1 DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo''',
-  `st_menu` varchar(1) CHARACTER SET latin1 DEFAULT 'S' COMMENT 'S - Sim / N - Não (Se apresenta no menu)',
+  `no_funcionalidade` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `ds_action` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo''',
+  `st_menu` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'S' COMMENT 'S - Sim / N - Não (Se apresenta no menu)',
   `co_controller` int(11) NOT NULL,
   PRIMARY KEY (`co_funcionalidade`,`co_controller`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -442,14 +442,14 @@ DROP TABLE IF EXISTS TB_HISTORIA;
 
 CREATE TABLE `TB_HISTORIA` (
   `co_historia` int(11) NOT NULL AUTO_INCREMENT,
-  `ds_titulo` varchar(80) DEFAULT NULL,
-  `ds_observacao` text DEFAULT NULL,
+  `ds_titulo` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ds_observacao` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_atualizado` datetime DEFAULT NULL,
-  `st_situacao` varchar(1) DEFAULT 'N' COMMENT 'N - Não iniciada / I - Iniciada / C - Concluida',
+  `st_situacao` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT 'N - Não iniciada / I - Iniciada / C - Concluida',
   `co_sessao` int(11) NOT NULL,
   PRIMARY KEY (`co_historia`,`co_sessao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -511,7 +511,7 @@ DROP TABLE IF EXISTS TB_IMAGEM;
 
 CREATE TABLE `TB_IMAGEM` (
   `co_imagem` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ds_caminho` varchar(150) CHARACTER SET latin1 NOT NULL,
+  `ds_caminho` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`co_imagem`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -540,11 +540,11 @@ DROP TABLE IF EXISTS TB_MODULO;
 
 CREATE TABLE `TB_MODULO` (
   `co_modulo` int(11) NOT NULL AUTO_INCREMENT,
-  `no_modulo` varchar(50) DEFAULT NULL,
+  `no_modulo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   `co_projeto` int(11) NOT NULL,
   PRIMARY KEY (`co_modulo`,`co_projeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -571,8 +571,8 @@ DROP TABLE IF EXISTS TB_PERFIL;
 
 CREATE TABLE `TB_PERFIL` (
   `co_perfil` int(11) NOT NULL AUTO_INCREMENT,
-  `no_perfil` varchar(45) CHARACTER SET latin1 NOT NULL COMMENT 'Nome do Perfil',
-  `st_status` varchar(1) CHARACTER SET latin1 NOT NULL DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo''',
+  `no_perfil` varchar(45) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nome do Perfil',
+  `st_status` varchar(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo''',
   PRIMARY KEY (`co_perfil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -716,7 +716,7 @@ DROP TABLE IF EXISTS TB_PROJETO;
 
 CREATE TABLE `TB_PROJETO` (
   `co_projeto` int(11) NOT NULL AUTO_INCREMENT,
-  `no_projeto` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
+  `no_projeto` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   PRIMARY KEY (`co_projeto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -748,11 +748,11 @@ DROP TABLE IF EXISTS TB_SESSAO;
 
 CREATE TABLE `TB_SESSAO` (
   `co_sessao` int(11) NOT NULL AUTO_INCREMENT,
-  `no_sessao` varchar(80) DEFAULT NULL,
+  `no_sessao` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   `co_modulo` int(11) NOT NULL,
   PRIMARY KEY (`co_sessao`,`co_modulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -780,16 +780,16 @@ DROP TABLE IF EXISTS TB_USUARIO;
 
 CREATE TABLE `TB_USUARIO` (
   `co_usuario` int(10) NOT NULL AUTO_INCREMENT,
-  `ds_senha` varchar(100) NOT NULL,
-  `ds_code` varchar(50) NOT NULL COMMENT 'Senha criptografada',
-  `st_status` varchar(1) NOT NULL DEFAULT 'I' COMMENT '''A - Ativo / I - Inativo''',
-  `st_troca_senha` varchar(1) DEFAULT 'N',
+  `ds_senha` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ds_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Senha criptografada',
+  `st_status` varchar(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'I' COMMENT '''A - Ativo / I - Inativo''',
+  `st_troca_senha` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N',
   `dt_cadastro` datetime NOT NULL,
   `co_imagem` int(10) NOT NULL,
   `co_pessoa` int(11) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_usuario`,`co_imagem`,`co_pessoa`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_USUARIO VALUES('1','123456**','TVRJek5EVTJLaW89','A','S','2016-10-31 00:00:00','1','1','0');

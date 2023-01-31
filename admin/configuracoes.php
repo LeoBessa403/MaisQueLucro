@@ -9,7 +9,7 @@ function servidor_inicial()
             'USER' => 'root',
             'PASS' => '',
             'DBSA' => 'atacadao10',
-            'SCHEMA' => 'maisquelucro10',
+            'SCHEMA' => 'atacadao10',
             'BANCO' => 1, // 1 = mysql, 2 = postgres
             'DEBUG' => true,
             'PROD' => false,
