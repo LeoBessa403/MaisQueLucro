@@ -4,11 +4,11 @@ function servidor_inicial()
 {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
         $config = array(
-            'HOME' => 'http://localhost/MaisQueLucro/',
+            'HOME' => 'http://localhost/AtacadaoBessa/',
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
-            'DBSA' => 'maisquelucro10',
+            'DBSA' => 'atacadao10',
             'SCHEMA' => 'maisquelucro10',
             'BANCO' => 1, // 1 = mysql, 2 = postgres
             'DEBUG' => true,
@@ -20,7 +20,7 @@ function servidor_inicial()
                 "sandbox.pagseguro.js",
         );
     } else {
-        $ambTeste = strstr($_SERVER['SERVER_NAME'], 'teste.maisquelucro.com.br');
+        $ambTeste = strstr($_SERVER['SERVER_NAME'], 'teste.atacadaobessa.com.br');
         if ($ambTeste != null) {
             $config = array(
                 'HOME' => 'https://teste.maisquelucro.com.br/',
@@ -40,7 +40,7 @@ function servidor_inicial()
             );
         } else {
             $config = array(
-                'HOME' => 'https://maisquelucro.com.br/',
+                'HOME' => 'https://atacadaobessa.com.br/',
                 'HOST' => 'localhost',
                 'USER' => 'sistem25_dabelez',
                 'PASS' => 'ahF4805qAd',
@@ -68,7 +68,7 @@ function servidor_inicial()
     define('DEBUG', $config['DEBUG']);
     define('PROD', $config['PROD']);
     define('CO_USUARIO_PADRAO', 1);
-    define('NO_USUARIO_PADRAO', 'Usuário Mais Que Lucro');
+    define('NO_USUARIO_PADRAO', 'Usuário Atacdão');
     define("TOKEN_PAGSEGURO", $config['TOKEN_PAGSEGURO']);
     define("URL_PAGSEGURO", $config['URL_PAGSEGURO']);
     define("JS_PAGSEGURO", HOME . 'library/js/' . $config['JS_PAGSEGURO']);
