@@ -16,7 +16,7 @@ define('TITULO_SITE', 'Atacadão Bessa | Sistema Online Lucrativo');
 define('DESC_SITE', 'O Único Sistema de gestão financeira que te trás a claresa suprema dos seus números.');
 define('CONTROLLER_INICIAL_ADMIN', 'Index');
 define('ACTION_INICIAL_ADMIN', 'IndexAdmin');
-define('CONTROLLER_INICIAL_SITE', 'Venda');
+define('CONTROLLER_INICIAL_SITE', 'IndexWeb');
 define('ACTION_INICIAL_SITE', 'Index');
 define('TABLE_USER', 'tb_usuario');
 define('CAMPO_PASS', 'ds_code');

@@ -1,0 +1,119 @@
+.beautypress-main-header, .beautypress-copyright-content, .beautypress-fun-factory-section {
+    background-color: #0E3A73 !important;
+}
+
+.beautypress-welcome-slider h2 {
+    color: white !important;
+    text-shadow: 2px 2px #0E3A73;
+}
+
+.beautypress-welcome-slider h3, .beautypress-version-2.beautypress-single-square-service-content i {
+    color: white !important;
+    text-shadow: 2px 2px #734743;
+}
+
+.xs-btn.bg-color-primario span {
+    background-color: #734743 !important;
+}
+
+.bg-color-gray-1 {
+    background-color: #734743 !important;
+}
+
+
+.xs-btn.bg-color-gray-1 span {
+    background-color: #0E3A73 !important;
+}
+
+.bg-color-gray-2 {
+    background-color: #858CA5 !important;
+    color: #0E3A73 !important;
+}
+
+
+.xs-btn.bg-color-gray-2 span {
+    background-color: #D7D7D9 !important;
+    color: #858CA5 !important;
+}
+
+.xs-btn.bg-color-black-gradient span {
+    background-color: #D7D7D9 !important;
+}
+
+.bg-color-blue-1, .beautypress-overlay-with-img {
+    background-color: #0E3A73 !important;
+}
+
+
+.xs-btn.bg-color-blue-1 span {
+    background-color: #D7D7D9 !important;
+}
+
+.bg-color-blue-2 {
+    background-color: #D7D7D9 !important;
+}
+
+.xs-btn.bg-color-blue-2 span {
+    background-color: #734743 !important;
+}
+
+.bg-gray-1-overlay,
+.bg-gray-2-overlay,
+.bg-blue-1-overlay,
+.bg-blue-2-overlay {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+.bg-gray-1-overlay:before,
+.bg-gray-2-overlay:before,
+.bg-blue-1-overlay:before,
+.bg-blue-2-overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bg-gray-1-overlay:before {
+    background-image: -webkit-linear-gradient(90deg, #d31027 0%, #734743 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -ms-linear-gradient(90deg, #d31027 0%, #734743 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg-gray-2-overlay:before {
+    background-image: -webkit-linear-gradient(90deg, #d31027 0%, #858CA5 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -ms-linear-gradient(90deg, #d31027 0%, #858CA5 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg-blue-1-overlay:before {
+    background-image: -webkit-linear-gradient(90deg, #d31027 0%, #0E3A73 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -ms-linear-gradient(90deg, #d31027 0%, #0E3A73 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg-blue-2-overlay:before {
+    background-image: -webkit-linear-gradient(90deg, #d31027 0%, #D7D7D9 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -ms-linear-gradient(90deg, #d31027 0%, #D7D7D9 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg-gray-2-overlay .beautypress-pricing-title {
+    color: #0E3A73;
+}
+
+
+.owl-carousel h2{
+    font-size: 2.2em !important;
+}
+
+.owl-carousel h3{
+    font-size: 2.7em !important;
+}
