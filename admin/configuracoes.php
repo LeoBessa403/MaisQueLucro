@@ -11,6 +11,7 @@ function servidor_inicial()
             'DBSA' => 'atacadao10',
             'SCHEMA' => 'atacadao10',
             'BANCO' => 1, // 1 = mysql, 2 = postgres
+            'AMBI' => 1, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
             'DEBUG' => true,
             'PROD' => false,
             'TOKEN_PAGSEGURO' => "5FDD35645CC1412296CE57A3542E48D0",
@@ -30,6 +31,7 @@ function servidor_inicial()
                 'DBSA' => 'sistem25_mais_teste',
                 'SCHEMA' => 'sistem25_mais_teste',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
+                'AMBI' => 2, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
                 'PROD' => false,
                 'TOKEN_PAGSEGURO' => "5FDD35645CC1412296CE57A3542E48D0",
@@ -47,6 +49,7 @@ function servidor_inicial()
                 'DBSA' => 'sistem25_dabelez',
                 'SCHEMA' => 'sistem25_dabelez',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
+                'AMBI' => 3, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
                 'PROD' => true,
                 'TOKEN_PAGSEGURO' => "e420df9f-b88a-4ba4-acfc-ef3dc796abd129194be145c3878bd1e90a4f65786848b0c0-51de-48b2-a242-7ae275f26890",
@@ -67,6 +70,7 @@ function servidor_inicial()
     define('BANCO', $config['BANCO']);
     define('DEBUG', $config['DEBUG']);
     define('PROD', $config['PROD']);
+    define('AMBI', $config['AMBI']);
     define('CO_USUARIO_PADRAO', 1);
     define('NO_USUARIO_PADRAO', 'Usuário Atacdão');
     define("TOKEN_PAGSEGURO", $config['TOKEN_PAGSEGURO']);

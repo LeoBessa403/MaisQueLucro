@@ -42,7 +42,10 @@ class Backup
     {
         try {
 
-            $sql = "-- Atualizado em: " . Valida::DataAtual() . "\n-- AMBIENTE: " . HOME . "\n-- BANCO: " . DBSA . "\n\n";
+            $sql = "-- Atualizado em: " . Valida::DataAtual() .
+                "\n-- Link HOME: " . HOME .
+                "\n-- AMBIENTE: " . AMBI .
+                "\n-- BANCO: " . DBSA . "\n\n";
             $sql .= 'CREATE DATABASE IF NOT EXISTS ' . DBSA . ";\n\n";
             $sql .= 'USE ' . DBSA . ";\n\n";
 
@@ -99,7 +102,7 @@ class Backup
                     for ($j = 0; $j < $numFields; $j++) {
                         $row[$j] = addslashes($row[$j]);
                         $row[$j] = str_replace("\n", "\\n", $row[$j]);
-                        if (isset($row[$j])) {
+                        if (!empty($row[$j])) {
                             $sql .= "'" . $row[$j] . "'";
                         } else {
                             $sql .= 'NULL';
@@ -173,7 +176,7 @@ class Backup
                     for ($j = 0; $j < $numFields; $j++) {
                         $row[$j] = addslashes($row[$j]);
                         $row[$j] = str_replace("\n", "\\n", $row[$j]);
-                        if (isset($row[$j])) {
+                        if (!empty($row[$j])) {
                             $sql .= "'" . $row[$j] . "'";
                         } else {
                             $sql .= 'NULL';
@@ -201,7 +204,14 @@ class Backup
     {
         if (!$sql) return false;
         try {
-            $handle = fopen(PASTABACKUP . 'Backup-' . Valida::ValNome(DESC) . '.sql', 'w+');
+            // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
+            $ambi = 'Desenvolvimento';
+            if (AMBI == 2) {
+                $ambi = 'Teste';
+            } elseif (AMBI == 3) {
+                $ambi = 'Producao';
+            }
+            $handle = fopen(PASTABACKUP . 'Backup-' . Valida::ValNome(DESC . '-' . $ambi) . '.sql', 'w+');
             fwrite($handle, $sql);
             fclose($handle);
         } catch (Exception $e) {
