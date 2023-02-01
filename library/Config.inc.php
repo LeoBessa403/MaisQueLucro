@@ -162,7 +162,6 @@ define('PESQUISA_AVANCADA', "pesquisa_avancada");
 
 
 // AUTO LOAD DE CLASSES ####################
-
 function __autoload($Class)
 {
     $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
