@@ -13,9 +13,8 @@
 .grid-container {
     display: grid;
     overflow: auto;
-    height: 700px;
+    height: 550px;
     width: 100%;
-    color: #00eaff;
 }
 
 .grid {
@@ -38,7 +37,7 @@
 }
 
 .grid-col--fixed-left .grid-item {
-    border-left: 2px solid var(--cor-1);
+    border-left: 2px solid var(--cor-5);
 }
 
 .grid-col .grid-item--header{
@@ -115,7 +114,7 @@ table tbody td:nth-child(3), table tbody td:nth-child(4) {
 
 table tbody td {
     background-color: var(--cor-3);
-    color: var(--cor-2);
+    color: var(--cor-4);
     text-align: center;
     /*border-right: 0.1px solid #fafafa;*/
 }
