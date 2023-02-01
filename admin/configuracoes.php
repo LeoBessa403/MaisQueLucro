@@ -44,10 +44,10 @@ function servidor_inicial()
             $config = array(
                 'HOME' => 'https://atacadaobessa.com.br/',
                 'HOST' => 'localhost',
-                'USER' => 'sistem25_dabelez',
-                'PASS' => 'ahF4805qAd',
-                'DBSA' => 'sistem25_dabelez',
-                'SCHEMA' => 'sistem25_dabelez',
+                'USER' => 'sistem25_atacadao',
+                'PASS' => 'Admin101*/',
+                'DBSA' => 'sistem25_atacadao',
+                'SCHEMA' => 'sistem25_atacadao',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'AMBI' => 3, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
