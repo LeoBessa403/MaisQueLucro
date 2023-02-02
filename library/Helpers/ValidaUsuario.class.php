@@ -35,7 +35,6 @@ class ValidaUsuario extends AbstractController
             $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
             $coUsuario = $user[md5(CO_USUARIO)];
-
             if (isset($explode[3]) && $explode[3] == "desloga"):
                 $AcessoSevice->terminaAcesso($coUsuario);
 
