@@ -176,7 +176,7 @@ class  AssinanteService extends AbstractService
             $assinanteService->Salva([ST_DADOS_COMPLEMENTARES => SimNaoEnum::SIM], $assinante->getCoAssinante());
 
             /** @var Session $us */
-            $us = $_SESSION[SESSION_USER];
+            $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
 
             /** @var UsuarioService $usuariaService */
@@ -238,7 +238,7 @@ class  AssinanteService extends AbstractService
     public static function getCoAssinanteLogado()
     {
         /** @var Session $us */
-        $us = $_SESSION[SESSION_USER];
+        $us = unserialize(serialize($_SESSION[SESSION_USER]));
         $user = $us->getUser();
         return (!empty($user[md5(CO_ASSINANTE)])) ? $user[md5(CO_ASSINANTE)] : null;
     }
@@ -303,7 +303,7 @@ class  AssinanteService extends AbstractService
     public static function verificaStatusSistema()
     {
         /** @var Session $us */
-        $us = $_SESSION[SESSION_USER];
+        $us = unserialize(serialize($_SESSION[SESSION_USER]));
         $user = $us->getUser();
         $retorno = [
             "status_sistema" => StatusSistemaEnum::ATIVO,
@@ -338,7 +338,7 @@ class  AssinanteService extends AbstractService
     public static function verificaStatusAssiante()
     {
         /** @var Session $us */
-        $us = $_SESSION[SESSION_USER];
+        $us = unserialize(serialize($_SESSION[SESSION_USER]));
         $user = $us->getUser();
 
         if (isset($user[md5(DT_EXPIRACAO)])) {

@@ -14,7 +14,7 @@ class UsuarioForm extends AbstractController
             . "/" . UrlAmigavel::$action, 'Cadastrar', $tamanho);
         if (!empty($res[CO_USUARIO])):
             /** @var Session $us */
-            $us = $_SESSION[SESSION_USER];
+            $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
             $meusPerfis = $user[md5(CAMPO_PERFIL)];
             $meusPerfis = explode(',', $meusPerfis);

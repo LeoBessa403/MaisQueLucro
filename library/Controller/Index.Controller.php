@@ -210,7 +210,7 @@ class Index extends AbstractController
             $user = "";
             if (!empty($usuarios)) :
                 /** @var UsuarioEntidade $user */
-                $user = $usuarios[0];
+                $user = unserialize(serialize($usuarios[0]));
                 if ($user->getStStatus() == "I"):
                     Redireciona(ADMIN . LOGIN . Valida::GeraParametro("acesso/I"));
                     exit();

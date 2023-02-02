@@ -32,7 +32,7 @@ class ValidaUsuario extends AbstractController
             /** @var AcessoService $AcessoSevice */
             $AcessoSevice = $this->getService(ACESSO_SERVICE);
             /** @var Session $us */
-            $us = $_SESSION[SESSION_USER];
+            $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
             $coUsuario = $user[md5(CO_USUARIO)];
 

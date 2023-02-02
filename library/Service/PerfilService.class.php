@@ -105,7 +105,7 @@ class  PerfilService extends AbstractService
     public static function perfilMaster()
     {
         /** @var Session $us */
-        $us = $_SESSION[SESSION_USER];
+        $us = unserialize(serialize($_SESSION[SESSION_USER]));
         $user = $us->getUser();
         if($user[md5("perfil_master")]){
             return true;

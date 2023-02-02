@@ -15,7 +15,7 @@ endif;
 /** @var Session $session */
 $session = new Session();
 /** @var Session $us */
-$us = $_SESSION[SESSION_USER];
+$us = unserialize(serialize($_SESSION[SESSION_USER]));
 $user = $us->getUser();
 ?><!DOCTYPE html>
 <!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
