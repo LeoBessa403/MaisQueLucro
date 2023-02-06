@@ -672,12 +672,12 @@ class Relacionamentos
             (HistTransferenciaEntidade::TABELA) => array(
                 (CO_CONTA_BANCARIA_ORIGEM) => array(
                     ('Campo') => CO_CONTA_BANCARIA_ORIGEM,
-                    ('Entidade') => 'ContaBancariaOrigemEntidade',
+                    ('Entidade') => 'ContaBancariaEntidade',
                     ('Tipo') => '1',
                 ),
                 (CO_CONTA_BANCARIA_DESTINO) => array(
                     ('Campo') => CO_CONTA_BANCARIA_DESTINO,
-                    ('Entidade') => 'ContaBancariaDestinoEntidade',
+                    ('Entidade') => 'ContaBancariaEntidade',
                     ('Tipo') => '1',
                 ),
                 (CO_USUARIO) => array(

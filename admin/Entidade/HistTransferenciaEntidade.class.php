@@ -191,7 +191,7 @@ class HistTransferenciaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return ContaBancariaOrigemEntidade $co_conta_bancaria_origem
+	* @return ContaBancariaEntidade $co_conta_bancaria_origem
     */
 	public function getCoContaBancariaOrigem()
     {
@@ -208,7 +208,7 @@ class HistTransferenciaEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return ContaBancariaDestinoEntidade $co_conta_bancaria_destino
+	* @return ContaBancariaEntidade $co_conta_bancaria_destino
     */
 	public function getCoContaBancariaDestino()
     {
