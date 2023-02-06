@@ -17,7 +17,7 @@ class ContaBancariaEntidade extends AbstractEntidade
     private $nu_agencia;
     private $nu_conta;
     private $no_banco;
-    private $co_financeiro;
+    private $co_fluxo_caixa;
     private $co_hist_saldo_cb;
     private $co_conta_bancaria_origem;
     private $co_conta_bancaria_destino;
@@ -33,8 +33,8 @@ class ContaBancariaEntidade extends AbstractEntidade
         return [
             CO_CONTA_BANCARIA,
             DT_CADASTRO,
-            ST_STATUS,
             NO_BANCO,
+            ST_STATUS,
             NU_AGENCIA,
             NU_CONTA,
             CO_ASSINANTE,
@@ -171,20 +171,20 @@ class ContaBancariaEntidade extends AbstractEntidade
     }
 
     /**
-     * @return FinanceiroEntidade $co_financeiro
+     * @return FluxoCaixaEntidade $co_fluxo_caixa
      */
-    public function getCoFinanceiro()
+    public function getCoFluxoCaixa()
     {
-        return $this->co_financeiro;
+        return $this->co_fluxo_caixa;
     }
 
     /**
-     * @param $co_financeiro
+     * @param $co_fluxo_caixa
      * @return mixed
      */
-    public function setCoFinanceiro($co_financeiro)
+    public function setCoFluxoCaixa($co_fluxo_caixa)
     {
-        return $this->co_financeiro = $co_financeiro;
+        return $this->co_fluxo_caixa = $co_fluxo_caixa;
     }
 
     /**
