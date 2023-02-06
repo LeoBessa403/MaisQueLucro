@@ -7,7 +7,7 @@
  * @copyright (c) 2021, Leo Bessa
  */ 
 define('TEM_SITE', '1');
-define('MODULO_ASSINANTE', false);
+define('MODULO_ASSINANTE', true);
 define('LOGAR_EMAIL', '1');
 define('TABELA_AUDITORIA', '1');
 define('DESC', 'Atacadão Bessa');

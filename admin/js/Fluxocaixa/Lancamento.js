@@ -65,10 +65,10 @@ $(function () {
             }
         });
 
-        if(selecionado){
+        if (selecionado) {
             $("#valorDarBaixa").val(fcs);
             $("#j_Baixa").click();
-        }else{
+        } else {
             Funcoes.Alerta('Selecione pelo menos um Lançamento para Dar Baixar no Pagamento.');
         }
         return false;
@@ -132,9 +132,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -157,10 +155,7 @@ $(function () {
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
-                $('#CadastrarFluxocaixa #ds_texto').val('');
-                $('#CadastrarFluxocaixa #nu_codigo').val('');
-                carregaComboCategorias();
-                carregaEstruturaCategorias();
+                atualizaPagina();
             } else {
                 Funcoes.Alerta(dados.msg)
             }
@@ -192,9 +187,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -221,9 +214,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -257,9 +248,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -293,9 +282,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -320,9 +307,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -429,8 +414,7 @@ $(function () {
             if (dados) {
                 if (dados.sucesso && dados.msg === "atualizado") {
                     Funcoes.AtualizadoSucesso();
-                    carregaComboCategorias();
-                    carregaEstruturaCategorias();
+                    atualizaPagina();
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -450,8 +434,7 @@ $(function () {
             if (dados) {
                 if (dados.sucesso && dados.msg === "deletado") {
                     Funcoes.DeletadoSucesso();
-                    carregaComboCategorias();
-                    carregaEstruturaCategorias();
+                    atualizaPagina();
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -589,9 +572,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -609,9 +590,7 @@ $(function () {
                 Funcoes.Alerta(dados.msg)
             }
             if (dados.sucesso) {
-                setTimeout(function () {
-                    location.reload();
-                }, 2300);
+                atualizaPagina();
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg);
@@ -706,6 +685,12 @@ $(function () {
 
     function limpaDadosCentro() {
         $('#CentroCustos #no_centro_custos, #CentroCustos #co_centro_custo').val('');
+    }
+
+    function atualizaPagina() {
+        setTimeout(function () {
+            location.reload();
+        }, 2300);
     }
 
     $(window).on("load", function () {
