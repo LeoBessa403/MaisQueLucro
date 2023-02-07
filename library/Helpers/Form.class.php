@@ -156,7 +156,7 @@ class Form
      */
     public function setIntervalo($intervalo)
     {
-        self::$place = explode('-', $intervalo);
+        self::$place = explode('==', $intervalo);
         return $this;
     }
 
@@ -712,10 +712,16 @@ class Form
         $valor1 = 0;
         $valor2 = 100;
         if (!empty(self::$place[0])) {
-            $valor1 = self::$place[0];
+            $valor1 = ((int)self::$place[0] - 1);
         }
         if (!empty(self::$place[1])) {
-            $valor2 = self::$place[1];
+            $valor2 = ((int)self::$place[1] + 1);
+        }
+        if ($valor1 < 0) {
+            $valor1 = 0;
+        }
+        if ($valor2 < 100) {
+            $valor2 = 0;
         }
         $form .= ' <input id="' . self::$id . '1" name="' . self::$id . '1" value="' . $valor1 . '" 
                  class="slider_min" data-min="' . ($valor1 - 5) . '" type="hidden" />';

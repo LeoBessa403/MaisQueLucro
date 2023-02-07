@@ -464,7 +464,6 @@ class FluxocaixaForm
             ->setOptions($options2)
             ->CriaInpunt();
 
-
         $formulario
             ->setId(CO_REPRESENTACAO)
             ->setAutocomplete(

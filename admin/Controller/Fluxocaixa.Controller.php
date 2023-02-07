@@ -87,6 +87,7 @@ class Fluxocaixa extends AbstractController
         if ($resultVlr['maior_valor'] < $resultVlr['maior_valor_pago']) {
             $vl2 = $resultVlr['maior_valor'];
         }
+
         $resultValores = $vl1 . '==' . $vl2;
         $this->formPesquisa = FluxocaixaForm::PesquisaLancamento($resultValores);
 
