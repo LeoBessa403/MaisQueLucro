@@ -29,35 +29,36 @@
             $grid->setColunasIndeces($arrColunas);
             $grid->criaGrid();
 
+
             /** @var ContaBancariaEntidade $banco */
             foreach ($bancos as $banco):
                 $acao = '';
-                if ($banco->getCoContaBancaria() != 1) {
+                if ($banco["co_conta_bancaria"] != 1) {
                     $acao .= '<a class="btn btn-primary tooltips editCont" data-id="' .
-                        $banco->getCoContaBancaria() . '" data-original-title="Editar Conta" 
+                        $banco["co_conta_bancaria"] . '" data-original-title="Editar Conta" 
                         data-placement="top"><i class="fa fa-clipboard"></i>
                     </a>';
                 }
 
                 $acao .= ' <a class="btn btn-med-grey tooltips histCont" data-id="' .
-                    $banco->getCoContaBancaria() . '" data-original-title="Histórico da Conta Bancária" 
+                    $banco["co_conta_bancaria"] . '" data-original-title="Histórico da Conta Bancária" 
                     data-placement="top"><i class="clip-folder-open"></i>
                      </a>';
 
-                $saldo = Valida::FormataMoeda($banco->getCoUltimoHistSaldoCb()->getNuSaldo());
+                $saldo = Valida::FormataMoeda($banco["nu_saldo"]);
                 if($saldo < 0){
                     $lbSaldo = '<p class="text-danger saldo">' . $saldo . '</p>';
                 }else{
                     $lbSaldo = '<p class="text-success saldo">' . $saldo . '</p>';
                 }
 
-                $grid->setColunas(strtoupper($banco->getNoBanco()), 2);
-                $grid->setColunas($banco->getNuAgencia(), 2);
-                $grid->setColunas($banco->getNuConta(), 2);
+                $grid->setColunas(strtoupper($banco["no_banco"]), 2);
+                $grid->setColunas($banco["nu_agencia"], 2);
+                $grid->setColunas($banco["nu_conta"], 2);
                 $grid->setColunas($lbSaldo, 2);
-                $grid->setColunas(Valida::SituacaoSimNao($banco->getStStatus()), 1);
+                $grid->setColunas(Valida::SituacaoSimNao($banco["st_status"]), 1);
                 $grid->setColunas($acao, 1);
-                $grid->criaLinha($banco->getCoContaBancaria());
+                $grid->criaLinha($banco["co_conta_bancaria"]);
             endforeach;
             $grid->finalizaGrid();
             ?>
