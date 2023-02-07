@@ -1,5 +1,7 @@
 uploads/
 library/Helpers/cache/
-.idea/
-.svn/
 .git/
+sitemap.txt
+sitemap.xml
+sitemap.xml.gz
+sitemap.xsl

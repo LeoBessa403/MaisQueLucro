@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS atacadao10;
+
+USE atacadao10;
+
 DROP TABLE IF EXISTS TB_ANOTACAO;
 
 
@@ -23,9 +27,9 @@ CREATE TABLE `TB_ASSINANTE`
     `co_assinante`            int(11) NOT NULL AUTO_INCREMENT,
     `dt_cadastro`             datetime                           DEFAULT NULL,
     `dt_expiracao`            date                               DEFAULT NULL COMMENT ' Data da expiração de utilização do sistema ',
-    `st_dados_complementares` varchar(1) COLLATE utf8_unicode_ci DEFAULT ' N' COMMENT ' S - Sim / N - Não ',
-    `st_status`               varchar(1) COLLATE utf8_unicode_ci DEFAULT ' A ' COMMENT ' A - Ativo / I - inativo ',
-    `tp_assinante`            varchar(1) COLLATE utf8_unicode_ci DEFAULT ' M ' COMMENT ' M - Matriz / F - Filial ',
+    `st_dados_complementares` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT ' S - Sim / N - Não ',
+    `st_status`               varchar(1) COLLATE utf8_unicode_ci DEFAULT 'A' COMMENT ' A - Ativo / I - inativo ',
+    `tp_assinante`            varchar(1) COLLATE utf8_unicode_ci DEFAULT 'M' COMMENT ' M - Matriz / F - Filial ',
     `co_empresa`              int(11) NOT NULL,
     `co_pessoa`               int(11) NOT NULL COMMENT ' Responsável pelo Assinante ',
     PRIMARY KEY (`co_assinante`, `co_empresa`, `co_pessoa`)
@@ -377,8 +381,8 @@ CREATE TABLE `TB_FUNCIONALIDADE`
     `co_funcionalidade` int(11)                           NOT NULL AUTO_INCREMENT,
     `no_funcionalidade` varchar(150) CHARACTER SET latin1 NOT NULL,
     `ds_action`         varchar(120) CHARACTER SET latin1 DEFAULT NULL,
-    `st_status`         varchar(1) CHARACTER SET latin1   DEFAULT ' A ' COMMENT ''' A - Ativo / I - Inativo ''',
-    `st_menu`           varchar(1) CHARACTER SET latin1   DEFAULT ' S ' COMMENT ' S - Sim / N - Não (Se apresenta no menu)',
+    `st_status`         varchar(1) CHARACTER SET latin1   DEFAULT 'A' COMMENT 'A - Ativo / I - Inativo ''',
+    `st_menu`           varchar(1) CHARACTER SET latin1   DEFAULT 'S' COMMENT ' S - Sim / N - Não (Se apresenta no menu)',
     `co_controller`     int(11)                           NOT NULL,
     PRIMARY KEY (`co_funcionalidade`, `co_controller`)
 ) ENGINE = InnoDB
@@ -526,7 +530,7 @@ CREATE TABLE `TB_HISTORIA`
     `ds_observacao` text COLLATE utf8_unicode_ci        DEFAULT NULL,
     `dt_cadastro`   datetime                            DEFAULT NULL,
     `dt_atualizado` datetime                            DEFAULT NULL,
-    `st_situacao`   varchar(1) COLLATE utf8_unicode_ci  DEFAULT ' N' COMMENT ' N - Não iniciada / I - Iniciada / C - Concluida ',
+    `st_situacao`   varchar(1) COLLATE utf8_unicode_ci  DEFAULT 'N' COMMENT ' N - Não iniciada / I - Iniciada / C - Concluida ',
     `co_sessao`     int(11) NOT NULL,
     PRIMARY KEY (`co_historia`, `co_sessao`)
 ) ENGINE = InnoDB
@@ -578,7 +582,7 @@ CREATE TABLE `TB_HISTORICO_SUPORTE`
     `co_historico_suporte` int(11)          NOT NULL AUTO_INCREMENT,
     `dt_cadastro`          datetime                           DEFAULT NULL,
     `ds_mensagem`          text COLLATE utf8_unicode_ci       DEFAULT NULL,
-    `st_lido`              varchar(1) COLLATE utf8_unicode_ci DEFAULT ' N' COMMENT ' S - Sim / N - Não ',
+    `st_lido`              varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT ' S - Sim / N - Não ',
     `co_suporte`           int(11)          NOT NULL,
     `co_usuario`           int(10)          NOT NULL,
     `co_imagem`            int(10) unsigned NOT NULL COMMENT ' Chave do Anexo.',
@@ -700,7 +704,7 @@ CREATE TABLE `TB_PERFIL`
 (
     `co_perfil` int(11)                          NOT NULL AUTO_INCREMENT,
     `no_perfil` varchar(45) CHARACTER SET latin1 NOT NULL COMMENT ' Nome do Perfil ',
-    `st_status` varchar(1) CHARACTER SET latin1  NOT NULL DEFAULT ' A ' COMMENT ''' A - Ativo / I - Inativo ''',
+    `st_status` varchar(1) CHARACTER SET latin1  NOT NULL DEFAULT 'A' COMMENT 'A - Ativo / I - Inativo ''',
     PRIMARY KEY (`co_perfil`)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 2
@@ -786,7 +790,7 @@ CREATE TABLE `TB_PLANO`
     `dt_cadastro`  datetime                             DEFAULT NULL,
     `no_plano`     varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
     `nu_mes_ativo` int(1)                               DEFAULT NULL COMMENT ' Número de meses ativo do plano (1, 3, 6, 12 e 24)',
-    `st_status`    varchar(1) COLLATE utf8_unicode_ci   DEFAULT ' A ' COMMENT ' Status do plano A - Ativo / I - Inativo ',
+    `st_status`    varchar(1) COLLATE utf8_unicode_ci   DEFAULT 'A' COMMENT ' Status do plano A - Ativo / I - Inativo ',
     PRIMARY KEY (`co_plano`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8
@@ -828,8 +832,8 @@ CREATE TABLE `TB_PLANO_ASSINANTE_ASSINATURA`
     `ds_link_boleto`                      text COLLATE utf8_unicode_ci        DEFAULT null COMMENT ' Link do Boleto que retorno da PagSeguro ',
     `nu_filiais`                          int(11)                             DEFAULT 0 COMMENT ' Número de filiais para a assinatura ',
     `co_plano_assinante_assinatura_ativo` int(11)                             DEFAULT 0 COMMENT ' Número do co_plano_assinante_assinatura que esta ativo ',
-    `st_status`                           varchar(1) COLLATE utf8_unicode_ci  DEFAULT ' I ' COMMENT ' A - Ativo / I - Inativo ',
-    `ds_code_transacao`                   varchar(80) COLLATE utf8_unicode_ci DEFAULT ' null ' COMMENT ' Code da transação do PagSeguro ',
+    `st_status`                           varchar(1) COLLATE utf8_unicode_ci  DEFAULT 'I' COMMENT ' A - Ativo / I - Inativo ',
+    `ds_code_transacao`                   varchar(80) COLLATE utf8_unicode_ci DEFAULT 'null' COMMENT ' Code da transação do PagSeguro ',
     `nu_valor_assinatura`                 decimal(8, 2)                       DEFAULT NULL COMMENT ' Valor final da assinatura ',
     `co_assinante`                        int(11) NOT NULL,
     `co_plano_assinante`                  int(11) NOT NULL,
@@ -926,7 +930,7 @@ DROP TABLE IF EXISTS TB_SUPORTE;
 CREATE TABLE `TB_SUPORTE`
 (
     `co_suporte`      int(11) NOT NULL AUTO_INCREMENT,
-    `st_status`       varchar(1) COLLATE utf8_unicode_ci   DEFAULT ' A ' COMMENT ' A - Ativa / I - Inativa ',
+    `st_status`       varchar(1) COLLATE utf8_unicode_ci   DEFAULT 'A' COMMENT ' A - Ativa / I - Inativa ',
     `dt_cadastro`     datetime                             DEFAULT NULL,
     `ds_assunto`      varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
     `st_tipo_assunto` int(1)                               DEFAULT NULL COMMENT ' 1 - Sugestão ou Melhorias / 2 - Reclamação / 3 - Correção no Sistema / 4 - Outros ',
@@ -946,8 +950,8 @@ CREATE TABLE `TB_USUARIO`
     `co_usuario`     int(10)                              NOT NULL AUTO_INCREMENT,
     `ds_senha`       varchar(100) COLLATE utf8_unicode_ci NOT NULL,
     `ds_code`        varchar(50) COLLATE utf8_unicode_ci  NOT NULL COMMENT ' Senha criptografada ',
-    `st_status`      varchar(1) COLLATE utf8_unicode_ci   NOT NULL DEFAULT ' I ' COMMENT ''' A - Ativo / I - Inativo ''',
-    `st_troca_senha` varchar(1) COLLATE utf8_unicode_ci            DEFAULT ' N',
+    `st_status`      varchar(1) COLLATE utf8_unicode_ci   NOT NULL DEFAULT 'I' COMMENT 'A - Ativo / I - Inativo ''',
+    `st_troca_senha` varchar(1) COLLATE utf8_unicode_ci            DEFAULT 'N',
     `dt_cadastro`    datetime                             NOT NULL,
     `co_imagem`      int(10)                              NOT NULL,
     `co_pessoa`      int(11)                              NOT NULL,
