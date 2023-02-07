@@ -41,57 +41,68 @@ class Fluxocaixa extends AbstractController
         $session = new Session();
         $Condicoes = [];
         $session->setSession(PESQUISA_AVANCADA, $Condicoes);
-        $campos = [
-            FluxocaixaEntidade::ENTIDADE . '.' . CO_FLUXO_CAIXA,
-            FluxocaixaEntidade::ENTIDADE . '.' . CO_USUARIO,
-            UsuarioEntidade::ENTIDADE . '.' . CO_USUARIO,
-//            FluxocaixaEntidade::ENTIDADE . '.' . CO_FLUXO_CAIXA,
-//            FluxocaixaEntidade::ENTIDADE . '.' . CO_FLUXO_CAIXA,
-        ];
         if (!empty($_POST["PesquisaLancamento"])) {
-
+            $_POST[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
             $this->result = $FluxoCaixaService->PesquisaAvancada($_POST);
         } else {
-            $this->result = $FluxoCaixaService->PesquisaAvancada([]);
+            $this->result = $FluxoCaixaService->PesquisaAvancada([
+                CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            ]);
         }
 
-        $i = 0;
-        /** @var FluxoCaixaEntidade $fc */
-        foreach ($this->result as $fc) {
-            /** @var PessoaEntidade $pessoa */
-            $pessoa = UsuarioService::getPessoaCoUsuario($fc->getCoUsuario()->getCoUsuario());
-            $fc->getCoUsuario()->setCoPessoa($pessoa);
-            $this->result[$i] = $fc;
-            $i++;
-        }
-
-        $this->formCat = FluxocaixaForm::CadastrarFluxocaixa([]);
+        $this->formCat = FluxocaixaForm::CadastrarFluxocaixa([
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+        ]);
         $this->formConta = FluxocaixaForm::CadastrarContaBancaria([
-            CO_CONTA_BANCARIA => null
+            CO_CONTA_BANCARIA => null,
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
         $this->formTransSaldo = FluxocaixaForm::TransfSaldo([]);
         $this->formCliFor = FluxocaixaForm::Representacao([
-            CO_REPRESENTACAO => null
+            CO_REPRESENTACAO => null,
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
-        $this->formCentro = FluxocaixaForm::CentroCustos([
-            CO_CENTRO_CUSTO => null
+        $this->formCarteira = FluxocaixaForm::CentroCustos([
+            CO_CENTRO_CUSTO => null,
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
         $this->formEntrada = FluxocaixaForm::FCEntrada([
-            CO_FLUXO_CAIXA => null
+            CO_FLUXO_CAIXA => null,
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
         $this->formSaida = FluxocaixaForm::FCSaida([
-            CO_FLUXO_CAIXA => null
+            CO_FLUXO_CAIXA => null,
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
-        $this->formPesquisa = FluxocaixaForm::PesquisaLancamento();
+        $resultVlr = $FluxoCaixaService->PesquisaAvancadaValorPesquisa();
+        $vl1 = $resultVlr['menor_valor_pago'];
+        if ($resultVlr['menor_valor'] < $resultVlr['menor_valor_pago']) {
+            $vl1 = $resultVlr['menor_valor'];
+        }
+        $vl2 = $resultVlr['maior_valor_pago'];
+        if ($resultVlr['maior_valor'] < $resultVlr['maior_valor_pago']) {
+            $vl2 = $resultVlr['maior_valor'];
+        }
+        $resultValores = $vl1 . '==' . $vl2;
+        $this->formPesquisa = FluxocaixaForm::PesquisaLancamento($resultValores);
 
-        $this->bancos = $ContaBancariaService->PesquisaTodos();
-        $this->transferencias = $HistTransferenciaService->PesquisaTodos();
-        $this->representacoes = $RepresentacaoService->PesquisaTodos();
-        $this->centros = $CentroCustoService->PesquisaTodos();
+        $this->bancos = $ContaBancariaService->PesquisaAvancada([
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+        ]);
+
+        $this->transferencias = $HistTransferenciaService->PesquisaTodos([
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+        ]);
+        $this->representacoes = $RepresentacaoService->PesquisaTodos([
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+        ]);
+        $this->centros = $CentroCustoService->PesquisaTodos([
+            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+        ]);
 
         $i = 0;
         /** @var HistTransferenciaEntidade $trans */
@@ -108,7 +119,6 @@ class Fluxocaixa extends AbstractController
             $this->transferencias[$i] = $trans;
             $i++;
         }
-
     }
 
     public static function CadastroCategoriaFC($dados)

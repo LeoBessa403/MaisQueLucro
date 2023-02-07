@@ -376,6 +376,11 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
+    public function PesquisaAvancadaValorPesquisa()
+    {
+        return $this->ObjetoModel->PesquisaAvancadaValorPesquisa();
+    }
+
     public function montaWherePesquisa($dados)
     {
         $where = 'where 1 = 1';

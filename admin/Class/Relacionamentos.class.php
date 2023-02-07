@@ -687,15 +687,25 @@ class Relacionamentos
                 ),
             ),
             (ContaBancariaEntidade::TABELA) => array(
-                (CO_HIST_TRANSFERENCIA) => array(
+                (CO_HIST_SALDO_CB) => array(
+                    ('Campo') => CO_CONTA_BANCARIA,
+                    ('Entidade') => 'HistSaldoCbEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_CONTA_BANCARIA_DESTINO) => array(
+                    ('Campo') => CO_CONTA_BANCARIA_DESTINO,
+                    ('Entidade') => 'HistTransferenciaEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_CONTA_BANCARIA_ORIGEM) => array(
                     ('Campo') => CO_CONTA_BANCARIA_ORIGEM,
                     ('Entidade') => 'HistTransferenciaEntidade',
                     ('Tipo') => '2',
                 ),
-                (CO_HIST_TRANSFERENCIA) => array(
-                    ('Campo') => CO_CONTA_BANCARIA_DESTINO,
-                    ('Entidade') => 'HistTransferenciaEntidade',
-                    ('Tipo') => '2',
+                (CO_ASSINANTE) => array(
+                    ('Campo') => CO_ASSINANTE,
+                    ('Entidade') => 'AssinanteEntidade',
+                    ('Tipo') => '1',
                 ),
             ),
         );

@@ -419,7 +419,7 @@ class FluxocaixaForm
         return $formulario->finalizaForm(false, false);
     }
 
-    public static function PesquisaLancamento()
+    public static function PesquisaLancamento($resultIntervalo)
     {
         $id = "PesquisaLancamento";
 
@@ -431,12 +431,12 @@ class FluxocaixaForm
             ->setId(CO_CATEGORIA_FC)
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Categoria")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(8)
             ->setOptions($options)
             ->CriaInpunt();
 
         $options3 = TipoFluxoCaixaEnum::$descricao;
-        array_unshift($options3,Mensagens::MSG_SEM_ITEM_SELECIONADO);
+        array_unshift($options3, Mensagens::MSG_SEM_ITEM_SELECIONADO);
         $formulario
             ->setId(TP_FLUXO)
             ->setType(TiposCampoEnum::SELECT)
@@ -445,8 +445,17 @@ class FluxocaixaForm
             ->setOptions($options3)
             ->CriaInpunt();
 
+        $options = ContaBancariaService::ContaBancariaCombo();
+        $formulario
+            ->setId(CO_CONTA_BANCARIA)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Conta")
+            ->setTamanhoInput(8)
+            ->setOptions($options)
+            ->CriaInpunt();
+
         $options2 = StatusPagamentoFCEnum::$descricao;
-        array_unshift($options2,Mensagens::MSG_SEM_ITEM_SELECIONADO);
+        array_unshift($options2, Mensagens::MSG_SEM_ITEM_SELECIONADO);
         $formulario
             ->setId(ST_PAGAMENTO)
             ->setType(TiposCampoEnum::SELECT)
@@ -455,24 +464,18 @@ class FluxocaixaForm
             ->setOptions($options2)
             ->CriaInpunt();
 
-        $options = ContaBancariaService::ContaBancariaCombo();
-        $formulario
-            ->setId(CO_CONTA_BANCARIA)
-            ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Conta")
-            ->setTamanhoInput(4)
-            ->setOptions($options)
-            ->CriaInpunt();
 
         $formulario
             ->setId(CO_REPRESENTACAO)
             ->setAutocomplete(
                 RepresentacaoEntidade::TABELA,
                 NO_REPRESENTACAO,
-                RepresentacaoEntidade::CHAVE
+                RepresentacaoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Fornecedor")
+            ->setLabel("Credor")
             ->setTamanhoInput(4)
             ->CriaInpunt();
 
@@ -481,10 +484,12 @@ class FluxocaixaForm
             ->setAutocomplete(
                 CentroCustoEntidade::TABELA,
                 NO_CENTRO_CUSTOS,
-                CentroCustoEntidade::CHAVE
+                CentroCustoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Centro de Custos")
+            ->setLabel("Carteiras")
             ->setTamanhoInput(4)
             ->CriaInpunt();
 
@@ -501,42 +506,60 @@ class FluxocaixaForm
             ->CriaInpunt();
 
         $formulario
-            ->setId('dt_inicio_lanc')
+            ->setId(DT_CADASTRO . '_inicio')
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(3)
             ->setClasses("data dt1")
             ->setLabel("Lançado Inicío")
             ->CriaInpunt();
 
         $formulario
-            ->setId('dt_fim_lanc')
+            ->setId(DT_CADASTRO . '_fim')
             ->setIcon("clip-calendar-3")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(3)
             ->setClasses("data dt2")
             ->setLabel("Fim")
             ->CriaInpunt();
 
         $formulario
-            ->setId( DT_VENCIMENTO)
-            ->setTamanhoInput(4)
-            ->setClasses('data')
-            ->setLabel("Vencimento")
+            ->setId(DT_REALIZADO . '_inicio')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(3)
+            ->setClasses("data dt1")
+            ->setLabel("Pagamento Inicío")
             ->CriaInpunt();
 
         $formulario
-            ->setId( DT_REALIZADO)
-            ->setTamanhoInput(4)
-            ->setClasses('data')
-            ->setLabel("Data de Pagamento")
+            ->setId(DT_REALIZADO . '_fim')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(3)
+            ->setClasses("data dt2")
+            ->setLabel("Fim")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DT_VENCIMENTO . '_inicio')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(3)
+            ->setClasses("data dt1")
+            ->setLabel("Vencimento Inicío")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DT_VENCIMENTO . '_fim')
+            ->setIcon("clip-calendar-3")
+            ->setTamanhoInput(3)
+            ->setClasses("data dt2")
+            ->setLabel("Fim")
             ->CriaInpunt();
 
         $formulario
             ->setId(NU_VALOR_PAGO)
-            ->setTamanhoInput(4)
-            ->setClasses('moeda')
-            ->setLabel("Valor")
+            ->setTamanhoInput(6)
+            ->setIntervalo($resultIntervalo)
+            ->setType(TiposCampoEnum::SLIDER)
+            ->setLabel("Valor R$")
             ->CriaInpunt();
-
 
         return $formulario->finalizaForm(false, false);
     }

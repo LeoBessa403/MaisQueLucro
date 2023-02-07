@@ -216,15 +216,18 @@ class Form
      * @param STRING $tabela : nome da tabela a ser consultada.
      * @param STRING $campo : nome do campo a ser consultado.
      * @param STRING $order : Ordenação.
+     * @param ARRAY $Condicoes : Query.
      * @return $this script: gera o script para o autocomplete
      */
-    public function setAutocomplete($tabela, $campo, $id, $order = 'ASC')
+    public function setAutocomplete($tabela, $campo, $id, $order = 'ASC', $Condicoes = [])
     {
         $dados = [
             '' => Mensagens::MSG_SEM_ITEM_SELECIONADO
         ];
+        $pesquisa = new Pesquisa();
+        $where = $pesquisa->getClausula($Condicoes);
         $autocomplete = new Pesquisa();
-        $autocomplete->Pesquisar($tabela, "ORDER BY $campo $order", NULL, $id . ',' . $campo);
+        $autocomplete->Pesquisar($tabela, $where . " ORDER BY $campo $order", NULL, $id . ',' . $campo);
         if ($autocomplete->getResult()) {
             foreach ($autocomplete->getResult() as $res) {
                 $dados[$res[$id]] = $res[$campo];
@@ -335,9 +338,9 @@ class Form
         return $checked;
     }
 
-    public static function CriaInputHidden($formulario, $res,array $ids)
+    public static function CriaInputHidden($formulario, $res, array $ids)
     {
-        foreach ($ids as $id){
+        foreach ($ids as $id) {
             if (!empty($res[$id])):
                 $formulario
                     ->setType(TiposCampoEnum::HIDDEN)
@@ -762,7 +765,7 @@ class Form
                             <div class="col-md-12">' .
             self::$form
             . '<div class="col-md-12" style="display: block; padding: 0;">
-                     <img src="' . PASTA_LIBRARY .'images/loading.gif" class="img-load pull-right"
+                     <img src="' . PASTA_LIBRARY . 'images/loading.gif" class="img-load pull-right"
                      style="margin: 15px 0 0 10px; display: none;"/>
                         <button data-style="zoom-out" class="btn btn-success pull-right ladda-button" type="submit" 
                  value="' . self::$idForm . '" name="' . self::$idForm . '" style="margin-top: 8px; margin-left: 10px;">
@@ -789,7 +792,7 @@ class Form
                            style="margin-top: 10px;">
                             Voltar <i class="clip-arrow-right-2"></i>
                          </a>';
-        }else{
+        } else {
             self::$form .= '<button type="button" class="btn pull-left btn-primary" data-dismiss="modal" style="margin-top: 10px;">
                             Fechar <i class="clip-close"></i></button>';
         }
