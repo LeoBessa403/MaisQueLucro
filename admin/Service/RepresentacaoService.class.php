@@ -38,6 +38,7 @@ class  RepresentacaoService extends AbstractService
             $retorno[SUCESSO] = $this->Salva($rep, $dados[CO_REPRESENTACAO]);
             $retorno[MSG] = ATUALIZADO;
         } else {
+            $rep[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
             $retorno[SUCESSO] = $this->Salva($rep);
             $retorno[MSG] = CADASTRADO;
         }

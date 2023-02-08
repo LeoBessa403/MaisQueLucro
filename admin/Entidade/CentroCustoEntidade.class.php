@@ -12,6 +12,7 @@ class CentroCustoEntidade extends AbstractEntidade
 	const CHAVE = CO_CENTRO_CUSTO;
 
 	private $co_centro_custo;
+	private $no_centro_custos;
 	private $nu_codigo;
 	private $ds_descricao;
 	private $co_assinante;
@@ -25,6 +26,7 @@ class CentroCustoEntidade extends AbstractEntidade
     {
     	return [
 			CO_CENTRO_CUSTO,
+            NO_CENTRO_CUSTOS,
 			NU_CODIGO,
 			DS_DESCRICAO,
 			CO_ASSINANTE,
@@ -65,6 +67,23 @@ class CentroCustoEntidade extends AbstractEntidade
     {
         return $this->nu_codigo;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNoCentroCustos()
+    {
+        return $this->no_centro_custos;
+    }
+
+    /**
+     * @param mixed $no_centro_custos
+     */
+    public function setNoCentroCustos($no_centro_custos)
+    {
+        $this->no_centro_custos = $no_centro_custos;
+    }
+
 
 	/**
 	* @param $nu_codigo

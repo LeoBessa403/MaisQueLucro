@@ -21,7 +21,6 @@
 
         $grid->setColunasIndeces($arrColunas);
         $grid->criaGrid();
-
         /** @var CentroCustoEntidade $centro */
         foreach ($centros as $centro):
             $acao = '<a class="btn btn-primary tooltips editCentro" data-id="' .

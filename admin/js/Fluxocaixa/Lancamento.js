@@ -16,6 +16,7 @@ $(function () {
             carregaComboCat = false;
         }
         $("#j_cadastro").click();
+        desabilitaCat('CadastrarFluxocaixa');
         return false;
     });
 
@@ -55,6 +56,31 @@ $(function () {
         });
     });
 
+    $('#e-tp_lanc').change(function () {
+        var tp_lanc = $(this).val();
+        if (tp_lanc > 1) {
+            $('#e-nu_repetidos, #e-intervalo').parent(".form-group").show();
+        } else {
+            limpaCamposTpLanc('e');
+        }
+    });
+
+    $('#s-tp_lanc').change(function () {
+        var tp_lanc = $(this).val();
+        if (tp_lanc > 1) {
+            $('#s-nu_repetidos, #s-intervalo').parent(".form-group").show();
+        } else {
+            limpaCamposTpLanc('s');
+        }
+    });
+
+    function limpaCamposTpLanc(TpLanc) {
+        $('#' + TpLanc + '-nu_repetidos, #' + TpLanc + '-intervalo').parent(".form-group").hide();
+        $('#' + TpLanc + '-nu_repetidos').val(1).trigger('change');
+        $('#' + TpLanc + '-intervalo').val(30).trigger('change');
+        Funcoes.TiraValidacao(TpLanc + '-nu_repetidos');
+    }
+
     $('.btn-baixa').click(function () {
         var fcs = '';
         var selecionado = false;
@@ -79,7 +105,10 @@ $(function () {
             carregaComboCategoriasEntrada();
             carregaComboCatEnt = false;
         }
+        $('#FCEntrada #e-tp_lanc').val(1).prop("disabled", false).select2({allowClear: !1});
+        limpaCamposTpLanc('e');
         $("#j_entrada").click();
+        desabilitaCat('FCEntrada', true);
         return false;
     });
 
@@ -88,7 +117,10 @@ $(function () {
             carregaComboCategoriasSaida();
             carregaComboCatSaida = false;
         }
+        $('#FCSaida #s-tp_lanc').val(1).prop("disabled", false).select2({allowClear: !1});
+        limpaCamposTpLanc('s');
         $("#j_saida").click();
+        desabilitaCat('FCSaida', true);
         return false;
     });
 
@@ -155,9 +187,11 @@ $(function () {
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
-                atualizaPagina();
+                if (dados.sucesso) {
+                    atualizaPagina();
+                }
             } else {
-                Funcoes.Alerta(dados.msg)
+                Funcoes.Alerta(dados.msg);
             }
         } else {
             Funcoes.Erro("Erro: " + dados.msg)
@@ -223,19 +257,44 @@ $(function () {
     });
 
     $('#FCEntrada .btn-success').click(function () {
+        var nuValor = $('#FCEntrada #nu_valor').val();
+        var nuValorPago = $('#FCEntrada #nu_valor_pago').val();
+        var coContaBancaria = $('#FCEntrada #co_conta_bancaria').val();
+        var coCategoriaFc = $('#FCEntrada #co_categoria_fc').val();
+        var dtRealizado = $('#FCEntrada #e-dt_realizado').val();
+        var dtvencimento = $('#FCEntrada #e-dt_vencimento').val();
 
+        if (coCategoriaFc == 'null') {
+            Funcoes.Alerta('O Campo Categoria é Obrigatório.');
+            return false;
+        }
+        if (!coContaBancaria) {
+            Funcoes.Alerta('O Campo Conta Bancária é Obrigatório.');
+            return false;
+        }
+        if ((!dtRealizado) && (!dtvencimento)) {
+            Funcoes.Alerta('O Campo Data A Receber ou Data Paga é Obrigatório.');
+            return false;
+        }
+        if ((!nuValor) && (!nuValorPago)) {
+            Funcoes.Alerta('O Campo Valor a Receber ou Valor Pago é Obrigatório.');
+            return false;
+        }
         var data5 = {
             tp_pagamento: $("#FCEntrada #tp_pagamento").val(),
-            co_categoria_fc: $('#FCEntrada #co_categoria_fc').val(),
-            dt_vencimento: $('#FCEntrada #e-dt_vencimento').val(),
-            dt_realizado: $('#FCEntrada #e-dt_realizado').val(),
-            nu_valor: $('#FCEntrada #nu_valor').val(),
-            nu_valor_pago: $('#FCEntrada #nu_valor_pago').val(),
-            co_conta_bancaria: $('#FCEntrada #co_conta_bancaria').val(),
+            co_categoria_fc: coCategoriaFc,
+            dt_vencimento: dtvencimento,
+            dt_realizado: dtRealizado,
+            nu_valor: nuValor,
+            nu_valor_pago: nuValorPago,
+            co_conta_bancaria: coContaBancaria,
             co_representacao: $('#FCEntrada #co_representacao').val(),
             co_centro_custo: $('#FCEntrada #co_centro_custo').val(),
             ds_descricao: $('#FCEntrada #ds_descricao').val(),
-            co_fluxo_caixa: $('#FCEntrada #co_fluxo_caixa').val()
+            co_Fluxocaixa: $('#FCEntrada #co_Fluxocaixa').val(),
+            nu_repetidos: $('#FCEntrada #e-nu_repetidos').val(),
+            tp_lanc: $('#FCEntrada #e-tp_lanc').val(),
+            intervalo: $('#FCEntrada #e-intervalo').val()
         };
 
         var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCEntrada', data5);
@@ -257,19 +316,45 @@ $(function () {
     });
 
     $('#FCSaida .btn-success').click(function () {
+        var nuValor = $('#FCSaida #nu_valor').val();
+        var nuValorPago = $('#FCSaida #nu_valor_pago').val();
+        var coContaBancaria = $('#FCSaida #co_conta_bancaria').val();
+        var coCategoriaFc = $('#FCSaida #co_categoria_fc').val();
+        var dtRealizado = $('#FCSaida #s-dt_realizado').val();
+        var dtvencimento = $('#FCSaida #s-dt_vencimento').val();
+
+        if (coCategoriaFc == 'null') {
+            Funcoes.Alerta('O Campo Categoria é Obrigatório.');
+            return false;
+        }
+        if (!coContaBancaria) {
+            Funcoes.Alerta('O Campo Conta Bancária é Obrigatório.');
+            return false;
+        }
+        if ((!dtRealizado) && (!dtvencimento)) {
+            Funcoes.Alerta('O Campo Data A Pagar ou Data Paga é Obrigatório.');
+            return false;
+        }
+        if ((!nuValor) && (!nuValorPago)) {
+            Funcoes.Alerta('O Campo Valor a Pagar ou Valor Pago é Obrigatório.');
+            return false;
+        }
 
         var data5 = {
             tp_pagamento: $("#FCSaida #tp_pagamento").val(),
-            co_categoria_fc: $('#FCSaida #co_categoria_fc').val(),
-            dt_vencimento: $('#FCSaida #s-dt_vencimento').val(),
-            dt_realizado: $('#FCSaida #s-dt_realizado').val(),
-            nu_valor: $('#FCSaida #nu_valor').val(),
-            nu_valor_pago: $('#FCSaida #nu_valor_pago').val(),
-            co_conta_bancaria: $('#FCSaida #co_conta_bancaria').val(),
+            co_categoria_fc: coCategoriaFc,
+            dt_vencimento: dtvencimento,
+            dt_realizado: dtRealizado,
+            nu_valor: nuValor,
+            nu_valor_pago: nuValorPago,
+            co_conta_bancaria: coContaBancaria,
             co_representacao: $('#FCSaida #co_representacao').val(),
             co_centro_custo: $('#FCSaida #co_centro_custo').val(),
             ds_descricao: $('#FCSaida #ds_descricao').val(),
-            co_fluxo_caixa: $('#FCSaida #co_fluxo_caixa').val()
+            co_Fluxocaixa: $('#FCSaida #co_Fluxocaixa').val(),
+            nu_repetidos: $('#FCSaida #s-nu_repetidos').val(),
+            tp_lanc: $('#FCSaida #s-tp_lanc').val(),
+            intervalo: $('#FCSaida #s-intervalo').val()
         };
 
         var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCSaida', data5);
@@ -290,14 +375,14 @@ $(function () {
         return false;
     });
 
-    $('#CentroCustos .btn-success').click(function () {
+    $('#Centro_custo .btn-success').click(function () {
 
         var data5 = {
-            no_centro_custos: $("#CentroCustos #no_centro_custos").val(),
-            co_centro_custo: $('#CentroCustos #co_centro_custo').val()
+            no_centro_custo: $("#Centro_custo #no_centro_custo").val(),
+            co_centro_custo: $('#Centro_custo #co_centro_custo').val()
         };
 
-        var dados = Funcoes.Ajax('Fluxocaixa/CadastroCentroCustos', data5);
+        var dados = Funcoes.Ajax('Fluxocaixa/CadastroCentro_custo', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
@@ -322,7 +407,7 @@ $(function () {
         var newOptionCat = new Option('Selecione uma Categoria Pai.', null, !1, !1);
         comboCat.append(newOptionCat);
         var optionsCat = Funcoes.Ajax('Fluxocaixa/CategoriasFCCombo', null);
-        console.log(optionsCat);
+        // console.log(optionsCat);
         $.each(optionsCat, function (key, value) {
             comboCat.append(new Option(value.dsTexto, value.nuCodigo, !1, !1));
         });
@@ -337,7 +422,7 @@ $(function () {
         var newOptionCat = new Option('Selecione uma Categoria', null, !1, !1);
         comboCat.append(newOptionCat);
         var optionsCat = Funcoes.Ajax('Fluxocaixa/CategoriasFCComboEntrada', null);
-        console.log(optionsCat);
+        // console.log(optionsCat);
         $.each(optionsCat, function (key, value) {
             comboCat.append(new Option(value.dsTexto, value.nuCodigo, !1, !1));
         });
@@ -352,7 +437,7 @@ $(function () {
         var newOptionCat = new Option('Selecione uma Categoria', null, !1, !1);
         comboCat.append(newOptionCat);
         var optionsCat = Funcoes.Ajax('Fluxocaixa/CategoriasFCComboSaida', null);
-        console.log(optionsCat);
+        // console.log(optionsCat);
         $.each(optionsCat, function (key, value) {
             comboCat.append(new Option(value.dsTexto, value.nuCodigo, !1, !1));
         });
@@ -414,7 +499,9 @@ $(function () {
             if (dados) {
                 if (dados.sucesso && dados.msg === "atualizado") {
                     Funcoes.AtualizadoSucesso();
-                    atualizaPagina();
+                    carregaComboCategorias();
+                    carregaEstruturaCategorias();
+                    desabilitaCat('CadastrarFluxocaixa');
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -434,7 +521,9 @@ $(function () {
             if (dados) {
                 if (dados.sucesso && dados.msg === "deletado") {
                     Funcoes.DeletadoSucesso();
-                    atualizaPagina();
+                    carregaComboCategorias();
+                    carregaEstruturaCategorias();
+                    desabilitaCat('CadastrarFluxocaixa');
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -444,7 +533,7 @@ $(function () {
         });
     }
 
-    $(".editCont").click(function () {
+    $('.table').on('click', '.editCont', function () {
         $('#CadastrarContaBancaria #co_conta_bancaria').val($(this).attr('data-id'));
         $('#CadastrarContaBancaria #no_banco').val($(this).parents('tr').children('td:eq(0)').text());
         $('#CadastrarContaBancaria #nu_agencia').val($(this).parents('tr').children('td:eq(1)').text());
@@ -454,13 +543,13 @@ $(function () {
         contaNova();
     });
 
-    $(".editCentro").click(function () {
-        $('#CentroCustos #co_centro_custo').val($(this).attr('data-id'));
-        $('#CentroCustos #no_centro_custos').val($(this).parents('tr').children('td:eq(0)').text());
-        centroNovo();
+    $('.table').on('click', '.editCentro_custo', function () {
+        $('#Centro_custo #co_centro_custo').val($(this).attr('data-id'));
+        $('#Centro_custo #no_centro_custo').val($(this).parents('tr').children('td:eq(0)').text());
+        centro_custoNovo();
     });
 
-    $(".editRep").click(function () {
+    $('.table').on('click', '.editRep', function () {
         $('#Representacao #co_representacao').val($(this).attr('data-id'));
         $('#Representacao #no_representacao').val($(this).parents('tr').children('td:eq(0)').text());
         $('#Representacao #ds_email').val($(this).parents('tr').children('td:eq(1)').text());
@@ -468,7 +557,7 @@ $(function () {
         repNova();
     });
 
-    $(".histCont").click(function () {
+    $('.table').on('click', '.histCont', function () {
         var data = {
             co_conta_bancaria: $(this).attr('data-id')
         };
@@ -491,9 +580,9 @@ $(function () {
         contaNova();
     });
 
-    $(".btn-novo-centro").click(function () {
-        limpaDadosCentro();
-        centroNovo();
+    $(".btn-novo-centro_custo").click(function () {
+        limpaDadosCentro_custo();
+        centro_custoNovo();
     });
 
     $(".btn-nova-rep").click(function () {
@@ -598,11 +687,11 @@ $(function () {
         return false;
     });
 
-    $(".deleta").click(function () {
+    $('.table').on('click', '.deleta', function () {
         $("#desativar_codigo").val($(this).attr('id'));
     });
 
-    $('.editLanc').click(function () {
+    $('.table').on('click', '.editLanc', function () {
         var idEditLanc = $(this).attr('data-id');
 
         var dados = Funcoes.Ajax('Fluxocaixa/getLancamentoFC', idEditLanc);
@@ -617,7 +706,8 @@ $(function () {
                     var preDT = 's';
                     $('.btn-saida').click();
                 }
-                $('#' + Form + ' #tp_pagamento').val(dados.tp_fluxo);
+                $('#' + Form + ' #tp_pagamento').val(dados.tp_pagamento).trigger('change');
+                $('#' + Form + ' #' + preDT + '-tp_lanc').select2("destroy").val(1).prop("disabled", true);
                 $('#' + Form + ' #co_categoria_fc').val(dados.co_categoria_fc).trigger('change');
                 $('#' + Form + ' #' + preDT + '-dt_vencimento').val(dados.dt_vencimento);
                 $('#' + Form + ' #' + preDT + '-dt_realizado').val(dados.dt_realizado);
@@ -627,7 +717,7 @@ $(function () {
                 $('#' + Form + ' #co_representacao').val(dados.co_representacao).trigger('change');
                 $('#' + Form + ' #co_centro_custo').val(dados.co_centro_custo).trigger('change');
                 $('#' + Form + ' #ds_descricao').val(dados.ds_descricao);
-                $('#' + Form + ' #co_fluxo_caixa').val(dados.co_fluxo_caixa);
+                $('#' + Form + ' #co_Fluxocaixa').val(dados.co_Fluxocaixa);
 
             } else {
                 Funcoes.Alerta(dados.msg)
@@ -639,7 +729,7 @@ $(function () {
     });
 
     function limpaTransferencia() {
-        Funcoes.Alerta('Não pode selecionar o mesmo banco de Origem e Destino');
+        Funcoes.Alerta('Não pode selecionar o mesmo banco para Origem e Destino');
         $("#TransfSaldo #nu_saldo_origem_ant, #TransfSaldo #nu_saldo_destino_ant, #TransfSaldo #t-dt_realizado, #TransfSaldo #nu_valor_transferido").val('');
         Funcoes.TiraValidacao('t-dt_realizado');
         Funcoes.TiraValidacao('nu_valor_transferido');
@@ -666,11 +756,11 @@ $(function () {
         });
     }
 
-    function centroNovo() {
+    function centro_custoNovo() {
         $('.modal-scrollable').animate({
-            scrollTop: $('#cadCentro').offset().top
+            scrollTop: $('#cadCentro_custo').offset().top
         }, 800, function () {
-            $('#CentroCustos #no_centro_custos').focus();
+            $('#Centro_custo #no_centro_custo').focus();
         });
     }
 
@@ -683,8 +773,22 @@ $(function () {
         $('#Representacao #no_representacao, #Representacao #ds_email, #Representacao #nu_tel1, #Representacao #co_representacao').val('');
     }
 
-    function limpaDadosCentro() {
-        $('#CentroCustos #no_centro_custos, #CentroCustos #co_centro_custo').val('');
+    function limpaDadosCentro_custo() {
+        $('#Centro_custo #no_centro_custo, #Centro_custo #co_centro_custo').val('');
+    }
+
+    function desabilitaCat(id, filha = false) {
+        $('#' + id + ' #co_categoria_fc option').each(function () {
+            var nuCat = $(this).val().split('-');
+            if (nuCat[0] == "p") {
+                $(this).prop("selected", false);
+                $(this).prop("disabled", true);
+            }
+            if (nuCat[0] == "f" && filha) {
+                $(this).prop("selected", false);
+                $(this).prop("disabled", true);
+            }
+        });
     }
 
     function atualizaPagina() {
@@ -695,6 +799,10 @@ $(function () {
 
     $(window).on("load", function () {
         $('.modal .img-load').hide();
+        $('.help-block').hide();
+        $('#e-nu_repetidos, #e-intervalo').parent(".form-group").hide();
+        $('#s-nu_repetidos, #s-intervalo').parent(".form-group").hide();
+        $('#e-nu_repetidos,#s-nu_repetidos').attr('maxlength', 2);
     });
 
 

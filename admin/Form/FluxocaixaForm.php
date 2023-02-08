@@ -224,15 +224,17 @@ class FluxocaixaForm
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Salvar", 12);
 
-        $tp_pagamentos = TipoPagamentoEnum::$descricao;
-        unset($tp_pagamentos[0]);
+        $tp_pag = [
+            1 => 'Único',
+            2 => 'Repetido',
+            3 => 'Parcelado',
+        ];
         $formulario
-            ->setId(TP_PAGAMENTO)
+            ->setId('e-tp_lanc')
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Forma de Pagamento")
+            ->setLabel("Tipo Lançamento")
             ->setTamanhoInput(4)
-            ->setClasses("ob")
-            ->setOptions($tp_pagamentos)
+            ->setOptions($tp_pag)
             ->CriaInpunt();
 
         $options = [];
@@ -245,31 +247,44 @@ class FluxocaixaForm
             ->CriaInpunt();
 
         $formulario
-            ->setId('e-' . DT_VENCIMENTO)
+            ->setId('e-nu_repetidos')
             ->setTamanhoInput(6)
-            ->setClasses('data')
-            ->setLabel("Data A Receber")
+            ->setClasses('numero')
+            ->setValor(1)
+            ->setLabel("Quantidade das Parcelas")
+            ->CriaInpunt();
+
+        $options2 = [
+            30 => '30 Dias',
+            45 => '45 Dias',
+            60 => '60 Dias',
+            90 => '90 Dias',
+            15 => '15 Dias',
+            10 => '10 Dias',
+            5 => '5 Dias',
+            2 => '2 Dias',
+            1 => '1 Dias',
+        ];
+        $formulario
+            ->setId('e-intervalo')
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Intervalo das Parcelas")
+            ->setTamanhoInput(6)
+            ->setOptions($options2)
             ->CriaInpunt();
 
         $formulario
-            ->setId('e-' . DT_REALIZADO)
+            ->setId(CO_REPRESENTACAO)
+            ->setAutocomplete(
+                RepresentacaoEntidade::TABELA,
+                NO_REPRESENTACAO,
+                RepresentacaoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Devedor")
             ->setTamanhoInput(6)
-            ->setClasses('data')
-            ->setLabel("Data Pago")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_VALOR)
-            ->setTamanhoInput(6)
-            ->setClasses('moeda')
-            ->setLabel("Valor a Receber")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_VALOR_PAGO)
-            ->setTamanhoInput(6)
-            ->setClasses('moeda')
-            ->setLabel("Valor Pago")
             ->CriaInpunt();
 
         $options = ContaBancariaService::ContaBancariaCombo();
@@ -277,34 +292,60 @@ class FluxocaixaForm
             ->setId(CO_CONTA_BANCARIA)
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Conta")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(6)
             ->setOptions($options)
             ->CriaInpunt();
 
-
+        $tp_pagamentos = TipoPagamentoEnum::$descricao;
+        unset($tp_pagamentos[0]);
         $formulario
-            ->setId(CO_REPRESENTACAO)
-            ->setAutocomplete(
-                RepresentacaoEntidade::TABELA,
-                NO_REPRESENTACAO,
-                RepresentacaoEntidade::CHAVE
-            )
+            ->setId(TP_PAGAMENTO)
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Cliente")
+            ->setLabel("Forma de Pagamento")
             ->setTamanhoInput(4)
+            ->setOptions($tp_pagamentos)
             ->CriaInpunt();
 
+        $formulario
+            ->setId('e-' . DT_VENCIMENTO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Data A Receber")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('e-' . DT_REALIZADO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Data Paga")
+            ->CriaInpunt();
 
         $formulario
             ->setId(CO_CENTRO_CUSTO)
             ->setAutocomplete(
                 CentroCustoEntidade::TABELA,
                 NO_CENTRO_CUSTOS,
-                CentroCustoEntidade::CHAVE
+                CentroCustoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Centro de Custos")
+            ->setLabel("Centro de custo")
             ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR)
+            ->setTamanhoInput(4)
+            ->setClasses('moeda')
+            ->setLabel("Valor a Receber")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_PAGO)
+            ->setTamanhoInput(4)
+            ->setClasses('moeda')
+            ->setLabel("Valor Pago")
             ->CriaInpunt();
 
         $formulario
@@ -325,15 +366,17 @@ class FluxocaixaForm
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Salvar", 12);
 
-        $tp_pagamentos = TipoPagamentoEnum::$descricao;
-        unset($tp_pagamentos[0]);
+        $tp_pag = [
+            1 => 'Único',
+            2 => 'Repetido',
+            3 => 'Parcelado',
+        ];
         $formulario
-            ->setId(TP_PAGAMENTO)
+            ->setId('s-tp_lanc')
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Forma de Pagamento")
+            ->setLabel("Tipo Lançamento")
             ->setTamanhoInput(4)
-            ->setClasses("ob")
-            ->setOptions($tp_pagamentos)
+            ->setOptions($tp_pag)
             ->CriaInpunt();
 
         $options = [];
@@ -346,31 +389,44 @@ class FluxocaixaForm
             ->CriaInpunt();
 
         $formulario
-            ->setId('s-' . DT_VENCIMENTO)
+            ->setId('s-nu_repetidos')
             ->setTamanhoInput(6)
-            ->setClasses('data')
-            ->setLabel("Data A Pagar")
+            ->setClasses('numero ob')
+            ->setValor(1)
+            ->setLabel("Quantidade das Parcelas")
+            ->CriaInpunt();
+
+        $options2 = [
+            30 => '30 Dias',
+            45 => '45 Dias',
+            60 => '60 Dias',
+            90 => '90 Dias',
+            15 => '15 Dias',
+            10 => '10 Dias',
+            5 => '5 Dias',
+            2 => '2 Dias',
+            1 => '1 Dias',
+        ];
+        $formulario
+            ->setId('s-intervalo')
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Intervalo das Parcelas")
+            ->setTamanhoInput(6)
+            ->setOptions($options2)
             ->CriaInpunt();
 
         $formulario
-            ->setId('s-' . DT_REALIZADO)
+            ->setId(CO_REPRESENTACAO)
+            ->setAutocomplete(
+                RepresentacaoEntidade::TABELA,
+                NO_REPRESENTACAO,
+                RepresentacaoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+            )
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Credor")
             ->setTamanhoInput(6)
-            ->setClasses('data')
-            ->setLabel("Data Pago")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_VALOR)
-            ->setTamanhoInput(6)
-            ->setClasses('moeda')
-            ->setLabel("Valor a Pagar")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_VALOR_PAGO)
-            ->setTamanhoInput(6)
-            ->setClasses('moeda')
-            ->setLabel("Valor Pago")
             ->CriaInpunt();
 
         $options = ContaBancariaService::ContaBancariaCombo();
@@ -378,34 +434,60 @@ class FluxocaixaForm
             ->setId(CO_CONTA_BANCARIA)
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Conta")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(6)
             ->setOptions($options)
             ->CriaInpunt();
 
-
+        $tp_pagamentos = TipoPagamentoEnum::$descricao;
+        unset($tp_pagamentos[0]);
         $formulario
-            ->setId(CO_REPRESENTACAO)
-            ->setAutocomplete(
-                RepresentacaoEntidade::TABELA,
-                NO_REPRESENTACAO,
-                RepresentacaoEntidade::CHAVE
-            )
+            ->setId(TP_PAGAMENTO)
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Fornecedor")
+            ->setLabel("Forma de Pagamento")
             ->setTamanhoInput(4)
+            ->setOptions($tp_pagamentos)
             ->CriaInpunt();
 
+        $formulario
+            ->setId('s-' . DT_VENCIMENTO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Data A Pagar")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId('s-' . DT_REALIZADO)
+            ->setTamanhoInput(4)
+            ->setClasses('data')
+            ->setLabel("Data Paga")
+            ->CriaInpunt();
 
         $formulario
             ->setId(CO_CENTRO_CUSTO)
             ->setAutocomplete(
                 CentroCustoEntidade::TABELA,
                 NO_CENTRO_CUSTOS,
-                CentroCustoEntidade::CHAVE
+                CentroCustoEntidade::CHAVE,
+                'ASC',
+                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Centro de Custos")
+            ->setLabel("Centro de custo")
             ->setTamanhoInput(4)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR)
+            ->setTamanhoInput(4)
+            ->setClasses('moeda')
+            ->setLabel("Valor a Pagar")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_VALOR_PAGO)
+            ->setTamanhoInput(4)
+            ->setClasses('moeda')
+            ->setLabel("Valor Pago")
             ->CriaInpunt();
 
         $formulario
@@ -418,6 +500,7 @@ class FluxocaixaForm
 
         return $formulario->finalizaForm(false, false);
     }
+
 
     public static function PesquisaLancamento($resultIntervalo)
     {
@@ -488,7 +571,7 @@ class FluxocaixaForm
                 [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Carteiras")
+            ->setLabel("Centro de Custo")
             ->setTamanhoInput(4)
             ->CriaInpunt();
 
