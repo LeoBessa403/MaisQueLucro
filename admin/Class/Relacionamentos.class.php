@@ -59,7 +59,7 @@ class Relacionamentos
 //                ),
 //                (CO_FLUXO_CAIXA) => array(
 //                    ('Campo') => CO_ASSINANTE,
-//                    ('Entidade') => 'FluxoCaixaEntidade',
+//                    ('Entidade') => 'FluxocaixaEntidade',
 //                    ('Tipo') => '1',
 //                ),
 //                (CO_REPRESENTACAO) => array(
@@ -531,7 +531,7 @@ class Relacionamentos
                 ),
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_CATEGORIA_FC,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '1',
                 ),
             ),
@@ -553,7 +553,7 @@ class Relacionamentos
                 ),
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_CATEGORIA_FC_FILHA,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '2',
                 ),
             ),
@@ -570,7 +570,7 @@ class Relacionamentos
                 ),
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_CATEGORIA_FC_NETA,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '2',
                 ),
             ),
@@ -582,7 +582,7 @@ class Relacionamentos
                 ),
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_CENTRO_CUSTO,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '2',
                 ),
             ),
@@ -594,7 +594,7 @@ class Relacionamentos
                 ),
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_CONTA_BANCARIA,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '2',
                 ),
                 (CO_HIST_SALDO_CB) => array(
@@ -603,7 +603,7 @@ class Relacionamentos
                     ('Tipo') => '2',
                 ),
             ),
-            (FluxoCaixaEntidade::TABELA) => array(
+            (FluxocaixaEntidade::TABELA) => array(
                 (CO_CATEGORIA_FC) => array(
                     ('Campo') => CO_CATEGORIA_FC,
                     ('Entidade') => 'CategoriaFcEntidade',
@@ -648,7 +648,7 @@ class Relacionamentos
             (RepresentacaoEntidade::TABELA) => array(
                 (CO_FLUXO_CAIXA) => array(
                     ('Campo') => CO_REPRESENTACAO,
-                    ('Entidade') => 'FluxoCaixaEntidade',
+                    ('Entidade') => 'FluxocaixaEntidade',
                     ('Tipo') => '2',
                 ),
                 (CO_ASSINANTE) => array(

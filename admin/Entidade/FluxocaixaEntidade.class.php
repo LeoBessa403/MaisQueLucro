@@ -5,10 +5,10 @@
  * @copyright (c) 2022, Leo Bessa
  */
 
-class FluxoCaixaEntidade extends AbstractEntidade
+class FluxocaixaEntidade extends AbstractEntidade
 {
 	const TABELA = 'TB_FLUXO_CAIXA';
-	const ENTIDADE = 'FluxoCaixaEntidade';
+	const ENTIDADE = 'FluxocaixaEntidade';
 	const CHAVE = CO_FLUXO_CAIXA;
 
 	private $co_fluxo_caixa;
