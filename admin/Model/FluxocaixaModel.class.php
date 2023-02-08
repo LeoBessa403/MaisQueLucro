@@ -21,25 +21,18 @@ class  FluxocaixaModel extends AbstractModel
             " on cen." . CentroCustoEntidade::CHAVE . " = tfc." . CentroCustoEntidade::CHAVE .
             " left join " . ContaBancariaEntidade::TABELA . " con" .
             " on con." . ContaBancariaEntidade::CHAVE . " = tfc." . ContaBancariaEntidade::CHAVE .
-            " left join " . CategoriaFcEntidade::TABELA . " cat" .
-            " on cat." . CategoriaFcEntidade::CHAVE . " = tfc." . CategoriaFcEntidade::CHAVE .
-            " left join " . CategoriaFcFilhaEntidade::TABELA . " ctf" .
-            " on ctf." . CategoriaFcFilhaEntidade::CHAVE . " = tfc." . CategoriaFcFilhaEntidade::CHAVE .
             " left join " . CategoriaFcNetaEntidade::TABELA . " ctn" .
             " on ctn." . CategoriaFcNetaEntidade::CHAVE . " = tfc." . CategoriaFcNetaEntidade::CHAVE;
 
 
-        $dados = "tfc.*";
+        $campos = "tfc.co_fluxo_caixa, tfc.dt_realizado, tfc.dt_vencimento, tfc.nu_valor, tfc.nu_valor_pago, tfc.st_pagamento, 
+        cen.no_centro_custos, rep.no_representacao, ctn.ds_texto as no_neta, ctn.nu_codigo as nu_codigo_n,
+        tfc.tp_fluxo, tfc.dt_cadastro, tfc.tp_pagamento, con.no_banco";
         $pesquisa = new Pesquisa();
-        $where = $where . ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC';
-        $pesquisa->Pesquisar($tabela, $where, null, $dados);
-        $fcs = [];
-        /** @var AcessoEntidade $fc */
-        foreach ($pesquisa->getResult() as $fc) {
-            $fluxoc[0] = $fc;
-            $fcs[] = $this->getUmObjeto(FluxocaixaEntidade::ENTIDADE, $fluxoc);
-        }
-        return $fcs;
+        $where = $where . ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 200';
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+
+        return $pesquisa->getResult();
     }
 
     public function PesquisaAvancadaFC($where)
@@ -63,7 +56,8 @@ class  FluxocaixaModel extends AbstractModel
         tfc.co_categoria_fc, tfc.co_categoria_fc_filha, tfc.co_categoria_fc_neta, 
         ctf.ds_texto as no_filha,  ctf.nu_codigo as nu_codigo_f, ctn.ds_texto as no_neta, ctn.nu_codigo as nu_codigo_n";
         $pesquisa = new Pesquisa();
-        $where = $where . ' ORDER BY dt_realizado, dt_vencimento ASC';
+        $where = $where . ' ORDER BY cat.' . CategoriaFcEntidade::CHAVE . ', ctf.' . CategoriaFcFilhaEntidade::CHAVE . ', 
+        ctn.' . CategoriaFcNetaEntidade::CHAVE . ', dt_realizado, dt_vencimento ASC';
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
 
         return $pesquisa->getResult();

@@ -24,77 +24,67 @@
 
                         $arrColunas = array($cpTodos, 'Tipo de Lançamento', 'Categoria', 'Lançado', 'Vencimento', 'Pago em',
                             'Status Pagamento', 'Valor', 'Valor Pago', 'Forma de Pagamento',
-                            'Conta', 'Centro de Custo', 'Representção', 'Responsável', 'Ações');
+                            'Conta', 'Centro de Custo', 'Representação', 'Ações');
 
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
                         /** @var FluxocaixaEntidade $res */
                         foreach ($result as $res):
-                            $acao = '<a data-id="' . $res->getCoFluxoCaixa() . '"
+                            $acao = '<a data-id="' . $res["co_fluxo_caixa"] . '"
                                     class="btn btn-primary tooltips editLanc"
                                     data-original-title="Editar Lançamento" data-placement="top">
                                     <i class="fa fa-clipboard"></i>
                                 </a>
                                 <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta"
-                                    id="' . $res->getCoFluxoCaixa() . '"
+                                    id="' . $res["co_fluxo_caixa"] . '"
                                    href="#DelFluxoCaixa" data-original-title="Excluir Lançamento"
                                    data-placement="top">
                                     <i class="fa fa-trash-o"></i>
                                 </a>';
 
-                            $catLanc = '';
-                            if ($res->getCoCategoriaFcNeta()) {
-                                $catLanc = $res->getCoCategoriaFcNeta()->getNuCodigo()
-                                    . ' - ' . $res->getCoCategoriaFcNeta()->getDsTexto();
-                            } elseif ($res->getCoCategoriaFcFilha()) {
-                                $catLanc = $res->getCoCategoriaFcFilha()->getNuCodigo()
-                                    . ' - ' . $res->getCoCategoriaFcFilha()->getDsTexto();
-                            } elseif ($res->getCoCategoriaFc()) {
-                                $catLanc = $res->getCoCategoriaFc()->getNuCodigo()
-                                    . ' - ' . $res->getCoCategoriaFc()->getDsTexto();
-                            }
+                            $catLanc = $res["nu_codigo_n"]
+                                . ' - ' . $res["no_neta"];
 
                             $labelStPg = '<span class="circle-img label-' .
-                                StatusPagamentoFCEnum::$cores[$res->getStPagamento()] .
+                                StatusPagamentoFCEnum::$cores[$res["st_pagamento"]] .
                                 '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ';
 
-                            $dtVenc = ($res->getDtVencimento()) ? Valida::DataShow($res->getDtVencimento()) : '';
-                            $dtReal = ($res->getDtRealizado()) ? Valida::DataShow($res->getDtRealizado()) : '';
-                            $val = ($res->getNuValor()) ? Valida::FormataMoeda($res->getNuValor()) : '';
-                            $valPg = ($res->getNuValorPago()) ? Valida::FormataMoeda($res->getNuValorPago()) : '';
-                            $centro = ($res->getCoCentroCusto())
-                                ? $res->getCoCentroCusto()->getNoCentroCustos() : '';
-                            $rep = ($res->getCoRepresentacao())
-                                ? $res->getCoRepresentacao()->getNoRepresentacao() : '';
+                            $dtVenc = ($res["dt_vencimento"]) ? Valida::DataShow($res["dt_vencimento"]) : '';
+                            $dtReal = ($res["dt_realizado"]) ? Valida::DataShow($res["dt_realizado"]) : '';
+                            $val = ($res["nu_valor"]) ? Valida::FormataMoeda($res["nu_valor"]) : '';
+                            $valPg = ($res["nu_valor_pago"]) ? Valida::FormataMoeda($res["nu_valor_pago"]) : '';
+                            $centro = ($res["no_centro_custos"])
+                                ? $res["no_centro_custos"] : '';
+                            $rep = ($res["no_representacao"])
+                                ? $res["no_representacao"] : '';
                             $cpBaixa = '';
-                            if ($res->getStPagamento() != StatusPagamentoFCEnum::PAGO) {
+                            if ($res["st_pagamento"] != StatusPagamentoFCEnum::PAGO) {
                                 $cpBaixa = '<label class="divCheck">
                                           <input type="checkbox" class="bx-lanc"
-                                               value="' . $res->getCoFluxoCaixa() . '" id="' . CO_FLUXO_CAIXA .
-                                    $res->getCoFluxoCaixa() . '" name="' . CO_FLUXO_CAIXA . '[' .
-                                    $res->getCoFluxoCaixa() . ']"/>
+                                               value="' . $res["co_fluxo_caixa"] . '" id="' . CO_FLUXO_CAIXA .
+                                    $res["co_fluxo_caixa"] . '" name="' . CO_FLUXO_CAIXA . '[' .
+                                    $res["co_fluxo_caixa"] . ']"/>
                                           <span class="checkmark"></span>
                                     </label>';
                             }
 
                             $grid->setColunas($cpBaixa);
-                            $grid->setColunas(TipoFluxoCaixaEnum::$label[$res->getTpFluxo()]);
+                            $grid->setColunas(TipoFluxoCaixaEnum::$label[$res["tp_fluxo"]]);
                             $grid->setColunas($catLanc);
-                            $grid->setColunas(Valida::DataShow($res->getDtCadastro()));
+                            $grid->setColunas(Valida::DataShow($res["dt_cadastro"]));
                             $grid->setColunas($dtVenc);
                             $grid->setColunas($dtReal);
                             $grid->setColunas($labelStPg .
-                                StatusPagamentoFCEnum::getDescricaoValor($res->getStPagamento()));
+                                StatusPagamentoFCEnum::getDescricaoValor($res["st_pagamento"]));
                             $grid->setColunas($val);
                             $grid->setColunas($valPg);
-                            $grid->setColunas(TipoPagamentoEnum::getDescricaoValor($res->getTpPagamento()));
-                            $grid->setColunas($res->getCoContaBancaria()->getNoBanco());
+                            $grid->setColunas(TipoPagamentoEnum::getDescricaoValor($res["tp_pagamento"]));
+                            $grid->setColunas($res["no_banco"]);
                             $grid->setColunas($centro);
                             $grid->setColunas($rep);
-                            $grid->setColunas($res->getCoUsuario()->getCoPessoa()->getNoPessoa());
                             $grid->setColunas($acao, 2);
-                            $grid->criaLinha($res->getCoFluxoCaixa());
+                            $grid->criaLinha($res["co_fluxo_caixa"]);
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
