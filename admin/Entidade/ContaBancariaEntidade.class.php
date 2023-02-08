@@ -171,7 +171,7 @@ class ContaBancariaEntidade extends AbstractEntidade
     }
 
     /**
-     * @return FluxoCaixaEntidade $co_fluxo_caixa
+     * @return FluxocaixaEntidade $co_fluxo_caixa
      */
     public function getCoFluxoCaixa()
     {

@@ -29,7 +29,7 @@
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
-                        /** @var FluxoCaixaEntidade $res */
+                        /** @var FluxocaixaEntidade $res */
                         foreach ($result as $res):
                             $acao = '<a data-id="' . $res->getCoFluxoCaixa() . '"
                                     class="btn btn-primary tooltips editLanc"

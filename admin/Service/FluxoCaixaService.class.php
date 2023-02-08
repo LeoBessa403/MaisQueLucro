@@ -184,7 +184,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
 
-        /** @var FluxoCaixaEntidade $fc */
+        /** @var FluxocaixaEntidade $fc */
         $fc = $this->PesquisaUmRegistro($dados);
         $valorLancamento = ($fc->getNuValorPago())
             ? $fc->getNuValorPago() : $fc->getNuValor();
@@ -268,7 +268,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
         foreach ($fluxos as $fluxo) {
-            /** @var FluxoCaixaEntidade $fc */
+            /** @var FluxocaixaEntidade $fc */
             $fc = $this->PesquisaUmRegistro($fluxo);
 
             $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"),
@@ -319,7 +319,7 @@ class  FluxocaixaService extends AbstractService
     public function getLancamentoFC($dados)
     {
         $retorno[SUCESSO] = true;
-        /** @var FluxoCaixaEntidade $fc */
+        /** @var FluxocaixaEntidade $fc */
         $fc = $this->PesquisaUmRegistro($dados);
 
         if
