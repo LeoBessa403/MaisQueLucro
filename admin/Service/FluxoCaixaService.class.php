@@ -342,8 +342,10 @@ class  FluxocaixaService extends AbstractService
             ? Valida::DataShow($fc->getDtVencimento()) : null;
         $retorno[DT_REALIZADO] = ($fc->getDtRealizado())
             ? Valida::DataShow($fc->getDtRealizado()) : null;
-        $retorno[NU_VALOR] = $fc->getNuValor();
-        $retorno[NU_VALOR_PAGO] = $fc->getNuValorPago();
+        $retorno[NU_VALOR] = ($fc->getNuValor())
+            ? Valida::FormataMoeda($fc->getNuValor()) : null;
+        $retorno[NU_VALOR_PAGO] = ($fc->getNuValorPago())
+            ? Valida::FormataMoeda($fc->getNuValorPago()) : null;
         $retorno[CO_CONTA_BANCARIA] = ($fc->getCoContaBancaria())
             ? $fc->getCoContaBancaria()->getCoContaBancaria() : null;
         $retorno[CO_REPRESENTACAO] = ($fc->getCoRepresentacao())
