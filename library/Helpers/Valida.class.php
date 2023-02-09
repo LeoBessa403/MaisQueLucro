@@ -343,6 +343,24 @@ class Valida
     }
 
     /**
+     * <b>Calcula a Diferença de Dias entre 2 Datas:</b>
+     * @param STRING $data1 = Data em (d/m/Y)
+     * @param STRING $data2 = Data em (d/m/Y)
+     * @return INT = Número de Meses de Diferença entre as Datas.
+     */
+    public static function CalculaDiferencaMesesData($data1, $data2)
+    {
+        if($data1 && $data2){
+            $d1 = new DateTime(self::DataDBDate($data1));
+            $d2 = new DateTime(self::DataDBDate($data2));
+            $intervalo = $d1->diff( $d2 );
+            return $intervalo->m;
+        }else{
+            return null;
+        }
+    }
+
+    /**
      * <b>Calcula a Idade em Anos</b>
      * @param STRING $dtNascimento = Data Formato do banco ou Formato de Visualização (d/m/Y)
      * @param bool $label = Se quer com o Sufixo (Anos)
