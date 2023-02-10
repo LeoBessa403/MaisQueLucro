@@ -694,7 +694,7 @@ $(function () {
     $('.table').on('click', '.editLanc', function () {
         var idEditLanc = $(this).attr('data-id');
 
-        var dados = Funcoes.Ajax('Fluxocaixa/getLancamentoFC', idEditLanc);
+        var dados = Funcoes.Ajax('Financeiro/getLancamentoFC', idEditLanc);
         if (dados) {
             if (dados.sucesso) {
                 if (dados.tp_fluxo == 1) {

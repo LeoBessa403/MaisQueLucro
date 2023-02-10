@@ -31,55 +31,110 @@ class  FluxocaixaService extends AbstractService
         ];
 
         $PDO->beginTransaction();
-        $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
 
-        $fcEnt = $this->getCategoriasCadastro($dados[CO_CATEGORIA_FC], $fcEnt);
+        $finValidador = new FinanceiroValidador();
+        /** @var FinanceiroValidador $validador */
+        $validador = $finValidador->validarFc($dados);
+        if ($validador[SUCESSO]) {
+            $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
+            $fcEnt = $this->getCategoriasCadastro($dados[CO_CATEGORIA_FC], $fcEnt);
+            $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
+                ? Valida::DataDBDate($dados[DT_VENCIMENTO]) : null;
+            $fcEnt[DT_REALIZADO] = ($dados[DT_REALIZADO])
+                ? Valida::DataDBDate($dados[DT_REALIZADO]) : null;
+            $fcEnt[NU_VALOR] = ($dados[NU_VALOR])
+                ? Valida::FormataMoedaBanco($dados[NU_VALOR]) : null;
+            $fcEnt[NU_VALOR_PAGO] = ($dados[NU_VALOR_PAGO])
+                ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
+            $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
+            $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
+            $fcEnt[CO_CARTEIRA] = $dados[CO_CARTEIRA];
+            $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
+            $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
 
-        $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
-            ? Valida::DataDBDate($dados[DT_VENCIMENTO]) : null;
-        $fcEnt[DT_REALIZADO] = ($dados[DT_REALIZADO])
-            ? Valida::DataDBDate($dados[DT_REALIZADO]) : null;
-        $fcEnt[NU_VALOR] = ($dados[NU_VALOR])
-            ? Valida::FormataMoedaBanco($dados[NU_VALOR]) : null;
-        $fcEnt[NU_VALOR_PAGO] = ($dados[NU_VALOR_PAGO])
-            ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
-        $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
-        $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
-        $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
-        $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
-        $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
+            if ($dados[NU_VALOR_PAGO]) {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::PAGO;
+                /** @var ContaBancariaEntidade $contaDest */
+                $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
 
-        $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
-        if ($dados[NU_VALOR_PAGO]) {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::PAGO;
-            /** @var ContaBancariaEntidade $contaDest */
-            $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
+                $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+                $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
+                $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
+                $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
+                $histSaldoCB[DS_OBSERVACAO] = trim($dados[DS_DESCRICAO]);
+                $histSaldoCB[NU_SALDO] =
+                    ($contaDest->getCoUltimoHistSaldoCb()->getNuSaldo() +
+                        Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]));
+                $HistSaldoCbService->Salva($histSaldoCB);
 
-            $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
-            $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
-            $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
-            $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
-            $histSaldoCB[DS_OBSERVACAO] = trim($dados[DS_DESCRICAO]);
-            $histSaldoCB[NU_SALDO] =
-                ($contaDest->getCoUltimoHistSaldoCb()->getNuSaldo() +
-                    Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]));
-            $HistSaldoCbService->Salva($histSaldoCB);
+            } else if ($dias < 0) {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::EM_ATRASO;
+            } else {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_RECEBER;
+            }
 
-        } else if ($dias < 0) {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::EM_ATRASO;
+            if ($dados[CO_FINANCEIRO]) {
+                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FINANCEIRO]);
+                $retorno[MSG] = ATUALIZADO;
+            } else {
+                $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
+                $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $fcEnt[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
+
+                if ($dados["tp_lanc"] > 1) {
+
+                    if ($dados["tp_lanc"] == 3) {
+
+                        $fcEnt[NU_VALOR] = ($fcEnt[NU_VALOR])
+                            ? floatval($fcEnt[NU_VALOR]) / $dados["nu_repetidos"] : null;
+                        $fcEnt[NU_VALOR_PAGO] = ($fcEnt[NU_VALOR_PAGO])
+                            ? floatval($fcEnt[NU_VALOR_PAGO]) / $dados["nu_repetidos"] : null;
+
+                        if ($fcEnt[NU_VALOR]) {
+                            $fcEnt[NU_VALOR] = Valida::FormataMoeda($fcEnt[NU_VALOR]);
+                            $fcEnt[NU_VALOR] = Valida::FormataMoedaBanco($fcEnt[NU_VALOR]);
+                        }
+                        if ($fcEnt[NU_VALOR_PAGO]) {
+                            $fcEnt[NU_VALOR_PAGO] = Valida::FormataMoeda($fcEnt[NU_VALOR_PAGO]);
+                            $fcEnt[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($fcEnt[NU_VALOR_PAGO]);
+                        }
+                    }
+                    $fcEntAux = null;
+                    for ($i = 0; $i < $dados["nu_repetidos"]; $i++) {
+                        if ($i > 0) {
+                            if ($i == 1) {
+                                $fcEnt[NU_VALOR] = ($fcEnt[NU_VALOR])
+                                    ? $fcEnt[NU_VALOR] : $fcEnt[NU_VALOR_PAGO];
+                                $fcEnt[NU_VALOR_PAGO] = null;
+                                $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
+                                    ? $dados[DT_VENCIMENTO] : $dados[DT_REALIZADO];
+                                $fcEnt[DT_REALIZADO] = null;
+                                $fcEntAux[DT_VENCIMENTO] = Valida::CalculaData(
+                                    $fcEnt[DT_VENCIMENTO],
+                                    $dados["intervalo"],
+                                    "+"
+                                );
+                                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_RECEBER;
+                            } else {
+                                $fcEntAux[DT_VENCIMENTO] = Valida::CalculaData(
+                                    $fcEntAux[DT_VENCIMENTO],
+                                    $dados["intervalo"],
+                                    "+"
+                                );
+                            }
+                            $fcEnt[DT_VENCIMENTO] = Valida::DataDBDate($fcEntAux[DT_VENCIMENTO]);
+                        }
+                        $retorno[SUCESSO] = $this->Salva($fcEnt);
+                    }
+                } else {
+                    $retorno[SUCESSO] = $this->Salva($fcEnt);
+                }
+                $retorno[MSG] = CADASTRADO;
+            }
         } else {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_RECEBER;
-        }
-
-        if ($dados[CO_FLUXO_CAIXA]) {
-            $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FLUXO_CAIXA]);
-            $retorno[MSG] = ATUALIZADO;
-        } else {
-            $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
-            $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $retorno[SUCESSO] = $this->Salva($fcEnt);
-            $retorno[MSG] = CADASTRADO;
+            $retorno = $validador;
         }
 
         if ($retorno[SUCESSO]) {
@@ -106,64 +161,115 @@ class  FluxocaixaService extends AbstractService
             SUCESSO => false,
             MSG => null
         ];
-
         $PDO->beginTransaction();
-        $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
 
-        $fcEnt = $this->getCategoriasCadastro($dados[CO_CATEGORIA_FC], $fcEnt);
+        $finValidador = new FinanceiroValidador();
+        /** @var FinanceiroValidador $validador */
+        $validador = $finValidador->validarFc($dados);
+        if ($validador[SUCESSO]) {
+            $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
+            $fcEnt = $this->getCategoriasCadastro($dados[CO_CATEGORIA_FC], $fcEnt);
+            $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
+                ? Valida::DataDBDate($dados[DT_VENCIMENTO]) : null;
+            $fcEnt[DT_REALIZADO] = ($dados[DT_REALIZADO])
+                ? Valida::DataDBDate($dados[DT_REALIZADO]) : null;
+            $fcEnt[NU_VALOR] = ($dados[NU_VALOR])
+                ? Valida::FormataMoedaBanco($dados[NU_VALOR]) : null;
+            $fcEnt[NU_VALOR_PAGO] = ($dados[NU_VALOR_PAGO])
+                ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
+            $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
+            $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
+            $fcEnt[CO_CARTEIRA] = $dados[CO_CARTEIRA];
+            $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
+            $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
 
-        $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
-            ? Valida::DataDBDate($dados[DT_VENCIMENTO]) : null;
-        $fcEnt[DT_REALIZADO] = ($dados[DT_REALIZADO])
-            ? Valida::DataDBDate($dados[DT_REALIZADO]) : null;
-        $fcEnt[NU_VALOR] = ($dados[NU_VALOR])
-            ? Valida::FormataMoedaBanco($dados[NU_VALOR]) : null;
-        $fcEnt[NU_VALOR_PAGO] = ($dados[NU_VALOR_PAGO])
-            ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
-        $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
-        $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
-        $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
-        $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
-        $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
+            if ($dados[NU_VALOR_PAGO]) {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::PAGO;
 
-        $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
-        if ($dados[NU_VALOR_PAGO]) {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::PAGO;
+                /** @var ContaBancariaEntidade $contaDest */
+                $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
 
-            /** @var ContaBancariaEntidade $contaDest */
-            $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
+                $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+                $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
+                $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
+                $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
+                $histSaldoCB[DS_OBSERVACAO] = trim($dados[DS_DESCRICAO]);
+                $histSaldoCB[NU_SALDO] =
+                    ($contaDest->getCoUltimoHistSaldoCb()->getNuSaldo() -
+                        Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]));
+                $HistSaldoCbService->Salva($histSaldoCB);
+            } else if ($dias < 0) {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::EM_ATRASO;
+            } else {
+                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_PAGAR;
+            }
 
-            $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
-            $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
-            $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
-            $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
-            $histSaldoCB[DS_OBSERVACAO] = trim($dados[DS_DESCRICAO]);
-            $histSaldoCB[NU_SALDO] =
-                ($contaDest->getCoUltimoHistSaldoCb()->getNuSaldo() -
-                    Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]));
-            $HistSaldoCbService->Salva($histSaldoCB);
-        } else if ($dias < 0) {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::EM_ATRASO;
+            if ($dados[CO_FINANCEIRO]) {
+                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FINANCEIRO]);
+                $retorno[MSG] = ATUALIZADO;
+            } else {
+                $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
+                $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $fcEnt[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
+
+                if ($dados["tp_lanc"] > 1) {
+                    $fcEntAux[DT_VENCIMENTO] = $fcEnt[DT_VENCIMENTO];
+                    if ($dados["tp_lanc"] == 3) {
+                        $fcEnt[NU_VALOR] = ($fcEnt[NU_VALOR])
+                            ? floatval($fcEnt[NU_VALOR]) / $dados["nu_repetidos"] : null;
+                        $fcEnt[NU_VALOR_PAGO] = ($fcEnt[NU_VALOR_PAGO])
+                            ? floatval($fcEnt[NU_VALOR_PAGO]) / $dados["nu_repetidos"] : null;
+
+                        if ($fcEnt[NU_VALOR]) {
+                            $fcEnt[NU_VALOR] = Valida::FormataMoeda($fcEnt[NU_VALOR]);
+                            $fcEnt[NU_VALOR] = Valida::FormataMoedaBanco($fcEnt[NU_VALOR]);
+                        }
+                        if ($fcEnt[NU_VALOR_PAGO]) {
+                            $fcEnt[NU_VALOR_PAGO] = Valida::FormataMoeda($fcEnt[NU_VALOR_PAGO]);
+                            $fcEnt[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($fcEnt[NU_VALOR_PAGO]);
+                        }
+                    }
+                    for ($i = 0; $i < $dados["nu_repetidos"]; $i++) {
+                        if ($i > 0) {
+                            if ($i == 1) {
+                                $fcEnt[NU_VALOR] = ($fcEnt[NU_VALOR])
+                                    ? $fcEnt[NU_VALOR] : $fcEnt[NU_VALOR_PAGO];
+                                $fcEnt[NU_VALOR_PAGO] = null;
+                                $fcEnt[DT_VENCIMENTO] = ($dados[DT_VENCIMENTO])
+                                    ? $dados[DT_VENCIMENTO] : $dados[DT_REALIZADO];
+                                $fcEnt[DT_REALIZADO] = null;
+                                $fcEntAux[DT_VENCIMENTO] = Valida::CalculaData(
+                                    $fcEnt[DT_VENCIMENTO],
+                                    $dados["intervalo"],
+                                    "+"
+                                );
+                                $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_PAGAR;
+                            } else {
+                                $fcEntAux[DT_VENCIMENTO] = Valida::CalculaData(
+                                    $fcEntAux[DT_VENCIMENTO],
+                                    $dados["intervalo"],
+                                    "+"
+                                );
+                            }
+                            $fcEnt[DT_VENCIMENTO] = Valida::DataDBDate($fcEntAux[DT_VENCIMENTO]);
+                        }
+                        $retorno[SUCESSO] = $this->Salva($fcEnt);
+                    }
+                } else {
+                    $retorno[SUCESSO] = $this->Salva($fcEnt);
+                }
+                $retorno[MSG] = CADASTRADO;
+            }
         } else {
-            $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_PAGAR;
+            $retorno = $validador;
         }
-
-        if ($dados[CO_FLUXO_CAIXA]) {
-            $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FLUXO_CAIXA]);
-            $retorno[MSG] = ATUALIZADO;
-        } else {
-            $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
-            $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $retorno[SUCESSO] = $this->Salva($fcEnt);
-            $retorno[MSG] = CADASTRADO;
-        }
-
         if ($retorno[SUCESSO]) {
             $retorno[SUCESSO] = true;
             $PDO->commit();
         } else {
-            $retorno[MSG] = "Erro ao Salvar!";
+            $retorno[MSG] = $validador[MSG];
             $retorno[SUCESSO] = false;
             $PDO->rollBack();
         }
@@ -184,7 +290,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
 
-        /** @var FluxocaixaEntidade $fc */
+        /** @var FinanceiroEntidade $fc */
         $fc = $this->PesquisaUmRegistro($dados);
         $valorLancamento = ($fc->getNuValorPago())
             ? $fc->getNuValorPago() : $fc->getNuValor();
@@ -207,7 +313,7 @@ class  FluxocaixaService extends AbstractService
         $retorno[SUCESSO] = $HistSaldoCbService->Salva($histSaldoCB);
 
         if ($retorno[SUCESSO]) {
-            $retorno[SUCESSO] = $this->Deleta($fc->getCoFluxoCaixa());
+            $retorno[SUCESSO] = $this->Deleta($fc->getCoFinanceiro());
             if ($retorno[SUCESSO]) {
                 $retorno[SUCESSO] = true;
                 $retorno[MSG] = DELETADO;
@@ -268,7 +374,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
         foreach ($fluxos as $fluxo) {
-            /** @var FluxocaixaEntidade $fc */
+            /** @var FinanceiroEntidade $fc */
             $fc = $this->PesquisaUmRegistro($fluxo);
 
             $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"),
@@ -300,7 +406,7 @@ class  FluxocaixaService extends AbstractService
             }
 
             $HistSaldoCbService->Salva($histSaldoCB);
-            $retorno[SUCESSO] = $this->Salva($fcEnt, $fc->getCoFluxoCaixa());
+            $retorno[SUCESSO] = $this->Salva($fcEnt, $fc->getCoFinanceiro());
             $retorno[MSG] = ATUALIZADO;
 
         }
