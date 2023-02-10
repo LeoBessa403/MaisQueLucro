@@ -717,7 +717,7 @@ $(function () {
                 $('#' + Form + ' #co_representacao').val(dados.co_representacao).trigger('change');
                 $('#' + Form + ' #co_centro_custo').val(dados.co_centro_custo).trigger('change');
                 $('#' + Form + ' #ds_descricao').val(dados.ds_descricao);
-                $('#' + Form + ' #co_Fluxocaixa').val(dados.co_Fluxocaixa);
+                $('#' + Form + ' #co_fluxo_caixa').val(dados.co_fluxo_caixa);
 
             } else {
                 Funcoes.Alerta(dados.msg)
