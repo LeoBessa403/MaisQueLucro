@@ -513,7 +513,7 @@ class Valida
                     return true;
                 endif;
                 /** @var Session $us */
-                $us = unserialize(serialize($_SESSION[SESSION_USER]));
+                $us = $_SESSION[SESSION_USER];
                 $user = $us->getUser();
                 $meusPerfis = $user[md5(CAMPO_PERFIL)];
                 $perfis = explode(",", $meusPerfis);
