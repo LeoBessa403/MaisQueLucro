@@ -93,7 +93,7 @@ class Grid
                 <table class="' . $class . 'table-striped table-bordered table-hover table-full-width" id="sample_' . $id . '"
                 style="width: 100%">
                 <thead>
-                    <tr style="background-color: #99ccff; color: #000;">';
+                    <tr style="background-color: #4F4F4F; color: #D0D9D9;">';
         if (is_array(self::$colunas)):
             foreach (self::$colunas as $value) {
                 echo '<th>' . $value . '</th>';

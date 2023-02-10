@@ -52,7 +52,7 @@ class GridAssistente
                     <table class="table-striped table-bordered table-hover table-full-width table-nodatable"
                            id="' . $id . '" style="width: 100%" cellpadding="5" cellspacing="5">
                         <thead>
-                        <tr style="background-color: #99ccff; color: #000;" role="row">';
+                        <tr style="background-color: #4F4F4F; color: #D0D9D9;" role="row">';
         if (is_array(self::$colunas)):
             foreach (self::$colunas as $value) {
                 self::$gridAssistente .= '<th>' . $value . '</th>';
