@@ -541,8 +541,8 @@ class  FluxocaixaService extends AbstractService
         if (!empty($dados[CO_CONTA_BANCARIA][0])) {
             $where = $where . " and con." . CO_CONTA_BANCARIA . " in (" . $dados[CO_CONTA_BANCARIA][0] . ")";
         }
-        if (!empty($dados[CO_CARTEIRA][0])) {
-            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA][0] . ")";
+        if (!empty($dados[CO_CENTRO_CUSTO][0])) {
+            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO][0] . ")";
         }
         if (!empty($dados[CO_REPRESENTACAO][0])) {
             $where = $where . " and rep." . CO_REPRESENTACAO . " in (" . $dados[CO_REPRESENTACAO][0] . ")";
@@ -595,8 +595,8 @@ class  FluxocaixaService extends AbstractService
     {
         $where = 'where 1 = 1';
 
-        if (!empty($dados[CO_CARTEIRA])) {
-            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA] . ")";
+        if (!empty($dados[CO_CENTRO_CUSTO])) {
+            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO] . ")";
         }
         if (!empty($dados['anoPesquisa'])) {
             $where = $where . " and ((tfc." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
@@ -622,8 +622,8 @@ class  FluxocaixaService extends AbstractService
     {
         $where = 'where 1 = 1';
 
-        if (!empty($dados[CO_CARTEIRA])) {
-            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA] . ")";
+        if (!empty($dados[CO_CENTRO_CUSTO])) {
+            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO] . ")";
         }
 
         $where = $where . " and tfc." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
