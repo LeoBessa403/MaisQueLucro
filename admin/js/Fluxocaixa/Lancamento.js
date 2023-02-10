@@ -297,7 +297,7 @@ $(function () {
             intervalo: $('#FCEntrada #e-intervalo').val()
         };
 
-        var dados = Funcoes.Ajax('Financeiro/CadastroFCEntrada', data5);
+        var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCEntrada', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
@@ -357,7 +357,7 @@ $(function () {
             intervalo: $('#FCSaida #s-intervalo').val()
         };
 
-        var dados = Funcoes.Ajax('Financeiro/CadastroFCSaida', data5);
+        var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCSaida', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
@@ -694,7 +694,7 @@ $(function () {
     $('.table').on('click', '.editLanc', function () {
         var idEditLanc = $(this).attr('data-id');
 
-        var dados = Funcoes.Ajax('Financeiro/getLancamentoFC', idEditLanc);
+        var dados = Funcoes.Ajax('Fluxocaixa/getLancamentoFC', idEditLanc);
         if (dados) {
             if (dados.sucesso) {
                 if (dados.tp_fluxo == 1) {
