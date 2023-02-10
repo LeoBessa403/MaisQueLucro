@@ -291,13 +291,13 @@ $(function () {
             co_representacao: $('#FCEntrada #co_representacao').val(),
             co_centro_custo: $('#FCEntrada #co_centro_custo').val(),
             ds_descricao: $('#FCEntrada #ds_descricao').val(),
-            co_Fluxocaixa: $('#FCEntrada #co_Fluxocaixa').val(),
+            co_fluxo_caixa: $('#FCEntrada #co_fluxo_caixa').val(),
             nu_repetidos: $('#FCEntrada #e-nu_repetidos').val(),
             tp_lanc: $('#FCEntrada #e-tp_lanc').val(),
             intervalo: $('#FCEntrada #e-intervalo').val()
         };
 
-        var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCEntrada', data5);
+        var dados = Funcoes.Ajax('Financeiro/CadastroFCEntrada', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
@@ -351,13 +351,13 @@ $(function () {
             co_representacao: $('#FCSaida #co_representacao').val(),
             co_centro_custo: $('#FCSaida #co_centro_custo').val(),
             ds_descricao: $('#FCSaida #ds_descricao').val(),
-            co_Fluxocaixa: $('#FCSaida #co_Fluxocaixa').val(),
+            co_fluxo_caixa: $('#FCSaida #co_fluxo_caixa').val(),
             nu_repetidos: $('#FCSaida #s-nu_repetidos').val(),
             tp_lanc: $('#FCSaida #s-tp_lanc').val(),
             intervalo: $('#FCSaida #s-intervalo').val()
         };
 
-        var dados = Funcoes.Ajax('Fluxocaixa/CadastroFCSaida', data5);
+        var dados = Funcoes.Ajax('Financeiro/CadastroFCSaida', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();
