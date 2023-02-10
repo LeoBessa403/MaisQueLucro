@@ -32,8 +32,8 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
 
-        $finValidador = new FinanceiroValidador();
-        /** @var FinanceiroValidador $validador */
+        $finValidador = new FluxocaixaValidador();
+        /** @var FluxocaixaValidador $validador */
         $validador = $finValidador->validarFc($dados);
         if ($validador[SUCESSO]) {
             $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
@@ -48,7 +48,7 @@ class  FluxocaixaService extends AbstractService
                 ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
             $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
             $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
-            $fcEnt[CO_CARTEIRA] = $dados[CO_CARTEIRA];
+            $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
             $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
             $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
 
@@ -75,8 +75,8 @@ class  FluxocaixaService extends AbstractService
                 $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_RECEBER;
             }
 
-            if ($dados[CO_FINANCEIRO]) {
-                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FINANCEIRO]);
+            if ($dados[CO_FLUXO_CAIXA]) {
+                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FLUXO_CAIXA]);
                 $retorno[MSG] = ATUALIZADO;
             } else {
                 $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
@@ -163,8 +163,8 @@ class  FluxocaixaService extends AbstractService
         ];
         $PDO->beginTransaction();
 
-        $finValidador = new FinanceiroValidador();
-        /** @var FinanceiroValidador $validador */
+        $finValidador = new FluxocaixaValidador();
+        /** @var FluxocaixaValidador $validador */
         $validador = $finValidador->validarFc($dados);
         if ($validador[SUCESSO]) {
             $fcEnt[TP_PAGAMENTO] = $dados[TP_PAGAMENTO];
@@ -179,7 +179,7 @@ class  FluxocaixaService extends AbstractService
                 ? Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) : null;
             $fcEnt[CO_CONTA_BANCARIA] = $dados[CO_CONTA_BANCARIA];
             $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
-            $fcEnt[CO_CARTEIRA] = $dados[CO_CARTEIRA];
+            $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
             $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
             $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
 
@@ -206,8 +206,8 @@ class  FluxocaixaService extends AbstractService
                 $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_PAGAR;
             }
 
-            if ($dados[CO_FINANCEIRO]) {
-                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FINANCEIRO]);
+            if ($dados[CO_FLUXO_CAIXA]) {
+                $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FLUXO_CAIXA]);
                 $retorno[MSG] = ATUALIZADO;
             } else {
                 $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
@@ -290,7 +290,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
 
-        /** @var FinanceiroEntidade $fc */
+        /** @var FluxocaixaEntidade $fc */
         $fc = $this->PesquisaUmRegistro($dados);
         $valorLancamento = ($fc->getNuValorPago())
             ? $fc->getNuValorPago() : $fc->getNuValor();
@@ -313,7 +313,7 @@ class  FluxocaixaService extends AbstractService
         $retorno[SUCESSO] = $HistSaldoCbService->Salva($histSaldoCB);
 
         if ($retorno[SUCESSO]) {
-            $retorno[SUCESSO] = $this->Deleta($fc->getCoFinanceiro());
+            $retorno[SUCESSO] = $this->Deleta($fc->getCoFluxoCaixa());
             if ($retorno[SUCESSO]) {
                 $retorno[SUCESSO] = true;
                 $retorno[MSG] = DELETADO;
@@ -374,7 +374,7 @@ class  FluxocaixaService extends AbstractService
 
         $PDO->beginTransaction();
         foreach ($fluxos as $fluxo) {
-            /** @var FinanceiroEntidade $fc */
+            /** @var FluxocaixaEntidade $fc */
             $fc = $this->PesquisaUmRegistro($fluxo);
 
             $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"),
@@ -406,7 +406,7 @@ class  FluxocaixaService extends AbstractService
             }
 
             $HistSaldoCbService->Salva($histSaldoCB);
-            $retorno[SUCESSO] = $this->Salva($fcEnt, $fc->getCoFinanceiro());
+            $retorno[SUCESSO] = $this->Salva($fcEnt, $fc->getCoFluxoCaixa());
             $retorno[MSG] = ATUALIZADO;
 
         }
@@ -466,6 +466,11 @@ class  FluxocaixaService extends AbstractService
         return $retorno;
     }
 
+    public function PesquisaAvancadaValorPesquisa()
+    {
+        return $this->ObjetoModel->PesquisaAvancadaValorPesquisa();
+    }
+
     public function PesquisaAvancada($dados)
     {
         $where = $this->montaWherePesquisa($dados);
@@ -484,9 +489,39 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
-    public function PesquisaAvancadaValorPesquisa()
+    public function PesquisaAvancadaGrafico1()
     {
-        return $this->ObjetoModel->PesquisaAvancadaValorPesquisa();
+        $where = $this->montaWherePesquisaGrafico1();
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico1($where);
+    }
+
+    public function PesquisaAvancadaGrafico2()
+    {
+        $where = $this->montaWherePesquisaGrafico1();
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico2($where);
+    }
+
+    public function PesquisaAvancadaGrafico3($dt1, $dt2, $coCats)
+    {
+        $where = $this->montaWherePesquisaGrafico3($dt1, $dt2, $coCats);
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico2($where);
+    }
+
+    public function PesquisaAvancadaGrafico4($dt1, $dt2)
+    {
+        $where = $this->montaWherePesquisaGrafico4($dt1, $dt2);
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico3($where);
+    }
+
+    public function PesquisaAvancadaGrafico5($dt1, $dt2)
+    {
+        $where = $this->montaWherePesquisaGrafico5($dt1, $dt2);
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico4($where);
+    }
+
+    public function PesquisaAvancadaGrafico6()
+    {
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico5();
     }
 
     public function montaWherePesquisa($dados)
@@ -506,8 +541,8 @@ class  FluxocaixaService extends AbstractService
         if (!empty($dados[CO_CONTA_BANCARIA][0])) {
             $where = $where . " and con." . CO_CONTA_BANCARIA . " in (" . $dados[CO_CONTA_BANCARIA][0] . ")";
         }
-        if (!empty($dados[CO_CENTRO_CUSTO][0])) {
-            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO][0] . ")";
+        if (!empty($dados[CO_CARTEIRA][0])) {
+            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA][0] . ")";
         }
         if (!empty($dados[CO_REPRESENTACAO][0])) {
             $where = $where . " and rep." . CO_REPRESENTACAO . " in (" . $dados[CO_REPRESENTACAO][0] . ")";
@@ -521,24 +556,38 @@ class  FluxocaixaService extends AbstractService
         if (!empty($dados[TP_FLUXO][0])) {
             $where = $where . " and tfc." . TP_FLUXO . " in (" . $dados[TP_FLUXO][0] . ")";
         }
-        if (!empty($dados['dt_inicio_lanc'])) {
+        if (!empty($dados[DT_CADASTRO . '_inicio'])) {
             $where = $where . " and tfc." . DT_CADASTRO . " >= '" .
-                Valida::DataDBDate($dados['dt_inicio_lanc']) . " 00:00:00'";
+                Valida::DataDBDate($dados[DT_CADASTRO . '_inicio']) . " 00:00:00'";
         }
-        if (!empty($dados['dt_fim_lanc'])) {
+        if (!empty($dados[DT_CADASTRO . '_fim'])) {
             $where = $where . " and tfc." . DT_CADASTRO . " <= '" .
-                Valida::DataDBDate($dados['dt_fim_lanc']) . " 23:59:59'";
+                Valida::DataDBDate($dados[DT_CADASTRO . '_fim']) . " 23:59:59'";
         }
-        if (!empty($dados[DT_VENCIMENTO])) {
-            $where = $where . " and tfc." . DT_VENCIMENTO . " = '" . Valida::DataDBDate($dados[DT_VENCIMENTO]) . "'";
+        if (!empty($dados[DT_VENCIMENTO . '_inicio'])) {
+            $where = $where . " and tfc." . DT_VENCIMENTO . " >= '" .
+                Valida::DataDBDate($dados[DT_VENCIMENTO . '_inicio']) . " 00:00:00'";
         }
-        if (!empty($dados[DT_REALIZADO])) {
-            $where = $where . " and tfc." . DT_REALIZADO . " = '" . Valida::DataDBDate($dados[DT_REALIZADO]) . "'";
+        if (!empty($dados[DT_VENCIMENTO . '_fim'])) {
+            $where = $where . " and tfc." . DT_VENCIMENTO . " <= '" .
+                Valida::DataDBDate($dados[DT_VENCIMENTO . '_fim']) . " 23:59:59'";
         }
-        if (!empty($dados[NU_VALOR_PAGO])) {
-            $where = $where . " and (tfc." . NU_VALOR_PAGO . " = '" . Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) . "'
-            or tfc." . NU_VALOR . " = '" . Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]) . "')";
+        if (!empty($dados[DT_REALIZADO . '_inicio'])) {
+            $where = $where . " and tfc." . DT_REALIZADO . " >= '" .
+                Valida::DataDBDate($dados[DT_REALIZADO . '_inicio']) . " 00:00:00'";
         }
+        if (!empty($dados[DT_REALIZADO . '_fim'])) {
+            $where = $where . " and tfc." . DT_REALIZADO . " <= '" .
+                Valida::DataDBDate($dados[DT_REALIZADO . '_fim']) . " 23:59:59'";
+        }
+        if ((!empty($dados[NU_VALOR_PAGO . 1])) && (!empty($dados[NU_VALOR_PAGO . 2]))) {
+            $where = $where . " and ((tfc." . NU_VALOR_PAGO . " >= " . $dados[NU_VALOR_PAGO . 1] .
+                " and tfc." . NU_VALOR_PAGO . " <= " . $dados[NU_VALOR_PAGO . 2] . ")
+            or (tfc." . NU_VALOR . " >= " . $dados[NU_VALOR_PAGO . 1] .
+                " and tfc." . NU_VALOR . " <= " . $dados[NU_VALOR_PAGO . 2] . "))";
+        }
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
         return $where;
     }
 
@@ -546,17 +595,26 @@ class  FluxocaixaService extends AbstractService
     {
         $where = 'where 1 = 1';
 
-        if (!empty($dados[CO_CENTRO_CUSTO])) {
-            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO] . ")";
+        if (!empty($dados[CO_CARTEIRA])) {
+            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA] . ")";
         }
         if (!empty($dados['anoPesquisa'])) {
-            $where = $where . " and tfc." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
+            $where = $where . " and ((tfc." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
                     '01/01/' . $dados["anoPesquisa"]) . "'";
         }
         if (!empty($dados['anoPesquisa'])) {
             $where = $where . " and tfc." . DT_REALIZADO . " <= '" . Valida::DataDBDate(
-                    '31/12/' . $dados["anoPesquisa"]) . "'";
+                    '31/12/' . $dados["anoPesquisa"]) . "')";
         }
+        if (!empty($dados['anoPesquisa'])) {
+            $where = $where . " OR (tfc." . DT_VENCIMENTO . " >= '" . Valida::DataDBDate(
+                    '01/01/' . $dados["anoPesquisa"]) . "'";
+        }
+        if (!empty($dados['anoPesquisa'])) {
+            $where = $where . " and tfc." . DT_VENCIMENTO . " <= '" . Valida::DataDBDate(
+                    '31/12/' . $dados["anoPesquisa"]) . "'))";
+        }
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
         return $where;
     }
 
@@ -564,14 +622,67 @@ class  FluxocaixaService extends AbstractService
     {
         $where = 'where 1 = 1';
 
-        if (!empty($dados[CO_CENTRO_CUSTO])) {
-            $where = $where . " and cen." . CO_CENTRO_CUSTO . " in (" . $dados[CO_CENTRO_CUSTO] . ")";
+        if (!empty($dados[CO_CARTEIRA])) {
+            $where = $where . " and cen." . CO_CARTEIRA . " in (" . $dados[CO_CARTEIRA] . ")";
         }
 
         $where = $where . " and tfc." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
                 '01/' . $dados["periodoInicio"]) . "'";
         $where = $where . " and tfc." . DT_REALIZADO . " <= '" . Valida::DataDBDate(
                 '31/' . $dados["periodoFinal"]) . "'";
+
+        $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+    public function montaWherePesquisaGrafico1()
+    {
+        $where = 'where 1 = 1';
+        $where = $where . " and tfi." . CO_CATEGORIA_FC . " in (2,3)";
+        $where = $where . " and " . NU_VALOR_PAGO . " is not null";
+        $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
+        $where = $where . " and tfi." . DT_REALIZADO . " >= '" . Valida::DataDBDate(
+                '01/01/' . date('Y')) . "'";
+        $where = $where . " and tfi." . DT_REALIZADO . " <= '" . Valida::DataDBDate(
+                '31/' . date('m/Y')) . "'";
+        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+    public function montaWherePesquisaGrafico3($dt1, $dt2, $coCats)
+    {
+        $where = 'where 1 = 1';
+        $where = $where . " and tfi." . CO_CATEGORIA_FC . " in (2,3)";
+        $where = $where . " and tfi." . CO_CATEGORIA_FC_FILHA . " in (" . $coCats . ")";
+        $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
+        $where = $where . " and " . NU_VALOR_PAGO . " is not null";
+        $where = $where . " and tfi." . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
+        $where = $where . " and tfi." . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
+        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+    public function montaWherePesquisaGrafico4($dt1, $dt2)
+    {
+        $where = " and " . NU_VALOR_PAGO . " is not null";
+        $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
+        $where = $where . " and " . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
+        $where = $where . " and " . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+    public function montaWherePesquisaGrafico5($dt1, $dt2)
+    {
+        $where = " and " . NU_VALOR_PAGO . " is null";
+        $where = $where . " and " . DT_VENCIMENTO . " >= '" . Valida::DataDBDate($dt1) . "'";
+        $where = $where . " and " . DT_VENCIMENTO . " <= '" . Valida::DataDBDate($dt2) . "'";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
 
         return $where;
     }

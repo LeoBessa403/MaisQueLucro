@@ -75,4 +75,85 @@ class  FluxocaixaModel extends AbstractModel
         return $pesquisa->getResult()[0];
     }
 
+
+    public function PesquisaAvancadaFCGrafico1($where)
+    {
+        $tabela = FluxocaixaEntidade::TABELA . ' tfi
+                inner join TB_CATEGORIA_FC_NETA tcn
+                on tcn.co_categoria_fc_neta = tfi.co_categoria_fc_neta';
+
+        $campos = "tcn.ds_texto, SUM(nu_valor_pago) as total";
+        $pesquisa = new Pesquisa();
+        $where = $where . ' GROUP BY tfi.co_categoria_fc_neta ORDER BY total DESC LIMIT 6';
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+
+        return $pesquisa->getResult();
+    }
+
+    public function PesquisaAvancadaFCGrafico2($where)
+    {
+        $tabela = FluxocaixaEntidade::TABELA . ' tfi
+                inner join TB_CATEGORIA_FC_FILHA tcn
+                on tcn.co_categoria_fc_filha = tfi.co_categoria_fc_filha';
+
+        $campos = "tcn.ds_texto, SUM(nu_valor_pago) as total, tfi.co_categoria_fc_filha";
+        $pesquisa = new Pesquisa();
+        $where = $where . ' GROUP BY tfi.co_categoria_fc_filha ORDER BY total DESC LIMIT 6';
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+
+        return $pesquisa->getResult();
+    }
+
+    public function PesquisaAvancadaFCGrafico3($where)
+    {
+        $campos = "distinct 
+                        (SELECT
+                             sum(nu_valor_pago)
+                         FROM
+                             " . FluxocaixaEntidade::TABELA . "
+                         WHERE co_categoria_fc in(2,3) " . $where . ") AS despesas,
+                        (SELECT
+                             sum(f2.nu_valor_pago)
+                         FROM " . FluxocaixaEntidade::TABELA . " f2
+                         WHERE co_categoria_fc in(1) " . $where . ") AS recebimentos";
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, null, null, $campos);
+
+        return $pesquisa->getResult();
+    }
+
+    public function PesquisaAvancadaFCGrafico4($where)
+    {
+        $campos = "distinct 
+                        (SELECT
+                             sum(nu_valor)
+                         FROM
+                             " . FluxocaixaEntidade::TABELA . "
+                         WHERE co_categoria_fc in(2,3) " . $where . ") AS despesas,
+                        (SELECT
+                             sum(f2.nu_valor)
+                         FROM " . FluxocaixaEntidade::TABELA . " f2
+                         WHERE co_categoria_fc in(1) " . $where . ") AS recebimentos";
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, null, null, $campos);
+
+        return $pesquisa->getResult();
+    }
+
+    public function PesquisaAvancadaFCGrafico5()
+    {
+        $campos = "sum(nu_saldo) as saldo_geral";
+        $where = 'where co_hist_saldo_cb in (SELECT max(hs.co_hist_saldo_cb)
+                            FROM ' . HistSaldoCbEntidade::TABELA . ' hs
+                                     inner join ' . ContaBancariaEntidade::TABELA . ' tcb
+                            on hs.co_conta_bancaria = tcb.co_conta_bancaria
+                            where ' . CO_ASSINANTE . ' in (' . AssinanteService::getCoAssinanteLogado() . ')
+                          group by hs.co_conta_bancaria)';
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar(HistSaldoCbEntidade::TABELA, $where, null, $campos);
+
+        return $pesquisa->getResult()[0];
+    }
+
+
 }
