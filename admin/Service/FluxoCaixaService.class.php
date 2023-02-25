@@ -75,8 +75,6 @@ class  FluxocaixaService extends AbstractService
                 $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::A_RECEBER;
             }
 
-            debug($dados,1);
-
             if ($dados[CO_FLUXO_CAIXA]) {
                 $retorno[SUCESSO] = $this->Salva($fcEnt, $dados[CO_FLUXO_CAIXA]);
                 $retorno[MSG] = ATUALIZADO;
