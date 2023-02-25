@@ -37,6 +37,7 @@ class  HistTransferenciaService extends AbstractService
         $hist[NU_VALOR_TRANSFERIDO] = Valida::FormataMoedaBanco($dados[NU_VALOR_TRANSFERIDO]);
         $hist[DT_CADASTRO] = Valida::DataHoraAtualBanco();
         $hist[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+        $hist[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
 
         /** @var ContaBancariaEntidade $contaOrig */
         $contaOrig = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA_ORIGEM]);
