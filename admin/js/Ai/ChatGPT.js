@@ -21,9 +21,9 @@ $(function () {
                 'temperature': 0.7,
             }),
             success: function(response) {
-                var output = response.choices[0].text.trim();
+                var output = response.choices[0].text.trim().replaceAll('\n\n' , '<br>');
                 $('#output').append('<p><strong>Você:</strong> ' + input + '</p>');
-                $('#output').append('<p><strong>ChatGPT:</strong> ' + output + '</p>');
+                $('#output').append('<p><strong>Ai Sistema:</strong> <br>' + output + '</p><hr>');
             },
             error: function(xhr, status, error) {
                 console.log(xhr.responseText);
