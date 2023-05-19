@@ -283,7 +283,7 @@ class FluxocaixaForm
                 [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Devedor")
+            ->setLabel("Cliente")
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
@@ -425,7 +425,7 @@ class FluxocaixaForm
                 [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
             )
             ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Credor")
+            ->setLabel("Fornecedor")
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
