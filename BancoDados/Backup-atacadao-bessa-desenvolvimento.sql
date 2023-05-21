@@ -1,4 +1,4 @@
--- Atualizado em: 01/02/2023 12:17:19
+-- Atualizado em: 18/05/2023 12:10:01
 -- Link HOME: http://localhost/AtacadaoBessa/
 -- AMBIENTE: 1
 -- BANCO: atacadao10
