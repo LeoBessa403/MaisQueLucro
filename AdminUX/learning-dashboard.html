@@ -12,7 +12,7 @@
 
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="assets/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/favicon180.png" sizes="180x180">
@@ -24,28 +24,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- bootstrap icons -->
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <!-- chosen css -->
-    <link rel="stylesheet" href="assets/css/chosen.min.css">
+    <link rel="stylesheet" href="assets/vendor/chosen_v1.8.7/chosen.min.css">
 
     <!-- date range picker -->
-    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
 
     <!-- swiper carousel css -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper-7.3.1/swiper-bundle.min.css">
 
     <!-- simple lightbox css -->
-    <link rel="stylesheet" href="assets/css/simple-lightbox.min.css">
+    <link rel="stylesheet" href="assets/vendor/simplelightbox/simple-lightbox.min.css">
 
     <!-- app tour css -->
-    <link rel="stylesheet" href="assets/css/lib.css">
+    <link rel="stylesheet" href="assets/vendor/Product-Tour-Plugin-jQuery/lib.css">
 
     <!-- Footable table master css -->
-    <link rel="stylesheet" href="assets/css/footable.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/fooTable/css/footable.bootstrap.min.css">
 
     <!-- style css for this template -->
-    <link href="assets/css/stylePrincipal.css" rel="stylesheet">
+    <link href="assets/scss/style.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column h-100 sidebar-pushcontent sidebar-filled" data-sidebarstyle="sidebar-pushcontent">
@@ -92,7 +92,7 @@
                 <i class="bi bi-list fs-4"></i>
             </button>
             <div class="header-title align-self-center">
-                <h5 class="mb-0">Network</h5>
+                <h5 class="mb-0">Learning</h5>
                 <p class="text-secondary small">Dashboard</p>
             </div>
             <div class="search-header d-none d-xl-block ms-0 ms-xl-3">
@@ -1529,1224 +1529,404 @@
 
     <!-- content -->
     <div class="container">
-        <!-- network server card -->
         <div class="row">
-            <div class="col-12 mb-4 ">
-                <div class="card border-0 ">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-hdd-stack h5 avatar avatar-40 bg-light-theme rounded"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="fw-medium mb-0">Server</h6>
-                                <p class="small text-secondary">Uptime 100%</p>
-                            </div>
-                            <div class="col-4 col-md-5 col-lg-4 col-xl-3 col-xxl-2">
-                                <div class="rounded border">
-                                    <select class="chosenoptgroup one w-100">
-                                        <optgroup label="USA">
-                                            <option>- New York</option>
-                                            <option>- Maxico</option>
-                                        </optgroup>
-                                        <optgroup label="UK">
-                                            <option>- England</option>
-                                            <option>- Scotland</option>
-                                        </optgroup>
-                                        <optgroup label="Asia">
-                                            <option>- China</option>
-                                            <option>- India</option>
-                                        </optgroup>
-                                        <option>Australia</option>
-                                        <option>Dubai</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-auto ms-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0">
+                    <div class="coverimg w-100 h-110 rounded">
+                        <img src="assets/img/bg-5.jpg" class="w-100" alt="" />
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mtop-50 z-index-1 mb-2 text-center">
+                            <div class="card bg-white avatar avatar-100 rounded-circle">
+                                <div class="card-body h-100 w-100 p-1">
+                                    <figure class="h-100 w-100 rounded-circle coverimg mb-0">
+                                        <img src="assets/img/user-4.jpg" alt="" />
+                                    </figure>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12 col-md-12 col-lg-7 col-xl-8 mb-3">
-                                <div class="chartserver">
-                                    <canvas id="chartserver"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
-                                <div class="row">
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartblue1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">Memory</h5>
-                                                <p class="text-secondary small">31.5/32 GB</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressblue1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartgreen1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">CPU</h5>
-                                                <p class="text-secondary small">45% 3.2GHz</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressgreen1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartyellow1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">Network</h5>
-                                                <p class="text-secondary small">6 Gbps</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressyellow1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-12">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartred1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">WiFi-Hathway</h5>
-                                                <p class="text-secondary small">S: 25.00 R: 60.00 in Mbps</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressred1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <h5 class="mb-1">Maxartkiller</h5>
+                        <p class="text-secondary mb-4"><i class="bi bi-geo-alt"></i> New York, USA</p>
 
-        <!-- summary blocks -->
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
-                <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressblue"></div>
-                                    <div class="avatar h6 bg-light-blue rounded-circle">
-                                        <i class="bi bi-pc-display-horizontal"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Connected Devices</p>
-                                <h5 class="fw-medium">70250</h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer border-top">
                         <div class="row">
-                            <div class="col-6">
-                                <p class="text-secondary small mb-1">New Users</p>
-                                <p>5 <small class="fs-12 fw-light text-secondary">This week</small></p>
+                            <div class="col mnw-100 text-center">
+                                <i class="bi bi-trophy h4 avatar avatar-60 bg-light-orange text-orange rounded-circle mb-2"></i>
+                                <h5 class="increamentcount mb-0">2586</h5>
+                                <p class="small text-secondary">Level 3</p>
                             </div>
-                            <div class="col-6 border-left-dashed">
-                                <p class="text-secondary small mb-1">Total Users</p>
-                                <p>65826</p>
+                            <div class="col mnw-100 text-center">
+                                <i class="bi bi-award h4 avatar avatar-60 bg-light-green text-green rounded-circle mb-2"></i>
+                                <h5 class="increamentcount mb-0">1583</h5>
+                                <p class="small text-secondary">Your Rank</p>
+                            </div>
+                            <div class="col mnw-100 text-center">
+                                <i class="bi bi-clipboard-check h4 avatar avatar-60 bg-light-yellow text-yellow rounded-circle mb-2"></i>
+                                <h5 class="increamentcount mb-0">1356</h5>
+                                <p class="small text-secondary">Tasks Done</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
-                <div class="card border-0 mb-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <div class="card bg-radial-gradient text-white border-0 text-center">
+                            <div class="card-body py-3 bg-none">
+                                <i class=" bi bi-book avatar avatar-50 bg-light-white rounded-circle h4 mb-3 d-inline-block"></i>
+                                <h4 class="mb-1">24</h4>
+                                <p class="small">Courses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card theme-yellow bg-radial-gradient text-white border-0 text-center">
+                            <div class="card-body bg-none py-3">
+                                <i class="bi bi-trophy avatar avatar-50 bg-light-white rounded-circle h4 mb-3 d-inline-block"></i>
+                                <h4 class="mb-1">15</h4>
+                                <p class="small">Certification</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 overflow-hidden">
+                    <div class="card-body position-relative">
+                        <div class="coverimg w-75 h-100 end-0 top-0 position-absolute cover-right-center-img">
+                            <img src=" assets/img/offer-1.png" class="w-100" alt="" />
+                        </div>
+                        <div class="row align-items-center h-100">
+                            <div class="col-9 py-2">
+                                <h4 class="text-theme">Earn 20%</h4>
+                                <h5 class="fw-medium">Make your wallet even bigger</h5>
+                                <p class="text-secondary">Share your referral code to your friends and earn flat 20% amount.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm border-0 h-100">
                     <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressgreen"></div>
-                                    <div class="avatar h5 bg-light-green text-green rounded-circle">
-                                        <i class="bi bi-people"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Online Users</p>
-                                <h5 class="fw-medium">25486</h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer border-top">
-                        <div class="row">
+                        <figure class="coverimg rounded w-100 h-150 mb-3">
+                            <img src="assets/img/business-1.jpg" class="w-100" alt="" />
+                        </figure>
+                        <h5 class="mb-1">Business Development Module</h5>
+                        <p class="text-secondary mb-3">A-Z of business structure and startups</p>
+                        <div class="row gx-2 mb-2">
                             <div class="col-6">
-                                <p class="text-secondary small mb-1">New Device</p>
-                                <p>2 <small class="fs-12 fw-light text-secondary">This week</small></p>
+                                <p class="text-secondary"><i class="bi bi-book avatar avatar-24 me-1"></i> 30 Lessons</p>
                             </div>
-                            <div class="col-6 border-left-dashed">
-                                <p class="text-secondary small mb-1">Total Device</p>
-                                <p>71521</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
-                <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressyellow"></div>
-                                    <div class="avatar h5 bg-light-yellow text-yellow rounded-circle">
-                                        <i class="bi bi-speedometer"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Internet Speed</p>
-                                <h5 class="fw-medium">60 <small>Mbps <span class="fs-12 fw-light text-secondary">Average 2hours</span></small></h5>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer border-top">
-                        <div class="row">
                             <div class="col-6">
-                                <p class="text-secondary small mb-1">Hathway</p>
-                                <p>55.68 Mbps</p>
-                            </div>
-                            <div class="col-6 border-left-dashed">
-                                <p class="text-secondary small mb-1">AT&T</p>
-                                <p>70.75 Mbps</p>
+                                <p class="text-secondary"><i class="bi bi-clock avatar avatar-24 me-1"></i> 24 hrs/week</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
-                <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressredbug"></div>
-                                    <div class="avatar h5 bg-light-red rounded-circle">
-                                        <i class="bi bi-bug"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row gx-0">
-                                    <div class="col">
-                                        <p class="text-secondary small mb-1">Ticket Created</p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <p class="text-secondary small mb-1">This week</p>
-                                    </div>
-                                </div>
-                                <h5 class="fw-medium">521</h5>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer border-top">
-                        <div class="row">
+                        <div class="row gx-2">
                             <div class="col-6">
-                                <p class="text-secondary small mb-1">Resolved</p>
-                                <p class="text-green">421</p>
+                                <p class="text-secondary"><i class="bi bi-clipboard-check avatar avatar-24 me-1"></i> 30 Exams</p>
                             </div>
-                            <div class="col-6 border-left-dashed">
-                                <p class="text-secondary small mb-1">In Progress</p>
-                                <p class="text-yellow">50</p>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-journal-bookmark avatar avatar-24 me-1"></i> 2 Projects</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Devices installation and access -->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-shield-check h5 me-1 avatar avatar-40 bg-light-green text-green rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Secure Surfing</h6>
-                                <p class="text-secondary small">Limited Category Access</p>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <table class="table table-borderless footable2 mb-0" data-show-toggle="true">
-                            <thead class="d-none">
-                            <tr class="text-muted">
-                                <th class="w-12"></th>
-                                <th class="w-200">Connection</th>
-                                <th data-breakpoints="xs sm" class="w-80">Devices</th>
-                                <th data-breakpoints="all">Status</th>
-                                <th data-breakpoints="all" data-title="Description">Description</th>
-                                <th data-breakpoints="all" data-title="Users">Users</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi1" checked="">
-                                        <label class="form-check-label" for="tableactionwifi1"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-red text-red rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>4</b> <small class="text-secondary">Portfolio, Internal portal</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
-                                </td>
-                                <td>
-                                    This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi2">
-                                        <label class="form-check-label" for="tableactionwifi2"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>5</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
-                                </td>
-                                <td>
-                                    Waiting room area open network low speed connectivity or visitors.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi3" checked="">
-                                        <label class="form-check-label" for="tableactionwifi3"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 4</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi4" checked="">
-                                        <label class="form-check-label" for="tableactionwifi4"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi5" checked="">
-                                        <label class="form-check-label" for="tableactionwifi5"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>4</b> <small class="text-secondary">Portfolio, Internal portal</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
-                                </td>
-                                <td>
-                                    This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi6" checked="">
-                                        <label class="form-check-label" for="tableactionwifi6"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>5</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
-                                </td>
-                                <td>
-                                    Waiting room area open network low speed connectivity or visitors.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi7" checked="">
-                                        <label class="form-check-label" for="tableactionwifi7"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer text-center">
-                        <div class="row align-items-center">
-                            <div class="col-12 mb-2">
-                                    <span class="hide-if-no-paging">
-                                        <span id="footablestot2"></span> page
-                                    </span>
-                            </div>
-                            <div class="col-12" id="footable-pagination2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--charts category summary-->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3 ">
-                <div class="card border-0 theme-green mb-4">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-0">Cost for devices</p>
-                                <h6 class="fw-medium">1542 <small>USD</small></h6>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <div class="smallchart90 my-2">
-                            <canvas id="mediumchartgreen1"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="card border-0 theme-red mb-4">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-0">Cost for Internet</p>
-                                <h6 class="fw-medium">1522 <small>USD</small></h6>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <div class="smallchart90 my-2">
-                            <canvas id="mediumchartred1"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Devices installation and access -->
-            <div class="col-12 col-xxl-5 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-wifi h5 me-1 avatar avatar-40 bg-light-purple text-purple rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">WiFi Router</h6>
-                                <p class="text-secondary small">5 Active | 1 Inactive</p>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <table class="table table-borderless footable3 mb-0" data-show-toggle="true">
-                            <thead class="d-none">
-                            <tr class="text-muted">
-                                <th class="w-12"></th>
-                                <th class="w-200">Router </th>
-                                <th data-breakpoints="xs sm" class="w-80">Password</th>
-                                <th data-breakpoints="xs" class="w-80">Connected</th>
-                                <th data-breakpoints="all">Status</th>
-                                <th data-breakpoints="all" data-title="Description">Description</th>
-                                <th data-breakpoints="all" data-title="Users">Users</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi11" checked="">
-                                        <label class="form-check-label" for="tableactionwifi11"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-red text-red rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>3652</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">2142 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
-                                </td>
-                                <td>
-                                    This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi21">
-                                        <label class="form-check-label" for="tableactionwifi21"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Cafeteria </p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>4251</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">3500 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
-                                </td>
-                                <td>
-                                    Waiting room area open network low speed connectivity or visitors.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi31" checked="">
-                                        <label class="form-check-label" for="tableactionwifi31"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 4</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi41" checked="">
-                                        <label class="form-check-label" for="tableactionwifi41"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi51" checked="">
-                                        <label class="form-check-label" for="tableactionwifi51"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
-                                </td>
-                                <td>
-                                    This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi61" checked="">
-                                        <label class="form-check-label" for="tableactionwifi61"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
-                                </td>
-                                <td>
-                                    Waiting room area open network low speed connectivity or visitors.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi71" checked="">
-                                        <label class="form-check-label" for="tableactionwifi71"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
                     </div>
                     <div class="card-footer">
-                        <div class="row align-items-center text-center">
-                            <div class="col-12 mb-2">
-                                    <span class="hide-if-no-paging">
-                                        <span id="footablestot3"></span> page
-                                    </span>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-theme">80<span class="fw-normal text-secondary">% Done</span></h6>
                             </div>
-                            <div class="col-12" id="footable-pagination3"></div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-sm btn-outline-theme">Continue <i class="bi bi-play"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- track users and courses -->
+            <div class="col-12 col-md-12 col-lg-12 col-xl-8 col-xxl-9 mb-4 ">
+                <!-- add class to parent when customize column width dropdown added -->
+                <div class="card border-0">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-medium mb-0">Courses Activity</h6>
+                                <p class="small text-secondary">Total Joined this month 5215 </p>
+                            </div>
+                            <div class="col-auto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 ">
+                        <div class="bigchart150 mt-2 cut-5">
+                            <canvas id="areachart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12 col-md-4 col-lg-3 mb-4 mb-md-0">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="circle-small">
+                                            <div id="circleprogressblue2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-secondary small mb-1">Involved</p>
+                                        <h5>1024 <small>students</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3 mb-4 mb-md-0">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 rounded bg-light-red">
+                                            <i class="bi bi-cast h5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-secondary small mb-1">Course Material</p>
+                                        <h5 class="text-dark mb-0">1652 <small class="h6">videos</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3 mb-md-0">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 rounded bg-light-green">
+                                            <i class="bi bi-people h5"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-secondary small mb-1">Students Joined</p>
+                                        <h5 class="text-dark mb-0">1251 <small class="h6 text-secondary">125 referral</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- useful support -->
+            <div class="col-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 mb-4 ">
+                <!-- consultations -->
+                <div class="card border-0 theme-red bg-gradient-theme-light mb-4">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <i class="bi bi-life-preserver h5 avatar avatar-40 bg-light-theme rounded"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-medium mb-0">Get Mentorship</h6>
+                                <p class="small text-secondary">Guide better</p>
+                            </div>
+                            <div class="col-auto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body py-3">
+                        <p>Free & flexibility of mentorship allows to understand better needs and direction</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="" class="btn btn-sm btn-outline-danger">Try now!</a>
+                    </div>
+                </div>
+                <!-- Targets -->
+                <div class="card border-0 theme-yellow bg-gradient-theme-light">
+                    <div class="card-body">
+                        <div class="row align-items-center mb-3">
+                            <div class="col-auto">
+                                <i class="bi bi-bullseye h5 avatar avatar-40 bg-light-theme rounded"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-medium mb-0">Life's Goal</h6>
+                                <p class="small text-secondary">Target should be visible</p>
+                            </div>
+                        </div>
+                        <h5 class="text-theme mb-1">Get Mentorship</h5>
+                        <p>Free & flexibility of mentorship allows to understand better needs and direction</p>
+                        <p><a href="">Set now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- joined people summary-->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3">
+                <div class="card border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0">1542 <small class="h6">students</small></h4>
+                                <p class="small">11 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogressblue1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <figure class="coverimg rounded w-100 h-150 mb-3">
+                            <img src="assets/img/business-2.jpg" class="w-100" alt="" />
+                        </figure>
+                        <h5 class="mb-1">Data communication and signal strength</h5>
+                        <p class="text-secondary mb-3">Network to Internet making Intranet</p>
+                        <div class="row gx-2 mb-2">
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-book avatar avatar-24 me-1"></i> 30 Lessons</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clock avatar avatar-24 me-1"></i> 24 hrs/week</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clipboard-check avatar avatar-24 me-1"></i> 30 Exams</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-journal-bookmark avatar avatar-24 me-1"></i> 2 Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-none p-0">
+                        <div class="smallchart65 cut-5 mb-2">
+                            <canvas id="areachartblue1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3">
+                <div class="card border-0 mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0">325 <small class="h6">Joined</small></h4>
+                                <p class="small">12 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogressgreen1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <figure class="coverimg rounded w-100 h-150 mb-3">
+                            <img src="assets/img/business-3.jpg" class="w-100" alt="" />
+                        </figure>
+                        <h5 class="mb-1">Easily making money via blockchain</h5>
+                        <p class="text-secondary mb-3">All you need to work about blockchain</p>
+                        <div class="row gx-2 mb-2">
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-book avatar avatar-24 me-1"></i> 30 Lessons</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clock avatar avatar-24 me-1"></i> 24 hrs/week</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clipboard-check avatar avatar-24 me-1"></i> 30 Exams</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-journal-bookmark avatar avatar-24 me-1"></i> 2 Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-none p-0">
+                        <div class="smallchart65 cut-5 mb-2">
+                            <canvas id="areachartgreen1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3">
+                <div class="card border-0 mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0">2015 <small class="h6">In groups</small></h4>
+                                <p class="small">62 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogressyellow1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <figure class="coverimg rounded w-100 h-150 mb-3">
+                            <img src="assets/img/business-4.jpg" class="w-100" alt="" />
+                        </figure>
+                        <h5 class="mb-1">Home furnishing & appliance Management</h5>
+                        <p class="text-secondary mb-3">Design and Adjust space around</p>
+                        <div class="row gx-2 mb-2">
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-book avatar avatar-24 me-1"></i> 30 Lessons</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clock avatar avatar-24 me-1"></i> 24 hrs/week</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clipboard-check avatar avatar-24 me-1"></i> 30 Exams</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-journal-bookmark avatar avatar-24 me-1"></i> 2 Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-none p-0">
+                        <div class="smallchart65 cut-5 mb-2">
+                            <canvas id="areachartyellow1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 d-block d-xl-none d-xxl-block">
+                <div class="card border-0 mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0">178 <small class="h6">Joined</small></h4>
+                                <p class="small">18 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogressred1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <figure class="coverimg rounded w-100 h-150 mb-3">
+                            <img src="assets/img/business-5.jpg" class="w-100" alt="" />
+                        </figure>
+                        <h5 class="mb-1">Be a good and create good Presentations</h5>
+                        <p class="text-secondary mb-3">How to convince viewer</p>
+                        <div class="row gx-2 mb-2">
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-book avatar avatar-24 me-1"></i> 30 Lessons</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clock avatar avatar-24 me-1"></i> 24 hrs/week</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-clipboard-check avatar avatar-24 me-1"></i> 30 Exams</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-secondary"><i class="bi bi-journal-bookmark avatar avatar-24 me-1"></i> 2 Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-none p-0">
+                        <div class="smallchart65 cut-5 mb-2">
+                            <canvas id="areachartred1"></canvas>
                         </div>
                     </div>
                 </div>
@@ -2755,157 +1935,118 @@
 
         <div class="row mb-4 py-2">
             <div class="col text-center">
-                <h4><span class="text-gradient">Responsibility</span> comes with Reputed Job & <span class="text-gradient">remain attached</span></h4>
-                <p class="text-secondary">Along with giving permission you have to track it and think about data security.</p>
+                <h4>Learning is life, <span class="text-gradient">Explore more and Rewrite</span> an lessons you have learn't</h4>
+                <p class="text-secondary">You should learn and explore opportunities. If there is obstacles, try to remove it and improvise.</p>
             </div>
         </div>
 
         <div class="row">
-            <!-- Ticket Resolution track -->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card border-0 mb-4">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-auto">
                                 <div class="circle-small">
-                                    <div id="circleprogressblue2"></div>
-                                    <div class="avatar h5 bg-light-blue text-blue rounded-circle">
-                                        <i class="bi bi-patch-check"></i>
+                                    <div id="circleprogressblue"></div>
+                                    <div class="avatar h5 bg-light-blue rounded-circle">
+                                        <i class="bi bi-people"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
-                                <h6 class="fw-medium mb-0">Ticket Resolution</h6>
-                                <p class="text-secondary small">Last 6 Months</p>
+                                <p class="text-secondary small mb-1">Total Users</p>
+                                <h5 class="fw-medium">125.15 m</h5>
                             </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5>115824 <small class="fs-12 fw-light text-green">18.71 (0.73%)</small></h5>
-                        <div class="h-80">
-                            <canvas id="barchart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Server space -->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-cloud-download h5 avatar avatar-40 bg-light-green text-green rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Azure server</h6>
-                                <p class="text-secondary small">Accessed Data</p>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card border-0 mb-4">
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <div class="col">
-                                <h5>105 Gb <small class="fs-12 fw-light text-green">of 150 Gb</small></h5>
-                            </div>
                             <div class="col-auto">
-                                <p class="text-secondary small">1548k Files</p>
+                                <div class="circle-small">
+                                    <div id="circleprogressyellow"></div>
+                                    <div class="avatar h5 bg-light-yellow text-yellow rounded-circle">
+                                        <i class="bi bi-credit-card"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-secondary small mb-1">Amount Received</p>
+                                <h5 class="fw-medium">1255.00 m <small>USD</small></h5>
                             </div>
                         </div>
-                        <div class="progress h-30 my-3">
-                            <div class="progress-bar bg-blue w-110" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-yellow w-80px" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-red w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-light-blue w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <p class="text-secondary small d-inline-block"><span class="avatar avatar-10 bg-blue me-1"></span>HTML</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-yellow me-1"></span>CSS</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-red me-1"></span>JS</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-light-blue me-1"></span>Other</p>
                     </div>
                 </div>
             </div>
-            <!-- Shared Drive -->
-            <div class="col-12 col-md-12 col-lg-12 col-xxl-4 mb-4 ">
-                <div class="card bg-yellow text-white border-0 h-100">
-                    <div class="card-header bg-none">
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card border-0 mb-4">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <i class="bi bi-folder h5 avatar avatar-40 bg-light-white text-white rounded"></i>
+                                <div class="circle-small">
+                                    <div id="circleprogressredsum"></div>
+                                    <div class="avatar h5 bg-light-red text-red rounded-circle">
+                                        <i class="bi bi-receipt-cutoff"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
-                                <h6 class="fw-medium mb-0">Shared Drive</h6>
-                                <p class="text-muted small">Documents and Files </p>
+                                <p class="text-secondary small mb-1">Subscription</p>
+                                <h5 class="fw-medium">1525 <small>k USD</small></h5>
                             </div>
-
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+                <div class="card bg-theme border-0 mb-4">
                     <div class="card-body bg-none">
                         <div class="row align-items-center">
-                            <div class="col">
-                                <h5>105 Gb <small class="fs-12 fw-light text-muted">of 150 Gb</small></h5>
-                            </div>
                             <div class="col-auto">
-                                <p class="text-muted small">1548k Files</p>
+                                <div class="circle-small">
+                                    <div id="circleprogresswhite"></div>
+                                    <div class="avatar h5 bg-light-white text-white rounded-circle">
+                                        <i class="bi bi-envelope-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-muted small mb-1">New Authors</p>
+                                <h5 class="fw-medium">15</h5>
+                            </div>
+                            <div class="col-auto ps-0 avatar-group">
+                                <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
+                                    <img src="assets/img/user-2.jpg" alt="" />
+                                </figure>
+                                <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
+                                    <img src="assets/img/user-3.jpg" alt="" />
+                                </figure>
+                                <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
+                                    <img src="assets/img/user-4.jpg" alt="" />
+                                </figure>
                             </div>
                         </div>
-                        <div class="progress bg-light-white h-30 my-3">
-                            <div class="progress-bar bg-blue w-110" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-green w-80px" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-red w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-light-blue w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <p class="text-muted small d-inline-block"><span class="avatar avatar-10 bg-blue me-1"></span>HTML</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-green me-1"></span>CSS</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-red me-1"></span>JS</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-light-blue me-1"></span>Other</p>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-xxl-8 position-relative ">
-                <!-- Grid table-->
-                <div class="card border-0 mb-4">
+            <!-- Users and Transaction -->
+            <div class="col-12 col-lg-12 col-xl-8 col-xxl-9 mb-4 position-relative ">
+                <div class="card border-0">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-auto mb-2">
                                 <i class="bi bi-shop h5 avatar avatar-40 bg-light-theme rounded"></i>
                             </div>
                             <div class="col mb-2">
-                                <h6 class="d-inline-block mb-0">Tickets Raised</h6>
-                                <p class="text-secondary small">All Open Tickets</p>
+                                <h6 class="fw-medium mb-0">Expense</h6>
+                                <p class="text-secondary small">All Transactions</p>
                             </div>
-                            <div class="col-12 col-sm-auto mb-2">
-                                <div class="rounded">
-                                    <select class="chosenoptgroup two w-100">
-                                        <option>All Categories</option>
-                                        <optgroup label="Food">
-                                            <option>- Work</option>
-                                            <option>- Home</option>
-                                        </optgroup>
-                                        <optgroup label="Children">
-                                            <option>- Fees</option>
-                                            <option>- Enjoyment</option>
-                                        </optgroup>
-                                        <optgroup label="Transportation">
-                                            <option>- Personal</option>
-                                            <option>- Work</option>
-                                        </optgroup>
-                                        <optgroup label="Home">
-                                            <option>- Rent</option>
-                                            <option>- Maintenance</option>
-                                        </optgroup>
-                                        <option>Personal</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
+                            <div class="col-12 col-md-auto">
                                 <div class="input-group ">
                                     <span class="input-group-text text-theme"><i class="bi bi-search"></i></span>
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -2913,46 +2054,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table footable" data-show-toggle="true">
+                    <div class="card-body p-0">
+                        <table class="table table-borderless footable" data-show-toggle="true">
                             <thead>
                             <tr class="text-muted">
                                 <th class="w-12"></th>
-                                <th class="">ID</th>
-                                <th>Raised By</th>
-                                <th data-breakpoints="xs sm">Contact Details</th>
-                                <th data-breakpoints="xs sm">Assigned To</th>
-                                <th data-breakpoints="xs">Status</th>
-                                <th>Action</th>
+                                <th class="">User</th>
+                                <th data-breakpoints="xs">Course Name</th>
+                                <th data-breakpoints="xs">Amount</th>
+                                <th data-breakpoints="xs md">Date</th>
+                                <th data-breakpoints="xs md">Status</th>
+                                <th data-breakpoints="all" data-title="Deliver to">Deliver to</th>
+                                <th data-breakpoints="all" data-title="Address">Address</th>
+                                <th data-breakpoints="all" data-title="Location">Location</th>
+                                <th data-breakpoints="xs">Payment</th>
+                                <th class="w-auto">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td></td>
-                                <td>2054ID</td>
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-1.jpg" alt="" />
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-2.jpg" alt="" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-0">David Warner</p>
+                                            <p class="mb-0">Janita Johnson</p>
                                             <p class="text-secondary small">United Kingdom</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="mb-0">david@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
+                                    <p class="mb-0">Laravel 53</p>
+                                    <p class="text-secondary small">LaraWell University</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0">Jr. Sing</p>
-                                    <p class="text-secondary small">Technical Helpdesk</p>
+                                    <p class="mb-0 text-green">0.000015</p>
+                                    <p class="text-secondary small">BTC</p>
                                 </td>
                                 <td>
-                                    <span class="badge badge-sm bg-yellow">Pending</span>
+                                    <p class="mb-0">20-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
                                 </td>
                                 <td>
                                     <div class="dropdown d-inline-block">
@@ -2969,27 +2130,99 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>105ID</td>
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
                                                 <img src="assets/img/user-2.jpg" alt="" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-0">Winnie John</p>
-                                            <p class="text-secondary small">Australia</p>
+                                            <p class="mb-0">Jia Sen</p>
+                                            <p class="text-secondary small">Support</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="mb-0">winnie@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
+                                    <p class="mb-0">Medical Science</p>
+                                    <p class="text-secondary small">Yetti University</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0">Brett Lee</p>
-                                    <p class="text-secondary small">Assi. Server Expert</p>
+                                    <p class="mb-0 text-green">12</p>
+                                    <p class="text-secondary small">XMR</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">19-1-2022</p>
+                                    <p class="text-secondary small">6:34 pm</p>
+                                </td>
+                                <td>
+                                    Sent
+                                </td>
+                                <td>
+                                    Self
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-3.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Limba Scollatia</p>
+                                            <p class="text-secondary small">United States</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">Space Life Techsolution</p>
+                                    <p class="text-secondary small">SpaxCE University</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">216.00</p>
+                                    <p class="text-secondary small">DOGE</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">19-1-2022</p>
+                                    <p class="text-secondary small">6:11 pm</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
                                 </td>
                                 <td>
                                     <span class="badge badge-sm bg-blue">Waiting</span>
@@ -3009,147 +2242,211 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>058ID</td>
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-3.jpg" alt="" />
-                                            </figure>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-0">Alicia Smith</p>
-                                            <p class="text-secondary small">United States</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="mb-0">alicia@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0">Gal Seddist</p>
-                                    <p class="text-secondary small">Finance Head</p>
-                                </td>
-                                <td>
-                                    <span class="badge badge-sm bg-green">Complete</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown d-inline-block">
-                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                            <i class="bi bi-three-dots"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>500ID</td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
                                                 <img src="assets/img/user-4.jpg" alt="" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-0">Jr. Chen Li</p>
-                                            <p class="text-secondary small">United Kingdom</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="mb-0">cheli@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0">Tech Guruji</p>
-                                    <p class="text-secondary small">Product Manager</p>
-                                </td>
-                                <td>
-                                    <span class="badge badge-sm bg-red">Rejected</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown d-inline-block">
-                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                            <i class="bi bi-three-dots"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>2054ID</td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-1.jpg" alt="" />
-                                            </figure>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-0">David Warner</p>
-                                            <p class="text-secondary small">United Kingdom</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="mb-0">david@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0">Jr. Sing</p>
-                                    <p class="text-secondary small">Technical Helpdesk</p>
-                                </td>
-                                <td>
-                                    <span class="badge badge-sm bg-yellow">Pending</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown d-inline-block">
-                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                            <i class="bi bi-three-dots"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>105ID</td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-2.jpg" alt="" />
-                                            </figure>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-0">Winnie John</p>
+                                            <p class="mb-0">Johnson Will</p>
                                             <p class="text-secondary small">Australia</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="mb-0">winnie@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
+                                    <p class="mb-0">Jivakala Science</p>
+                                    <p class="text-secondary small">Yetti University</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0">Brett Lee</p>
-                                    <p class="text-secondary small">Assi. Server Expert</p>
+                                    <p class="mb-0 text-green">0.25</p>
+                                    <p class="text-secondary small">ETH</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">19-1-2022</p>
+                                    <p class="text-secondary small">4:05 pm</p>
+                                </td>
+                                <td>
+                                    Received
+                                </td>
+                                <td>
+                                    Self
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-4.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Jack Manjrekar </p>
+                                            <p class="text-secondary small">India</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">Clarity of life</p>
+                                    <p class="text-secondary small">Sunmoon University</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">180.00</p>
+                                    <p class="text-secondary small">USDT</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">19-1-2022</p>
+                                    <p class="text-secondary small">11:35 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-red">Unpaid</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-2.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Sunita Vaidya</p>
+                                            <p class="text-secondary small">Brazil</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">Twin Techsolution</p>
+                                    <p class="text-secondary small">Pancham University</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">12.00</p>
+                                    <p class="text-secondary small">USD</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">19-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-1.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Max John</p>
+                                            <p class="text-secondary small">Tesla City</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">HTML CSS JS</p>
+                                    <p class="text-secondary small">Courserra Cart</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">251.00</p>
+                                    <p class="text-secondary small">USD</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
                                 </td>
                                 <td>
                                     <span class="badge badge-sm bg-blue">Waiting</span>
@@ -3169,30 +2466,46 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>058ID</td>
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-3.jpg" alt="" />
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-2.jpg" alt="" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-0">Alicia Smith</p>
-                                            <p class="text-secondary small">United States</p>
+                                            <p class="mb-0">Celvina Prisma</p>
+                                            <p class="text-secondary small">Meal</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="mb-0">alicia@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
+                                    <p class="mb-0">Medical Science</p>
+                                    <p class="text-secondary small">Yetti University</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0">Gal Seddist</p>
-                                    <p class="text-secondary small">Finance Head</p>
+                                    <p class="mb-0 text-green">12.00</p>
+                                    <p class="text-secondary small">USD</p>
                                 </td>
                                 <td>
-                                    <span class="badge badge-sm bg-green">Complete</span>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
                                 </td>
                                 <td>
                                     <div class="dropdown d-inline-block">
@@ -3209,30 +2522,214 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>500ID</td>
                                 <td>
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <figure class="avatar avatar-50 mb-0 coverimg rounded-circle">
-                                                <img src="assets/img/user-4.jpg" alt="" />
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-3.jpg" alt="" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-0">Jr. Chen Li</p>
-                                            <p class="text-secondary small">United Kingdom</p>
+                                            <p class="mb-0">Jarden Smith</p>
+                                            <p class="text-secondary small">Round Trip</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="mb-0">cheli@sales..core.com</p>
-                                    <p class="text-secondary small">+44 8466585****1154</p>
+                                    <p class="mb-0">Tripod Future</p>
+                                    <p class="text-secondary small">Attas University</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0">Tech Guruji</p>
-                                    <p class="text-secondary small">Product Manager</p>
+                                    <p class="mb-0 text-green">251.00</p>
+                                    <p class="text-secondary small">USD</p>
                                 </td>
                                 <td>
-                                    <span class="badge badge-sm bg-red">Rejected</span>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-blue">Waiting</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-2.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Simpson Devid</p>
+                                            <p class="text-secondary small">Indonesia</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">AI Code development</p>
+                                    <p class="text-secondary small">Googles University</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">0.000015</p>
+                                    <p class="text-secondary small">BTC</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-green">Paid</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-2.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Brett Layna</p>
+                                            <p class="text-secondary small">England</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">Alexa Remote work</p>
+                                    <p class="text-secondary small">Parthiv Shah</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">6.00</p>
+                                    <p class="text-secondary small">USD</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-blue">Waiting</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
+                                                <img src="assets/img/user-4.jpg" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="mb-0">Limba Simba</p>
+                                            <p class="text-secondary small">Russia</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0">Computer basics</p>
+                                    <p class="text-secondary small">Jummla University</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text-green">180.00</p>
+                                    <p class="text-secondary small">USD</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0">18-1-2022</p>
+                                    <p class="text-secondary small">9:00 am</p>
+                                </td>
+                                <td>
+                                    Delivered
+                                </td>
+                                <td>
+                                    John McGra
+                                </td>
+                                <td>
+                                    2356, Street-5, New York 4586, US
+                                </td>
+                                <td>
+                                    <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                    <p class="text-secondary small">This can be a map also</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-red">Unpaid</span>
                                 </td>
                                 <td>
                                     <div class="dropdown d-inline-block">
@@ -3249,8 +2746,9 @@
                             </tr>
                             </tbody>
                         </table>
-
-                        <div class="row align-items-center text-center mx-0">
+                    </div>
+                    <div class="card-footer bg-none">
+                        <div class="row align-items-center text-center">
                             <div class="col-12 mb-2">
                                     <span class="hide-if-no-paging">
                                         Showing <span id="footablestot"></span> page
@@ -3261,271 +2759,53 @@
                     </div>
                 </div>
             </div>
-            <!-- Shared drive files -->
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-xxl-4 mb-4 ">
+            <!-- news blog -->
+            <div class="col-12 col-lg-12 col-xl-4 col-xxl-3 mb-4 ">
                 <div class="card border-0 h-100">
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <i class="bi bi-folder h5 me-1 avatar avatar-40 bg-light-theme rounded"></i>
+                                <i class="bi bi-newspaper h5 me-1 avatar avatar-40 bg-light-green text-green rounded me-2"></i>
                             </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Shared Drive</h6>
-                                <p class="text-secondary small">Documents and Files</p>
+                            <div class="col ps-0">
+                                <h6 class="fw-medium mb-0">Trending line</h6>
+                                <p class="text-secondary small">Learningnews</p>
                             </div>
                             <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body px-1 pb-0">
-                        <table class="table table-borderless mb-0 w-100">
-                            <thead class="d-none">
-                            <tr class="text-muted">
-                                <th class="w-200">File</th>
-                                <th data-breakpoints="xs sm" class="w-80">Shared with</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-card-image avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Presentation</p>
-                                            <p class="text-secondary small">200 kb</p>
-                                        </div>
+                    <div class="coverimg w-100 h-180 position-relative">
+                        <div class="position-absolute bottom-0 start-0 w-100 mb-3 px-3 z-index-1">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-sm btn-outline-light btn-rounded">Share this</button>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropup d-inline-block">
+                                        <a class="btn btn-square btn-sm rounded-circle btn-outline-light dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-hand-thumbs-up me-1 text-green"></i> Recommendation this</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-hand-thumbs-down me-1 text-danger"></i> Don't recommend</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-star text-yellow"></i> Add to favorite</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Report this</a></li>
+                                        </ul>
                                     </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>15+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-file-earmark-word avatar avatar-40 bg-light-blue rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Project Requirement</p>
-                                            <p class="text-secondary small">150 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>15+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-file-earmark-spreadsheet avatar avatar-40 bg-light-green text-green rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Timesheet</p>
-                                            <p class="text-secondary small">120 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>13+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-1.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-file-earmark-slides avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Presentation</p>
-                                            <p class="text-secondary small">350 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>5+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-1.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-card-image avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Presentation</p>
-                                            <p class="text-secondary small">200 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>15+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-card-image avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Preview</p>
-                                            <p class="text-secondary small">210 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>15+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-card-image avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Preview</p>
-                                            <p class="text-secondary small">210 kb</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-end">
-                                    <div class="row gx-2 align-items-center">
-                                        <div class="col text-end">
-                                            <p class="text-secondary small mb-0">Shared with</p>
-                                            <p>15+ </p>
-                                        </div>
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="assets/img/business-2.jpg" class="mw-100" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="mb-2">Marketing for business are not the same for all. </h5>
+                        <p class="text-secondary">We have added useful, widgets, flexible. If you still reading this, you are in love with this design. <a href="blog-4.html">Read more...</a> </p>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
@@ -3687,7 +2967,6 @@
 <!-- Rightbar -->
 <div class="rightbar-wrap">
     <div class="rightbar">
-
         <!-- chat window -->
         <div class="chatwindow d-none" id="chatwindow">
             <div class="card border-0 h-100">
@@ -4563,7 +3842,7 @@
 <!-- Required jquery and libraries -->
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.bundle.js"></script>
+<script src="assets/vendor/bootstrap-5/dist/js/bootstrap.bundle.js"></script>
 
 <!-- Customized jquery file  -->
 <script src="assets/js/main.js"></script>
@@ -4573,35 +3852,33 @@
 <script src="assets/js/pwa-services.js"></script>
 
 <!-- date range picker -->
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/daterangepicker.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
 
 <!-- chosen script -->
-<script src="assets/js/chosen.jquery.min.js"></script>
-
-
+<script src="assets/vendor/chosen_v1.8.7/chosen.jquery.min.js"></script>
 
 <!-- Chart js script -->
-<script src="assets/js/chart.min.js"></script>
+<script src="assets/vendor/chart-js-3.3.1/chart.min.js"></script>
 
 <!-- Progress circle js script -->
-<script src="assets/js/progressbar.min.js"></script>
+<script src="assets/vendor/progressbar-js/progressbar.min.js"></script>
 
 <!-- swiper js script -->
-<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/vendor/swiper-7.3.1/swiper-bundle.min.js"></script>
 
 <!-- Simple lightbox script -->
-<script src="assets/js/simple-lightbox.jquery.min.js"></script>
+<script src="assets/vendor/simplelightbox/simple-lightbox.jquery.min.js"></script>
 
 <!-- app tour script-->
-<script src="assets/js/lib.js"></script>
+<script src="assets/vendor/Product-Tour-Plugin-jQuery/lib.js"></script>
 
 <!-- Footable table master script-->
-<script src="assets/js/footable.min.js"></script>
+<script src="assets/vendor/fooTable/js/footable.min.js"></script>
 
 <!-- page level script here -->
 <script src="assets/js/header-title.js"></script>
-<script src="assets/js/network-dashboard.js"></script>
+<script src="assets/js/learning-dashboard.js"></script>
 
 </body>
 

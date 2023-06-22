@@ -92,8 +92,8 @@
                 <i class="bi bi-list fs-4"></i>
             </button>
             <div class="header-title align-self-center">
-                <h5 class="mb-0">Network</h5>
-                <p class="text-secondary small">Dashboard</p>
+                <h5 class="mb-0">Devices</h5>
+                <p class="text-secondary small">Management</p>
             </div>
             <div class="search-header d-none d-xl-block ms-0 ms-xl-3">
                 <div class="input-group input-group-md w-300">
@@ -888,7 +888,7 @@
                                     <a class="dropdown-item nav-link" href="inventory-stock.html">
                                         <div class="avatar avatar-40 icon"><i class="bi bi-clipboard-check"></i>
                                         </div>
-                                        <div class="col align-self-center">Stock</div>
+                                        <div class="col align-self-center">Stock Management</div>
                                         <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                     </a>
                                 </li>
@@ -1529,138 +1529,448 @@
 
     <!-- content -->
     <div class="container">
-        <!-- network server card -->
+
+        <!-- devices chart connection-->
         <div class="row">
-            <div class="col-12 mb-4 ">
-                <div class="card border-0 ">
+            <div class="col-12 col-md-12 col-xl-8">
+                <div class="card border-0 mb-4">
                     <div class="card-header">
                         <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-hdd-stack h5 avatar avatar-40 bg-light-theme rounded"></i>
+                            <div class="col-auto mb-2">
+                                <i class="bi bi-building h5 me-1 avatar avatar-40 bg-light-theme rounded"></i>
                             </div>
-                            <div class="col-auto">
-                                <h6 class="fw-medium mb-0">Server</h6>
-                                <p class="small text-secondary">Uptime 100%</p>
+                            <div class="col mb-2">
+                                <h6 class="fw-medium mb-0">Office Space</h6>
+                                <p class="text-secondary small">6 <span class="text-green">Active</span>, 1 <span class="text-red">Inactive</span> Device</p>
                             </div>
-                            <div class="col-4 col-md-5 col-lg-4 col-xl-3 col-xxl-2">
-                                <div class="rounded border">
-                                    <select class="chosenoptgroup one w-100">
-                                        <optgroup label="USA">
-                                            <option>- New York</option>
-                                            <option>- Maxico</option>
-                                        </optgroup>
-                                        <optgroup label="UK">
-                                            <option>- England</option>
-                                            <option>- Scotland</option>
-                                        </optgroup>
-                                        <optgroup label="Asia">
-                                            <option>- China</option>
-                                            <option>- India</option>
-                                        </optgroup>
-                                        <option>Australia</option>
-                                        <option>Dubai</option>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group rounded border">
+                                    <select class="simplechosen" multiple>
+                                        <option selected>Office Space</option>
+                                        <option>Office two</option>
+                                        <option>Meeting Room 1</option>
+                                        <option selected>Kitchen 1</option>
+                                        <option selected>Gate 2</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-auto ms-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
+                            <div class="col-auto">
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12 col-md-12 col-lg-7 col-xl-8 mb-3">
-                                <div class="chartserver">
-                                    <canvas id="chartserver"></canvas>
+                            <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-7 mb-3 mb-xl-0">
+                                <div class="position-relative">
+                                    <div class="position-absolute start-0 top-0 w-100 p-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                    <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                        <span class="avatar avatar-20 rounded-circle bg-red me-1"></span> Live
+                                                    </span>
+                                            </div>
+                                            <div class="col-auto">
+                                                    <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                        <i class="bi bi-fullscreen vm"></i>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <figure class="h-250 w-100 rounded border coverimg mb-3">
+                                        <img src="assets/img/business-5.jpg" class="w-100" alt="" />
+                                    </figure>
+                                </div>
+                                <div class="row gx-3">
+                                    <div class="col-6">
+                                        <div class="position-relative">
+                                            <div class="position-absolute start-0 top-0 w-100 p-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                                <span class="avatar avatar-10 rounded-circle bg-red me-1"></span> Live
+                                                            </span>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                                <i class="bi bi-fullscreen vm"></i>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <figure class="h-150 w-100 rounded border coverimg mb-0">
+                                                <img src="assets/img/business-4.jpg" class="w-100" alt="" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="position-relative">
+                                            <div class="position-absolute start-0 top-0 w-100 p-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                                <span class="avatar avatar-10 rounded-circle bg-red me-1"></span> Live
+                                                            </span>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                                <i class="bi bi-fullscreen vm"></i>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <figure class="h-150 w-100 rounded border coverimg mb-0">
+                                                <img src="assets/img/news-3.jpg" class="w-100" alt="" />
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12 col-lg-5 col-xl-4">
+                            <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-5">
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 h5 bg-green text-white rounded-circle">
+                                            <i class="bi bi-thermometer-sun"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col ps-0">
+                                        <p class="text-secondary small mb-1">Temperature</p>
+                                        <h5 class="fw-medium">45 <small><sup>0</sup>C, Office R-32</small></h5>
+                                    </div>
+                                </div>
                                 <div class="row">
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartblue1"></canvas>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-yellow position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-fan avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-red position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-snow2 avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-laptop avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-pc-display-horizontal avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0 opacity-5">
+                                            <div class=" card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-blue position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-printer avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-cast avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card border-0">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-music-player avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                        <div class="card shadow-none border-0 bg-light-theme">
+                                            <div class="card-body position-relative bg-none">
+                                                <i class="bi bi-plus avatar avatar-40 h4 text-theme"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 class="fw-medium mb-3">Lights</h6>
+                                <div class="row">
+                                    <div class="col-auto text-center mb-3">
+                                        <div class="card border-0 mb-2">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-yellow position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-lightbulb avatar avatar-60 h4 text-theme b-2"></i>
+                                                <div class="row gx-0 align-items-center">
+                                                    <div class="col">
+                                                        <div class="form-check form-switch d-inline-block mx-auto">
+                                                            <input class="form-check-input" type="checkbox" role="switch" id="bulb1">
+                                                            <label class="form-check-label mx-0" for="bulb1"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <p class="small text-trucate text-secondary">9w</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">Memory</h5>
-                                                <p class="text-secondary small">31.5/32 GB</p>
+                                        </div>
+                                        <p class="small text-trucate text-secondary">1-Main Room</p>
+                                    </div>
+                                    <div class="col-auto text-center mb-3">
+                                        <div class="card border-0 mb-2">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-red position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-lamp avatar avatar-60 h4 text-theme b-2"></i>
+                                                <div class="row gx-0 align-items-center">
+                                                    <div class="col">
+                                                        <div class="form-check form-switch d-inline-block mx-auto">
+                                                            <input class="form-check-input" type="checkbox" role="switch" id="bulb2">
+                                                            <label class="form-check-label mx-0" for="bulb2"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <p class="small text-trucate text-secondary">18w</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressblue1"></div>
+                                        </div>
+                                        <p class="small text-trucate text-secondary">2-MyRoom</p>
+                                    </div>
+                                    <div class="col-auto text-center mb-3">
+                                        <div class="card border-0 mb-2">
+                                            <div class="card-body position-relative">
+                                                <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                                <i class="bi bi-lightbulb avatar avatar-60 h4 text-theme b-2"></i>
+                                                <div class="row gx-0 align-items-center">
+                                                    <div class="col">
+                                                        <div class="form-check form-switch d-inline-block mx-auto">
+                                                            <input class="form-check-input" type="checkbox" role="switch" id="bulb3" checked>
+                                                            <label class="form-check-label mx-0" for="bulb3"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <p class="small text-trucate text-secondary">9w</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="small text-trucate text-secondary">1-Outdoor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row mb-3">
+                            <div class="col-auto">
+                                <div class="avatar avatar-50 h5 bg-light-yellow rounded">
+                                    <i class="bi bi-lightning"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-secondary small mb-1">Power Consumptions</p>
+                                <h5>30 Wph</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="avatar avatar-50 h5 bg-light-green rounded">
+                                    <i class="bi bi-sun"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-secondary small mb-1">PV Generation</p>
+                                <h5>45 Wph</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="avatar avatar-50 h5 bg-light-red rounded">
+                                    <i class="bi bi-wind"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-secondary small mb-1">Wind</p>
+                                <h5>60 kmph</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="avatar avatar-50 h5 bg-light-blue rounded">
+                                    <i class="bi bi-moisture"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-secondary small mb-1">Moisture</p>
+                                <h5>30% </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-xl-4">
+                <div class="card border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <i class="bi bi-building h5 me-1 avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-medium mb-0">Meeting Room</h6>
+                                <p class="text-secondary small">6 <span class="text-green">Active</span>, 1 <span class="text-red">Inactive</span> Device</p>
+                            </div>
+                            <div class="col-auto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="position-relative">
+                            <div class="position-absolute start-0 top-0 w-100 p-3">
+                                <div class="row">
+                                    <div class="col">
+                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                <span class="avatar avatar-20 rounded-circle bg-red me-1"></span> Live
+                                            </span>
+                                    </div>
+                                    <div class="col-auto">
+                                            <span class="btn btn-light btn-sm btn-rounded shadow-sm">
+                                                <i class="bi bi-fullscreen vm"></i>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <figure class="h-250 w-100 rounded border coverimg mb-3">
+                                <img src="assets/img/business-5.jpg" class="w-100" alt="" />
+                            </figure>
+                        </div>
+                        <h6 class="fw-medium mb-3">Devices</h6>
+                        <div class="row">
+                            <div class="col-3 text-center mb-3">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-yellow position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-lightbulb avatar avatar-40 h4 text-secondary b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb12">
+                                                    <label class="form-check-label mx-0" for="bulb12"></label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartgreen1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">CPU</h5>
-                                                <p class="text-secondary small">45% 3.2GHz</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressgreen1"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center mb-3">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-red position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-lamp avatar avatar-40 h4 text-secondary b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb22">
+                                                    <label class="form-check-label mx-0" for="bulb22"></label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6 col-lg-12 mb-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartyellow1"></canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">Network</h5>
-                                                <p class="text-secondary small">6 Gbps</p>
-                                            </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressyellow1"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center mb-3">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-lightbulb avatar avatar-40 h4 text-theme b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb32" checked>
+                                                    <label class="form-check-label mx-0" for="bulb32"></label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6 col-lg-12">
-                                        <div class="row align-items-center">
-                                            <div class="col-4">
-                                                <div class="border rounded">
-                                                    <div class="smallchart50 mb-2">
-                                                        <canvas id="areachartred1"></canvas>
-                                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center mb-3">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-fan avatar avatar-40 h4 text-red b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb42" checked>
+                                                    <label class="form-check-label mx-0" for="bulb42"></label>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <h5 class="fw-medium mb-1">WiFi-Hathway</h5>
-                                                <p class="text-secondary small">S: 25.00 R: 60.00 in Mbps</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-yellow position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-snow2 avatar avatar-40 h4 text-secondary b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb52">
+                                                    <label class="form-check-label mx-0" for="bulb52"></label>
+                                                </div>
                                             </div>
-                                            <div class="col-auto ps-0">
-                                                <div class="circle-small">
-                                                    <div id="circleprogressred1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-red position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-pc-display-horizontal avatar avatar-40 h4 text-secondary b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb62">
+                                                    <label class="form-check-label mx-0" for="bulb62"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-cast avatar avatar-40 h4 text-green b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb72" checked>
+                                                    <label class="form-check-label mx-0" for="bulb72"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center">
+                                <div class="card border-0">
+                                    <div class="card-body position-relative">
+                                        <span class="avatar avatar-6 rounded-circle bg-green position-absolute top-0 end-0 m-1"></span>
+                                        <i class="bi bi-fan avatar avatar-40 h4 text-theme b-2"></i>
+                                        <div class="row gx-0 align-items-center">
+                                            <div class="col-auto mx-auto">
+                                                <div class="form-check form-switch d-inline-block mx-auto px-0">
+                                                    <input class="form-check-input mx-0" type="checkbox" role="switch" id="bulb82" checked>
+                                                    <label class="form-check-label mx-0" for="bulb82"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1675,43 +1985,25 @@
 
         <!-- summary blocks -->
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+            <div class="col-6 col-md-3">
                 <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressblue"></div>
-                                    <div class="avatar h6 bg-light-blue rounded-circle">
-                                        <i class="bi bi-pc-display-horizontal"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Connected Devices</p>
-                                <h5 class="fw-medium">70250</h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
+                    <div class="card-body text-center">
+                        <div class="circle-medium mx-auto mb-3">
+                            <div id="circleprogressblue"></div>
+                            <div class="avatar h4 bg-light-blue rounded-circle">
+                                <i class="bi bi-pc-display-horizontal"></i>
                             </div>
                         </div>
+                        <p class="text-secondary small mb-1">Connected Devices</p>
+                        <h5 class="fw-medium">70250</h5>
                     </div>
                     <div class="card-footer border-top">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 mb-3">
                                 <p class="text-secondary small mb-1">New Users</p>
                                 <p>5 <small class="fs-12 fw-light text-secondary">This week</small></p>
                             </div>
-                            <div class="col-6 border-left-dashed">
+                            <div class="col-12">
                                 <p class="text-secondary small mb-1">Total Users</p>
                                 <p>65826</p>
                             </div>
@@ -1719,43 +2011,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+            <div class="col-6 col-md-3">
                 <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressgreen"></div>
-                                    <div class="avatar h5 bg-light-green text-green rounded-circle">
-                                        <i class="bi bi-people"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Online Users</p>
-                                <h5 class="fw-medium">25486</h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
+                    <div class="card-body text-center">
+                        <div class="circle-medium mx-auto mb-3">
+                            <div id="circleprogressgreen"></div>
+                            <div class="avatar h4 bg-light-green rounded-circle">
+                                <i class="bi bi-people"></i>
                             </div>
                         </div>
+                        <p class="text-secondary small mb-1">Online Users</p>
+                        <h5 class="fw-medium">25486</h5>
                     </div>
                     <div class="card-footer border-top">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 mb-3">
                                 <p class="text-secondary small mb-1">New Device</p>
                                 <p>2 <small class="fs-12 fw-light text-secondary">This week</small></p>
                             </div>
-                            <div class="col-6 border-left-dashed">
+                            <div class="col-12">
                                 <p class="text-secondary small mb-1">Total Device</p>
                                 <p>71521</p>
                             </div>
@@ -1763,43 +2037,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+            <div class="col-6 col-md-3">
                 <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressyellow"></div>
-                                    <div class="avatar h5 bg-light-yellow text-yellow rounded-circle">
-                                        <i class="bi bi-speedometer"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-1">Internet Speed</p>
-                                <h5 class="fw-medium">60 <small>Mbps <span class="fs-12 fw-light text-secondary">Average 2hours</span></small></h5>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
+                    <div class="card-body text-center">
+                        <div class="circle-medium mx-auto mb-3">
+                            <div id="circleprogressyellow"></div>
+                            <div class="avatar h4 bg-light-yellow rounded-circle">
+                                <i class="bi bi-speedometer"></i>
                             </div>
                         </div>
+                        <p class="text-secondary small mb-1">Internet Speed</p>
+                        <h5 class="fw-medium">60 <small>Mbps <span class="fs-12 fw-light text-secondary">Average 2hours</span></small></h5>
                     </div>
                     <div class="card-footer border-top">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 mb-3">
                                 <p class="text-secondary small mb-1">Hathway</p>
                                 <p>55.68 Mbps</p>
                             </div>
-                            <div class="col-6 border-left-dashed">
+                            <div class="col-12">
                                 <p class="text-secondary small mb-1">AT&T</p>
                                 <p>70.75 Mbps</p>
                             </div>
@@ -1807,52 +2063,263 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+            <div class="col-6 col-md-3">
                 <div class="card border-0 mb-4">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressredbug"></div>
-                                    <div class="avatar h5 bg-light-red rounded-circle">
-                                        <i class="bi bi-bug"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row gx-0">
-                                    <div class="col">
-                                        <p class="text-secondary small mb-1">Ticket Created</p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <p class="text-secondary small mb-1">This week</p>
-                                    </div>
-                                </div>
-                                <h5 class="fw-medium">521</h5>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="dropdown d-inline-block">
-                                    <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                        <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                    </ul>
-                                </div>
+                    <div class="card-body text-center">
+                        <div class="circle-medium mx-auto mb-3">
+                            <div id="circleprogressredbug"></div>
+                            <div class="avatar h4 bg-light-red rounded-circle">
+                                <i class="bi bi-bug"></i>
                             </div>
                         </div>
+                        <p class="text-secondary small mb-1">Ticket Created</p>
+                        <h5 class="fw-medium">521</h5>
                     </div>
                     <div class="card-footer border-top">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 mb-3">
                                 <p class="text-secondary small mb-1">Resolved</p>
                                 <p class="text-green">421</p>
                             </div>
-                            <div class="col-6 border-left-dashed">
+                            <div class="col-12">
                                 <p class="text-secondary small mb-1">In Progress</p>
                                 <p class="text-yellow">50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devices -->
+        <div class="row ">
+            <div class="col-12 mb-4 ">
+                <div class="row align-items-center mb-3">
+                    <div class="col-auto">
+                        <i class="bi bi-pc-display h5 avatar avatar-40 bg-light-red text-red rounded"></i>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-medium mb-0">Device Listing</h6>
+                        <p class="text-secondary small">Usage and Restrictions by Devices</p>
+                    </div>
+
+                </div>
+                <div class="swiper swiperauto">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID2584</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist1" checked="">
+                                                <label class="form-check-label" for="deviceslist1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-laptop h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Laptop</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-people"></i> Developers</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">25 Department</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID2658</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist7" checked="">
+                                                <label class="form-check-label" for="deviceslist7"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-laptop h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Laptop</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-people"></i> Developers</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">Lizaardius Team</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">7:45 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID3658</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist2">
+                                                <label class="form-check-label" for="deviceslist2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-pc-display-horizontal h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Computer</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-people"></i> Designer</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">Design setup</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">7:5 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID2698</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist3" checked="">
+                                                <label class="form-check-label" for="deviceslist3"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-router h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Router</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-people"></i> Meeting Room</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">Meeting Room 1</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">6:00 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID6584</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist4" checked="">
+                                                <label class="form-check-label" for="deviceslist4"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-printer h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Printer</h6>
+                                    <p class="text-secondary small">RDV20658</p>
+                                    <p><i class="bi bi-people"></i> HR Team</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">Meeting Room 1</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">8:00 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">ID2584</h6>
+                                            <p class="text-secondary small">John Doe</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="deviceslist5" checked="">
+                                                <label class="form-check-label" for="deviceslist5"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <i class="bi bi-laptop h1 d-block mb-3 text-red"></i>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Laptop</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-people"></i> Developers</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">Meeting Room 1</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Uptime</p>
+                                            <p class="small">8:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1893,8 +2360,6 @@
                             <tr class="text-muted">
                                 <th class="w-12"></th>
                                 <th class="w-200">Connection</th>
-                                <th data-breakpoints="xs sm" class="w-80">Devices</th>
-                                <th data-breakpoints="all">Status</th>
                                 <th data-breakpoints="all" data-title="Description">Description</th>
                                 <th data-breakpoints="all" data-title="Users">Users</th>
                                 <th>Action</th>
@@ -1904,23 +2369,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-theme text-theme rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
+                                                2.4 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 1</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-green">Active</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
                                 </td>
                                 <td>
                                     This is located at first floor near B201 room. Assigned for 25-30 employees.
@@ -1954,23 +2415,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-red text-red rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-red text-red rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
+                                                3.2 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Conference Room 1</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-red">Inactive</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>4</b> <small class="text-secondary">Portfolio, Internal portal</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
                                 </td>
                                 <td>
                                     This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
@@ -2004,23 +2461,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-yellow text-yellow rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
+                                                2.4 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 2</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-yellow">Idle</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>5</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
                                 </td>
                                 <td>
                                     Waiting room area open network low speed connectivity or visitors.
@@ -2054,23 +2507,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 4</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-theme text-theme rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
+                                                2.4 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 4</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-green">Active</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
                                 </td>
                                 <td>
                                     This is located at first floor near B201 room. Assigned for 25-30 employees.
@@ -2104,23 +2553,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-theme text-theme rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
+                                                3.6 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 1</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-green">Active</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
                                 </td>
                                 <td>
                                     This is located at first floor near B201 room. Assigned for 25-30 employees.
@@ -2154,23 +2599,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-theme text-theme rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
+                                                2.4 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 1</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-green">Active</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>4</b> <small class="text-secondary">Portfolio, Internal portal</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-red">Inactive</span>
                                 </td>
                                 <td>
                                     This is located at 2nd floor Conference room. Assigned for 4 employees who are in meeting.
@@ -2204,23 +2645,19 @@
                             <tr>
                                 <td class="w-12"></td>
                                 <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto text-center">
+                                            <i class="bi bi-wifi avatar avatar-60 bg-light-theme text-theme rounded mb-2"></i>
                                             <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
+                                                2.4 GHz
                                             </p>
                                         </div>
+                                        <div class="col ps-0">
+                                            <h6 class="mb-1 text-trucate w-100">Meeting Room 1</h6>
+                                            <p class="text-trucate w-100 mb-0"><b>10</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
+                                            <p class="text-green">Active</p>
+                                        </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100"><b>5</b> <small class="text-secondary">No Jobs, Ads Blocker</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
                                 </td>
                                 <td>
                                     Waiting room area open network low speed connectivity or visitors.
@@ -2254,8 +2691,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer text-center">
-                        <div class="row align-items-center">
+                    <div class="card-footer">
+                        <div class="row align-items-center text-center">
                             <div class="col-12 mb-2">
                                     <span class="hide-if-no-paging">
                                         <span id="footablestot2"></span> page
@@ -2266,60 +2703,64 @@
                     </div>
                 </div>
             </div>
-            <!--charts category summary-->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-3 ">
-                <div class="card border-0 theme-green mb-4">
+            <!-- Ticket Resolution track -->
+            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 ">
+                <div class="card border-0 mb-4">
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
+                                <div class="circle-small">
+                                    <div id="circleprogressblue2"></div>
+                                    <div class="avatar h5 bg-light-blue text-blue rounded-circle">
+                                        <i class="bi bi-patch-check"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
-                                <p class="text-secondary small mb-0">Cost for devices</p>
-                                <h6 class="fw-medium">1542 <small>USD</small></h6>
+                                <h6 class="fw-medium mb-0">Ticket Resolution</h6>
+                                <p class="text-secondary small">Last 6 Months</p>
                             </div>
                             <div class="col-auto">
                             </div>
                         </div>
                     </div>
-                    <div class="card-body px-0">
-                        <div class="smallchart90 my-2">
-                            <canvas id="mediumchartgreen1"></canvas>
+                    <div class="card-body">
+                        <div class="h-180 mb-3">
+                            <canvas id="barchart"></canvas>
                         </div>
-                    </div>
-                </div>
-                <div class="card border-0 theme-red mb-4">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
-                            </div>
-                            <div class="col">
-                                <p class="text-secondary small mb-0">Cost for Internet</p>
-                                <h6 class="fw-medium">1522 <small>USD</small></h6>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <div class="smallchart90 my-2">
-                            <canvas id="mediumchartred1"></canvas>
-                        </div>
-                    </div>
-                </div>
 
+                        <div class="row align-items-center mb-1">
+                            <div class="col">
+                                <h5>115824 <small class="fs-12 fw-light text-green">18.71 (0.73%)</small></h5>
+                            </div>
+                            <div class="col-auto">
+                                <p class="text-secondary small">101 This week</p>
+                            </div>
+                        </div>
+                        <p class="text-secondary">18 member are into support of all queries. 25 Tech. Developers to resolve bugs on time.</p>
+                        <div class="progress h-30 my-3">
+                            <div class="progress-bar bg-blue w-110" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-yellow w-80px" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-red w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-light-blue w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p class="text-secondary small d-inline-block"><span class="avatar avatar-10 bg-blue me-1"></span>Closed</p>
+                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-yellow me-1"></span>In progress</p>
+                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-red me-1"></span>Rejected</p>
+                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-light-blue me-1"></span>Feedback</p>
+                    </div>
+                </div>
             </div>
             <!-- Devices installation and access -->
-            <div class="col-12 col-xxl-5 mb-4 ">
-                <div class="card border-0 h-100">
+            <div class="col-12 col-xxl-4 mb-4 ">
+                <div class="card border-0 h-100 ">
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <i class="bi bi-wifi h5 me-1 avatar avatar-40 bg-light-purple text-purple rounded"></i>
+                                <i class="bi bi-laptop h5 me-1 avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
                             </div>
                             <div class="col">
-                                <h6 class="fw-medium mb-0">WiFi Router</h6>
+                                <h6 class="fw-medium mb-0">Devices Control</h6>
                                 <p class="text-secondary small">5 Active | 1 Inactive</p>
                             </div>
                             <div class="col-auto">
@@ -2341,9 +2782,8 @@
                             <thead class="d-none">
                             <tr class="text-muted">
                                 <th class="w-12"></th>
-                                <th class="w-200">Router </th>
-                                <th data-breakpoints="xs sm" class="w-80">Password</th>
-                                <th data-breakpoints="xs" class="w-80">Connected</th>
+                                <th class="w-200">Device </th>
+                                <th data-breakpoints="all" class="w-80">Password</th>
                                 <th data-breakpoints="all">Status</th>
                                 <th data-breakpoints="all" data-title="Description">Description</th>
                                 <th data-breakpoints="all" data-title="Users">Users</th>
@@ -2356,23 +2796,18 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
+                                            <i class="bi bi-router h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
+                                            <p class="text-trucate w-100 mb-0">Jack's Laptop</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
+                                            <p class="text-green small">Active</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="text-trucate w-100 mb-0">getWindoor1</p>
                                     <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
                                 </td>
                                 <td>
                                     <span class="badge bg-success">Active</span>
@@ -2411,23 +2846,18 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-red text-red rounded"></i>
+                                            <i class="bi bi-pc-display-horizontal h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-red">Inactive</span>
-                                            </p>
+                                            <p class="text-trucate w-100 mb-0">Max's Desktop set</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
+                                            <p class="text-red small">Inactive</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="text-trucate w-100 mb-0">getWindoor1</p>
                                     <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>3652</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">2142 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
                                 </td>
                                 <td>
                                     <span class="badge bg-red">Inactive</span>
@@ -2466,23 +2896,18 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-yellow text-yellow rounded"></i>
+                                            <i class="bi bi-printer h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Cafeteria </p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
+                                            <p class="text-trucate w-100 mb-0">ID854721 Printer</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
+                                            <p class="text-yellow small">Idle</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="text-trucate w-100 mb-0">getWindoor1</p>
                                     <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>4251</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">3500 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
                                 </td>
                                 <td>
                                     <span class="badge bg-yellow">Idle</span>
@@ -2521,23 +2946,18 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
+                                            <i class="bi bi-pc-display h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 4</p>
-                                            <p class="text-secondary small">
-                                                2.4 GHz | <span class="text-green">Active</span>
-                                            </p>
+                                            <p class="text-trucate w-100 mb-0">Test Desktop</p>
+                                            <p class="text-secondary small mb-0">Mon-Sun, 9:00 am to 7:30 pm</p>
+                                            <p class="text-green small">Active</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="text-trucate w-100 mb-0">getWindoor1</p>
                                     <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
                                 </td>
                                 <td>
                                     <span class="badge bg-success">Active</span>
@@ -2576,10 +2996,63 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
+                                            <i class="bi bi-printer h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 1</p>
+                                            <p class="text-trucate w-100 mb-0">ID854721 Printer</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
+                                            <p class="text-secondary small">
+                                                1.05 GHz | <span class="text-yellow">Idle</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
+                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
+                                </td>
+                                <td>
+                                    <span class="badge bg-yellow">Idle</span>
+                                </td>
+                                <td>
+                                    Waiting room area open network low speed connectivity or visitors.
+                                </td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto avatar-group">
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
+                                                <img src="assets/img/user-2.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
+                                                <img src="assets/img/user-3.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
+                                                <img src="assets/img/user-4.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p class="mb-0">18+ users</p>
+                                            <p class="text-secondary small">Connected</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi71" checked="">
+                                        <label class="form-check-label" for="tableactionwifi71"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-12"></td>
+                                <td class="w-200">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <i class="bi bi-pc-display h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="text-trucate w-100 mb-0">Test Desktop</p>
+                                            <p class="text-secondary small mb-0">Mon-Sun, 9:00 am to 7:30 pm</p>
                                             <p class="text-secondary small">
                                                 2.4 GHz | <span class="text-green">Active</span>
                                             </p>
@@ -2591,8 +3064,54 @@
                                     <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
                                 </td>
                                 <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
+                                    <span class="badge bg-success">Active</span>
+                                </td>
+                                <td>
+                                    This is located at first floor near B201 room. Assigned for 25-30 employees.
+                                </td>
+                                <td>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto avatar-group">
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
+                                                <img src="assets/img/user-2.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
+                                                <img src="assets/img/user-3.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
+                                                <img src="assets/img/user-4.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p class="mb-0">18+ users</p>
+                                            <p class="text-secondary small">Connected</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi81" checked="">
+                                        <label class="form-check-label" for="tableactionwifi81"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-12"></td>
+                                <td class="w-200">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <i class="bi bi-router h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
+                                        </div>
+                                        <div class="col ps-0">
+                                            <p class="text-trucate w-100 mb-0">Jack's Laptop</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
+                                            <p class="text-secondary small">2.4 GHz | <span class="text-green">Active</span></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
+                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
                                 </td>
                                 <td>
                                     <span class="badge bg-success">Active</span>
@@ -2631,10 +3150,11 @@
                                 <td class="w-200">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
+                                            <i class="bi bi-pc-display-horizontal h5 avatar avatar-60 bg-light-theme text-theme rounded"></i>
                                         </div>
                                         <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Conference 1</p>
+                                            <p class="text-trucate w-100 mb-0">Max's Desktop set</p>
+                                            <p class="text-secondary small mb-0">Mon-Fri, 9:00 am to 7:30 pm</p>
                                             <p class="text-secondary small">
                                                 2.4 GHz | <span class="text-red">Inactive</span>
                                             </p>
@@ -2643,11 +3163,7 @@
                                 </td>
                                 <td>
                                     <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
+                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> *********</p>
                                 </td>
                                 <td>
                                     <span class="badge bg-red">Inactive</span>
@@ -2676,63 +3192,8 @@
                                 </td>
                                 <td>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi61" checked="">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi61">
                                         <label class="form-check-label" for="tableactionwifi61"></label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-12"></td>
-                                <td class="w-200">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <i class="bi bi-wifi avatar avatar-40 bg-light-theme rounded"></i>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <p class="mb-1 text-trucate w-100">Meeting Room 2</p>
-                                            <p class="text-secondary small">
-                                                1.05 GHz | <span class="text-yellow">Idle</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0">getWindoor1</p>
-                                    <p class="text-secondary small"><i class="bi bi-eye vm"></i> **********</p>
-                                </td>
-                                <td>
-                                    <p class="text-trucate w-100 mb-0"><b>6525</b> <small class="text-secondary">Devices</small></p>
-                                    <p class="small">6120 <small class="text-secondary">Desktop</small>, 150 <small class="text-secondary">Laptops</small></p>
-                                </td>
-                                <td>
-                                    <span class="badge bg-yellow">Idle</span>
-                                </td>
-                                <td>
-                                    Waiting room area open network low speed connectivity or visitors.
-                                </td>
-                                <td>
-                                    <div class="row align-items-center">
-                                        <div class="col-auto avatar-group">
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                                <img src="assets/img/user-2.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                                <img src="assets/img/user-3.jpg" alt="">
-                                            </figure>
-                                            <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                                <img src="assets/img/user-4.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p class="mb-0">18+ users</p>
-                                            <p class="text-secondary small">Connected</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="tableactionwifi71" checked="">
-                                        <label class="form-check-label" for="tableactionwifi71"></label>
                                     </div>
                                 </td>
                             </tr>
@@ -2755,113 +3216,260 @@
 
         <div class="row mb-4 py-2">
             <div class="col text-center">
-                <h4><span class="text-gradient">Responsibility</span> comes with Reputed Job & <span class="text-gradient">remain attached</span></h4>
-                <p class="text-secondary">Along with giving permission you have to track it and think about data security.</p>
+                <h4>Best design can get user's <span class="text-gradient">Attention</span> & saves <span class="text-gradient">Time/Money</span></h4>
+                <p class="text-secondary">In this universe you may find lots of elements and designs. But serve best which user really need.</p>
             </div>
         </div>
 
+        <!-- Users -->
         <div class="row">
-            <!-- Ticket Resolution track -->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="circle-small">
-                                    <div id="circleprogressblue2"></div>
-                                    <div class="avatar h5 bg-light-blue text-blue rounded-circle">
-                                        <i class="bi bi-patch-check"></i>
+            <div class="col-12 mb-4 ">
+                <div class="row align-items-center mb-3">
+                    <div class="col-auto">
+                        <i class="bi bi-people h5 avatar avatar-40 bg-light-theme rounded"></i>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-medium mb-0">Users Listing</h6>
+                        <p class="text-secondary small">Usage and Restrictions applied to users</p>
+                    </div>
+
+                </div>
+                <div class="swiper swiperauto">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist1" checked="">
+                                                <label class="form-check-label" for="userlist1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-1.jpg" alt="" />
+                                    </figure>
+
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> John Diode</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-laptop"></i> Laptop</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">25 Department</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Ticket Resolution</h6>
-                                <p class="text-secondary small">Last 6 Months</p>
-                            </div>
-                            <div class="col-auto">
-                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <h5>115824 <small class="fs-12 fw-light text-green">18.71 (0.73%)</small></h5>
-                        <div class="h-80">
-                            <canvas id="barchart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Server space -->
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-4 mb-4 ">
-                <div class="card border-0 h-100">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-cloud-download h5 avatar avatar-40 bg-light-green text-green rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Azure server</h6>
-                                <p class="text-secondary small">Accessed Data</p>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5>105 Gb <small class="fs-12 fw-light text-green">of 150 Gb</small></h5>
-                            </div>
-                            <div class="col-auto">
-                                <p class="text-secondary small">1548k Files</p>
-                            </div>
-                        </div>
-                        <div class="progress h-30 my-3">
-                            <div class="progress-bar bg-blue w-110" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-yellow w-80px" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-red w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-light-blue w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <p class="text-secondary small d-inline-block"><span class="avatar avatar-10 bg-blue me-1"></span>HTML</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-yellow me-1"></span>CSS</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-red me-1"></span>JS</p>
-                        <p class="text-secondary small d-inline-block ms-2"><span class="avatar avatar-10 bg-light-blue me-1"></span>Other</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Shared Drive -->
-            <div class="col-12 col-md-12 col-lg-12 col-xxl-4 mb-4 ">
-                <div class="card bg-yellow text-white border-0 h-100">
-                    <div class="card-header bg-none">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-folder h5 avatar avatar-40 bg-light-white text-white rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Shared Drive</h6>
-                                <p class="text-muted small">Documents and Files </p>
-                            </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist2" checked="">
+                                                <label class="form-check-label" for="userlist2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-2.jpg" alt="" />
+                                    </figure>
 
-                        </div>
-                    </div>
-                    <div class="card-body bg-none">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5>105 Gb <small class="fs-12 fw-light text-muted">of 150 Gb</small></h5>
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Mitali D'Souza</h6>
+                                    <p class="text-secondary small">125.125.265.1</p>
+                                    <p><i class="bi bi-laptop"></i> Laptop</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">25 Department</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-auto">
-                                <p class="text-muted small">1548k Files</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist3">
+                                                <label class="form-check-label" for="userlist3"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-3.jpg" alt="" />
+                                    </figure>
+
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Alliana Captain</h6>
+                                    <p class="text-secondary small">125.225.254.1</p>
+                                    <p><i class="bi bi-pc-display-horizontal"></i> Computer</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">21-Designer</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="progress bg-light-white h-30 my-3">
-                            <div class="progress-bar bg-blue w-110" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-green w-80px" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-red w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-light-blue w-10" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist4" checked="">
+                                                <label class="form-check-label" for="userlist4"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-1.jpg" alt="" />
+                                    </figure>
+
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Dr. Batista</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-pc"></i> Remote PC</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">HR Team</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-muted small d-inline-block"><span class="avatar avatar-10 bg-blue me-1"></span>HTML</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-green me-1"></span>CSS</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-red me-1"></span>JS</p>
-                        <p class="text-muted small d-inline-block ms-2"><span class="avatar avatar-10 bg-light-blue me-1"></span>Other</p>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist5">
+                                                <label class="form-check-label" for="userlist5"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-4.jpg" alt="" />
+                                    </figure>
+
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> Terence Lewis</h6>
+                                    <p class="text-secondary small">125.126.214.1</p>
+                                    <p><i class="bi bi-pc-display"></i> Laptop</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">25 Department</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card border-0 w-250">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium mb-0">Developers</h6>
+                                            <p class="text-secondary small">12 Restrictions</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="userlist6" checked="">
+                                                <label class="form-check-label" for="userlist6"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <figure class="avatar avatar-100 coverimg mb-3 rounded-circle">
+                                        <img src="assets/img/user-1.jpg" alt="" />
+                                    </figure>
+
+                                    <h6 class="mb-1"><span class="avatar avatar-10 bg-green me-1 rounded-circle vm"></span> John Diode</h6>
+                                    <p class="text-secondary small">125.125.254.1</p>
+                                    <p><i class="bi bi-laptop"></i> Laptop</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-7">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-wifi"></i> Connection</p>
+                                            <p class="small w-100 text-truncate">25 Department</p>
+                                        </div>
+                                        <div class="col-5 text-end">
+                                            <p class="text-secondary small mb-0"><i class="bi bi-clock"></i> Session</p>
+                                            <p class="small">9:15 hrs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2876,7 +3484,7 @@
                             <div class="col-auto mb-2">
                                 <i class="bi bi-shop h5 avatar avatar-40 bg-light-theme rounded"></i>
                             </div>
-                            <div class="col mb-2">
+                            <div class="col align-self-center mb-2">
                                 <h6 class="d-inline-block mb-0">Tickets Raised</h6>
                                 <p class="text-secondary small">All Open Tickets</p>
                             </div>
@@ -2905,7 +3513,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12 mb-2">
+                            <div class="col-12 ">
                                 <div class="input-group ">
                                     <span class="input-group-text text-theme"><i class="bi bi-search"></i></span>
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -2913,8 +3521,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table footable" data-show-toggle="true">
+                    <div class="card-body p-0">
+                        <table class="table footable1" data-show-toggle="true">
                             <thead>
                             <tr class="text-muted">
                                 <th class="w-12"></th>
@@ -3249,14 +3857,15 @@
                             </tr>
                             </tbody>
                         </table>
-
-                        <div class="row align-items-center text-center mx-0">
-                            <div class="col-12 mb-2">
-                                    <span class="hide-if-no-paging">
-                                        Showing <span id="footablestot"></span> page
+                    </div>
+                    <div class="card-footer bg-none">
+                        <div class="row align-items-center text-center">
+                            <div class=" col-12 mb-2 ">
+                                    <span class=" hide-if-no-paging">
+                                        Showing <span id="footablestot1"></span> page
                                     </span>
                             </div>
-                            <div class="col-12" id="footable-pagination"></div>
+                            <div class="col-12" id="footable-pagination1"></div>
                         </div>
                     </div>
                 </div>
@@ -4579,8 +5188,6 @@
 <!-- chosen script -->
 <script src="assets/js/chosen.jquery.min.js"></script>
 
-
-
 <!-- Chart js script -->
 <script src="assets/js/chart.min.js"></script>
 
@@ -4601,7 +5208,7 @@
 
 <!-- page level script here -->
 <script src="assets/js/header-title.js"></script>
-<script src="assets/js/network-dashboard.js"></script>
+<script src="assets/js/network-devices.js"></script>
 
 </body>
 

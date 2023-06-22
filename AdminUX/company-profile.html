@@ -12,7 +12,7 @@
 
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="assets/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/favicon180.png" sizes="180x180">
@@ -24,25 +24,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- bootstrap icons -->
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <!-- chosen css -->
-    <link rel="stylesheet" href="assets/css/chosen.min.css">
+    <link rel="stylesheet" href="assets/vendor/chosen_v1.8.7/chosen.min.css">
 
     <!-- date range picker -->
-    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
 
     <!-- swiper carousel css -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper-7.3.1/swiper-bundle.min.css">
 
-    <!-- simple lightbox css -->
-    <link rel="stylesheet" href="assets/css/simple-lightbox.min.css">
-
-    <!-- app tour css -->
-    <link rel="stylesheet" href="assets/css/lib.css">
+    <!-- gallery simple light box css -->
+    <link rel="stylesheet" href="assets/vendor/simplelightbox/simple-lightbox.min.css">
 
     <!-- style css for this template -->
-    <link href="assets/css/stylePrincipal.css" rel="stylesheet">
+    <link href="assets/scss/style.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column h-100 sidebar-pushcontent sidebar-filled" data-sidebarstyle="sidebar-pushcontent">
@@ -89,8 +86,8 @@
                 <i class="bi bi-list fs-4"></i>
             </button>
             <div class="header-title align-self-center">
-                <h5 class="fw-normal text-dark mb-0">Rewards</h5>
-                <p class="small text-secondary">Dashboard</p>
+                <h5 class="mb-0">Profile</h5>
+                <p class="text-secondary small">Company</p>
             </div>
             <div class="search-header d-none d-xl-block ms-0 ms-xl-3">
                 <div class="input-group input-group-md w-300">
@@ -1497,9 +1494,8 @@
 
 <!-- Begin page content -->
 <main class="main mainheight">
-    <!-- page title bar -->
     <div class="container-fluid">
-        <div class="row align-items-center page-title">
+        <div class="row align-items-center page-title mb-0">
             <div class="col col-sm-auto">
                 <div class="input-group input-group-md">
                     <input type="text" class="form-control bg-none px-0" value="" id="titlecalendar" />
@@ -1524,526 +1520,476 @@
         </div>
     </div>
 
-    <!-- content -->
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- welcome message -->
-            <div class="col-12 col-md-4 col-lg-3 mb-4">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h4 class="username">Maxartkiller</h4>
-                        <p class="fw-light text-secondary"><i class="bi bi-person-fill"></i> ID: 126683</p>
-                    </div>
-                    <div class="col-auto pe-0">
-                        <p class="text-secondary small mb-1">5000 to Level 4</p>
-                        <div class=" progress h-5 bg-light-theme">
-                            <div class="progress-bar bg-theme" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="bi bi-star h6 avatar avatar-40 bg-yellow text-white rounded-circle"></i>
+    <div class="w-100 pt-4 position-relative bg-dark text-white z-index-0">
+        <div class="coverimg w-100 h-100 position-absolute top-0 start-0 opacity-3 z-index-0">
+            <img src="assets/img/bg-14.jpg" class="" alt="" />
+        </div>
+        <div class="container my-3 my-md-5 pt-0 py-lg-5 z-index-1 position-relative">
+            <div class="row mb-4 mb-lg-5 align-items-start text-center">
+                <div class="col-auto mx-auto position-relative mb-4">
+                    <figure class="avatar avatar-100 coverimg rounded-10 shadow-md border-3 border-light bg-white">
+                        <img src="assets/img/maxartkiller.png" alt="" />
+                    </figure>
+                </div>
+                <div class="col-12 mb-4">
+                    <h2 class="mb-3">Maxartkiller <span class="badge bg-green rounded vm fw-normal fs-12"><i class="bi bi-check-circle me-1 vm"></i>Active</span></h2>
+                    <p>The Best creative design company. Mostly product based and small size services based company. Its independent company running and providing creative solutions to the UI UX design domain.</p>
+                    <p>UI UX Design, IT services</p>
+                </div>
+                <div class="col-12">
+                    <div>
+                        <button class="btn btn-outline-light me-2"><i class="bi bi-plus vm me-2"></i> Follow</button>
+                        <button class="btn btn-theme theme-green"><i class="bi bi-person-plus vm me-2"></i> Connect</button>
                     </div>
                 </div>
             </div>
-
-            <!-- rank and progress -->
-            <div class="col-12 col-md-auto mb-4 ms-auto align-self-center">
-                <div class="row">
-                    <div class="col col-md col-lg-auto mnw-100 text-center">
-                        <i class="bi bi-trophy h5 avatar avatar-50 bg-light-orange text-orange rounded-circle mb-2"></i>
-                        <h4 class="increamentcount mb-0">2586</h4>
-                        <p class="small text-secondary">Level 3</p>
-                    </div>
-                    <div class="col col-md col-lg-auto mnw-100 text-center">
-                        <i class="bi bi-award h5 avatar avatar-50 bg-light-green text-green rounded-circle mb-2"></i>
-                        <h4 class="increamentcount mb-0">1583</h4>
-                        <p class="small text-secondary">Your Rank</p>
-                    </div>
-                    <div class="col col-md col-lg-auto mnw-100 text-center">
-                        <i class="bi bi-clipboard-check h5 avatar avatar-50 bg-light-yellow text-yellow rounded-circle mb-2"></i>
-                        <h4 class="increamentcount mb-0">1356</h4>
-                        <p class="small text-secondary">Tasks Done</p>
-                    </div>
+            <div class="row text-white gx-md-4 gx-lg-5">
+                <div class="col-6 col-md-auto py-2">
+                    <p class="text-muted small">Website</p>
+                    <p>https://maxartkiller.com</p>
+                </div>
+                <div class="col-6 col-md-auto py-2">
+                    <p class="text-muted small">Company Size</p>
+                    <p>1-5</p>
+                </div>
+                <div class="col-12 col-md-auto py-2">
+                    <p class="text-muted small">Financial Stability</p>
+                    <p>
+                        <i class="bi bi-exclamation-triangle text-yellow vm"></i> Unstable
+                        <span class="mx-1 text-muted">|</span>
+                        <a href="" class="text-white"><i class="bi bi-heart-fill text-red vm"></i> Need Support <i class="bi bi-box-arrow-up-right vm mx-1"></i></a>
+                    </p>
+                </div>
+                <div class="col-auto py-2">
+                    <p class="text-muted small">Business Domain</p>
+                    <p>UI UX Design</p>
                 </div>
             </div>
         </div>
+        <br>
+    </div>
 
-        <div class="row">
-            <!-- summary blocks -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xxl-3">
-                <div class="card border-0 mb-4 theme-blue bg-radial-gradient text-white">
-                    <div class="card-body bg-none">
-                        <div class="row gx-2 align-items-center">
-                            <div class="col-auto">
-                                <div class="avatar avatar-40 h5 bg-light-white rounded-circle">
-                                    <i class="bi bi-calendar2-check"></i>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-muted small mb-1">Completed</p>
-                                <h5>60<small>%</small></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xxl-3">
-                <div class="card border-0 mb-4 theme-green bg-radial-gradient text-white">
-                    <div class="card-body bg-none">
-                        <div class="row gx-2 align-items-center">
-                            <div class="col-auto">
-                                <div class="avatar avatar-40 h5 bg-light-white text-white rounded-circle">
-                                    <i class="bi bi-thermometer-sun"></i>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-muted small mb-1">Savings</p>
-                                <h5>450 <small>USD</small></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xxl-3">
-                <div class="card border-0 mb-4 theme-yellow bg-radial-gradient text-white">
-                    <div class="card-body bg-none">
-                        <div class="row gx-2 align-items-center">
-                            <div class="col-auto">
-                                <div class="avatar avatar-40 h5 bg-light-white rounded-circle">
-                                    <i class="bi bi-star"></i>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-muted small mb-1">Points Earned</p>
-                                <h5 class="fw-medium">12550</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xxl-3">
-                <div class="card border-0 mb-4 theme-red bg-radial-gradient text-white">
-                    <div class="card-body bg-none">
-                        <div class="row gx-2 align-items-center">
-                            <div class="col-auto">
-                                <div class="avatar avatar-40 h5 bg-light-white rounded-circle">
-                                    <i class="bi bi-coin"></i>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="text-muted small mb-1">Redeemed</p>
-                                <h5 class="fw-medium">1525<small>k USD</small></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container top-30 z-index-1 position-relative mb-4">
+        <div class="card bg-white border-0 z-index-1">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-adminux border-0" id="companynavigation" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="overviewcompany-tab" data-bs-toggle="tab" data-bs-target="#overviewcompany" type="button" role="tab" aria-controls="overviewcompany" aria-selected="true">Overview</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="teamcompany-tab" data-bs-toggle="tab" data-bs-target="#teamcompany" type="button" role="tab" aria-controls="teamcompany" aria-selected="false">Team</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="servicescompany-tab" data-bs-toggle="tab" data-bs-target="#servicescompany" type="button" role="tab" aria-controls="servicescompany" aria-selected="false">Services</button>
+                    </li>
+                    <li class="nav-item ms-auto" role="presentation">
+                        <button class="btn btn-theme" id="contactus-tab" data-bs-toggle="tab" data-bs-target="#contactus" type="button" role="tab" aria-controls="contactus" aria-selected="false">More</button>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="card border-0 mb-4">
+            <div class="card-body bg-none py-3 py-lg-4">
+                <div class="tab-content" id="companynavigationContent">
+                    <div class="tab-pane fade show active" id="overviewcompany" role="tabpanel" aria-labelledby="overviewcompany-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-10">
+                                <div class="row mb-4 mb-lg-5 align-items-center justify-content-center">
+                                    <div class="col-12 col-md-7 py-2">
+                                        <h2 class="mb-3 mb-md-4">We design UX UI for <span class="text-gradient">Creative & Unique</span> Digital Products</h2>
+                                        <p class="text-secondary">We create HTML templates for Enterprise applications, Business applications, eCommerce application, Admin Dashboard Applications, Mobile application, Mobile Websites, Micro websites, Cordova apps etc. Technology you can choose from our latest builds Bootstrap 5 HTML template, Framework7 templates, Angular 12 starter kits.</p>
+                                    </div>
+                                    <div class="col-12 col-md-5">
+                                        <div class="coverimg h-250 rounded overflow-hidden shadow">
+                                            <img src="assets/img/bg-14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
 
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-6 col-xxl-6 mb-4">
-                <div class="card border-0 h-100 overflow-hidden">
-                    <div class="card-body position-relative">
-                        <div class="coverimg w-75 h-100 end-0 top-0 position-absolute cover-right-center-img">
-                            <img src=" assets/img/offer-1.png" class="w-100" alt="">
-                        </div>
-                        <div class="row align-items-center h-100">
-                            <div class="col-9 py-2">
-                                <h4 class="text-theme">Earn 20%</h4>
-                                <h5 class="fw-medium">Make your wallet even bigger</h5>
-                                <p class="text-secondary">Share your referral code to your friends and earn flat 20% amount.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xxl-6 mb-4">
-                <div class="card border-0 h-100 theme-blue overflow-hidden">
-                    <div class="card-body p-0">
-                        <div class="row h-100">
-                            <div class="col bg-light-theme text-center py-4">
-                                <div class="avatar avatar-100 coverimg mb-2 rounded">
-                                    <img src="assets/img/getAdminUX-qr.png" alt="" class="w-100">
-                                </div>
-                                <br>
-                                <a class="btn btn-theme btn-sm" href="payment.html">Scan to <i class="bi bi-star me-1 fs-12"></i> 250</a>
-                            </div>
-                            <div class=" col position-relative text-white text-center">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/payment.png" alt="">
-                                </div>
-                                <div class="row h-100">
-                                    <div class="col-12 align-self-center">
-                                        <h4 class="mb-0">50%</h4>
-                                        <p>Instant Off</p>
-                                        <p>Get most popular discounts with easy Google Pay. Just scan QR an pay it.</p>
+                                <div class="card border-0 text-center mb-4 mb-lg-5 rounded">
+                                    <div class="card-body p-4 p-md-5">
+                                        <h4 class="mb-2 mb-md-3">Our Goal and Vision</h4>
+                                        <p class="text-secondary">We believe to create best ethics practices around the design corner. We always comes with futuristic approach to solve customers problem.
+                                            We evaluate progress day by day and our vision is to make beautiful, usable, creative and good user experienced design.</p>
+                                        <br>
+                                        <h4 class="text-gradient mb-3">Winners don't do different things,<br>they do things differently</h4>
+                                        <p class="fw-light">Shiv Khera <cite title=" Source Title">You Can Win: A Step by Step Tool for Top Achievers</cite>
+                                        </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- best reward products -->
-        <div class="row mb-4 py-2">
-            <div class="col text-center">
-                <h4>Best value of <span class="text-gradient">Earned Points</span> by Rewards here</h4>
-                <p class="text-secondary">You have done amazing choice & earned points. Now time to get rewarded.</p>
-            </div>
-        </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-4 text-center">
+                                        <i class="bi bi-bullseye h1 avatar avatar-80 bg-light-theme rounded-circle mb-3 mb-md-4"></i>
+                                        <h4 class="mb-2 mb-md-3">Our Mission</h4>
+                                        <p class="text-secondary">Our mission is to provide great UI UX design with flexibility of development at the reliable cost. This will give you best by saving time and money. So, for our customer its all about the Win Win situation.</p>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4 text-center ">
+                                        <i class="bi bi-window-stack h1 avatar avatar-80 bg-light-theme rounded-circle mb-3 mb-md-4"></i>
+                                        <h4 class="mb-2 mb-md-3">What we do</h4>
+                                        <p class="text-secondary">We do best creative and usable digital products for web and mobile devices, website and universal app development. We create HTML templates and starter kits with different technologies like Angular, React, Laravel etc.</p>
+                                    </div>
+                                </div>
+                                <hr class="mb-4 mb-md-5 border-top">
+                                <div class="row mb-4 mb-md-5">
+                                    <div class="col-12 col-md-12 col-lg-6 mb-5 mb-xxl-0">
+                                        <h4 class="mb-4">Clean & Trending UI design with a great user experience</h4>
+                                        <p class="text-secondary">AdminUX is creative and multipurpose template. You can use it for CRM, Business application, Intranet Application, Portal service and Many more.
+                                            It comes with unlimited possibilities and 10+ predefined styles which you can also mix up and create new. <b>Do support and spread a word for us</b>. </p>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-3">
 
-        <!-- get points on product -->
-        <div class="row ">
-            <div class="col-12 mb-4 ">
-                <div class="row align-items-center mb-3">
-                    <div class="col-auto">
-                        <i class="bi bi-cart h5 avatar avatar-40 bg-light-red text-red rounded"></i>
+                                        <p class="mb-3"><b>Main office:</b></p>
+                                        <p class="mb-1"><a href="https://maxartkiller.com" target="_blank">www.maxartkiller.com</a></p>
+                                        <p class="mb-4 text-secondary">Test data 103909 Witamer CR, Niagara Falls, NY 14305, United States</p>
+                                        <ul class="nav ">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-secondary px-2" href="https://www.facebook.com/maxartkiller/" target="_blank">
+                                                    <i class="bi bi-facebook h5"></i>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-secondary px-2" href="https://twitter.com/maxartkiller" target="_blank">
+                                                    <i class="bi bi-twitter h5"></i>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-secondary px-2" href="https://linkedin.com/company/maxartkiller" target="_blank">
+                                                    <i class="bi bi-linkedin h5"></i>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-secondary px-2" href="https://www.instagram.com/maxartkiller/" target="_blank">
+                                                    <i class="bi bi-instagram h5"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <p class="mb-3"><b>Contact information:</b></p>
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col-auto"><i class="bi bi-clock text-theme"></i></div>
+                                            <div class="col ps-0">0441-215-518625<br><span class="text-secondary">Mon-Sat, 9:00am - 10:00pm</span></div>
+                                        </div>
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col-auto"><i class="bi bi-telephone text-theme"></i></div>
+                                            <div class="col ps-0">+1-000 000 100000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <h6 class="fw-medium mb-0">Best Rewards </h6>
-                        <p class="small text-secondary">Use earned points and get rewarded</p>
+                    <div class="tab-pane fade" id="servicescompany" role="tabpanel" aria-labelledby="servicescompany-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-10">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-12 col-md-6">
+                                        <div class="card border-0 mb-4">
+                                            <img src="assets/img/tour-guide-5.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h4>Creative UI Design</h4>
+                                                <p class="text-secondary">We create unique and creative user interfaces for website and mobile applications.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="card border-0 mb-4">
+                                            <img src="assets/img/tour-guide-1.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h4>Awesome UX flow</h4>
+                                                <p class="text-secondary">We keep everything on intuitive and simplest manner to make sure everything covered and easy to access.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="text-center mb-4 mt-3 mb-lg-5">You are at awesome space.<br>Just <span class="text-gradient">create a difference</span>.</h4>
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-12 col-md-6">
+                                        <div class="card border-0 mb-4">
+                                            <img src="assets/img/tour-guide-2.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h4>Customization</h4>
+                                                <p class="text-secondary">To improve day by day customization for new requirements. We follow best practices to make development flawless and elastic.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="card border-0 mb-4">
+                                            <img src="assets/img/tour-guide-4.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h4>Multi-device Centric</h4>
+                                                <p class="text-secondary">Human in race of different medium to communicate with each other and we also keep eye on different screen sizes and responsiveness</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="tab-pane fade" id="teamcompany" role="tabpanel" aria-labelledby="teamcompany-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-10">
+                                <h4 class="text-center">Meet our all set <span class="text-gradient">Team</span>.</h4>
+                                <p class="text-secondary text-center mb-4">We work hard, we do it creatively and we like to see you here!</p>
+                                <div class="h-300 mb-4 position-relative text-center bg-theme rounded overflow-hidden">
+                                    <figure class="coverimg h-100 w-100 z-index-0 position-absolute top-0 start-0 m-0">
+                                        <img src="assets/img/bg-15.jpg" alt="" />
+                                    </figure>
+                                    <div class="row h-100 z-index-1 align-items-center justify-content-center">
+                                        <div class="col-12 col-md-8 col-lg-6">
+                                            <h2>Team build with Trust & Transparency</h2>
+                                            <p class="text-opac">We always prefer to have clear communication less headache and only creative thoughts in mind. That is why we prefer to have good working culture across the organization.</p>
+                                            <button class="btn btn-theme">Contact us for more</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-                </div>
-                <!-- Swiper -->
-                <div class="swiper-container productswiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-1.jpg" alt="" />
+                                <h4 class="text-center mb-4">Our great team is our<br> <span class="text-gradient">strength and source</span> of growth.</h4>
+                                <div class="row mb-4">
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card border-0 text-center">
+                                            <div class="card-body">
+                                                <div class="h-250 overflow-hidden rounded mb-3">
+                                                    <figure class="h-100 w-100 coverimg zoomout">
+                                                        <img src="assets/img/bg-6.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                                <h5 class="text-truncate">Aditi Johnson</h5>
+                                                <p>London, UK</p>
+                                                <p class="text-secondary small">Founder</p>
+                                                <ul class="nav justify-content-center">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.facebook.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-facebook h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://twitter.com/maxartkiller" target="_blank">
+                                                            <i class="bi bi-twitter h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://linkedin.com/company/maxartkiller" target="_blank">
+                                                            <i class="bi bi-linkedin h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.instagram.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-instagram h5"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">PUMA Shoes</p>
-                                    <h6 class="mb-3">Extra 1000 off on PUMA shoes</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 250</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-2.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card border-0 text-center">
+                                            <div class="card-body">
+                                                <div class="h-250 overflow-hidden rounded mb-3">
+                                                    <figure class="h-100 w-100 coverimg zoomout">
+                                                        <img src="assets/img/user-4.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                                <h5 class="text-truncate">Steven Thomson</h5>
+                                                <p>New York, USA</p>
+                                                <p class="text-secondary small">CEO</p>
+                                                <ul class="nav justify-content-center">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.facebook.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-facebook h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://twitter.com/maxartkiller" target="_blank">
+                                                            <i class="bi bi-twitter h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://linkedin.com/company/maxartkiller" target="_blank">
+                                                            <i class="bi bi-linkedin h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.instagram.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-instagram h5"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">Titan Watch</p>
-                                    <h6 class="mb-3">Extra 500 off on Titan Watch</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 150</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-3.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card border-0 text-center">
+                                            <div class="card-body">
+                                                <div class="h-250 overflow-hidden rounded mb-3">
+                                                    <figure class="h-100 w-100 coverimg zoomout">
+                                                        <img src="assets/img/user-3.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                                <h5 class="text-truncate">Nicky Lambaa</h5>
+                                                <p>Wembley, UK</p>
+                                                <p class="text-secondary small">CTO</p>
+                                                <ul class="nav justify-content-center">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.facebook.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-facebook h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://twitter.com/maxartkiller" target="_blank">
+                                                            <i class="bi bi-twitter h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://linkedin.com/company/maxartkiller" target="_blank">
+                                                            <i class="bi bi-linkedin h5"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-secondary px-2" href="https://www.instagram.com/maxartkiller/" target="_blank">
+                                                            <i class="bi bi-instagram h5"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">FOGG</p>
-                                    <h6 class="mb-3">Flat 10% on FOGG Scent Xtermo 50ml </h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 100</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-4.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/user-2.jpg" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Shrivally</h6>
+                                                        <p>Amsterdam, NL</p>
+                                                        <p class="text-secondary small">UI Designer</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">Havells Appliances</p>
-                                    <h6 class="mb-3">Extra 1500 off on HAVELLS Fan Heater</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 350</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-5.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/user-1.jpg" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Max Doe</h6>
+                                                        <p>London, UK</p>
+                                                        <p class="text-secondary small">UX Designer</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">MSI Computers</p>
-                                    <h6 class="mb-3">10% off on MSI GF63 Core-i5 10th Gen</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 500</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-6.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/bg-8.jpg" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Aditi Johnson</h6>
+                                                        <p>London, UK</p>
+                                                        <p class="text-secondary small">Product Designer</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">Gear</p>
-                                    <h6 class="mb-3">Extra 100 off on Medium Backpack</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 300</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-8.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/bg-11.jpg" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Aditi Johnson</h6>
+                                                        <p>London, UK</p>
+                                                        <p class="text-secondary small">Project Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">Apple</p>
-                                    <h6 class="mb-3">Flat 1000 on APPLE Watch SE GPS</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 800</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 w-200">
-                                <div class="card-body">
-                                    <div class="coverimg w-100 h-180 rounded mb-3">
-                                        <img src="assets/img/product-9.jpg" alt="" />
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/bg-3.jpg" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Preeti Dwivedi</h6>
+                                                        <p>Kashi, IN</p>
+                                                        <p class="text-secondary small">Head of Design</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-secondary small mb-1">Maxartkiller</p>
-                                    <h6 class="mb-3">Extra 500 off on Office Executive Chair</h6>
-                                    <button type="button" class="btn btn-outline-theme btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 150</button>
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-80 overflow-hidden rounded">
+                                                            <figure class="h-100 w-100 coverimg zoomout">
+                                                                <img src="assets/img/bg-2.jpg" alt="" class="w-100" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="text-truncate mb-0">Aditi Johnson</h6>
+                                                        <p>London, UK</p>
+                                                        <p class="text-secondary small">Development Support</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-12 mb-4">
-                <div class="card border-0 bg-gradient-theme-light">
-                    <div class="card-header bg-none">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <i class="bi bi-bag h5 avatar avatar-40 bg-light-theme rounded"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="fw-medium mb-0">Trending Deals </h6>
-                                <p class="small text-secondary">Hurry! Stock limited</p>
-                            </div>
-                            <div class="col-auto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body bg-none">
-                        <!-- Swiper -->
-                        <div class="swiper-container productswiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-green text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-1.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">PUMA Shoes</p>
-                                            <h6 class="mb-3">Extra 1000 off on PUMA shoes</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 250</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-red text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-2.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">Titan Watch</p>
-                                            <h6 class="mb-3">Extra 500 off on Titan Watch</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 150</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-yellow text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-3.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">FOGG</p>
-                                            <h6 class="mb-3">Flat 10% on FOGG Scent Xtermo 50ml </h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 100</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-dark text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-4.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">Havells Appliances</p>
-                                            <h6 class="mb-3">Extra 1500 off on HAVELLS Fan Heater</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 350</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-pink text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-5.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">MSI Computers</p>
-                                            <h6 class="mb-3">10% off on MSI GF63 Core-i5 10th Gen</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 500</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-purple text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-6.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">Gear</p>
-                                            <h6 class="mb-3">Extra 100 off on Medium Backpack</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 300</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-blue text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-8.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">Apple</p>
-                                            <h6 class="mb-3">Flat 1000 on APPLE Watch SE GPS</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 800</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide w-auto">
-                                    <div class="card border-0 w-200 bg-cyan text-white">
-                                        <div class="card-body bg-none">
-                                            <div class="coverimg w-100 h-180 rounded mb-3">
-                                                <img src="assets/img/product-9.jpg" alt="" />
-                                            </div>
-                                            <p class="text-muted small mb-1">Maxartkiller</p>
-                                            <h6 class="mb-3">Extra 500 off on Office Executive Chair</h6>
-                                            <button type="button" class="btn btn-outline-light btn-sm w-100">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 150</button>
-                                        </div>
-                                    </div>
+                                <h4 class="text-center">Wanted to experience adventure? <span class="text-gradient">Join us</span> now!.</h4>
+                                <p class="text-secondary text-center mb-4">We will be happy to make ou part of our team. </p>
+                                <div class="text-center">
+                                    <button class="btn btn-theme">Apply now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- redeem points for services global -->
-        <div class="row ">
-            <div class="col-12 mb-4 ">
-                <div class="row align-items-center mb-3">
-                    <div class="col-auto">
-                        <i class="bi bi-cart h5 avatar avatar-40 bg-light-red text-red rounded"></i>
-                    </div>
-                    <div class="col">
-                        <h6 class="fw-medium mb-0">Best Rewards </h6>
-                        <p class="small text-secondary">Use earned points and get rewarded</p>
-                    </div>
-
-                </div>
-                <!-- Swiper -->
-                <div class="swiper-container productswiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 text-white h-300 w-200 overflow-hidden mb-3">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/news-6.jpg" alt="">
-                                </div>
-                                <div class="card-body bg-none ">
-                                    <div class="overlay"></div>
-                                    <div class="row h-100 z-index-1 position-relative ">
-                                        <div class="col-12 align-self-end">
-                                            <p class="text-muted small mb-1">Media Services</p>
-                                            <h6>Get 1 Year free Youtube Premium</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="assets/img/services-youtubelogo.png" class="mw-100 mb-3" alt=""><br />
-                            <button type="button" class="btn btn-outline-theme btn-sm">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 250</button>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 text-white h-300 w-200 overflow-hidden mb-3">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/movie2.jpg" alt="">
-                                </div>
-                                <div class="card-body bg-none">
-                                    <div class="overlay"></div>
-                                    <div class="row h-100 z-index-1 position-relative ">
-                                        <div class="col-12 align-self-end">
-                                            <p class="text-muted small mb-1">Entertainment</p>
-                                            <h6>Get 3 Months Netflix Access*</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="assets/img/services-netflixlogo.png" class="mw-100 mb-3" alt=""><br />
-                            <button type="button" class="btn btn-outline-theme btn-sm">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 250</button>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 text-white h-300 w-200 overflow-hidden mb-3">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/business-2.jpg" alt="">
-                                </div>
-                                <div class="card-body bg-none">
-                                    <div class="overlay"></div>
-                                    <div class="row h-100 z-index-1 position-relative ">
-                                        <div class="col-12 align-self-end">
-                                            <p class="text-muted small mb-1">Financial Services</p>
-                                            <h6>Get 1 Year free Paypal business free account</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="assets/img/services-paypal.png" class="mw-100 mb-3" alt=""><br />
-                            <button type="button" class="btn btn-outline-theme btn-sm">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 0</button>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 text-white h-300 w-200 overflow-hidden mb-3">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/payment.png" alt="">
-                                </div>
-                                <div class="card-body bg-none">
-                                    <div class="overlay"></div>
-                                    <div class="row h-100 z-index-1 position-relative ">
-                                        <div class="col-12 align-self-end">
-                                            <p class="text-muted small mb-1">Food</p>
-                                            <h6>Get 1 Month free Swiggy One services</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="assets/img/services-swiggy.png" class="mw-100 mb-3" alt=""><br />
-                            <button type="button" class="btn btn-outline-theme btn-sm">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 250</button>
-                        </div>
-                        <div class="swiper-slide w-auto">
-                            <div class="card border-0 text-white h-300 w-200 overflow-hidden mb-3">
-                                <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                    <img src="assets/img/movie1.jpg" alt="">
-                                </div>
-                                <div class="card-body bg-none">
-                                    <div class="overlay"></div>
-                                    <div class="row h-100 z-index-1 position-relative ">
-                                        <div class="col-12 align-self-end">
-                                            <p class="text-muted small mb-1">Entertainment</p>
-                                            <h6>Get 1 Year free Amazon Prime services</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="assets/img/services-amazon_Prime.png" class="mw-100 mb-3" alt=""><br />
-                            <button type="button" class="btn btn-outline-theme btn-sm">Use <i class="bi bi-star-fill ms-1 fs-12 text-yellow"></i> 300</button>
-                        </div>
-                    </div>
+                    <div class="tab-pane fade" id="contactus" role="tabpanel" aria-labelledby="contactus-tab">...</div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Footer -->
     <div class="container-fluid mb-4">
@@ -2184,7 +2130,6 @@
             </div>
         </div>
     </div>
-
 </main>
 
 <!-- footer -->
@@ -2902,186 +2847,11 @@
     </div>
 </div>
 
-<!-- dropdown for support  -->
-<div class="chatboxes w-auto align-right bottom-0 mb-2">
-
-    <!-- dropdown for support  -->
-    <div class="dropup">
-        <div class="dd-arrow-none dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" id="supportdd" role="button">
-                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
-                    <span class="visually-hidden">New alerts</span>
-                </span>
-            <figure class="avatar avatar-40 coverimg rounded-circle shadow bg-primary">
-                <img src="assets/img/favicon72.png" alt="">
-            </figure>
-        </div>
-        <div class="dropdown-menu dropdown-menu-end w-300 p-0">
-            <!-- chat box here  -->
-            <div class="card shadow-none border-0">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col align-self-center">
-                            <p class="mb-0">AdminUX Support</p>
-                            <p class="text-secondary small">Just now</p>
-                        </div>
-                        <div class="col-auto">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-sm btn-outline-secondary border"><i class="bi bi-person-plus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-auto ps-0 align-self-center">
-                            <div class="dropdown d-inline-block">
-                                <a class="dd-arrow-none" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" role="button">
-                                    <i class="bi bi-three-dots-vertical"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="statuschat">
-                                    <li><a class="dropdown-item" href="javascript:void(0)">Add Contact</a></li>
-                                    <li><a class="dropdown-item" href="javascript:void(0)">Search</a></li>
-                                    <li><a class="dropdown-item" href="javascript:void(0)">Clear Chat</a></li>
-                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Report</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body overflow-y-auto h-250 chat-list">
-                    <div class="row no-margin left-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        Hi!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <p class="text-secondary small time"><i class="bi bi-check"></i> 9:00 pm</p>
-                        </div>
-                    </div>
-                    <div class="row no-margin right-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        Hi!<br>Yes please tell us your query.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-end">
-                            <p class="text-secondary small time"><i class="bi bi-check"></i> 9:10 pm</p>
-                        </div>
-                    </div>
-                    <div class="row no-margin">
-                        <div class="col-12 text-center">
-                                <span class="alert-warning text-secondary mx-auto btn btn-sm py-1 mb-3">26 November
-                                    2021</span>
-                        </div>
-                    </div>
-                    <div class="row no-margin left-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        AdminUX is amazing and we thank you. How can we buy?
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-margin right-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mw-100 position-relative mb-2 figure">
-                                            <div class="position-absolute end-0 top-0">
-                                                <button class="avatar avatar-36 rounded-circle p-0 btn btn-info text-white shadow-sm m-2">
-                                                    <i class="bi bi-download"></i>
-                                                </button>
-                                            </div>
-                                            <img src="assets/img/news-4.jpg" alt="" class="mw-100">
-                                        </div>
-                                        Thank you too. You can buy it from preview page and click on buy now.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-end">
-                            <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-margin">
-                        <div class="col-12  text-center">
-                                <span class="alert-warning text-secondary mx-auto btn btn-sm py-1 mb-3">25 November
-                                    2019</span>
-                        </div>
-                    </div>
-                    <div class="row no-margin left-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mw-100 position-relative mb-2 figure">
-                                            <video src="https://maxartkiller.com/website/maxartkiller.mp4" controls="" preload="none"></video>
-                                        </div>
-                                        We also love this small presentation.
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00
-                                    pm
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-margin right-chat">
-                        <div class="col-12">
-                            <div class="chat-block">
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Ohh... Thats great. AdminUX is HTML template can be used in various business domains like
-                                            Manufacturing, inventory, IT, administration etc.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-end">
-                            <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer p-0">
-                    <div class="input-group input-group-md">
-                        <button class="btn btn-sm btn-link px-2"><i class="bi bi-emoji-smile"></i></button>
-                        <button class="btn btn-sm btn-link px-2"><i class="bi bi-paperclip"></i></button>
-                        <input type="text" class="form-control" placeholder="Type your message... " value="">
-                        <button class="btn btn-sm btn-link px-2" type="button">
-                            <i class="bi bi-send"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="chat-close btn btn-danger text-white"><i class="bi bi-x"></i></button>
-    </div>
-</div>
-<!-- chat window ends -->
-
 
 <!-- Required jquery and libraries -->
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.bundle.js"></script>
+<script src="assets/vendor/bootstrap-5/dist/js/bootstrap.bundle.js"></script>
 
 <!-- Customized jquery file  -->
 <script src="assets/js/main.js"></script>
@@ -3091,30 +2861,27 @@
 <script src="assets/js/pwa-services.js"></script>
 
 <!-- date range picker -->
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/daterangepicker.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
 
 <!-- chosen script -->
-<script src="assets/js/chosen.jquery.min.js"></script>
+<script src="assets/vendor/chosen_v1.8.7/chosen.jquery.min.js"></script>
 
 <!-- Chart js script -->
-<script src="assets/js/chart.min.js"></script>
+<script src="assets/vendor/chart-js-3.3.1/chart.min.js"></script>
 
 <!-- Progress circle js script -->
-<script src="assets/js/progressbar.min.js"></script>
+<script src="assets/vendor/progressbar-js/progressbar.min.js"></script>
 
 <!-- swiper js script -->
-<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/vendor/swiper-7.3.1/swiper-bundle.min.js"></script>
 
-<!-- Simple lightbox script -->
-<script src="assets/js/simple-lightbox.jquery.min.js"></script>
-
-<!-- app tour script-->
-<script src="assets/js/lib.js"></script>
+<!-- gallery simple lightbox js script -->
+<script src="assets/vendor/simplelightbox/simple-lightbox.jquery.min.js"></script>
 
 <!-- page level script here -->
 <script src="assets/js/header-title.js"></script>
-<script src="assets/js/rewards.js"></script>
+
 
 </body>
 
