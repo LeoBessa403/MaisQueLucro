@@ -11,6 +11,7 @@ $(window).on('load', function () {
     /* get date and time */
     var monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
         "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
     function startTime() {
         var date = new Date;
         var day = date.getDate();
@@ -24,13 +25,16 @@ $(window).on('load', function () {
         $('#time').text(strTime);
         $('#date').text(day + ' ' + month + ' ' + year);
     }
-    setInterval(function () { startTime() }, 500);
+
+    setInterval(function () {
+        startTime()
+    }, 500);
 
     /* change images based on time zones */
     var date = new Date;
     var hours = date.getHours();
     if (hours < 12 && hours >= 7) {
-        $('#image-daytime').css('background-image', 'url("assets/img/bg-21.jpg")');
+        $('#image-daytime').css('background-image', 'url("assets/img/bg-24.jpg")');
     } else if (hours >= 12 && hours <= 19) {
         $('#image-daytime').css('background-image', 'url("assets/img/bg-22.jpg")');
     } else {
@@ -38,11 +42,13 @@ $(window).on('load', function () {
     }
 
     /* temperature data */
-    var cityname = 'Brasília';
+    var cityname = 'Brasilia';
 
     dataload();
+
     function dataload() {
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&APPID=ce2008ef871845f77c7f03aafe2d54eb&units=metric')
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat=-15.8611513&lon=-48.0505246' +
+        '&appid=ce2008ef871845f77c7f03aafe2d54eb&units=metric&lang=pt_br')
             /* change app id= "ce2008ef871845f77c7f03aafe2d54eb" with your id create from https://openweathermap.org/api current weather data */
             .then(function (response) {
                 return response.json();
@@ -54,10 +60,12 @@ $(window).on('load', function () {
                 console.log(err);
             });
     }
+
     function appendData(data) {
-        $('#temperature').text(data.main.temp);
-        $('#city').text(data.name);
-        $('#tempimage').attr('src', 'assets/img/openweather-icon/light/' + data.weather[0].icon + '@2x.png');
+        console.log(data);
+        $('#temperature').text(parseInt(data.main.temp));
+        $('#city').text(data.weather[0].description);
+        $('#tempimage').attr('src', 'assets/img/' + data.weather[0].icon + '@2x.png');
     }
 
 
@@ -243,6 +251,7 @@ $(window).on('load', function () {
     if ($('#timer').length > 0) {
         $('#timer').innerHTML = '0' + ':' + '20';
         startTimer();
+
         function startTimer() {
             var presentTime = $('#timer').html();
             var timeArray = presentTime.split(/[:]+/);
@@ -258,13 +267,16 @@ $(window).on('load', function () {
             $('#timer').html(m + ":" + s);
             setTimeout(startTimer, 1000);
         }
+
         function checkSecond(sec) {
             if (sec < 10 && sec >= 0) {
                 sec = "0" + sec
-            }; // add zero in front of numbers < 10
+            }
+            ; // add zero in front of numbers < 10
             if (sec < 0) {
                 sec = "59"
-            };
+            }
+            ;
             return sec;
         }
     }
