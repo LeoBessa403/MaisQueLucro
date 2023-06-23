@@ -920,7 +920,7 @@ $(window).on('load', function () {
     }, 1500);
 
 
-    var areachartarea11 = document.getElementById('areachartarea11').getContext('3d');
+    var areachartarea11 = document.getElementById('areachartarea11').getContext('2d');
     var gradientblue11 = areachartarea11.createLinearGradient(0, 0, 0, 195);
     gradientblue11.addColorStop(0, 'rgba(1, 94, 194, 0.4)');
     gradientblue11.addColorStop(1, 'rgba(0, 197, 221, 0)');
@@ -1030,7 +1030,7 @@ $(window).on('load', function () {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: true,
+                    display: false,
                 },
             },
             scales: {
