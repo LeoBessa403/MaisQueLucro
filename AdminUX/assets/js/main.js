@@ -302,7 +302,7 @@ $(window).on('load', function () {
             if ($('.footer-sticky').length > 0) {
                 setTimeout(function () {
                     $('.mainheight').css({ 'min-height': maincontentheight - header.outerHeight() - footer.outerHeight(), 'margin-top': header.outerHeight(), 'padding-bottom': 'env(safe-area-inset-bottom)' });
-                    footer.css({ 'padding-bottom': 'calc( env(safe-area-inset-bottom)' + ($('.footer-sticky').height() + 20) + 'px)' });
+                    footer.css({ 'padding-bottom': 'calc( env(safe-area-inset-bottom)' + ($('.footer-sticky').height() + 22) + 'px)' });
                 }, 110);
             } else {
                 setTimeout(function () {
@@ -319,7 +319,7 @@ $(window).on('load', function () {
         }
 
         if (sidebarwrap.length > 0) {
-            sidebarwrap.css('padding-top', 'calc(env(safe-area-inset-top) + ' + (header.outerHeight() + 20) + 'px)');
+            sidebarwrap.css('padding-top', 'calc(env(safe-area-inset-top) + ' + (header.outerHeight() + 22) + 'px)');
         }
         if (rightbarwrap.length > 0) {
             rightbarwrap.css({ 'padding-top': 'calc(env(safe-area-inset-top) + ' + header.outerHeight() + 'px)' });
