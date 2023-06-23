@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6efdc5bb-a7a6-49ce-9527-6310837ecc60" name="AdminUX" url="http://ftp.sistemadabeleza.com.br">
+        <fileTransfer rootFolder="/AdminUX" host="ftp.sistemadabeleza.com.br" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
