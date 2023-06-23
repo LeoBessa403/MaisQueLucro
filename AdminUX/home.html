@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>AdminUX - Admin, Dashboard, Web Application HTML template, UI kit, UI templates</title>
+    <title>SOL - Sistema Online Lucrativo de gestão financeira para micros, pequenas e médias empreasas.</title>
 
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,6 +43,11 @@
 
     <!-- style css for this template -->
     <link href="assets/css/stylePrincipal.css" rel="stylesheet">
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('pwabuilder-sw.js')
+        }
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100 sidebar-pushcontent sidebar-filled" data-sidebarstyle="sidebar-pushcontent">
@@ -3162,7 +3167,7 @@
 <script src="assets/js/color-scheme.js"></script>
 
 <!-- PWA app service registration and works -->
-<script src="assets/js/pwa-services.js"></script>
+<script src="pwa-services.js"></script>
 
 <!-- date range picker -->
 <script src="assets/js/moment.min.js"></script>
@@ -3189,7 +3194,6 @@
 <!-- page level script here -->
 <script src="assets/js/header-title.js"></script>
 <script src="assets/js/dashboard.js"></script>
-
 </body>
 
 </html>
