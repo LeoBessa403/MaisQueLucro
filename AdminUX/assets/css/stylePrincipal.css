@@ -12342,10 +12342,10 @@ img {
 }
 
 .tempimage {
-    height: 40px;
+    height: 100px;
     margin: -15px 0px;
     position: relative;
-    right: 0px;
+    right: -30px;
 }
 
 .circle-small {
@@ -14358,7 +14358,7 @@ p code {
 .navbar-brand .logo-icon {
     height: 40px;
     width: 40px;
-    padding: 5px;
+    /* padding: 5px; */
     line-height: 30px;
     border-radius: 10px;
     display: block;
@@ -14367,7 +14367,9 @@ p code {
 }
 .navbar-brand .logo-icon img {
     vertical-align: top;
-    max-width: 30px;
+    max-width: 50px;
+    margin-top: -5px;
+    margin-left: -5px;
 }
 .navbar-brand .getabel {
     position: absolute;
