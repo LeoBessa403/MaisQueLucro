@@ -1,4 +1,4 @@
--- Atualizado em: 21/05/2023 15:35:50
+-- Atualizado em: 23/06/2023 23:47:08
 -- Link HOME: http://localhost/AtacadaoBessa/
 -- AMBIENTE: 1
 -- BANCO: maisquelucro10
