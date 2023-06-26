@@ -53,7 +53,7 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
                     <img src="<?= PASTAIMG; ?>logo-icon.png" alt="" />
                 </div>
             </div>
-            <p class="text-secondary small">Petal of flower being ready to <span class="text-gradient">blossom</span></p>
+            <p class="text-secondary small">Levando você para a próxima página.</p>
 
             <div class="dotslaoder">
                 <div></div>
