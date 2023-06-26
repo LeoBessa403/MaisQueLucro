@@ -39,10 +39,10 @@ $(document).ready(function () {
 
     $('#btn-layout-modes-dark').on('click', function () {
         if ($(this).is(':checked')) {
-            setCookie('SOLlayoutMode', 'dark-mode', 1);
+            setCookie('SOLlayoutMode', 'dark-mode', 60);
             html.attr('class', 'dark-mode');
         } else {
-            setCookie('SOLlayoutMode', 'light-mode', 1);
+            setCookie('SOLlayoutMode', 'light-mode', 60);
             html.attr('class', 'light-mode');
         }
     });
@@ -104,7 +104,7 @@ $(document).ready(function () {
         if ($(this).hasClass('active') != true && setstyle != '') {
             $(this).addClass('active');
             body.addClass(setstyle).attr('data-theme', setstyle);
-            setCookie('SOLtheme', setstyle, 1);
+            setCookie('SOLtheme', setstyle, 60);
             curentstyle = setstyle;
         }
 
@@ -124,7 +124,7 @@ $(document).ready(function () {
 
                 $(this).addClass('active');
                 body.removeClass(curentstyle).addClass(setstyle).attr('data-theme', setstyle);
-                setCookie('SOLtheme', setstyle, 1);
+                setCookie('SOLtheme', setstyle, 60);
                 curentstyle = setstyle;
             }
         });

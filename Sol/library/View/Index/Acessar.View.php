@@ -4,7 +4,7 @@ include_once './library/Partial/AcessoPermitido/topo_inicial.php';
 
     <div class="col-12 align-self-center">
         <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center text-white">
+            <div class="col-12 col-sm-8 cx-login col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center text-white">
                 <h3 class="mb-3 mb-lg-4">Logar</h3>
                 <p class="mb-4">Entre com seus dados para acessar sua conta.
                 <br><?php include_once 'library/Partial/Admin/controle_versao.php'; ?></p>
@@ -69,10 +69,10 @@ include_once './library/Partial/AcessoPermitido/topo_inicial.php';
     </div>
     <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 mt-auto mb-4 text-center d-grid">
         <!-- submit button -->
-        <button class="btn btn-lg btn-theme z-index-5 mb-4" href="<?= PASTAADMIN; ?>Index/Registrar"
+        <button class="btn btn-lg cx-login btn-theme z-index-5 mb-4" href="<?= PASTAADMIN; ?>Index/Registrar"
                 type="button" id="submitbtn">Entrar <i class="bi bi-arrow-right"></i></button>
         <p class="text-white"><a href="<?= PASTAADMIN; ?>Index/RecuperarSenha"
-                                 class="text-white">Recuperar Senha? clique aqui</a></p>
+                                 class="btn btn-mini cx-login btn-theme z-index-5 mb-4">Recuperar Senha</a></p>
     </div>
 
 <?php

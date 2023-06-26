@@ -2,6 +2,7 @@
 $(window).on('load', function () {
     var home = $("#home").attr('data-val');
     var pastaImg = home + 'library/Imagens/';
+    var pastaImgLogin = pastaImg + 'bg-login/';
     /* intro swiper */
     var swiper = new Swiper(".introSwiper", {
         pagination: {
@@ -34,13 +35,8 @@ $(window).on('load', function () {
     /* change images based on time zones */
     var date = new Date;
     var hours = date.getHours();
-    if (hours < 12 && hours >= 7) {
-        $('#image-daytime').css('background-image', 'url("' + pastaImg + 'bg-24.jpg")');
-    } else if (hours >= 12 && hours <= 19) {
-        $('#image-daytime').css('background-image', 'url("' + pastaImg + 'bg-22.jpg")');
-    } else {
-        $('#image-daytime').css('background-image', 'url("' + pastaImg + 'bg-23.jpg")');
-    }
+    $('#image-daytime').css('background-image', 'url("' + pastaImgLogin + 'bg (' + hours + ').jpg")');
+
 
     /* temperature data */
     var cityname = 'Brasilia';
@@ -63,10 +59,9 @@ $(window).on('load', function () {
     }
 
     function appendData(data) {
-        console.log(data);
         $('#temperature').text(parseInt(data.main.temp));
         $('#city').text(data.weather[0].description);
-        $('#tempimage').attr('src', pastaImg  + data.weather[0].icon + '@2x.png');
+        $('#tempimage').attr('src', pastaImg + data.weather[0].icon + '@2x.png');
     }
 
 
