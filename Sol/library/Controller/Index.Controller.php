@@ -188,6 +188,7 @@ class Index extends AbstractController
      */
     public function Logar()
     {
+        debug(112333,1);
         // Verifica se o loguin e por Email ou CPF
         if (LOGAR_EMAIL):
             $campo_logar = Valida::LimpaVariavel($_POST[DS_EMAIL]);

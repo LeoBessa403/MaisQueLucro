@@ -66,7 +66,7 @@ $(window).on('load', function () {
 
 
     /* input validation check*/
-    $('#email').on('focusout keyup', function () {
+    $('#ds_email').on('focusout keyup', function () {
         var field = $(this);
         var $email = this.value;
         validateEmail($email, field);
@@ -81,52 +81,52 @@ $(window).on('load', function () {
         }
     }
 
-    $('#submitbtn').on('click', function () {
-        if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
-            $(this).closest('form').find('.global-alert').removeClass('d-none');
-            setTimeout(function () {
-                $('.global-alert').addClass('d-none');
-            }, 3000)
-        } else {
-            $(this).closest('form').find('.global-success').removeClass('d-none');
-            $(this).closest('form').find('.global-alert').addClass('d-none');
-            setTimeout(function () {
-                window.location.replace("onboarding.html");
-            }, 2000)
-        }
-    })
-
-
-    $('#submitforgetpassbtn').on('click', function () {
-        if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
-            $(this).closest('form').find('.global-alert').removeClass('d-none');
-            setTimeout(function () {
-                $('.global-alert').addClass('d-none');
-            }, 3000)
-        } else {
-            $(this).closest('form').find('.global-success').removeClass('d-none');
-            $(this).closest('form').find('.global-alert').addClass('d-none');
-            setTimeout(function () {
-                window.location.replace("reset-password.html");
-            }, 2000)
-        }
-    })
-
-    $('#submitsignup').on('click', function () {
-        if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
-            $(this).closest('form').addClass('was-validated').find('.global-alert').removeClass('d-none');
-            setTimeout(function () {
-                $('.global-alert').addClass('d-none');
-            }, 3000)
-        } else {
-
-            $(this).closest('form').find('.global-success').removeClass('d-none');
-            $(this).closest('form').find('.global-alert').addClass('d-none');
-            setTimeout(function () {
-                window.location.replace("verify.html");
-            }, 2000)
-        }
-    })
+    // $('#submitbtn').on('click', function () {
+    //     if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
+    //         $(this).closest('form').find('.global-alert').removeClass('d-none');
+    //         setTimeout(function () {
+    //             $('.global-alert').addClass('d-none');
+    //         }, 3000)
+    //     } else {
+    //         $(this).closest('form').find('.global-success').removeClass('d-none');
+    //         $(this).closest('form').find('.global-alert').addClass('d-none');
+    //         setTimeout(function () {
+    //             window.location.replace("onboarding.html");
+    //         }, 2000)
+    //     }
+    // })
+    //
+    //
+    // $('#submitforgetpassbtn').on('click', function () {
+    //     if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
+    //         $(this).closest('form').find('.global-alert').removeClass('d-none');
+    //         setTimeout(function () {
+    //             $('.global-alert').addClass('d-none');
+    //         }, 3000)
+    //     } else {
+    //         $(this).closest('form').find('.global-success').removeClass('d-none');
+    //         $(this).closest('form').find('.global-alert').addClass('d-none');
+    //         setTimeout(function () {
+    //             window.location.replace("reset-password.html");
+    //         }, 2000)
+    //     }
+    // })
+    //
+    // $('#submitsignup').on('click', function () {
+    //     if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
+    //         $(this).closest('form').addClass('was-validated').find('.global-alert').removeClass('d-none');
+    //         setTimeout(function () {
+    //             $('.global-alert').addClass('d-none');
+    //         }, 3000)
+    //     } else {
+    //
+    //         $(this).closest('form').find('.global-success').removeClass('d-none');
+    //         $(this).closest('form').find('.global-alert').addClass('d-none');
+    //         setTimeout(function () {
+    //             window.location.replace("verify.html");
+    //         }, 2000)
+    //     }
+    // })
 
     /* passsword strenght checker */
     $('#password1').first().keyup(function () {

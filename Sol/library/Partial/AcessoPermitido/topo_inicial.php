@@ -111,7 +111,7 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
 
 <!-- Begin page content -->
 <main class="main mainheight container-fluid">
-    <form class="row h-100 justify-content-center">
+    <div class="row h-100 justify-content-center">
         <div class="col-12 mb-auto">
             <!-- time and temperature -->
             <div class="row text-white my-2">

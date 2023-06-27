@@ -2808,7 +2808,7 @@ textarea.form-control-lg {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    /* color: #212529; */
     text-align: center;
     white-space: nowrap;
     background-color: #e9ecef;
@@ -12744,7 +12744,7 @@ p code {
 }
 .dark-mode .form-control,
 .dark-mode .form-select {
-    background-color: var(--adminux-theme-bg);
+    background-color: var(--adminux-theme-bg) !important;
 }
 .dark-mode .form-control:focus,
 .dark-mode .form-select:focus {
@@ -18718,3 +18718,5 @@ span#city{
         left: auto !important;
     }
 }/*# sourceMappingURL=style.css.map */
+pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:#333;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}
+pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}
