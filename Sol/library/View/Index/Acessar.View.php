@@ -34,7 +34,7 @@ include_once './library/Partial/AcessoPermitido/topo_inicial.php';
                         </div>
                     </div>
                     <!-- Form elements -->
-                    <form method="post" action="../Logar" enctype="multipart/form-data">
+                    <form method="post" action="../Index/Logar" enctype="multipart/form-data">
                         <div class="form-group mb-2 position-relative check-valid">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text text-theme border-end-0"><i

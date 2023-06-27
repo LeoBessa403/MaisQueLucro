@@ -13,11 +13,6 @@ $(function () {
         }, (1001 * inativo * 60));
     }
 
-    //function to initiate Select2
-    $(".search-select").select2({
-        allowClear: false
-    });
-
     function validaData(data, id) {
         if (data !== "") {
             var erro = "";
@@ -256,26 +251,26 @@ $(function () {
         verificarIntervaloDatas(id);
     });
 
-    $(".data").mask("99/99/9999").change(function () {
-        var data = $(this).val();
-        var id = $(this).attr("id");
-        validaData(data, id);
-    }).datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "c-80:c+15",
-            currentText: "Hoje",
-            monthNamesShort: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-            dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
-            dateFormat: "dd/mm/yy",
-            showMonthAfterYear: true,
-            showAnim: "clip"
-        }
-    ).keyup(function () {
-        var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.val().replace(/[^/]+/g, '');
-        $(this).val(valor);
-    });
+    // $(".data").mask("99/99/9999").change(function () {
+    //     var data = $(this).val();
+    //     var id = $(this).attr("id");
+    //     validaData(data, id);
+    // }).datepicker({
+    //         changeMonth: true,
+    //         changeYear: true,
+    //         yearRange: "c-80:c+15",
+    //         currentText: "Hoje",
+    //         monthNamesShort: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    //         dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+    //         dateFormat: "dd/mm/yy",
+    //         showMonthAfterYear: true,
+    //         showAnim: "clip"
+    //     }
+    // ).keyup(function () {
+    //     var valor = $(this).val().replace(/[^0-9]+/g, '');
+    //     valor = valor.val().replace(/[^/]+/g, '');
+    //     $(this).val(valor);
+    // });
     $(".cpf").mask("999.999.999-99").change(function () {
         var cpf = $(this).val();
         var id = $(this).attr("id");
@@ -446,18 +441,12 @@ $(function () {
     });
 
     // Ler a quantidade de notificações
-    $(window).load(function () {
+    $(window).on("load", function () {
         var itens = 0;
-        $(".notifica li").each(function () {
-            if ($(this).children('li')) {
-                itens++;
-            }
+        $(".notificationwindow .card").each(function () {
+            itens++;
         });
-        $("span .nu_notificacoes").text(itens);
-        if (itens > 0) {
-            $("#notif").addClass('pulse');
-        }
-
+        $(".nu_notificacoes").text(itens);
     });
 
     $(".cancelar").click(function () {
@@ -485,11 +474,6 @@ $(function () {
 
     // ABRE MODAL DE CONFIRMAÇÃO DE EMAIL
     $("#emailConfirma").click();
-
-    // FECHA MODAL DE LOAD APOS CARREGAR A PÁGINA
-    $(window).load(function () {
-        $("#carregando .cancelar").click();
-    });
 
     if ($("#sumir").hasClass('alert')) {
         irAoTopo();
