@@ -1,12 +1,18 @@
 <?php
 include_once './library/Partial/AcessoPermitido/topo_inicial.php';
 ?>
+<style>
+    .border-right{
+        border-top-right-radius: var(--adminux-rounded) !important;
+        border-bottom-right-radius: var(--adminux-rounded) !important;
+    }
+</style>
     <div class="col-12 align-self-center">
         <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-sm-8 cx-login col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center text-white">
-                <h3 class="mb-3 mb-lg-4">Logar</h3>
-                <p class="mb-4">Entre com seus dados para acessar sua conta.
-                    <br><?php include_once 'library/Partial/Admin/controle_versao.php'; ?></p>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center">
+                <h3 class="mb-3 mb-lg-4 text-theme-2">Logar</h3>
+                <p class="mb-4 text-theme-2"><strong>Entre com seus dados para acessar sua conta.
+                        <br><small><?php include_once 'library/Partial/Admin/controle_versao.php'; ?></small></strong></p>
 
                 <div class="mb-4 text-start">
                     <!-- alert messages -->
@@ -52,7 +58,7 @@ include_once './library/Partial/AcessoPermitido/topo_inicial.php';
                                            id="<?= DS_SENHA; ?>">
                                     <label for="password">Senha</label>
                                 </div>
-                                <span class="input-group-text text-secondary  border-end-0" id="viewpassword"><i
+                                <span class="input-group-text border-right text-secondary cursor border-end-0" id="viewpassword"><i
                                             class="bi bi-eye"></i></span>
                                 <input type="hidden" name="logar_sistema" id="logar_sistema" value="logar"/>
                             </div>
@@ -62,7 +68,7 @@ include_once './library/Partial/AcessoPermitido/topo_inicial.php';
                 </div>
 
                 <!-- or continue with options -->
-                <p class="text-white">Ou voçê pode logar com</p>
+                <p class="text-theme-2"><strong>Ou voçê pode logar com</strong></p>
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link px-2" href=""><img src="<?= PASTAIMG; ?>facebook.png"
                                                                                alt=""/></a></li>
