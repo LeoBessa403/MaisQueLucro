@@ -209,7 +209,7 @@ class UrlAmigavel
         if (TEM_SITE) {
             echo '<li class="nav-item">
                             <a class="nav-link" aria-current="page" href="' . HOME . '" target="_blank">
-                                <div class="avatar avatar-40 icon"><i class="bi bi-house-door"></i></div>
+                                <div class="avatar avatar-40 icon"><i class="bi bi-diagram-3"></i></div>
                                 <div class="col">SITE</div>
                                 <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                             </a>
