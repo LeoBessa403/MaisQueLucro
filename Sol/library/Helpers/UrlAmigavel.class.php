@@ -190,22 +190,30 @@ class UrlAmigavel
 
         $ativo = UrlAmigavel::$controller;
 
-        echo '<ul class="main-navigation-menu">';
-        if ($ativo == ACTION_INICIAL_ADMIN):
-            echo '<li class="active">';
-        else:
-            echo '<li>';
-        endif;
-        echo '<a href="' . PASTAADMIN . 'Index/IndexAdmin"><i class="clip-home-3"></i>
-                                   <span class="title"> PÁGINA INICIAL  </span><span class="selected"></span>
-                           </a>
-                   </li>';
+
+        echo '<div class="sidebar-wrap">
+                <div class="sidebar">
+                    <div class="container">';
+
+
+        echo '<div class="row mb-4">
+                <div class="col-12 px-0">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="' . PASTAADMIN . 'Index/IndexAdmin">
+                                <div class="avatar avatar-40 icon"><i class="bi bi-house-door"></i></div>
+                                <div class="col">PÁGINA INICIAL</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>';
         if (TEM_SITE) {
-            echo '<li>
-                           <a href="' . HOME . '" target="_blank"><i class="clip-cog-2"></i>
-                                   <span class="title"> SITE </span><span class="selected"></span>
-                           </a>
-                   </li>';
+            echo '<li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="' . HOME . '" target="_blank">
+                                <div class="avatar avatar-40 icon"><i class="bi bi-house-door"></i></div>
+                                <div class="col">SITE</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>';
         }
         /** @var ControllerEntidade $controller */
         foreach ($controllers as $controller) {
@@ -231,33 +239,38 @@ class UrlAmigavel
             }
             if ($tem):
                 if ($ativo == $titulo):
-                    echo '<li class="active">';
+                    $active = " active";
                 else:
-                    echo '<li>';
+                    $active = '';
                 endif;
-                echo '<a href="javascript:void(0)"><i class="' . $controller->getDsClassIcon() . '"></i>
-                                       <span class="title"> ' . $label . ' </span><i class="icon-arrow"></i>
-                                       <span class="selected"></span>
-                               </a>
-                               <ul class="sub-menu" style="display: none;">';
+
+                echo '<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle' . $active . '" data-bs-toggle="dropdown" data-bs-auto-close="false" data-bs-display="static" href="#" role="button" aria-expanded="false">
+                                <div class="avatar avatar-40 icon"><i class="' . $controller->getDsClassIcon() . '"></i></div>
+                                <div class="col">' . $label . '</div>
+                                <div class="arrow"><i class="bi bi-chevron-down plus"></i> <i class="bi bi-chevron-up minus"></i>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu">';
                 /** @var FuncionalidadeEntidade $func */
                 foreach ($controller->getCoFuncionalidade() as $func) {
                     $titulo_menu = str_replace($titulo, "", $func->getNoFuncionalidade());
                     if (Valida::ValPerfil($func->getDsAction()) && $func->getStMenu() == SimNaoEnum::SIM):
                         echo '<li>
-                                    <a href="' . PASTAADMIN . $titulo . '/' . $func->getDsAction() . '">
-                                            <span class="title"> ' . $titulo_menu . ' </span>
+                                    <a class="dropdown-item nav-link' . $active . '" href="' . PASTAADMIN . $titulo . '/' . $func->getDsAction() . '">
+                                        <div class="avatar avatar-40 icon"><i class="bi bi-caret-right-fill"></i>
+                                        </div>
+                                        <div class="col align-self-center" 
+                                        style="font-size: 0.85em;">' . $titulo_menu . '</div>
+                                        <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                     </a>
-                                 </li>';
+                                </li>';
                     endif;
                 }
-                echo '</ul>
-                       </li>';
+                echo '</ul></li>';
             endif;
         }
-        echo '<li><a href="javascript:void(0)"></a></li>';
-        echo '</ul>';
-
+        echo '</ul></div></div></div></div></div>';
     }
 
     public static function getLink()

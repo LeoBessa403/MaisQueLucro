@@ -442,7 +442,7 @@ $(function () {
 
     // Ler a quantidade de notificações
     $(window).on("load", function () {
-        var itens = 0;
+        var itens = "0";
         $(".notificationwindow .card").each(function () {
             itens++;
         });

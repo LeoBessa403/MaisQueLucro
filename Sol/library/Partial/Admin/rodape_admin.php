@@ -1,7 +1,6 @@
 <!-- Rightbar -->
 <div class="rightbar-wrap">
     <div class="rightbar">
-
         <!-- suporte window -->
         <div class="chatwindow d-none" id="chatwindow">
             <div class="card border-0 h-100">
