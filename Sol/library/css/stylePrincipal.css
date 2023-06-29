@@ -13889,15 +13889,16 @@ textarea.form-control-lg {
     opacity: 1;
 }
 
-@media screen and (max-width: 480px) {
-    .personalise-color-list li {
-        width: 50%;
-    }
-
+@media screen and (max-width: 540px) {
     .navbar-brand .text-secondary {
         display: none !important;
     }
 
+}
+@media screen and (max-width: 480px) {
+    .personalise-color-list li {
+        width: 50%;
+    }
 }
 
 
@@ -19150,6 +19151,18 @@ a.card {
 
     .menu-btn {
         margin-right: 0 !important;
+    }
+
+    .header .container-fluid{
+        padding-left: 0.4rem;
+    }
+
+    .navbar .col-auto{
+        padding: 0 2px;
+    }
+
+    .navbar .align-self-center{
+        padding: 0 10px;
     }
 }
 

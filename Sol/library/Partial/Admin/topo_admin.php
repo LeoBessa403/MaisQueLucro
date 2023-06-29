@@ -132,7 +132,7 @@ $user = $us->getUser();
                         <button type="button" class="btn btn-square btn-link text-center" id="addtohome"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Install PWA"><i
                                     class="bi bi-cloud-download"></i></button>
-                        <button type="button" class="btn btn-square btn-link text-center d-none d-lg-inline-block"
+                        <button type="button" class="btn btn-square btn-link text-center d-lg-inline-block"
                                 id="gofullscreen" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                 title="Fullscreen"><i class="bi bi-fullscreen"></i></button>
 
