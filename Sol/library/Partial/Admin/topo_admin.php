@@ -114,7 +114,7 @@ $user = $us->getUser();
                 <i class="bi bi-list fs-4"></i>
             </button>
             <div class="col-auto ms-2">
-                <a class="navbar-brand d-block" href="#">
+                <a class="navbar-brand d-block" href="<?= PASTAADMIN; ?>/Index/IndexAdmin">
                     <div class="row">
                         <div class="col-auto"><span class="logo-icon"><img src="<?= PASTAIMG; ?>logo-icon.png"
                                                                            class="mx-100" alt=""/></span></div>
@@ -129,9 +129,6 @@ $user = $us->getUser();
             <div class="ms-auto">
                 <div class="row">
                     <div class="col-auto">
-                        <button class="btn btn-square btn-link search-btn d-inline-block d-xl-none " id="searchtoggle">
-                            <i class="bi bi-search"></i>
-                        </button>
                         <button type="button" class="btn btn-square btn-link text-center" id="addtohome"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Install PWA"><i
                                     class="bi bi-cloud-download"></i></button>
@@ -139,7 +136,7 @@ $user = $us->getUser();
                                 id="gofullscreen" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                 title="Fullscreen"><i class="bi bi-fullscreen"></i></button>
 
-                        <button type="button" class="btn btn-square btn-link text-center d-none d-sm-inline-block"
+                        <button type="button" class="btn btn-square btn-link text-center09- d-sm-inline-block"
                                 id="showChat" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                 title="Chat & Support">
                                 <span class="bi bi-chat-right-dots position-relative">

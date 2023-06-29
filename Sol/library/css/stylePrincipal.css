@@ -1377,7 +1377,7 @@ progress {
 
 @media (min-width: 768px) {
     .col-md {
-        flex: 1 0 0%;
+        flex: 1 0 0;
     }
 
     .row-cols-md-auto > * {
@@ -13891,7 +13891,26 @@ textarea.form-control-lg {
     .personalise-color-list li {
         width: 50%;
     }
+
+    .navbar-brand .text-secondary {
+        display: none !important;
+    }
+
 }
+
+
+footer .text-secondary {
+   text-align: center;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 767px) {
+    .footer .text-secondary {
+        margin-left: 31%;
+        max-width: 46%;
+    }
+}
+
 
 /* 4. tags */
 /* tags */
@@ -16459,12 +16478,6 @@ body:not(.sidebar-filled-theme):not(.sidebar-filled) .header > .navbar:after {
 
 .search-header > .input-group > .input-group-text, .search-header > .input-group > .form-select, .search-header > .input-group > .form-control, .search-header > .input-group > .chosen-container .chosen-single, .search-header > .input-group > .chosen-container .chosen-default, .search-header > .input-group > .chosen-container-multi .chosen-choices {
     background-color: var(--adminux-theme-bg);
-}
-
-@media screen and (max-width: 992px) {
-    .navbar-brand img {
-        max-height: 36px;
-    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -19131,6 +19144,10 @@ a.card {
     .fc-today-button {
         display: none !important;
     }
+
+    .menu-btn {
+        margin-right: 0 !important;
+    }
 }
 
 /* date range picekr */
@@ -21280,6 +21297,6 @@ pre code {
     border-radius: 0
 }
 
-.cursor{
+.cursor {
     cursor: pointer;
 }
