@@ -62,7 +62,7 @@
 <?php
 $url->pegaControllerAction();
 ?>
-
+</main>
 <!-- footer sticky bottom -->
 <footer class="footer-sticky">
     <div class="container">
@@ -139,17 +139,20 @@ $url->pegaControllerAction();
 <script src="<?= INCLUDES; ?>progressbar.min.js"></script>
 
 <!-- swiper js script -->
-<script src="<?= INCLUDES; ?>js/swiper-bundle.min.js"></script>
+<script src="<?= INCLUDES; ?>swiper-bundle.min.js"></script>
 
 <!-- Simple lightbox script -->
-<script src="<?= INCLUDES; ?>js/simple-lightbox.jquery.min.js"></script>
+<script src="<?= INCLUDES; ?>simple-lightbox.jquery.min.js"></script>
 
 <!-- app tour script-->
-<script src="<?= INCLUDES; ?>js/lib.js"></script>
+<script src="<?= INCLUDES; ?>lib.js"></script>
+
+<script src="<?= INCLUDES; ?>footable.min.js"></script>
 
 <!-- page level script here -->
-<script src="<?= INCLUDES; ?>js/header-title.js"></script>
-<script src="<?= INCLUDES; ?>js/dashboard.js"></script>
+<script src="<?= INCLUDES; ?>header-title.js"></script>
+<script src="<?= INCLUDES; ?>dashboard.js"></script>
+<script src="<?= INCLUDES; ?>finance-dashboard.js"></script>
 
 <!--<script type="text/javascript" src="--><? //= PASTA_LIBRARY; ?><!--js/js_padrao.min.js"></script>-->
 <?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>

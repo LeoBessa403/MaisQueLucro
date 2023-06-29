@@ -289,3 +289,6 @@ $user = $us->getUser();
     </nav>
 </header>
 <!-- Header ends -->
+
+<!-- Begin page content -->
+<main class="main mainheight">
