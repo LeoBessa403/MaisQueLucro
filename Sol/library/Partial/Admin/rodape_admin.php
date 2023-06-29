@@ -110,7 +110,7 @@ $url->pegaControllerAction();
     </div>
     <p class="text-secondary"><?php include_once 'controle_versao_admin.php'; ?></p>
 </footer>
-<!-- footer sticky bottom ends -->0-89
+<!-- footer sticky bottom ends -->
 
 
 <!-- Required jquery and libraries -->
