@@ -14025,6 +14025,8 @@ body > .coverimg, .product-tour-js-single-step body > .product-tour-js-image {
     flex-shrink: 0;
     border-radius: var(--adminux-rounded);
     z-index: 1;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .main-bg-overlay {
