@@ -25,7 +25,7 @@
                 <div class="card-body bg-none text-white">
                     <div class="text-center mb-3">
                         <figure class="avatar avatar-100 coverimg rounded-circle mb-3 mx-auto">
-                            <img src="assets/img/user-1.jpg" class="ususerphotoonboarding" alt="">
+                            <img src="<?= PASTAIMG; ?>user-1.jpg" class="ususerphotoonboarding" alt="">
                         </figure>
                         <h5 class="fw-normal mb-0 username">Maxartkiller</h5>
                         <h3 class="fw-medium">$28,000.00</h3>
@@ -171,7 +171,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center mb-4">
                                             <div class="col-auto align-self-center">
-                                                <img src="assets/img/visa.png" alt="">
+                                                <img src="<?= PASTAIMG; ?>visa.png" alt="">
                                             </div>
                                             <div class="col text-end">
                                                 <p class="size-12">
@@ -212,7 +212,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center mb-4">
                                             <div class="col-auto align-self-center">
-                                                <img src="assets/img/visa.png" alt="">
+                                                <img src="<?= PASTAIMG; ?>visa.png" alt="">
                                             </div>
                                             <div class="col text-end">
                                                 <p class="size-12">
@@ -253,7 +253,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center mb-4">
                                             <div class="col-auto align-self-center">
-                                                <img src="assets/img/visa.png" alt="">
+                                                <img src="<?= PASTAIMG; ?>visa.png" alt="">
                                             </div>
                                             <div class="col text-end">
                                                 <p class="size-12">
@@ -319,7 +319,7 @@
                             <div class="row">
                                 <div class="col-auto align-self-center">
                                     <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                        <img src="assets/img/user-4.jpg" alt="">
+                                        <img src="<?= PASTAIMG; ?>user-4.jpg" alt="">
                                     </figure>
                                 </div>
                                 <div class="col px-0 align-self-center">
@@ -335,7 +335,7 @@
                             <div class="row">
                                 <div class="col-auto align-self-center">
                                     <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                        <img src="assets/img/user-3.jpg" alt="">
+                                        <img src="<?= PASTAIMG; ?>user-3.jpg" alt="">
                                     </figure>
                                 </div>
                                 <div class="col px-0 align-self-center">
@@ -440,15 +440,15 @@
                         <div class="col-auto avatar-group">
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Just Demo">
-                                <img src="assets/img/company2.png" alt=""/>
+                                <img src="<?= PASTAIMG; ?>company2.png" alt=""/>
                             </figure>
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Preview Purpose">
-                                <img src="assets/img/company3.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>company3.jpg" alt=""/>
                             </figure>
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="to look real">
-                                <img src="assets/img/company4.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>company4.jpg" alt=""/>
                             </figure>
                         </div>
                     </div>
@@ -474,15 +474,15 @@
                         <div class="col-auto ps-0 avatar-group">
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                <img src="assets/img/user-2.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-2.jpg" alt=""/>
                             </figure>
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                <img src="assets/img/user-3.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-3.jpg" alt=""/>
                             </figure>
                             <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                <img src="assets/img/user-4.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-4.jpg" alt=""/>
                             </figure>
                         </div>
                     </div>
@@ -496,7 +496,7 @@
             <!-- targets and progress -->
             <div class="card border-0 position-relative mb-4">
                 <div class="coverimg position-absolute end-0 top-0 h-100 w-30pct rounded">
-                    <img src="assets/img/business-4.jpg" alt=""/>
+                    <img src="<?= PASTAIMG; ?>business-4.jpg" alt=""/>
                 </div>
                 <div class="row">
                     <div class="col-9">
@@ -687,14 +687,14 @@
                             <h4 class="mb-1">$ 16.00</h4>
                             <p class="text-secondary small mb-3">6 Coffee, Bread Butter, 2 more...</p>
                             <div class="avatar avatar-100 coverimg mb-3 rounded">
-                                <img src="assets/img/getAdminUX-qr.png" alt="" class="w-100"/>
+                                <img src="<?= PASTAIMG; ?>getAdminUX-qr.png" alt="" class="w-100"/>
                             </div>
                             <br>
                             <a class="btn btn-theme btn-md" href="payment.html">Pay online</a>
                         </div>
                         <div class="col position-relative text-white text-center">
                             <div class="coverimg position-absolute end-0 top-0 w-100 h-100">
-                                <img src="assets/img/payment.png" alt="">
+                                <img src="<?= PASTAIMG; ?>payment.png" alt="">
                             </div>
                             <div class="row h-100">
                                 <div class="col-12 align-self-center">
@@ -704,7 +704,7 @@
                                     </div>
                                     <p>Get most popular discounts with easy Google Pay. Just scan QR an pay it.</p>
                                     <a class="btn btn-light btn-md p-0" href="#">
-                                        <img src="assets/img/Google-Pay-logo-1024x512.png" alt=""/>
+                                        <img src="<?= PASTAIMG; ?>Google-Pay-logo-1024x512.png" alt=""/>
                                     </a>
                                 </div>
                             </div>
@@ -826,13 +826,13 @@
                     <div class="row">
                         <div class="col-auto">
                             <div class="avatar avatar-44 coverimg rounded-circle me-1">
-                                <img src="assets/img/user-2.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-2.jpg" alt=""/>
                             </div>
                             <div class="avatar avatar-44 coverimg rounded-circle me-1">
-                                <img src="assets/img/user-3.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-3.jpg" alt=""/>
                             </div>
                             <div class="avatar avatar-44 coverimg rounded-circle me-1">
-                                <img src="assets/img/user-4.jpg" alt=""/>
+                                <img src="<?= PASTAIMG; ?>user-4.jpg" alt=""/>
                             </div>
                         </div>
                         <div class="col ps-0">
@@ -858,7 +858,7 @@
                     </div>
                     <div class="col-6 position-relative">
                         <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
-                            <img src="assets/img/news-3.jpg" class="mw-100" alt=""/>
+                            <img src="<?= PASTAIMG; ?>news-3.jpg" class="mw-100" alt=""/>
                         </figure>
                     </div>
                 </div>
@@ -983,7 +983,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company6.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company6.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1037,7 +1037,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company2.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company2.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1091,7 +1091,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company3.jpg" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company3.jpg" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1145,7 +1145,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company4.jpg" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company4.jpg" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1199,7 +1199,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company5.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company5.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1254,7 +1254,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company4.jpg" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company4.jpg" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1308,7 +1308,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company5.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company5.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1362,7 +1362,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company6.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company6.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1416,7 +1416,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company2.png" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company2.png" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1470,7 +1470,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                    <img src="assets/img/company3.jpg" alt=""/>
+                                                    <img src="<?= PASTAIMG; ?>company3.jpg" alt=""/>
                                                 </figure>
                                             </div>
                                             <div class="col ps-0">
@@ -1711,7 +1711,7 @@
                     <div class="col-12 col-md-4 col-xxl-3">
                         <a class="navbar-brand d-block mb-3" href="#">
                             <div class="row">
-                                <div class="col-auto"><span class="logo-icon"><img src="assets/img/logo-icon.png"
+                                <div class="col-auto"><span class="logo-icon"><img src="<?= PASTAIMG; ?>logo-icon.png"
                                                                                    class="mx-100" alt=""/></span></div>
                                 <div class="col ps-0 align-self-center">
                                     <h4 class="fw-normal text-white mb-0">AdminUX</h4>

@@ -151,7 +151,7 @@ $url->pegaControllerAction();
 
 <!-- page level script here -->
 <script src="<?= INCLUDES; ?>header-title.js"></script>
-<script src="<?= INCLUDES; ?>dashboard.js"></script>
+<!--<script src="--><?//= INCLUDES; ?><!--dashboard.js"></script>-->
 <script src="<?= INCLUDES; ?>finance-dashboard.js"></script>
 
 <!--<script type="text/javascript" src="--><? //= PASTA_LIBRARY; ?><!--js/js_padrao.min.js"></script>-->

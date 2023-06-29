@@ -289,6 +289,8 @@ $user = $us->getUser();
     </nav>
 </header>
 <!-- Header ends -->
-
+<?php
+$url->GeraMenu();
+?>
 <!-- Begin page content -->
 <main class="main mainheight">
