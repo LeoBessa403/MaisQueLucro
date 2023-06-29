@@ -4394,6 +4394,8 @@ textarea.form-control-lg {
     flex-basis: 0;
     flex-grow: 1;
     text-align: center;
+    height: 50px;
+    padding: 0;
 }
 
 .nav-fill .nav-item .nav-link,
@@ -13900,7 +13902,7 @@ textarea.form-control-lg {
 
 
 footer .text-secondary {
-   text-align: center;
+    text-align: center;
     font-size: 0.8em;
 }
 
@@ -18801,11 +18803,13 @@ a.card {
     align-self: center;
     -webkit-align-self: center;
     -moz-align-self: center;
-    height: 100%;
-    line-height: 44px;
     color: var(--adminux-theme-text-secondary);
-    padding: 10px 5px;
+    padding: 5px 5px;
     opacity: 0.75;
+}
+
+.footer-sticky .nav .nav-item .nav-link:hover {
+    opacity: 1;
 }
 
 .footer-sticky .nav .nav-item .nav-link span {
@@ -18819,8 +18823,7 @@ a.card {
     height: 20px;
     line-height: 20px;
     width: 20px;
-    display: inline-block;
-    margin: 0 auto 5px auto;
+    display: inline-block;/
 }
 
 .footer-sticky .nav .nav-item .nav-link span .nav-text {
