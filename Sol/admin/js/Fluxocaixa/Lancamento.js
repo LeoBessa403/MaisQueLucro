@@ -1,14 +1,13 @@
 $(function () {
-
     /* table data master */
     $('.footable').footable({
         "paging": {
             "enabled": true,
             "container": '#footable-pagination',
             "countFormat": "{CP} of {TP}",
-            "limit": 3,
+            "limit": 5,
             "position": "center",
-            "size": 4
+            "size": 20
         },
         "sorting": {
             "enabled": true
@@ -23,5 +22,4 @@ $(function () {
         });
 
     });
-
 });
