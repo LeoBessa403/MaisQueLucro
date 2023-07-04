@@ -13895,6 +13895,7 @@ textarea.form-control-lg {
     }
 
 }
+
 @media screen and (max-width: 480px) {
     .personalise-color-list li {
         width: 50%;
@@ -18826,7 +18827,8 @@ a.card {
     height: 20px;
     line-height: 20px;
     width: 20px;
-    display: inline-block;/
+    display: inline-block;
+/
 }
 
 .footer-sticky .nav .nav-item .nav-link span .nav-text {
@@ -19155,15 +19157,15 @@ a.card {
         margin-right: 0 !important;
     }
 
-    .header .container-fluid{
+    .header .container-fluid {
         padding-left: 0.4rem;
     }
 
-    .navbar .col-auto{
+    .navbar .col-auto {
         padding: 0 2px;
     }
 
-    .navbar .align-self-center{
+    .navbar .align-self-center {
         padding: 0 10px;
     }
 }
@@ -19947,11 +19949,25 @@ table > :not(:first-child),
 }
 
 .fooicon-plus:before {
-    content: "\f282";
+    content: "\2b";
 }
 
 .fooicon-minus:before {
-    content: "\f286";
+    content: "\2212";
+}
+
+.fooicon-plus, .fooicon-minus {
+    font-size: 1.5em;
+    font-weight: bolder;
+    opacity: 0.6;
+    padding: 0 6px 6px;
+}
+
+.fooicon-plus:hover, .fooicon-minus:hover {
+    cursor: pointer;
+    background-color: rgba(var(--adminux-theme-rgb), 0.15) !important;
+    color: var(--adminux-theme);
+    border-radius: var(--adminux-rounded);
 }
 
 .footable-pagination-wrapper {

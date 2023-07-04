@@ -5,7 +5,7 @@ $(function () {
             "enabled": true,
             "container": '#footable-pagination',
             "countFormat": "{CP} of {TP}",
-            "limit": 5,
+            "limit": 10,
             "position": "center",
             "size": 20
         },

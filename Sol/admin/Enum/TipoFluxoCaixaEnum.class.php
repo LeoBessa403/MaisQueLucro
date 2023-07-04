@@ -13,7 +13,7 @@ class TipoFluxoCaixaEnum extends AbstractEnum
     ];
 
     public static $label = [
-        TipoFluxoCaixaEnum::ENTRADA => '<span class="label label-success">Entrada</span>',
-        TipoFluxoCaixaEnum::SAIDA => '<span class="label label-danger">Saída</span>',
+        TipoFluxoCaixaEnum::ENTRADA => '<span class="badge badge-sm bg-success">Entrada</span>',
+        TipoFluxoCaixaEnum::SAIDA => '<span class="badge badge-sm bg-red">Saída</span>',
     ];
 }

@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <!-- timesheet -->
-    <div class="col-12">
+    <div class="col-12" style="padding-bottom: 80px;">
         <div class="card border-0 overflow-hidden">
             <div class="card-header">
                 <div class="row">
@@ -32,25 +32,26 @@
                     <?php
                     Modal::load();
                     $cpTodos = '<div class="form-check form-switch mb-4">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="selTodosLanc" 
-                                        data-original-title="Marcar/Desmarcar Todos" data-placement="top"></div>';
+                                    <input class="form-check-input" style="margin-top: 20px;" type="checkbox" 
+                                    role="switch" id="selTodosLanc"  data-original-title="Marcar/Desmarcar Todos" 
+                                    data-placement="top"></div>';
                     ?>
                     <tr class="text-muted">
-                        <th class="w-12"></th>
-                        <th><?= $cpTodos; ?></th>
-                        <th>Tipo de Lançamento</th>
-                        <th>Categoria</th>
-                        <th>Lançado</th>
-                        <th>Vencimento</th>
-                        <th>Pago em</th>
-                        <th>Status Pagamento</th>
-                        <th>Valor</th>
-                        <th>Valor Pago</th>
-                        <th data-breakpoints="xs sm">Forma de Pagamento</th>
-                        <th data-breakpoints="xs sm">Conta</th>
-                        <th data-breakpoints="all">Centro de Custo</th>
-                        <th data-breakpoints="all">Representação</th>
-                        <th>Ações</th>
+                        <th data-sortable="false" class="w-12"></th>
+                        <th data-sortable="false"><?= $cpTodos; ?></th>
+                        <th>Tipo de Lançamento </th>
+                        <th>Categoria </th>
+                        <th>Lançado </th>
+                        <th>Vencimento </th>
+                        <th>Pago em </th>
+                        <th>Status Pagamento </th>
+                        <th>Valor </th>
+                        <th>Valor Pago </th>
+                        <th data-breakpoints="xs sm">Forma de Pagamento </th>
+                        <th data-breakpoints="xs sm">Conta </th>
+                        <th data-breakpoints="all">Centro de Custo </th>
+                        <th data-breakpoints="all">Representação </th>
+                        <th data-sortable="false">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -73,9 +74,9 @@
                         $catLanc = $res["nu_codigo_n"]
                             . ' - ' . $res["no_neta"];
 
-                        $labelStPg = '<span class="circle-img label-' .
+                        $labelStPg = '<span class="badge badge-sm bg-' .
                             StatusPagamentoFCEnum::$cores[$res["st_pagamento"]] .
-                            '">&nbsp;&nbsp;&nbsp;&nbsp;</span> ';
+                            '">&nbsp;</span> ';
 
                         $dtVenc = ($res["dt_vencimento"]) ? Valida::DataShow($res["dt_vencimento"]) : '';
                         $dtReal = ($res["dt_realizado"]) ? Valida::DataShow($res["dt_realizado"]) : '';
