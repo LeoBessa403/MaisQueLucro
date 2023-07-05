@@ -22,4 +22,18 @@ $(function () {
         });
 
     });
+
+    $('#selTodosLanc').change(function () {
+        alert('ok clicou');
+        var checked = $(this).prop('checked');
+        $('.bx-lanc').each(function () {
+            $(this).prop('checked', checked)
+        });
+    });
+
+    $('.bx-lanc').click(function () {
+        alert('oiioo');
+        console.log('ewfwfw');
+    });
+
 });

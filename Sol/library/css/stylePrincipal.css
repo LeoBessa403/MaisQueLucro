@@ -20134,6 +20134,11 @@ table > :not(:first-child),
     border-bottom: 0;
 }
 
+.footable-detail-row .table th {
+    width: 20%;
+    text-align: right;
+}
+
 /* 26. RTL layout */
 .rtl {
     direction: rtl;

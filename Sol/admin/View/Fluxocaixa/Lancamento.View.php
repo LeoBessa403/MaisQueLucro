@@ -40,15 +40,15 @@
                         <th data-sortable="false" class="w-12"></th>
                         <th data-sortable="false"><?= $cpTodos; ?></th>
                         <th>Tipo de Lançamento </th>
-                        <th>Categoria </th>
-                        <th>Lançado </th>
-                        <th>Vencimento </th>
-                        <th>Pago em </th>
+                        <th data-breakpoints="xs">Categoria </th>
+                        <th data-breakpoints="all">Lançado </th>
+                        <th data-breakpoints="xs">Vencimento </th>
+                        <th data-breakpoints="xs">Pago em </th>
                         <th>Status Pagamento </th>
-                        <th>Valor </th>
-                        <th>Valor Pago </th>
-                        <th data-breakpoints="xs sm">Forma de Pagamento </th>
-                        <th data-breakpoints="xs sm">Conta </th>
+                        <th data-breakpoints="xs">Valor </th>
+                        <th data-breakpoints="xs">Valor Pago </th>
+                        <th data-breakpoints="lg md sm xs">Forma de Pagamento </th>
+                        <th data-breakpoints="lg md sm xs">Conta </th>
                         <th data-breakpoints="all">Centro de Custo </th>
                         <th data-breakpoints="all">Representação </th>
                         <th data-sortable="false">Ações</th>
@@ -114,12 +114,13 @@
                         echo '<td>
                                     <div class="dropdown d-inline-block">
                                         <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                            <i class="bi bi-three-dots"></i>
+                                            <i class="bi bi-three-dots cursor"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="bi bi-pencil-square"></i> Editar</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="bi bi-trash"></i> Delete</a></li>
                                         </ul>
                                     </div>
                                 </td>
