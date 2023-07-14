@@ -117,7 +117,8 @@
                                             <i class="bi bi-three-dots cursor"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="javascript:void(0)">
+                                            <li><a class="dropdown-item" data-bs-target="#billpay" 
+                                            data-bs-toggle="modal" href="#">
                                             <i class="bi bi-pencil-square"></i> Editar</a></li>
                                             <li><a class="dropdown-item" href="javascript:void(0)">
                                             <i class="bi bi-trash"></i> Delete</a></li>
@@ -144,3 +145,4 @@
         </div>
     </div>
 </div>
+
