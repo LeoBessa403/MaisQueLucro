@@ -218,7 +218,7 @@ $url->pegaControllerAction();
 <script src="<?= INCLUDES; ?>color-scheme.js"></script>
 
 <!-- PWA app service registration and works -->
-<script src="pwa-services.js"></script>
+<!--<script src="pwa-services.js"></script>-->
 
 <!-- date range picker -->
 <script src="<?= INCLUDES; ?>moment.min.js"></script>
@@ -246,10 +246,7 @@ $url->pegaControllerAction();
 
 <!-- page level script here -->
 <script src="<?= INCLUDES; ?>header-title.js"></script>
-<!--<script src="--><?//= INCLUDES; ?><!--dashboard.js"></script>-->
-<!--<script src="--><?//= INCLUDES; ?><!--finance-dashboard.js"></script>-->
 
-<!--<script type="text/javascript" src="--><? //= PASTA_LIBRARY; ?><!--js/js_padrao.min.js"></script>-->
 <?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>
 <script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/Funcoes.js"></script>
 <script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/jquery.mask.js"></script>

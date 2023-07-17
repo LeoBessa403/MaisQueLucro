@@ -18,10 +18,8 @@ $session = new Session();
 $us = unserialize(serialize($_SESSION[SESSION_USER]));
 $user = $us->getUser();
 ?>
-
 <!doctype html>
 <html lang="en" class="dark-mode">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -32,7 +30,7 @@ $user = $us->getUser();
 
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="manifest.json"/>
+<!--    <link rel="manifest" href="manifest.json"/>-->
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="<?= PASTAIMG; ?>favicon180.png" sizes="180x180">
@@ -63,11 +61,11 @@ $user = $us->getUser();
 
     <!-- style css for this template -->
     <link href="<?= PASTA_LIBRARY; ?>css/stylePrincipal.css" rel="stylesheet">
-    <script>
-        if (typeof navigator.serviceWorker !== 'undefined') {
-            navigator.serviceWorker.register('pwabuilder-sw.js')
-        }
-    </script>
+<!--    <script>-->
+<!--        if (typeof navigator.serviceWorker !== 'undefined') {-->
+<!--            navigator.serviceWorker.register('pwabuilder-sw.js')-->
+<!--        }-->
+<!--    </script>-->
 </head>
 
 <body class="d-flex flex-column h-100 sidebar-pushcontent sidebar-filled" data-sidebarstyle="sidebar-pushcontent">

@@ -20,7 +20,7 @@ class StatusPagamentoFCEnum extends AbstractEnum
 
     public static $cores = [
         StatusPagamentoFCEnum::A_PAGAR => 'orange',
-        StatusPagamentoFCEnum::A_RECEBER => 'teal',
+        StatusPagamentoFCEnum::A_RECEBER => 'blue',
         StatusPagamentoFCEnum::PAGO => 'green',
         StatusPagamentoFCEnum::EM_ATRASO => 'red',
     ];

@@ -4,8 +4,10 @@
         <h4>Financeiro - <small>Lançamentos</small></h4>
     </div>
 </div>
+
+<?php include_once 'BotoesLancamento.View.php'; ?>
+
 <div class="row">
-    <!-- timesheet -->
     <div class="col-12" style="padding-bottom: 80px;">
         <div class="card border-0 overflow-hidden">
             <div class="card-header">
@@ -32,13 +34,13 @@
                     <?php
                     Modal::load();
                     $cpTodos = '<div class="form-check form-switch mb-4">
-                                    <input class="form-check-input" style="margin-top: 20px;" type="checkbox" 
-                                    role="switch" id="selTodosLanc"  data-original-title="Marcar/Desmarcar Todos" 
+                                    <input class="form-check-input" style="margin-top: 20px;" type="checkbox"
+                                    role="switch" id="selTodosLanc"  data-original-title="Marcar/Desmarcar Todos"
                                     data-placement="top"></div>';
                     ?>
                     <tr class="text-muted">
                         <th data-sortable="false" class="w-12"></th>
-                        <th data-sortable="false"><?= $cpTodos; ?></th>
+                        <th data-sortable="false"><? //= $cpTodos; ?></th>
                         <th>Tipo de Lançamento </th>
                         <th data-breakpoints="xs">Categoria </th>
                         <th data-breakpoints="all">Lançado </th>
@@ -117,10 +119,10 @@
                                             <i class="bi bi-three-dots cursor"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" data-bs-target="#billpay" 
+                                            <li><a class="dropdown-item" data-bs-target="#billpay"
                                             data-bs-toggle="modal" href="#">
                                             <i class="bi bi-pencil-square"></i> Editar</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0)">
+                                            <li><a class="dropdown-item" href="#">
                                             <i class="bi bi-trash"></i> Delete</a></li>
                                         </ul>
                                     </div>
