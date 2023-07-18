@@ -83,9 +83,9 @@
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#lancEntrada" href="#">
                                                     <i class="bi bi-box-arrow-right"></i> Entrada</a></li>
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#lancSaida" href="#">
                                                     <i class="bi bi-box-arrow-left"></i> Saída</a></li>
                                             <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
                                                     <i class="bi bi-arrow-left-right"></i> Transferência entre
@@ -202,10 +202,10 @@
 
             <div class="row tp-menu" id="modelo2">
                 <p class="mb-4 text-center">
-                <span class="tag bg-light-theme theme-green text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">
+                <span class="tag bg-light-theme theme-green text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#lancEntrada">
                     <i class="bi bi-box-arrow-right"></i> Entrada
                 </span>
-                    <span class="tag bg-light-theme theme-red text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">
+                    <span class="tag bg-light-theme theme-red text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#lancSaida">
                     <i class="bi bi-box-arrow-left"></i> Saída
                 </span>
                     <span class="tag bg-light-theme theme-orange text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">

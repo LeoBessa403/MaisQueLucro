@@ -1,3 +1,11 @@
+<style>
+    .bg-color-red {
+        background-color: #FD5D5B !important;
+    }
+    .dark-mode .bg-color-red {
+        background-color: #581f2f !important;
+    }
+</style>
 <!-- title bar -->
 <div class="container-fluid">
     <div class="row align-items-center page-title">
@@ -147,4 +155,3 @@
         </div>
     </div>
 </div>
-
