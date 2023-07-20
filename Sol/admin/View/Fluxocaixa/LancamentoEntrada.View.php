@@ -9,7 +9,6 @@
                     </div>
                     <div class="col">
                         <h6 class="fw-medium mb-0">Entrada</h6>
-                        <p class="small text-secondary">Keep the required fields only</p>
                     </div>
                     <div class="col-auto">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

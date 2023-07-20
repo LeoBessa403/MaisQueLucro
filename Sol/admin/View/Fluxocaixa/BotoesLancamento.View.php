@@ -87,7 +87,7 @@
                                                     <i class="bi bi-box-arrow-right"></i> Entrada</a></li>
                                             <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#lancSaida" href="#">
                                                     <i class="bi bi-box-arrow-left"></i> Saída</a></li>
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#lancTransfConta" href="#">
                                                     <i class="bi bi-arrow-left-right"></i> Transferência entre
                                                     Contas</a></li>
                                         </ul>
@@ -187,9 +187,9 @@
                                             <i class="bi bi-three-dots-vertical"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cadCategoria" href="#">
                                                     <i class="bi bi-bookmark-plus"></i> Cadastro de Categoria</a></li>
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#billpay" href="#">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#estruturaCategoriaFC" href="#">
                                                     <i class="bi bi-bookmarks"></i> Estrutura de Categoria</a></li>
                                         </ul>
                                     </div>
@@ -208,13 +208,13 @@
                     <span class="tag bg-light-theme theme-red text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#lancSaida">
                     <i class="bi bi-box-arrow-left"></i> Saída
                 </span>
-                    <span class="tag bg-light-theme theme-orange text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">
+                    <span class="tag bg-light-theme theme-orange text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#lancTransfConta">
                     <i class="bi bi-arrow-left-right"></i> Transferência entre Contas
                 </span>
-                    <span class="tag bg-light-theme theme-blue text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">
+                    <span class="tag bg-light-theme theme-blue text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#cadCategoria">
                     <i class="bi bi-bookmark-plus"></i> Cadastro de Categoria
                 </span>
-                    <span class="tag bg-light-theme theme-purple text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#billpay">
+                    <span class="tag bg-light-theme theme-purple text-theme me-1 mb-1" data-bs-toggle="modal" data-bs-target="#estruturaCategoriaFC">
                     <i class="bi bi-bookmarks"></i> Estrutura de Categoria
                 </span>
                 </p>

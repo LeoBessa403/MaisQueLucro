@@ -1,41 +1,91 @@
-<!--  MODAL FORM DE CADASTRO E EDIÇÃO -->
-<div class="modal modal-sm fade in modal-overflow j_TransfSaldo" id="TransfSaldo" tabindex="-1"
-     role="dialog" aria-hidden="true">
-    <div class="modal-header btn-teal">
-        <button type="button" class="close cancelar" data-dismiss="modal" aria-hidden="true">
-            X
-        </button>
-        <h4 class="modal-title">Transferência de Saldo entre Contas</h4>
-    </div>
-    <div class="modal-body" style="padding: 0 2.5%;">
-        <?= $formTransSaldo; ?>
+<!-- Modal Bill pay -->
+<div class="modal fade" id="lancTransfConta" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-color-orange">
+            <div class="modal-header d-block">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <i class="bi bi-receipt-cutoff h5 avatar avatar-40 rounded"></i>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-medium mb-0">Transferência de Saldo entre Contas</h6>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h6 class="fw-medium mb-2">Pay Bill From:</h6>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-6 mb-2">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-cash"></i></span>
+                            <select class=" form-control simplechosen">
+                                <option selected>Wallet</option>
+                                <option>Bank</option>
+                                <option>Crypto</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                            <select class="form-control simplechosen">
+                                <option>CA Bank</option>
+                                <option>Larson Bank</option>
+                                <option>Truelance Bank</option>
+                                <option selected>Cabilian Bank</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-secondary small mb-4">Balance: 966800.00 USD</p>
 
-        <h2 style="margin-top: 15px;">
-            <small>Transferências Realizadas</small>
-        </h2>
-        <?php
-        $grid = new Grid();
-        $arrColunas = array('Origem', 'Saldo Ant.', 'Saldo Dep.', 'Destino',
-            'Saldo Ant.', 'Saldo Dep.', 'Realizado', 'Transferido', 'Responsável');
+                <h6 class="fw-medium mb-2">Bill Information Money to:</h6>
+                <div class="row align-items-center mb-2">
+                    <div class="col-12 col-md-6 mb-2">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-map"></i></span>
+                            <select class="form-control simplechosen">
+                                <option selected>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Russia</option>
+                                <option>Australia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-2">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-signpost"></i></span>
+                            <select class=" form-control simplechosen">
+                                <option selected>New York</option>
+                                <option>New Jersey</option>
+                                <option>Los Angeles</option>
+                                <option>Chicago</option>
+                            </select>
+                        </div>
+                    </div>
 
-        $grid->setColunasIndeces($arrColunas);
-        $grid->criaGrid();
-
-        /** @var HistTransferenciaEntidade $trans */
-        foreach ($transferencias as $trans):
-            $grid->setColunas($trans->getCoContaBancariaOrigem()->getNoBanco(), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoOrigemAnt()), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoOrigemDep()), 2);
-            $grid->setColunas($trans->getCoContaBancariaDestino()->getNoBanco(), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoDestinoAnt()), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoDestinoDep()), 1);
-            $grid->setColunas(Valida::DataShow($trans->getDtRealizado()), 1);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuValorTransferido()), 1);
-            $grid->setColunas($trans->getCoUsuario()->getCoPessoa()->getNoPessoa(), 3);
-            $grid->criaLinha($trans->getCoHistTransferencia());
-        endforeach;
-        $grid->finalizaGrid();
-        ?>
+                    <div class="col-12 col-md-6 mb-2">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                            <input class="form-control" type="text" placeholder="Consumer ID">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-2">
+                        <div class="input-group input-group-md rounded">
+                            <span class="input-group-text text-theme"><i class="bi bi-phone"></i></span>
+                            <input class="form-control" type="text" placeholder="Consumer name">
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-secondary mb-2">Bill Amount</p>
+                <input class="form-control amount-input text-center" type="text" placeholder="0.00" value="1500.00">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-theme w-100">Pay now</button>
+            </div>
+        </div>
     </div>
 </div>
-<a data-toggle="modal" role="button" href="#TransfSaldo" id="j_TransfSaldo"></a>

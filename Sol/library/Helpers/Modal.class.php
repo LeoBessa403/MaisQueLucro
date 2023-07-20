@@ -243,9 +243,6 @@ class Modal
             include UrlAmigavel::$modulo . "/" . $arquivo_include;
         elseif (file_exists("library/" . $arquivo_include) && !is_dir("library/" . $arquivo_include)):
             include "library/" . $arquivo_include;
-        else:
-            debug("A View <b>" . UrlAmigavel::$modulo . "/View/" . UrlAmigavel::$controller . "/" .
-                UrlAmigavel::$action . ".View.php</b> não foi encontrada!", 1);
         endif;
     }
 

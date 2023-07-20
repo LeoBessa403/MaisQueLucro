@@ -1,11 +1,3 @@
-<style>
-    .bg-color-red {
-        background-color: #FD5D5B !important;
-    }
-    .dark-mode .bg-color-red {
-        background-color: #581f2f !important;
-    }
-</style>
 <!-- title bar -->
 <div class="container-fluid">
     <div class="row align-items-center page-title">
@@ -49,18 +41,18 @@
                     <tr class="text-muted">
                         <th data-sortable="false" class="w-12"></th>
                         <th data-sortable="false"><? //= $cpTodos; ?></th>
-                        <th>Tipo de Lançamento </th>
-                        <th data-breakpoints="xs">Categoria </th>
-                        <th data-breakpoints="all">Lançado </th>
-                        <th data-breakpoints="xs">Vencimento </th>
-                        <th data-breakpoints="xs">Pago em </th>
-                        <th>Status Pagamento </th>
-                        <th data-breakpoints="xs">Valor </th>
-                        <th data-breakpoints="xs">Valor Pago </th>
-                        <th data-breakpoints="lg md sm xs">Forma de Pagamento </th>
-                        <th data-breakpoints="lg md sm xs">Conta </th>
-                        <th data-breakpoints="all">Centro de Custo </th>
-                        <th data-breakpoints="all">Representação </th>
+                        <th>Tipo de Lançamento</th>
+                        <th data-breakpoints="xs">Categoria</th>
+                        <th data-breakpoints="all">Lançado</th>
+                        <th data-breakpoints="xs">Vencimento</th>
+                        <th data-breakpoints="xs">Pago em</th>
+                        <th>Status Pagamento</th>
+                        <th data-breakpoints="xs">Valor</th>
+                        <th data-breakpoints="xs">Valor Pago</th>
+                        <th data-breakpoints="lg md sm xs">Forma de Pagamento</th>
+                        <th data-breakpoints="lg md sm xs">Conta</th>
+                        <th data-breakpoints="all">Centro de Custo</th>
+                        <th data-breakpoints="all">Representação</th>
                         <th data-sortable="false">Ações</th>
                     </tr>
                     </thead>

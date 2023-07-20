@@ -13182,6 +13182,86 @@ textarea.form-control-lg {
     --adminux-theme-text-grad-2: #6f4ac5;
 }
 
+.bg-color-red .modal-header {
+    background-color: #FD5D5B !important;
+}
+
+.dark-mode .bg-color-red, .dark-mode .bg-color-red .modal-header {
+    background-color: #44000A !important;
+}
+
+.bg-color-green .modal-header {
+    background-color: #91c9a8 !important;
+}
+
+.dark-mode .bg-color-green, .dark-mode .bg-color-green .modal-header {
+    background-color: #013b17 !important;
+}
+
+.bg-color-blue .modal-header {
+    background-color: #67a8f1 !important;
+}
+
+.dark-mode .bg-color-blue, .dark-mode .bg-color-blue .modal-header {
+    background-color: #002855 !important;
+}
+
+.bg-color-indigo .modal-header {
+    background-color: #6666ad !important;
+}
+
+.dark-mode .bg-color-indigo, .dark-mode .bg-color-indigo .modal-header {
+    background-color: #0e0e44 !important;
+}
+
+.bg-color-purple .modal-header {
+    background-color: #9d95c4 !important;
+}
+
+.dark-mode .bg-color-purple, .dark-mode .bg-color-purple .modal-header {
+    background-color: #0d0241 !important;
+}
+
+.bg-color-pink .modal-header {
+    background-color: #dfbbc6 !important;
+}
+
+.dark-mode .bg-color-pink, .dark-mode .bg-color-pink .modal-header {
+    background-color: #500126 !important;
+}
+
+.bg-color-yellow .modal-header {
+    background-color: #b99958 !important;
+}
+
+.dark-mode .bg-color-yellow, .dark-mode .bg-color-yellow .modal-header {
+    background-color: #705600 !important;
+}
+
+.bg-color-orange .modal-header {
+    background-color: #f5be99 !important;
+}
+
+.dark-mode .bg-color-orange, .dark-mode .bg-color-orange .modal-header {
+    background-color: #b03500 !important;
+}
+
+.bg-color-cyan .modal-header {
+    background-color: #77cbd8 !important;
+}
+
+.dark-mode .bg-color-cyan, .dark-mode .bg-color-cyan .modal-header {
+    background-color: #006170 !important;
+}
+
+.bg-color-teal .modal-header {
+    background-color: #68b1ad !important;
+}
+
+.dark-mode .bg-color-teal, .dark-mode .bg-color-teal .modal-header {
+    background-color: #1a554c !important;
+}
+
 /* 2. variables */
 .bg-theme,
 .card.bg-theme {
