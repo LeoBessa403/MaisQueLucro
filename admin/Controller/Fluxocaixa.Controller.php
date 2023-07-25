@@ -63,7 +63,7 @@ class Fluxocaixa extends AbstractController
             CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
-        $this->formCarteira = FluxocaixaForm::CentroCustos([
+        $this->formCentro = FluxocaixaForm::CentroCustos([
             CO_CENTRO_CUSTO => null,
             CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
@@ -253,6 +253,13 @@ class Fluxocaixa extends AbstractController
         /** @var FluxoCaixaService $FluxoCaixaService */
         $FluxoCaixaService = static::getServiceStatic(FLUXO_CAIXA_SERVICE);
         return $FluxoCaixaService->BaixarPagamentos($dados);
+    }
+
+    public static function CalcularPEL($dados)
+    {
+        /** @var FluxoCaixaService $FluxoCaixaService */
+        $FluxoCaixaService = static::getServiceStatic(FLUXO_CAIXA_SERVICE);
+        return $FluxoCaixaService->CalcularPEL($dados);
     }
 
     public function ListarFluxoCaixa()
@@ -456,7 +463,7 @@ class Fluxocaixa extends AbstractController
                     $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
                     [$fc["co_categoria_fc_neta"]]['esperado'] =
                         ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
-                            ['netas'][$fc["co_categoria_fc_neta"]]['realizado']
+                            ['netas'][$fc["co_categoria_fc_neta"]]['esperado']
                             + $fc["nu_valor"]);
                 } else if ($fc["no_neta"]) {
                     $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]

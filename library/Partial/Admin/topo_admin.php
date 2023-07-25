@@ -46,6 +46,8 @@ $user = $us->getUser();
     <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico"/>
     <!-- SCRIPT GERAR GRAFICOS -->
     <script type="text/javascript" src="<?= INCLUDES; ?>gera-grafico.min.js"></script>
+
+    <script src="<?= PASTA_LIBRARY; ?>fonts/fontawesome_min.js" crossorigin="anonymous"></script>
 </head>
 <!-- end: HEAD -->
 <!-- start: BODY -->

@@ -466,6 +466,14 @@ class  FluxocaixaService extends AbstractService
         return $retorno;
     }
 
+    public function CalcularPEL($dados)
+    {
+        $pe = Valida::FormataMoedaBanco($dados["ponto_equilibrio"]);
+        $perc_luc = ($dados["perc_lucro"] / 100) + 1;
+        $retorno[SUCESSO] = Valida::FormataMoeda($pe * $perc_luc);
+        return $retorno;
+    }
+
     public function PesquisaAvancadaValorPesquisa()
     {
         return $this->ObjetoModel->PesquisaAvancadaValorPesquisa();
@@ -522,6 +530,12 @@ class  FluxocaixaService extends AbstractService
     public function PesquisaAvancadaGrafico6()
     {
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico5();
+    }
+
+    public function PesquisaAvancadaDadosPE($dt1, $dt2)
+    {
+        $where = $this->montaWherePesquisaDadosPE($dt1, $dt2);
+        return $this->ObjetoModel->PesquisaAvancadaFCDadosPE($where);
     }
 
     public function montaWherePesquisa($dados)
@@ -682,6 +696,18 @@ class  FluxocaixaService extends AbstractService
         $where = " and " . NU_VALOR_PAGO . " is null";
         $where = $where . " and " . DT_VENCIMENTO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and " . DT_VENCIMENTO . " <= '" . Valida::DataDBDate($dt2) . "'";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+
+    public function montaWherePesquisaDadosPE($dt1, $dt2)
+    {
+        $where = " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
+        $where = $where . " and " . NU_VALOR_PAGO . " is not null";
+        $where = $where . " and " . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
+        $where = $where . " and " . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
         $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
 
         return $where;

@@ -382,7 +382,7 @@ $(function () {
             co_centro_custo: $('#Centro_custo #co_centro_custo').val()
         };
 
-        var dados = Funcoes.Ajax('Fluxocaixa/CadastroCentro_custo', data5);
+        var dados = Funcoes.Ajax('Fluxocaixa/CadastroCentroCustos', data5);
         if (dados) {
             if (dados.sucesso && dados.msg === "cadastrado") {
                 Funcoes.CadastradoSucesso();

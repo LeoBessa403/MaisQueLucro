@@ -6,6 +6,7 @@ class Fluxocaixa extends AbstractController
     public $formCat;
     public $formConta;
     public $formCliFor;
+    public $formCentro;
     public $formEntrada;
     public $formSaida;
     public $formPesquisa;
@@ -63,7 +64,7 @@ class Fluxocaixa extends AbstractController
             CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
 
-        $this->formCarteira = FluxocaixaForm::CentroCustos([
+        $this->formCentro = FluxocaixaForm::CentroCustos([
             CO_CENTRO_CUSTO => null,
             CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
         ]);
