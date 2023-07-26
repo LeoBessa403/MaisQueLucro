@@ -13,12 +13,12 @@
         min-height: 250px;
     }
 
-    .pricing-table h2{
+    .pricing-table h2 {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
-    .simbol_perc{
+    .simbol_perc {
         width: 6%;
         display: inline-block;
         padding: 5px 7px;
@@ -26,7 +26,7 @@
         font-size: 2em;
         font-weight: bolder;
         border: 1px solid #D5D5D5;
-        border-radius: 0 0 0 0!important;
+        border-radius: 0 0 0 0 !important;
         font-family: inherit;
         line-height: 1.2;
         transition-duration: 0.1s;
@@ -35,7 +35,7 @@
         margin-top: -1px;
     }
 
-    #calcular_pel{
+    #calcular_pel {
         padding: 12px 20px;
         margin-top: -10px;
     }
@@ -53,16 +53,19 @@
                             <div class="top">
                                 <h2 style="background-color: blue;">Operacional</h2>
                             </div>
-                            <h1 style="margin-top: 7%"><sup>R$</sup><span id="ponto_equilibrio">100.050,20</span></h1>
+                            <h1 style="margin-top: 7%"><sup>R$</sup><span id="ponto_equilibrio"><?=
+                                    Valida::FormataMoeda($dados['PE']); ?></span></h1>
                         </div>
                         <div class="pricing-table featured col-sm-6 col-xs-12">
                             <div class="top">
                                 <h2 style="background-color: green;">Lucrativo</h2>
                             </div>
                             <h1><sup>R$</sup><span id="ponto_equil_luc">0,00</span></h1>
-                                <input type="text" class="form-control input-sm porc-int" placeholder="% de Lucro"
-                                       name="perc_lucro" id="perc_lucro" value="10"/>
-                                <span class="simbol_perc">%</span>
+                            <input type="text" class="form-control input-sm porc-int" placeholder="% de Lucro"
+                                   name="perc_lucro" id="perc_lucro" value="10"/>
+                            <input type="hidden" name="despFix" id="despFix" value="<?= $dados['despFix']; ?>"/>
+                            <input type="hidden" name="mcPerc" id="mcPerc" value="<?= $dados['mcPerc']; ?>"/>
+                            <span class="simbol_perc">%</span>
                             <a href="#" class="btn btn-green" id="calcular_pel">Calcular</a>
                         </div>
                     </div>

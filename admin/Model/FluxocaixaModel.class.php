@@ -155,9 +155,13 @@ class  FluxocaixaModel extends AbstractModel
         return $pesquisa->getResult()[0];
     }
 
-    public function PesquisaAvancadaFCDadosPE($where)
+    public function PesquisaAvancadaFCDadosIndicadores($where)
     {
         $campos = "distinct 
+                        (SELECT
+                             sum(f2.nu_valor_pago)
+                         FROM " . FluxocaixaEntidade::TABELA . " f2
+                         WHERE co_categoria_fc in(1) " . $where . ") AS recebimentos,
                         (SELECT
                              sum(nu_valor_pago)
                          FROM
@@ -169,9 +173,21 @@ class  FluxocaixaModel extends AbstractModel
                              " . FluxocaixaEntidade::TABELA . "
                          WHERE co_categoria_fc in(3) " . $where . ") AS desp_fix,
                         (SELECT
-                             sum(f2.nu_valor_pago)
-                         FROM " . FluxocaixaEntidade::TABELA . " f2
-                         WHERE co_categoria_fc in(1) " . $where . ") AS recebimentos";
+                             sum(nu_valor_pago)
+                         FROM
+                             " . FluxocaixaEntidade::TABELA . "
+                         WHERE co_categoria_fc in(4) " . $where . ") AS invest
+                        (SELECT
+                             sum(nu_valor_pago)
+                         FROM
+                             " . FluxocaixaEntidade::TABELA . "
+                         WHERE co_categoria_fc in(5) " . $where . ") AS saidas,
+                        (SELECT
+                             sum(nu_valor_pago)
+                         FROM
+                             " . FluxocaixaEntidade::TABELA . "
+                         WHERE co_categoria_fc in(6) " . $where . ") AS entradas"
+                        ;
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, null, null, $campos);
         return $pesquisa->getResult()[0];

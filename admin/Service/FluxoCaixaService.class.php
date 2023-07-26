@@ -468,9 +468,9 @@ class  FluxocaixaService extends AbstractService
 
     public function CalcularPEL($dados)
     {
-        $pe = Valida::FormataMoedaBanco($dados["ponto_equilibrio"]);
-        $perc_luc = ($dados["perc_lucro"] / 100) + 1;
-        $retorno[SUCESSO] = Valida::FormataMoeda($pe * $perc_luc);
+        $percMcLuc = $dados["mcPerc"] - $dados["perc_lucro"];
+        $retorno[SUCESSO] = Valida::FormataMoeda((Valida::FormataMoedaBanco($dados["despFix"])
+            / Valida::FormataMoedaBanco($percMcLuc)) * 100000);
         return $retorno;
     }
 
@@ -532,10 +532,10 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico5();
     }
 
-    public function PesquisaAvancadaDadosPE($dt1, $dt2)
+    public function PesquisaAvancDadosIndicadores($dt1, $dt2)
     {
-        $where = $this->montaWherePesquisaDadosPE($dt1, $dt2);
-        return $this->ObjetoModel->PesquisaAvancadaFCDadosPE($where);
+        $where = $this->PesquisaAvancDadosIndicadores($dt1, $dt2);
+        return $this->ObjetoModel->PesquisaAvancadaFCDadosIndicadores($where);
     }
 
     public function montaWherePesquisa($dados)
@@ -702,7 +702,7 @@ class  FluxocaixaService extends AbstractService
     }
 
 
-    public function montaWherePesquisaDadosPE($dt1, $dt2)
+    public function montaWherePesquisaDadosIndicadores($dt1, $dt2)
     {
         $where = " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
         $where = $where . " and " . NU_VALOR_PAGO . " is not null";

@@ -97,7 +97,7 @@ class IndexController extends AbstractController
                     $FluxocaixaService->PesquisaAvancadaGrafico4($dt1, $dt2);
             }
 
-            $graficoFinal4 = array("['Mês', 'Recebimentos', 'Despesas']");
+            $graficoFinal4090 = array("['Mês', 'Recebimentos', { role: 'style' }, 'Despesas', { role: 'style' }]");
             $graficoFinal444 = [];
             foreach ($graficos4 as $data => $esforcos) {
                 foreach ($esforcos as $esf) {
@@ -105,15 +105,20 @@ class IndexController extends AbstractController
                     $graficoFinal444[$data]["recebimentos"] = $esf["recebimentos"];
                 }
             }
+
             foreach ($graficoFinal444 as $data2 => $esforcos2) {
                 $strGraficoFinal4 = "['" . $data2 . "'";
-                $strGraficoFinal4 .= "," . $esforcos2["recebimentos"] . "," . $esforcos2["despesas"];
+                if(!$esforcos2["recebimentos"])
+                    $esforcos2["recebimentos"] = 0;
+                if(!$esforcos2["despesas"])
+                    $esforcos2["despesas"] = 0;
+                $strGraficoFinal4 .= "," . $esforcos2["recebimentos"] . ",'color: green'," . $esforcos2["despesas"]. ",'color: gold'";
                 $strGraficoFinal4 .= "]";
-                $graficoFinal4[] = $strGraficoFinal4;
+                $graficoFinal4090[] = $strGraficoFinal4;
             }
 
             $grafico = new Grafico(Grafico::COLUNA, "Recebimentos x Despesas", "div_quatro");
-            $grafico->SetDados($graficoFinal4);
+            $grafico->SetDados($graficoFinal4090);
             $grafico->GeraGrafico();
 
 
@@ -131,7 +136,8 @@ class IndexController extends AbstractController
 
             $saldo_geral = $FluxocaixaService->PesquisaAvancadaGrafico6();
 
-            $graficoFinal5 = array("['Mês', 'Recebimentos',{ role: 'annotation' }, 'Despesas',{ role: 'annotation' }, 'Saldo Acumulado', { role: 'style' },{ role: 'annotation' }]");
+            $graficoFinal5 = array("['Mês', 'Recebimentos',{ role: 'annotation' }, 'Despesas',{ role: 'annotation' }, 
+            'Saldo Acumulado', { role: 'style' },{ role: 'annotation' }]");
             $graficoFinal555 = [];
             $saldoContas = $saldo_geral["saldo_geral"];
             foreach ($graficos5 as $data => $esforcos) {
@@ -155,7 +161,7 @@ class IndexController extends AbstractController
                 $graficoFinal5[] = $strGraficoFinal5;
             }
 
-            $grafico = new Grafico(Grafico::COLUNA, "Previsão de Recebimentos, Despesas e Saldo Acumulado", "div_cinco");
+            $grafico = new Grafico(Grafico::LINHA, "Previsão de Recebimentos, Despesas e Saldo Acumulado", "div_cinco");
             $grafico->SetDados($graficoFinal5);
             $grafico->GeraGrafico();
 
@@ -169,12 +175,24 @@ class IndexController extends AbstractController
                 $mesArray = Valida::getMesesHistorico();
                 $mesExt[0] = $mesArray[$mesExt[0]];
                 $dadosPE[implode('/', $mesExt)] =
-                    $FluxocaixaService->PesquisaAvancadaDadosPE($dt1, $dt2);
+                    $FluxocaixaService->PesquisaAvancDadosIndicadores($dt1, $dt2);
             }
 
-
-            debug($dadosPE,1);
-
+            $qtdMesAnt = 0;
+            $fat = 0;
+            $despVar = 0;
+            $despFix = 0;
+            foreach ($dadosPE as $dadosPEs){
+                if(!empty($dadosPEs["recebimentos"])){
+                    $fat += $dadosPEs["recebimentos"];
+                    $despVar += $dadosPEs["desp_var"];
+                    $despFix += $dadosPEs["desp_fix"];
+                    $qtdMesAnt++;
+                }
+            }
+            $dados['mcPerc'] = (($fat - $despVar) / $fat) * 100 ;
+            $dados['PE'] = (($despFix / $qtdMesAnt) / $dados['mcPerc']) * 100;
+            $dados['despFix'] = $despFix / $qtdMesAnt;
         }
 
         return $dados;

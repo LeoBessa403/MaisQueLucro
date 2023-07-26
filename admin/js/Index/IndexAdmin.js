@@ -23,7 +23,8 @@ $(function () {
 
     function calcular_pontEquil() {
         var data5 = {
-            ponto_equilibrio: $('#ponto_equilibrio').text(),
+            mcPerc: $('#mcPerc').val(),
+            despFix: $('#despFix').val(),
             perc_lucro: $('#perc_lucro').val()
         };
 
