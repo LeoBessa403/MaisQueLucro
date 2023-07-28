@@ -155,7 +155,7 @@ class  FluxocaixaModel extends AbstractModel
         return $pesquisa->getResult()[0];
     }
 
-    public function PesquisaAvancadaFCDadosIndicadores($where)
+    public function PesquisaAvancadaDadosIndicadores($where)
     {
         $campos = "distinct 
                         (SELECT
@@ -176,7 +176,7 @@ class  FluxocaixaModel extends AbstractModel
                              sum(nu_valor_pago)
                          FROM
                              " . FluxocaixaEntidade::TABELA . "
-                         WHERE co_categoria_fc in(4) " . $where . ") AS invest
+                         WHERE co_categoria_fc in(4) " . $where . ") AS invest,
                         (SELECT
                              sum(nu_valor_pago)
                          FROM

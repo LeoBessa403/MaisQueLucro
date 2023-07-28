@@ -534,8 +534,8 @@ class  FluxocaixaService extends AbstractService
 
     public function PesquisaAvancDadosIndicadores($dt1, $dt2)
     {
-        $where = $this->PesquisaAvancDadosIndicadores($dt1, $dt2);
-        return $this->ObjetoModel->PesquisaAvancadaFCDadosIndicadores($where);
+        $where = $this->PesquisaAvancDadosIndicad($dt1, $dt2);
+        return $this->ObjetoModel->PesquisaAvancadaDadosIndicadores($where);
     }
 
     public function montaWherePesquisa($dados)
@@ -702,7 +702,7 @@ class  FluxocaixaService extends AbstractService
     }
 
 
-    public function montaWherePesquisaDadosIndicadores($dt1, $dt2)
+    public function PesquisaAvancDadosIndicad($dt1, $dt2)
     {
         $where = " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
         $where = $where . " and " . NU_VALOR_PAGO . " is not null";

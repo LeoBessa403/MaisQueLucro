@@ -108,11 +108,11 @@ class IndexController extends AbstractController
 
             foreach ($graficoFinal444 as $data2 => $esforcos2) {
                 $strGraficoFinal4 = "['" . $data2 . "'";
-                if(!$esforcos2["recebimentos"])
+                if (!$esforcos2["recebimentos"])
                     $esforcos2["recebimentos"] = 0;
-                if(!$esforcos2["despesas"])
+                if (!$esforcos2["despesas"])
                     $esforcos2["despesas"] = 0;
-                $strGraficoFinal4 .= "," . $esforcos2["recebimentos"] . ",'color: green'," . $esforcos2["despesas"]. ",'color: gold'";
+                $strGraficoFinal4 .= "," . $esforcos2["recebimentos"] . ",'color: green'," . $esforcos2["despesas"] . ",'color: gold'";
                 $strGraficoFinal4 .= "]";
                 $graficoFinal4090[] = $strGraficoFinal4;
             }
@@ -144,9 +144,9 @@ class IndexController extends AbstractController
                 foreach ($esforcos as $esf) {
                     $graficoFinal555[$data]["despesas"] = $esf["despesas"];
                     $graficoFinal555[$data]["recebimentos"] = $esf["recebimentos"];
-                    if($esf["despesas"])
+                    if ($esf["despesas"])
                         $saldoContas = ($saldoContas - $esf["despesas"]);
-                    if($esf["recebimentos"])
+                    if ($esf["recebimentos"])
                         $saldoContas = ($saldoContas + $esf["recebimentos"]);
                     $graficoFinal555[$data]["saldo"] = $saldoContas;
                 }
@@ -156,7 +156,7 @@ class IndexController extends AbstractController
                 $recebimentos = ($esforcos2["recebimentos"]) ? $esforcos2["recebimentos"] : 0;
                 $despesas = ($esforcos2["despesas"]) ? $esforcos2["despesas"] : 0;
                 $strGraficoFinal5 .= "," . $recebimentos . "," . $recebimentos . "," . $despesas . "," . $despesas
-                    . "," . $esforcos2["saldo"]. ",'color: green'," . $esforcos2["saldo"];
+                    . "," . $esforcos2["saldo"] . ",'color: green'," . $esforcos2["saldo"];
                 $strGraficoFinal5 .= "]";
                 $graficoFinal5[] = $strGraficoFinal5;
             }
@@ -182,17 +182,67 @@ class IndexController extends AbstractController
             $fat = 0;
             $despVar = 0;
             $despFix = 0;
-            foreach ($dadosPE as $dadosPEs){
-                if(!empty($dadosPEs["recebimentos"])){
+            foreach ($dadosPE as $dadosPEs) {
+                if (!empty($dadosPEs["recebimentos"])) {
                     $fat += $dadosPEs["recebimentos"];
                     $despVar += $dadosPEs["desp_var"];
                     $despFix += $dadosPEs["desp_fix"];
                     $qtdMesAnt++;
                 }
             }
-            $dados['mcPerc'] = (($fat - $despVar) / $fat) * 100 ;
+            $dados['mcPerc'] = (($fat - $despVar) / $fat) * 100;
             $dados['PE'] = (($despFix / $qtdMesAnt) / $dados['mcPerc']) * 100;
             $dados['despFix'] = $despFix / $qtdMesAnt;
+
+            $graficoFinalInd = array("['Mês', 'Lucro Líquido',{ role: 'annotation' }, 'Margem de Contribuição',
+            { role: 'annotation' },'LL Antes dos Investimentos (LLAI)',{ role: 'annotation' }, 'Despesas Total',
+             { role: 'annotation' }, 'Resultado Líquido', { role: 'annotation' }]");
+
+            $graficoFinalRecDesp = array("['Mês', 'Receita',{ role: 'annotation' }, 'Despesas Direta (cv)',
+            { role: 'annotation' },'Despesas Indiretas (cf)',{ role: 'annotation' }, 'Investimentos',
+             { role: 'annotation' }, 'Saídas não Operacionais', { role: 'annotation' },
+             'Entradas não Operacionais', { role: 'annotation' }]");
+
+            foreach ($dadosPE as $dataMes => $dadosPEs) {
+                if (!empty($dadosPEs["recebimentos"])) {
+                    $graficoFinalRecDesp2 = "['" . $dataMes . "'";
+                    $graficoFinalInd2 = "['" . $dataMes . "'";
+                    $recebimentos = ($dadosPEs["recebimentos"]) ? $dadosPEs["recebimentos"] : 0;
+                    $desp_var = ($dadosPEs["desp_var"]) ? $dadosPEs["desp_var"] : 0;
+                    $desp_fix = ($dadosPEs["desp_fix"]) ? $dadosPEs["desp_fix"] : 0;
+                    $invest = ($dadosPEs["invest"]) ? $dadosPEs["invest"] : 0;
+                    $saidas = ($dadosPEs["saidas"]) ? $dadosPEs["saidas"] : 0;
+                    $entradas = ($dadosPEs["entradas"]) ? $dadosPEs["entradas"] : 0;
+                    $graficoFinalRecDesp2 .= "," . $recebimentos . "," . $recebimentos . "," . $desp_var . "," .
+                        $desp_var . "," . $desp_fix . "," . $desp_fix . "," . $invest . "," . $invest . "," .
+                        $saidas . "," . $saidas . "," . $entradas . "," . $entradas;
+
+                    $mc = $recebimentos - $desp_var;
+                    $llai = $mc - $desp_fix;
+                    $despTotal = $desp_fix + $desp_var + $invest;
+                    $resLiq = $recebimentos - $despTotal - $saidas + $entradas;
+                    $lucLiq = $recebimentos - $despTotal;
+
+                    $graficoFinalInd2 .= "," . $lucLiq . "," . $lucLiq . "," . $mc . "," .
+                        $mc . "," . $llai . "," . $llai . "," . $despTotal . "," . $despTotal . "," .
+                        $resLiq . "," . $resLiq;
+
+                    $graficoFinalRecDesp2 .= "]";
+                    $graficoFinalInd2 .= "]";
+                    $graficoFinalRecDesp[] = $graficoFinalRecDesp2;
+                    $graficoFinalInd[] = $graficoFinalInd2;
+                }
+            }
+
+            $grafico = new Grafico(Grafico::LINHA, "Receitas x Despesas", "div_sete");
+            $grafico->SetDados($graficoFinalRecDesp);
+            $grafico->GeraGrafico();
+
+            $grafico = new Grafico(Grafico::LINHA, "Indicadores Financeiros", "div_seis");
+            $grafico->SetDados($graficoFinalInd);
+            $grafico->GeraGrafico();
+
+
         }
 
         return $dados;

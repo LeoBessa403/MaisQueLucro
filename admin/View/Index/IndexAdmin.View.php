@@ -46,6 +46,9 @@
     <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-12">
+                <?php
+                if (AssinanteService::getCoAssinanteLogado()) {
+                ?>
                 <h3>Ponto de Equilíbrio</h3>
                 <div id="pricing_table_example2" class="row">
                     <div class="col-sm-12">
@@ -74,9 +77,6 @@
 
                 <div class="panel panel-default">
                     <div class="col-md-12">
-                        <?php
-                        if (AssinanteService::getCoAssinanteLogado()) {
-                        ?>
                         <h3>Saldo em Contas</h3>
                         <?php
                         $grid = new Grid();
@@ -111,6 +111,16 @@
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="alert alert-success fade in">
+                            <div id="div_seis" style="height: 450px"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="alert alert-info fade in">
+                            <div id="div_sete" style="height: 450px"></div>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="alert alert-warning fade in">
