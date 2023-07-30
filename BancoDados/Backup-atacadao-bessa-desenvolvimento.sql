@@ -1,4 +1,4 @@
--- Atualizado em: 25/07/2023 11:04:16
+-- Atualizado em: 30/07/2023 09:15:34
 -- Link HOME: http://localhost/AtacadaoBessa/
 -- AMBIENTE: 1
 -- BANCO: atacadao10
@@ -409,36 +409,36 @@ DROP TABLE IF EXISTS TB_CONTROLLER;
 CREATE TABLE `TB_CONTROLLER` (
   `co_controller` int(11) NOT NULL AUTO_INCREMENT,
   `no_controller` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ds_class_icon` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone',
+  `ds_class_icon` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone',
   PRIMARY KEY (`co_controller`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO TB_CONTROLLER VALUES('1','Gestão','bi bi-kanban');
+INSERT INTO TB_CONTROLLER VALUES('1','Gestão','bi bi-kanban clip-cog');
 
-INSERT INTO TB_CONTROLLER VALUES('2','Auditoria','bi bi-calendar2-check');
+INSERT INTO TB_CONTROLLER VALUES('2','Auditoria','bi bi-calendar2-check clip-stack-2');
 
-INSERT INTO TB_CONTROLLER VALUES('3','Acesso','bi bi-ticket-detailed');
+INSERT INTO TB_CONTROLLER VALUES('3','Acesso','bi bi-ticket-detailed clip-earth-2');
 
-INSERT INTO TB_CONTROLLER VALUES('4','Funcionalidade','bi bi-list-check');
+INSERT INTO TB_CONTROLLER VALUES('4','Funcionalidade','bi bi-list-check fa-file-text-o fa');
 
-INSERT INTO TB_CONTROLLER VALUES('5','Perfil','bi bi-person-lines-fill');
+INSERT INTO TB_CONTROLLER VALUES('5','Perfil','bi bi-person-lines-fill fa-meh-o fa');
 
-INSERT INTO TB_CONTROLLER VALUES('6','Usuário','bi bi-person-check');
+INSERT INTO TB_CONTROLLER VALUES('6','Usuário','bi bi-person-check clip-users');
 
-INSERT INTO TB_CONTROLLER VALUES('7','Visita','bi bi-bookmark-star-fill');
+INSERT INTO TB_CONTROLLER VALUES('7','Visita','bi bi-bookmark-star-fill fa-bookmark fa');
 
-INSERT INTO TB_CONTROLLER VALUES('8','Relatorio','bi bi-bar-chart-line');
+INSERT INTO TB_CONTROLLER VALUES('8','Relatorio','bi bi-bar-chart-line clip-bars');
 
-INSERT INTO TB_CONTROLLER VALUES('9','Suporte','bi bi-tools');
+INSERT INTO TB_CONTROLLER VALUES('9','Suporte','bi bi-tools fa fa-comments-o');
 
-INSERT INTO TB_CONTROLLER VALUES('10','Fluxocaixa','bi bi-file-earmark-bar-graph');
+INSERT INTO TB_CONTROLLER VALUES('10','Fluxocaixa','bi bi-file-earmark-bar-graph clip-stats');
 
-INSERT INTO TB_CONTROLLER VALUES('11','Plano','bi bi-cash-coin');
+INSERT INTO TB_CONTROLLER VALUES('11','Plano','bi bi-cash-coin fa-money fa');
 
-INSERT INTO TB_CONTROLLER VALUES('12','Assinante','bi bi-person-circle');
+INSERT INTO TB_CONTROLLER VALUES('12','Assinante','bi bi-person-circle clip-user-5');
 
-INSERT INTO TB_CONTROLLER VALUES('13','Ai','bi bi-globe');
+INSERT INTO TB_CONTROLLER VALUES('13','Ai','bi bi-globe clip-globe');
 
 
 
@@ -551,7 +551,7 @@ CREATE TABLE `TB_FLUXO_CAIXA` (
   `co_usuario` int(10) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_fluxo_caixa`,`co_categoria_fc`,`co_categoria_fc_filha`,`co_categoria_fc_neta`,`co_centro_custo`,`co_conta_bancaria`,`co_representacao`,`co_usuario`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=329 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=338 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('1','2023-02-08 12:23:36','2023-01-20',NULL,NULL,'400.00','Adiantamento de passagem para viagem','1','1','3','5','13','55',NULL,'2','20','2','1');
@@ -792,7 +792,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('134','2023-04-20 14:35:02','2023-04-20','2023
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('135','2023-04-20 14:37:40','2023-04-11',NULL,NULL,'80.00',NULL,'1','4','3','1','1','1',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('137','2023-04-20 14:39:19',NULL,'2023-04-26','60.00',NULL,NULL,'1','1','4','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('137','2023-04-20 14:39:19','2023-07-27','2023-04-26','60.00','60.00',NULL,'1','1','3','1','1','3',NULL,'3','38','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('138','2023-04-20 14:52:44','2023-04-18',NULL,NULL,'580.00','Cadeado ao barbear filtro de linha','2','4','3','2','3','10',NULL,'3','62','2','1');
 
@@ -890,7 +890,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('184','2023-05-26 18:02:34','2023-05-23',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('185','2023-05-30 16:10:03','2023-05-30',NULL,NULL,'168.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('186','2023-05-30 16:11:02',NULL,'2023-06-22','200.00',NULL,NULL,'1','1','4','1','1','3',NULL,'3','84','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('186','2023-05-30 16:11:02',NULL,'2023-06-22','100.00',NULL,NULL,'1','1','4','1','1','3',NULL,'3','84','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('187','2023-05-30 17:15:54','2023-06-10','2023-06-10','695.00','695.00',NULL,'1','1','3','1','1','1',NULL,'2','85','2','1');
 
@@ -946,7 +946,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('212','2023-06-09 17:38:43','2023-06-09',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('213','2023-06-12 14:21:57',NULL,'2023-07-04','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('214','2023-06-12 14:21:57',NULL,'2023-07-24','355.00',NULL,NULL,'2','4','1','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('214','2023-06-12 14:21:57','2023-07-24','2023-07-24','355.00','355.00',NULL,'2','4','3','2','3','10',NULL,'3','94','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('215','2023-06-12 14:21:57',NULL,'2023-08-13','355.00',NULL,NULL,'2','4','1','2','3','10',NULL,'3','94','2','1');
 
@@ -1024,17 +1024,17 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('251','2023-07-03 13:54:38','2023-06-29',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('254','2023-07-03 14:16:51','2023-06-30',NULL,NULL,'138.50',NULL,'2','1','3','2','4','15',NULL,'3','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('255','2023-07-05 17:26:27',NULL,'2023-07-14','190.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','108','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('255','2023-07-05 17:26:27',NULL,'2023-07-14','90.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','108','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('256','2023-07-05 17:29:22','2023-07-05',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'4','109','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('257','2023-07-07 13:04:39','2023-07-07','2023-07-07','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('258','2023-07-07 13:04:39',NULL,'2023-07-22','268.00',NULL,NULL,'1','4','4','1','1','3',NULL,'3','110','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('258','2023-07-07 13:04:39','2023-07-27','2023-07-22','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('259','2023-07-07 15:20:19','2023-07-07',NULL,NULL,'333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('260','2023-07-07 15:20:19',NULL,'2023-07-25','333.00',NULL,NULL,'1','4','2','1','1','3',NULL,'3','111','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('260','2023-07-07 15:20:19','2023-07-25','2023-07-25','333.00','333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('261','2023-07-20 20:50:55','2023-04-06',NULL,NULL,'6788.90',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
@@ -1080,7 +1080,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('281','2023-07-20 21:14:21',NULL,'2023-05-26',
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('282','2023-07-20 21:14:21',NULL,'2023-06-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('283','2023-07-20 21:14:21',NULL,'2023-07-25','230.00',NULL,NULL,'2','1','1','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('283','2023-07-20 21:14:21',NULL,'2023-07-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('284','2023-07-20 21:14:21',NULL,'2023-08-24','230.00',NULL,NULL,'2','1','1','3','7','24',NULL,'9','117','3','2');
 
@@ -1100,7 +1100,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('291','2023-07-20 21:16:00','2023-05-28','2023
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('292','2023-07-20 21:16:00',NULL,'2023-06-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('293','2023-07-20 21:16:00',NULL,'2023-07-27','6550.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('293','2023-07-20 21:16:00',NULL,'2023-07-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('294','2023-07-20 21:16:00',NULL,'2023-08-26','6550.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','115','3','2');
 
@@ -1120,7 +1120,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('301','2023-07-20 21:18:20','2023-05-25','2023
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('302','2023-07-20 21:18:20','2023-06-24','2023-06-24','18789.90','18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('303','2023-07-20 21:18:20',NULL,'2023-07-24','18789.90',NULL,NULL,'2','4','1','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('303','2023-07-20 21:18:20',NULL,'2023-07-24','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('304','2023-07-20 21:18:20',NULL,'2023-08-23','18789.90',NULL,NULL,'2','4','1','3','8','31',NULL,'7','113','3','2');
 
@@ -1164,11 +1164,29 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('324','2023-07-22 11:31:47','2023-07-03',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('325','2023-07-22 11:33:02',NULL,'2023-07-31','4098.86',NULL,NULL,'2','1','1','2','4','17',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('326','2023-07-22 11:34:02',NULL,'2023-07-28','1234.56',NULL,NULL,'2','1','1','2','5','19',NULL,'9','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('326','2023-07-22 11:34:02',NULL,'2023-07-28','1234.56',NULL,NULL,'2','1','4','2','5','19',NULL,'9','116','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('327','2023-07-22 11:34:46','2023-07-21',NULL,NULL,'3209.88',NULL,'2','1','3','2','2','8',NULL,'9','115','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('328','2023-07-22 14:32:32',NULL,'2023-07-31','28906.00',NULL,NULL,'1','3','2','1','1','4',NULL,'7','113','3','2');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('329','2023-07-26 06:58:28','2023-06-20',NULL,NULL,'2145.69',NULL,'1','1','3','1','1','3',NULL,'8','112','3','2');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('330','2023-07-27 14:44:36','2023-07-21',NULL,NULL,'100.00',NULL,'1','1','3','1','1','1',NULL,'2','108','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('331','2023-07-27 14:46:02','2023-07-27',NULL,NULL,'100.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('332','2023-07-27 21:37:30',NULL,'2023-08-01','279.30',NULL,NULL,'1','3','2','1','1','4',NULL,'3','118','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('333','2023-07-27 21:39:42','2023-07-19',NULL,NULL,'115.00',NULL,'1','1','3','1','1','1',NULL,'2','119','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('334','2023-07-27 21:45:26','2023-07-18',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'2','86','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('335','2023-07-27 21:45:26',NULL,'2023-07-21','202.00',NULL,NULL,'1','4','4','1','1','3',NULL,'3','86','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('336','2023-07-27 21:49:07',NULL,'2023-07-24','110.00',NULL,NULL,'1','1','4','1','1','3',NULL,'2','105','2','1');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('337','2023-07-27 21:56:23','2023-07-14',NULL,NULL,'274.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
 
 
@@ -1184,7 +1202,7 @@ CREATE TABLE `TB_FUNCIONALIDADE` (
   `st_menu` varchar(1) CHARACTER SET latin1 DEFAULT 'S' COMMENT 'S - Sim / N - Não (Se apresenta no menu)',
   `co_controller` int(11) NOT NULL,
   PRIMARY KEY (`co_funcionalidade`,`co_controller`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('1','Perfil Master','PerfilMaster','A','S',NULL);
@@ -1263,6 +1281,8 @@ INSERT INTO TB_FUNCIONALIDADE VALUES('45','Notificação PagSeguro','Notificacao
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('46','ChatGPT','ChatGPT','A','S','13');
 
+INSERT INTO TB_FUNCIONALIDADE VALUES('47','Planejamento','PlanejamentoFinanceiro','A','S','10');
+
 
 
 
@@ -1279,7 +1299,7 @@ CREATE TABLE `TB_HIST_SALDO_CB` (
   `co_conta_bancaria` int(11) NOT NULL,
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_hist_saldo_cb`,`co_conta_bancaria`,`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=437 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=449 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_HIST_SALDO_CB VALUES('1','2023-02-06 12:26:41',NULL,NULL,'0.01',NULL,'2','2');
@@ -2126,6 +2146,30 @@ INSERT INTO TB_HIST_SALDO_CB VALUES('435','2023-07-22 11:34:46','2','3209.88','5
 
 INSERT INTO TB_HIST_SALDO_CB VALUES('436','2023-07-22 11:36:20','2','22567.23','27579.06',NULL,'9','3');
 
+INSERT INTO TB_HIST_SALDO_CB VALUES('437','2023-07-26 06:58:27','1','2145.69','56441.86',NULL,'8','3');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('438','2023-07-27 14:40:31','1','333.00','351.00',NULL,'3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('439','2023-07-27 14:43:29','2','355.00','-4.00','Baixa no Pagamento','3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('440','2023-07-27 14:44:36','1','100.00','-394.08',NULL,'2','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('441','2023-07-27 14:46:02','1','100.00','96.00',NULL,'3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('442','2023-07-27 21:32:14','1','60.00','156.00',NULL,'3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('443','2023-07-27 21:33:42','1','268.00','424.00',NULL,'3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('444','2023-07-27 21:39:42','1','115.00','-279.08',NULL,'2','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('445','2023-07-27 21:45:26','1','200.00','-79.08',NULL,'2','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('446','2023-07-27 21:56:23','1','274.00','194.92',NULL,'2','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('447','2023-07-27 21:58:10','2','610.00','-186.00','Transferência entre contas.','3','2');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('448','2023-07-27 21:58:10','1','610.00','804.92','transferência entre contas.','2','2');
+
 
 
 
@@ -2146,7 +2190,7 @@ CREATE TABLE `TB_HIST_TRANSFERENCIA` (
   `co_usuario` int(11) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_hist_transferencia`,`co_conta_bancaria_origem`,`co_conta_bancaria_destino`,`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_HIST_TRANSFERENCIA VALUES('1','2023-02-09 14:25:28','2023-02-07 14:25:28','2130.51','1012.51','-2519.24','-1401.24','1118.00','2','3','2','1');
@@ -2249,6 +2293,8 @@ INSERT INTO TB_HIST_TRANSFERENCIA VALUES('49','2023-07-03 14:20:28','2023-07-03 
 
 INSERT INTO TB_HIST_TRANSFERENCIA VALUES('50','2023-07-22 11:29:31','2023-06-02 11:29:31','192577.70','94923.40','-26389.93','71264.37','97654.30','9','7','3','2');
 
+INSERT INTO TB_HIST_TRANSFERENCIA VALUES('51','2023-07-27 21:58:10','2023-07-13 21:58:10','424.00','-186.00','194.92','804.92','610.00','3','2','2','1');
+
 
 
 
@@ -2267,19 +2313,19 @@ CREATE TABLE `TB_HISTORIA` (
 ) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO TB_HISTORIA VALUES('1','Gráfico Comparação receitas/despesas','Gráfico Comparação receitas/despesas (Toda estrutura de categoria FC, período Meses)','2022-05-30 12:37:06','2023-05-19 12:58:44','N','8');
+INSERT INTO TB_HISTORIA VALUES('1','Gráfico Comparação receitas/despesas','Gráfico Comparação receitas/despesas (Toda estrutura de categoria FC, período Meses)','2022-05-30 12:37:06','2023-07-27 22:55:37','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('2','Gráfico Indicadores financeiros','Gráfico Indicadores financeiros (Todos indicadores múltipla escolha) \"Período por meses\"','2022-05-30 12:37:38','2022-05-30 12:37:38','N','8');
+INSERT INTO TB_HISTORIA VALUES('2','Gráfico Indicadores financeiros','Gráfico Indicadores financeiros (Todos indicadores múltipla escolha) \"Período por meses\"','2022-05-30 12:37:38','2023-07-27 22:55:26','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('3','Gráfico Previsão de entradas, saídas e saldo','Gráfico Previsão de entradas, saídas e saldo a partir de hoje e atrasados','2022-05-30 12:38:00','2023-05-19 12:58:59','I','8');
+INSERT INTO TB_HISTORIA VALUES('3','Gráfico Previsão de entradas, saídas e saldo','Gráfico Previsão de entradas, saídas e saldo a partir de hoje e atrasados','2022-05-30 12:38:00','2023-07-27 22:55:12','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('4','Saldos disponíveis','Saldos disponíveis das Contas (Data) \"Data Futuras considera os Pagamentos e recebimentos futuros\"','2022-05-30 12:38:23','2023-05-19 12:59:18','I','8');
+INSERT INTO TB_HISTORIA VALUES('4','Saldos disponíveis','Saldos disponíveis das Contas (Data) \"Data Futuras considera os Pagamentos e recebimentos futuros\"','2022-05-30 12:38:23','2023-07-27 22:54:56','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('5','Pagamentos e recebimentos','Painel Pagamentos e recebimentos (Dia, da semana, do mês, do ano), coluna de atrasados e total','2022-05-30 12:38:43','2023-05-19 12:59:31','I','8');
+INSERT INTO TB_HISTORIA VALUES('5','Pagamentos e recebimentos','Painel Pagamentos e recebimentos (Dia, da semana, do mês, do ano), coluna de atrasados e total','2022-05-30 12:38:43','2023-07-27 22:54:46','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('6','Meta de recebimento mensal','Painel de PE Econômico (Com Lucro) com campo para Simulação do percentual de lucro desejado','2022-05-30 12:39:09','2023-05-19 12:59:50','N','8');
+INSERT INTO TB_HISTORIA VALUES('6','Meta de recebimento mensal','Painel de PE Econômico (Com Lucro) com campo para Simulação do percentual de lucro desejado','2022-05-30 12:39:09','2023-07-27 22:54:35','C','8');
 
-INSERT INTO TB_HISTORIA VALUES('7','Ponto de equilíbrio operacional','Informação do PE','2022-05-30 12:39:38','2023-05-21 15:49:13','N','8');
+INSERT INTO TB_HISTORIA VALUES('7','Ponto de equilíbrio operacional','Informação do PE','2022-05-30 12:39:38','2023-07-27 22:54:25','C','8');
 
 INSERT INTO TB_HISTORIA VALUES('8','Cron Atualização de Status Pagamento','Cron Atualização de Status Pagamento','2022-05-30 12:40:34','2022-06-29 17:53:51','C','7');
 
@@ -2594,7 +2640,7 @@ CREATE TABLE `TB_HISTORICO_HISTORIA` (
   `dt_cadastro` datetime DEFAULT NULL,
   `co_historia` int(11) NOT NULL,
   PRIMARY KEY (`co_historico_historia`,`co_historia`)
-) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=234 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_HISTORICO_HISTORIA VALUES('1','8','8','2022-05-30 12:37:06','1');
@@ -3049,6 +3095,20 @@ INSERT INTO TB_HISTORICO_HISTORIA VALUES('225','40','40','2023-07-19 17:59:47','
 
 INSERT INTO TB_HISTORICO_HISTORIA VALUES('226','30','30','2023-07-19 18:00:13','74');
 
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('227','13',NULL,'2023-07-27 22:54:25','7');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('228','13',NULL,'2023-07-27 22:54:35','6');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('229','13',NULL,'2023-07-27 22:54:46','5');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('230','8',NULL,'2023-07-27 22:54:56','4');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('231','8',NULL,'2023-07-27 22:55:12','3');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('232','8',NULL,'2023-07-27 22:55:26','2');
+
+INSERT INTO TB_HISTORICO_HISTORIA VALUES('233','8',NULL,'2023-07-27 22:55:37','1');
+
 
 
 
@@ -3251,7 +3311,7 @@ CREATE TABLE `TB_PERFIL_FUNCIONALIDADE` (
   `co_perfil` int(11) NOT NULL,
   `co_perfil_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_perfil_funcionalidade`,`co_funcionalidade`,`co_perfil`,`co_perfil_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('1','1','1','1');
@@ -3290,6 +3350,8 @@ INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('19','35','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('20','46','2',NULL);
 
+INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('21','47','2',NULL);
+
 
 
 
@@ -3316,6 +3378,24 @@ INSERT INTO TB_PESSOA VALUES('1',NULL,'Leo Bessa',NULL,'2016-10-31 00:00:00',NUL
 INSERT INTO TB_PESSOA VALUES('2',NULL,'Usuário Atacadão',NULL,'2016-10-31 00:00:00',NULL,'M','2','2','2');
 
 INSERT INTO TB_PESSOA VALUES('3',NULL,'AMAURY RAMOS',NULL,'2023-04-26 10:54:17',NULL,'M','3','3','3');
+
+
+
+
+DROP TABLE IF EXISTS TB_PLANEJAMENTO_FINANCEIRO;
+
+
+CREATE TABLE `TB_PLANEJAMENTO_FINANCEIRO` (
+  `co_planejamento_financeiro` int(11) NOT NULL AUTO_INCREMENT,
+  `nu_valor` float(12,2) DEFAULT NULL,
+  `dt_atualizado` datetime DEFAULT NULL,
+  `dt_cadastro` datetime DEFAULT NULL,
+  `ds_campo` varchar(25) DEFAULT NULL,
+  `nu_ano` int(4) DEFAULT NULL,
+  `co_assinante` int(11) NOT NULL,
+  PRIMARY KEY (`co_planejamento_financeiro`,`co_assinante`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 
@@ -3436,7 +3516,7 @@ CREATE TABLE `TB_REPRESENTACAO` (
   `ds_email` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_representacao`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_REPRESENTACAO VALUES('1','AMAURY',NULL,NULL,'1');
@@ -3672,6 +3752,10 @@ INSERT INTO TB_REPRESENTACAO VALUES('115','Fornecedor 1',NULL,NULL,'2');
 INSERT INTO TB_REPRESENTACAO VALUES('116','Fornecedor 2',NULL,NULL,'2');
 
 INSERT INTO TB_REPRESENTACAO VALUES('117','Fornecedor 3',NULL,NULL,'2');
+
+INSERT INTO TB_REPRESENTACAO VALUES('118','Dona Zélia armarinho LTG',NULL,NULL,'1');
+
+INSERT INTO TB_REPRESENTACAO VALUES('119','Benedito Recanto',NULL,NULL,'1');
 
 
 

@@ -64,6 +64,8 @@ define('NU_VALOR_TRANSFERIDO', 'nu_valor_transferido');
 define('CO_CONTA_BANCARIA_ORIGEM', 'co_conta_bancaria_origem');
 define('CO_CONTA_BANCARIA_DESTINO', 'co_conta_bancaria_destino');
 define('NO_REPRESENTACAO', 'no_representacao');
+define('CO_PLANEJAMENTO_FINANCEIRO', 'co_planejamento_financeiro');
+define('NU_ANO', 'nu_ano');
 
 
 
@@ -84,3 +86,4 @@ define('FLUXO_CAIXA_SERVICE', 'FluxoCaixaService');
 define('HIST_SALDO_CB_SERVICE', 'HistSaldoCbService');
 define('HIST_TRANSFERENCIA_SERVICE', 'HistTransferenciaService');
 define('REPRESENTACAO_SERVICE', 'RepresentacaoService');
+define('PLANEJAMENTO_FINANCEIRO_SERVICE', 'PlanejamentoFinanceiroService');

@@ -708,6 +708,21 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
+            (PlanejamentoFinanceiroEntidade::TABELA) => Array(
+                (CO_ASSINANTE) => Array(
+                    ('Campo') => CO_ASSINANTE,
+                    ('Entidade') => 'AssinanteEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
         );
     }
 }
+
+
+
+
+
+
+
+

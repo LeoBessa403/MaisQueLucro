@@ -1161,4 +1161,572 @@ class Fluxocaixa extends AbstractController
         return $dados;
     }
 
+
+    public function PlanejamentoFinanceiro()
+    {
+        /** @var FluxoCaixaService $FluxoCaixaService */
+        $FluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
+        $Condicoes = [];
+
+        if (!empty($_POST)) {
+            $Condicoes = $_POST;
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+        } else {
+            $Condicoes["anoPesquisa"] = date('Y');
+            $Condicoes[CO_CENTRO_CUSTO] = '';
+            $Condicoes["verEsperado"] = 1;
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+        }
+
+        $this->condicoes = $Condicoes;
+
+        $dados = [];
+        $dadosTT = [];
+        $meses = [];
+        foreach ($fluxos as $fc) {
+            if (!empty($fc["dt_realizado"])) {
+                $mesano = Valida::DataShow($fc["dt_realizado"], 'Ym');
+            } elseif (!empty($fc["dt_vencimento"])) {
+                $mesano = Valida::DataShow($fc["dt_vencimento"], 'Ym');
+            }
+            if (empty($meses[$mesano])) {
+                $meses[$mesano] = $mesano;
+            }
+
+            if ($fc["nu_valor_pago"]) {
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['esperado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['esperado'] = $fc["nu_valor_pago"];
+                }
+                // Total esperado
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['esperado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['esperado'] = $fc["nu_valor_pago"];
+                }
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] = $fc["nu_valor_pago"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['realizado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['realizado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['realizado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['realizado'] = $fc["nu_valor_pago"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_filha"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'] = $fc["nu_valor_pago"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['no_filha'] =
+                        $fc["nu_codigo_f"] . ' - ' . $fc["no_filha"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_filha"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] = $fc["nu_valor_pago"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['no_filha'] =
+                        $fc["nu_codigo_f"] . ' - ' . $fc["no_filha"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['esperado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_neta"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['esperado'] = $fc["nu_valor_pago"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['realizado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['realizado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['realizado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_neta"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['realizado'] = $fc["nu_valor_pago"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['esperado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_neta"]) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['esperado'] = $fc["nu_valor_pago"];
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['realizado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['realizado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['realizado']
+                            + $fc["nu_valor_pago"]);
+                } else if ($fc["no_neta"]) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['realizado'] = $fc["nu_valor_pago"];
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+                // Total realizado
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['realizado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['realizado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['realizado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['realizado'] = $fc["nu_valor_pago"];
+                }
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'] + $fc["nu_valor_pago"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['realizado'] = $fc["nu_valor_pago"];
+                }
+            } elseif ($fc["nu_valor"]) {
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['esperado'] + $fc["nu_valor"]);
+                } else {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['esperado'] = $fc["nu_valor"];
+                }
+
+                // Total esperado
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['esperado'] + $fc["nu_valor"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['esperado'] = $fc["nu_valor"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado']
+                            + $fc["nu_valor"]);
+                } else if ($fc["no_filha"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] = $fc["nu_valor"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['no_filha'] =
+                        $fc["nu_codigo_f"] . ' - ' . $fc["no_filha"];
+                }
+
+                if (!empty($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['esperado'])) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['esperado'] =
+                        ($dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['esperado']
+                            + $fc["nu_valor"]);
+                } else if ($fc["no_neta"]) {
+                    $dados[$mesano][$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['esperado'] = $fc["nu_valor"];
+                    $dados[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                ['netas'][$fc["co_categoria_fc_neta"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['netas']
+                    [$fc["co_categoria_fc_neta"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                            ['netas'][$fc["co_categoria_fc_neta"]]['esperado']
+                            + $fc["nu_valor"]);
+                } else if ($fc["no_neta"]) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['esperado'] = $fc["nu_valor"];
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]
+                    ['netas'][$fc["co_categoria_fc_neta"]]['no_neta'] =
+                        $fc["nu_codigo_n"] . ' - ' . $fc["no_neta"];
+                }
+
+                if (!empty($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'])) {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] =
+                        ($dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] + $fc["nu_valor"]);
+                } else {
+                    $dadosTT[$fc["co_categoria_fc"]]['filhas'][$fc["co_categoria_fc_filha"]]['esperado'] = $fc["nu_valor"];
+                }
+            }
+        }
+
+        $meses = array_reverse($meses);
+
+        foreach ($meses as $mes) {
+            // MARGEM DE CONTRIBUIÇÃO
+            if ((!empty($dados[$mes][1]['esperado'])) && (!empty($dados[$mes][2]['esperado']))) {
+                $dados[$mes][7]['esperado'] =
+                    ($dados[$mes][1]['esperado'] - $dados[$mes][2]['esperado']);
+            }
+            if ((!empty($dados[$mes][1]['realizado'])) && (!empty($dados[$mes][2]['realizado']))) {
+                $dados[$mes][7]['realizado'] =
+                    ($dados[$mes][1]['realizado'] - $dados[$mes][2]['realizado']);
+            }
+            if ((!empty($dados[$mes][1]['esperado'])) && (empty($dados[$mes][2]['esperado']))) {
+                $dados[$mes][7]['esperado'] = $dados[$mes][1]['esperado'];
+            }
+            if ((!empty($dados[$mes][1]['realizado'])) && (empty($dados[$mes][2]['realizado']))) {
+                $dados[$mes][7]['realizado'] = $dados[$mes][1]['realizado'];
+            }
+
+            // Total MARGEM DE CONTRIBUIÇÃO esperado
+            if ((!empty($dados[$mes][7]['esperado'])) && (empty($dadosTT[7]['esperado']))) {
+                $dadosTT[7]['esperado'] = $dados[$mes][7]['esperado'];
+            } elseif ((!empty($dados[$mes][7]['esperado'])) && (!empty($dadosTT[7]['esperado']))) {
+                $dadosTT[7]['esperado'] = $dadosTT[7]['esperado'] + $dados[$mes][7]['esperado'];
+            }
+            // Total MARGEM DE CONTRIBUIÇÃO realizado
+            if ((!empty($dados[$mes][7]['realizado'])) && (empty($dadosTT[7]['realizado']))) {
+                $dadosTT[7]['realizado'] = $dados[$mes][7]['realizado'];
+            } elseif ((!empty($dados[$mes][7]['realizado'])) && (!empty($dadosTT[7]['realizado']))) {
+                $dadosTT[7]['realizado'] = $dadosTT[7]['realizado'] + $dados[$mes][7]['realizado'];
+            }
+
+            // LLAI (Lucro Líquido Antes dos Investimentos)
+            if ((!empty($dados[$mes][7]['esperado'])) && (!empty($dados[$mes][3]['esperado']))) {
+                $dados[$mes][8]['esperado'] =
+                    ($dados[$mes][7]['esperado'] - $dados[$mes][3]['esperado']);
+            }
+            if ((!empty($dados[$mes][7]['realizado'])) && (!empty($dados[$mes][3]['realizado']))) {
+                $dados[$mes][8]['realizado'] =
+                    ($dados[$mes][7]['realizado'] - $dados[$mes][3]['realizado']);
+            }
+            if ((!empty($dados[$mes][7]['esperado'])) && (empty($dados[$mes][3]['esperado']))) {
+                $dados[$mes][8]['esperado'] = $dados[$mes][7]['esperado'];
+            }
+            if ((!empty($dados[$mes][7]['realizado'])) && (empty($dados[$mes][3]['realizado']))) {
+                $dados[$mes][8]['realizado'] = $dados[$mes][7]['realizado'];
+            }
+
+            // Total LLAI (Lucro Líquido Antes dos Investimentos) esperado
+            if ((!empty($dados[$mes][8]['esperado'])) && (empty($dadosTT[8]['esperado']))) {
+                $dadosTT[8]['esperado'] = $dados[$mes][8]['esperado'];
+            } elseif ((!empty($dados[$mes][8]['esperado'])) && (!empty($dadosTT[8]['esperado']))) {
+                $dadosTT[8]['esperado'] = $dadosTT[8]['esperado'] + $dados[$mes][8]['esperado'];
+            }
+            // Total LLAI (Lucro Líquido Antes dos Investimentos) realizado
+            if ((!empty($dados[$mes][8]['realizado'])) && (empty($dadosTT[8]['realizado']))) {
+                $dadosTT[8]['realizado'] = $dados[$mes][8]['realizado'];
+            } elseif ((!empty($dados[$mes][8]['realizado'])) && (!empty($dadosTT[8]['realizado']))) {
+                $dadosTT[8]['realizado'] = $dadosTT[8]['realizado'] + $dados[$mes][8]['realizado'];
+            }
+
+            // DESPESA LÍQUIDA TOTAL
+            if (!empty($dados[$mes][2]['esperado'])) {
+                if (!empty($dados[$mes][9]['esperado'])) {
+                    $dados[$mes][9]['esperado'] =
+                        ($dados[$mes][9]['esperado'] + $dados[$mes][2]['esperado']);
+                } else {
+                    $dados[$mes][9]['esperado'] = $dados[$mes][2]['esperado'];
+                }
+            }
+            if (!empty($dados[$mes][2]['realizado'])) {
+                if (!empty($dados[$mes][9]['realizado'])) {
+                    $dados[$mes][9]['realizado'] =
+                        ($dados[$mes][9]['realizado'] + $dados[$mes][2]['realizado']);
+                } else {
+                    $dados[$mes][9]['realizado'] = $dados[$mes][2]['realizado'];
+                }
+            }
+            if (!empty($dados[$mes][3]['esperado'])) {
+                if (!empty($dados[$mes][9]['esperado'])) {
+                    $dados[$mes][9]['esperado'] =
+                        ($dados[$mes][9]['esperado'] + $dados[$mes][3]['esperado']);
+                } else {
+                    $dados[$mes][9]['esperado'] = $dados[$mes][3]['esperado'];
+                }
+            }
+            if (!empty($dados[$mes][3]['realizado'])) {
+                if (!empty($dados[$mes][9]['realizado'])) {
+                    $dados[$mes][9]['realizado'] =
+                        ($dados[$mes][9]['realizado'] + $dados[$mes][3]['realizado']);
+                } else {
+                    $dados[$mes][9]['realizado'] = $dados[$mes][3]['realizado'];
+                }
+            }
+            if (!empty($dados[$mes][4]['esperado'])) {
+                if (!empty($dados[$mes][9]['esperado'])) {
+                    $dados[$mes][9]['esperado'] =
+                        ($dados[$mes][9]['esperado'] + $dados[$mes][4]['esperado']);
+                } else {
+                    $dados[$mes][9]['esperado'] = $dados[$mes][4]['esperado'];
+                }
+            }
+            if (!empty($dados[$mes][4]['realizado'])) {
+                if (!empty($dados[$mes][9]['realizado'])) {
+                    $dados[$mes][9]['realizado'] =
+                        ($dados[$mes][9]['realizado'] + $dados[$mes][4]['realizado']);
+                } else {
+                    $dados[$mes][9]['realizado'] = $dados[$mes][4]['realizado'];
+                }
+            }
+
+            // Total DESPESA LÍQUIDA TOTAL esperado
+            if ((!empty($dados[$mes][9]['esperado'])) && (empty($dadosTT[9]['esperado']))) {
+                $dadosTT[9]['esperado'] = $dados[$mes][9]['esperado'];
+            } elseif ((!empty($dados[$mes][9]['esperado'])) && (!empty($dadosTT[9]['esperado']))) {
+                $dadosTT[9]['esperado'] = $dadosTT[9]['esperado'] + $dados[$mes][9]['esperado'];
+            }
+            // Total DESPESA LÍQUIDA TOTAL realizado
+            if ((!empty($dados[$mes][9]['realizado'])) && (empty($dadosTT[9]['realizado']))) {
+                $dadosTT[9]['realizado'] = $dados[$mes][9]['realizado'];
+            } elseif ((!empty($dados[$mes][9]['realizado'])) && (!empty($dadosTT[9]['realizado']))) {
+                $dadosTT[9]['realizado'] = $dadosTT[9]['realizado'] + $dados[$mes][9]['realizado'];
+            }
+
+
+            // LUCRO LÍQUIDO
+            if (!empty($dados[$mes][1]['esperado'])) {
+                $dados[$mes][10]['esperado'] = $dados[$mes][1]['esperado'];
+            }
+            if (!empty($dados[$mes][1]['realizado'])) {
+                $dados[$mes][10]['realizado'] = $dados[$mes][1]['realizado'];
+            }
+
+            if (!empty($dados[$mes][9]['esperado'])) {
+                if (!empty($dados[$mes][10]['esperado'])) {
+                    $dados[$mes][10]['esperado'] =
+                        ($dados[$mes][10]['esperado'] - $dados[$mes][9]['esperado']);
+                } else {
+                    $dados[$mes][10]['esperado'] = 0 - $dados[$mes][9]['esperado'];
+                }
+            }
+
+            if (!empty($dados[$mes][9]['realizado'])) {
+                if (!empty($dados[$mes][10]['realizado'])) {
+                    $dados[$mes][10]['realizado'] =
+                        ($dados[$mes][10]['realizado'] - $dados[$mes][9]['realizado']);
+                } else {
+                    $dados[$mes][10]['realizado'] = 0 - $dados[$mes][9]['realizado'];
+                }
+            }
+
+            // Total LUCRO LÍQUIDO esperado
+            if ((!empty($dados[$mes][10]['esperado'])) && (empty($dadosTT[10]['esperado']))) {
+                $dadosTT[10]['esperado'] = $dados[$mes][10]['esperado'];
+            } elseif ((!empty($dados[$mes][10]['esperado'])) && (!empty($dadosTT[10]['esperado']))) {
+                $dadosTT[10]['esperado'] = $dadosTT[10]['esperado'] + $dados[$mes][10]['esperado'];
+            }
+            // Total LUCRO LÍQUIDO realizado
+            if ((!empty($dados[$mes][10]['realizado'])) && (empty($dadosTT[10]['realizado']))) {
+                $dadosTT[10]['realizado'] = $dados[$mes][10]['realizado'];
+            } elseif ((!empty($dados[$mes][10]['realizado'])) && (!empty($dadosTT[10]['realizado']))) {
+                $dadosTT[10]['realizado'] = $dadosTT[10]['realizado'] + $dados[$mes][10]['realizado'];
+            }
+
+
+            // RESULTADO LÍQUIDO
+            if (!empty($dados[$mes][10]['esperado'])) {
+                $dados[$mes][11]['esperado'] = $dados[$mes][10]['esperado'];
+            }
+            if (!empty($dados[$mes][10]['realizado'])) {
+                $dados[$mes][11]['realizado'] = $dados[$mes][10]['realizado'];
+            }
+
+            if (!empty($dados[$mes][5]['esperado'])) {
+                if (!empty($dados[$mes][11]['esperado'])) {
+                    $dados[$mes][11]['esperado'] =
+                        ($dados[$mes][11]['esperado'] + $dados[$mes][5]['esperado']);
+                } else {
+                    $dados[$mes][11]['esperado'] = $dados[$mes][5]['esperado'];
+                }
+            }
+            if (!empty($dados[$mes][5]['realizado'])) {
+                if (!empty($dados[$mes][11]['realizado'])) {
+                    $dados[$mes][11]['realizado'] =
+                        ($dados[$mes][11]['realizado'] + $dados[$mes][5]['realizado']);
+                } else {
+                    $dados[$mes][11]['realizado'] = $dados[$mes][5]['realizado'];
+                }
+            }
+
+            if (!empty($dados[$mes][6]['esperado'])) {
+                if (!empty($dados[$mes][11]['esperado'])) {
+                    $dados[$mes][11]['esperado'] =
+                        ($dados[$mes][11]['esperado'] - $dados[$mes][6]['esperado']);
+                } else {
+                    $dados[$mes][11]['esperado'] = 0 - $dados[$mes][6]['esperado'];
+                }
+            }
+            if (!empty($dados[$mes][6]['realizado'])) {
+                if (!empty($dados[$mes][11]['realizado'])) {
+                    $dados[$mes][11]['realizado'] =
+                        ($dados[$mes][11]['realizado'] - $dados[$mes][6]['realizado']);
+                } else {
+                    $dados[$mes][11]['realizado'] = 0 - $dados[$mes][6]['realizado'];
+                }
+            }
+
+            // Total RESULTADO LÍQUIDO esperado
+            if ((!empty($dados[$mes][11]['esperado'])) && (empty($dadosTT[11]['esperado']))) {
+                $dadosTT[11]['esperado'] = $dados[$mes][11]['esperado'];
+            } elseif ((!empty($dados[$mes][11]['esperado'])) && (!empty($dadosTT[11]['esperado']))) {
+                $dadosTT[11]['esperado'] = $dadosTT[11]['esperado'] + $dados[$mes][11]['esperado'];
+            }
+            // Total LUCRO LÍQUIDO realizado
+            if ((!empty($dados[$mes][11]['realizado'])) && (empty($dadosTT[11]['realizado']))) {
+                $dadosTT[11]['realizado'] = $dados[$mes][11]['realizado'];
+            } elseif ((!empty($dados[$mes][11]['realizado'])) && (!empty($dadosTT[11]['realizado']))) {
+                $dadosTT[11]['realizado'] = $dadosTT[11]['realizado'] + $dados[$mes][11]['realizado'];
+            }
+
+            // Calcular Análise Total POr Mês
+            if (!empty($dados[$mes][1]['realizado'])) {
+                $ttFat = $dados[$mes][1]['realizado'];
+                $dados[$mes][1]['at'] = '100%';
+
+                for ($i = 2; $i < 11; $i++) {
+                    if (!empty($dados[$mes][$i]['realizado'])) {
+                        $dados[$mes][$i]['at'] =
+                            Valida::FormataPorcentagem(($dados[$mes][$i]['realizado'] / $ttFat) * 100);
+                    }
+                }
+
+                for ($i = 1; $i < 7; $i++) {
+                    if (!empty($dados[$mes][$i]['filhas'])) {
+                        foreach ($dados[$mes][$i]['filhas'] as $nu_codigo => $filha) {
+                            if (!empty($filha['realizado'])) {
+                                $dados[$mes][$i]['filhas'][$nu_codigo]['at'] =
+                                    Valida::FormataPorcentagem(($filha['realizado'] / $ttFat) * 100);
+
+                                $dados = $this->calculaAcFilhas($mes, $i, $nu_codigo, $dados);
+
+
+                                if (!empty($dados[$mes][$i]['filhas'][$nu_codigo]['netas'])) {
+                                    foreach ($dados[$mes][$i]['filhas'][$nu_codigo]['netas'] as $nu_codigo_n => $neta) {
+                                        if (!empty($neta['realizado'])) {
+                                            $dados[$mes][$i]['filhas'][$nu_codigo]['netas'][$nu_codigo_n]['at'] =
+                                                Valida::FormataPorcentagem(($neta['realizado'] / $ttFat) * 100);
+
+                                            $dados = $this->calculaAcNetas($mes, $i, $nu_codigo, $nu_codigo_n, $dados);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            for ($i = 1; $i <= 12; $i++) {
+                $dados = $this->calculaAc($mes, $i, $dados);
+            }
+
+        }
+
+        // Calcular Análise Total Do Total do Período
+        if (!empty($dadosTT[1]['realizado'])) {
+            $ttFat = $dadosTT[1]['realizado'];
+            $dadosTT[1]['at'] = '100%';
+
+            if (!empty($dadosTT[2]['realizado'])) {
+                $ttFat = $dadosTT[1]['realizado'];
+                $dadosTT[2]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[2]['realizado'] / $ttFat) * 100);
+                $dadosTT[7]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[7]['realizado'] / $ttFat) * 100);
+            } else {
+                $dadosTT[7]['at'] = '100%';
+            }
+
+            if (!empty($dadosTT[3]['realizado'])) {
+                $dadosTT[3]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[3]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[4]['realizado'])) {
+                $dadosTT[4]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[4]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[5]['realizado'])) {
+                $dadosTT[5]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[5]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[6]['realizado'])) {
+                $dadosTT[6]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[6]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[8]['realizado'])) {
+                $dadosTT[8]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[8]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[9]['realizado'])) {
+                $dadosTT[9]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[9]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[10]['realizado'])) {
+                $dadosTT[10]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[10]['realizado'] / $ttFat) * 100);
+            }
+
+            if (!empty($dadosTT[11]['realizado'])) {
+                $dadosTT[11]['at'] =
+                    Valida::FormataPorcentagem(($dadosTT[11]['realizado'] / $ttFat) * 100);
+            }
+
+
+            for ($i = 1; $i < 7; $i++) {
+                if (!empty($dadosTT[$i]['filhas'])) {
+                    foreach ($dadosTT[$i]['filhas'] as $nu_codigo => $filha) {
+                        if (!empty($filha['realizado'])) {
+                            $dadosTT[$i]['filhas'][$nu_codigo]['at'] =
+                                Valida::FormataPorcentagem(($filha['realizado'] / $ttFat) * 100);
+
+                            if (!empty($dadosTT[$i]['filhas'][$nu_codigo]['netas'])) {
+                                foreach ($dadosTT[$i]['filhas'][$nu_codigo]['netas'] as $nu_codigo_n => $neta) {
+                                    if (!empty($neta['realizado'])) {
+                                        $dadosTT[$i]['filhas'][$nu_codigo]['netas'][$nu_codigo_n]['at'] =
+                                            Valida::FormataPorcentagem(($neta['realizado'] / $ttFat) * 100);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        $this->dadosFC = $dados;
+        $this->dadosTT = $dadosTT;
+    }
+
 }
