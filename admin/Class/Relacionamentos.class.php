@@ -718,11 +718,3 @@ class Relacionamentos
         );
     }
 }
-
-
-
-
-
-
-
-
