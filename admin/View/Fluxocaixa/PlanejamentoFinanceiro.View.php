@@ -233,7 +233,7 @@
                                 $nuMes = ($nuMes < 10) ? '0' . $nuMes : $nuMes;
                                 $anomes = date('Y') . $nuMes;
                                 ?>
-                                <div class="grid-col">
+                                <div id="grid-col-<?= $anomes;?>" class="grid-col">
                                     <div class="grid-item grid-item--header">
                                         <table>
                                             <thead>

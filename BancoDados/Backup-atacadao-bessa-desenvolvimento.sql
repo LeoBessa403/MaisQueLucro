@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS TB_BANCO;
 
 
 CREATE TABLE `TB_BANCO` (
-  `co_banco` int(11) NOT NULL COMMENT 'Código do banco',
+  `co_banco` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Código do banco',
   `no_banco` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`co_banco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -39,7 +39,7 @@ $(function () {
 
     $('#j_menos_ano').click(function () {
         var elementAno = $('#ano_pesquisa b');
-        var ano = parseInt(elementAno.text())  - 1;
+        var ano = parseInt(elementAno.text()) - 1;
         elementAno.text(ano);
         $('#anoPesquisa').val(ano);
     });
@@ -47,10 +47,15 @@ $(function () {
     $('.netas').focusout(function () {
         // vrl-2-202301-3-10
         var id = $(this).attr('id').split('-');
-
-        $('.filhas' + id[1] + '-' + id[3]).each(function () {
-            Funcoes.Alerta($(this).attr('class'));
-        })
+        var somaNetas = 0;
+        $('#grid-col-' + id[2] + ' .filhasf' + id[1] + '-' + id[3]).each(function () {
+            somaNetas = somaNetas + parseFloat($(this).children('.grid-item-neta').children('table').children('tbody')
+                .children('tr').children('td').children('.netas').val()
+                .replace('R$ ', '').replace('.', '')
+                .replace(',', '.'));
+        });
+        $('#vrl-' + id[1] + '-' + id[2] + '-' + id[3])
+            .val(somaNetas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}));
     });
 
 

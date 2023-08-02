@@ -54,6 +54,7 @@ $user = $us->getUser();
 <body>
 <!-- start: HEADER -->
 <div class="navbar navbar-inverse navbar-fixed-top">
+    <?php include 'library/Partial/valida_ambiente.php'; ?>
     <!-- start: TOP NAVIGATION CONTAINER -->
     <div class="container">
         <div class="navbar-header">

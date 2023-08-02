@@ -29,13 +29,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_acesso` (
-  `co_acesso` int(11) NOT NULL,
+  `co_acesso` int(11) NOT NULL AUTO_INCREMENT,
   `ds_session_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_inicio_acesso` datetime DEFAULT NULL,
   `dt_fim_acesso` datetime DEFAULT NULL,
   `tp_situacao` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'A - Ativo / F - Finalizado',
   `co_usuario` int(10) NOT NULL,
-  `co_trafego` int(11) NOT NULL
+  `co_trafego` int(11) NOT NULL,
+  PRIMARY KEY (`co_acesso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -59,11 +60,12 @@ INSERT INTO `tb_acesso` (`co_acesso`, `ds_session_id`, `dt_inicio_acesso`, `dt_f
 --
 
 CREATE TABLE `tb_anotacao` (
-  `co_anotacao` int(11) NOT NULL,
+  `co_anotacao` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `ds_observacao` text DEFAULT NULL,
   `ds_titulo` varchar(80) DEFAULT NULL,
-  `co_historia` int(11) NOT NULL
+  `co_historia` int(11) NOT NULL,
+  PRIMARY KEY (`co_anotacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -73,7 +75,7 @@ CREATE TABLE `tb_anotacao` (
 --
 
 CREATE TABLE `tb_assinante` (
-  `co_assinante` int(11) NOT NULL,
+  `co_assinante` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_expiracao` date DEFAULT NULL COMMENT 'Data da expiração de utilização do sistema',
   `st_dados_complementares` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT 'S - Sim / N - Não',
@@ -90,10 +92,11 @@ CREATE TABLE `tb_assinante` (
 --
 
 CREATE TABLE `tb_auditoria` (
-  `co_auditoria` int(11) NOT NULL,
+  `co_auditoria` int(11) NOT NULL AUTO_INCREMENT,
   `dt_realizado` datetime DEFAULT NULL,
   `ds_perfil_usuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `co_usuario` int(10) NOT NULL
+  `co_usuario` int(10) NOT NULL,
+  PRIMARY KEY (`co_auditoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -113,11 +116,12 @@ INSERT INTO `tb_auditoria` (`co_auditoria`, `dt_realizado`, `ds_perfil_usuario`,
 --
 
 CREATE TABLE `tb_auditoria_itens` (
-  `co_auditoria_itens` int(11) NOT NULL,
+  `co_auditoria_itens` int(11) NOT NULL AUTO_INCREMENT,
   `ds_item_anterior` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_item_atual` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_campo` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `co_auditoria_tabela` int(11) NOT NULL
+  `co_auditoria_tabela` int(11) NOT NULL,
+  PRIMARY KEY (`co_auditoria_itens`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -156,11 +160,12 @@ INSERT INTO `tb_auditoria_itens` (`co_auditoria_itens`, `ds_item_anterior`, `ds_
 --
 
 CREATE TABLE `tb_auditoria_tabela` (
-  `co_auditoria_tabela` int(11) NOT NULL,
+  `co_auditoria_tabela` int(11) NOT NULL AUTO_INCREMENT,
   `no_tabela` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tp_operacao` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_registro` int(11) DEFAULT NULL,
-  `co_auditoria` int(11) NOT NULL
+  `co_auditoria` int(11) NOT NULL,
+  PRIMARY KEY (`co_auditoria_tabela`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -182,8 +187,9 @@ INSERT INTO `tb_auditoria_tabela` (`co_auditoria_tabela`, `no_tabela`, `tp_opera
 --
 
 CREATE TABLE `tb_banco` (
-  `co_banco` int(11) NOT NULL COMMENT 'Código do banco',
-  `no_banco` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL
+  `co_banco` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Código do banco',
+  `no_banco` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`co_banco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -193,11 +199,12 @@ CREATE TABLE `tb_banco` (
 --
 
 CREATE TABLE `tb_botao` (
-  `co_botao` int(11) NOT NULL COMMENT 'Tabela das informações dos botõs para ir para a págna de venda e dentro da página',
+  `co_botao` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tabela das informações dos botõs para ir para a págna de venda e dentro da página',
   `no_botao` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Texto do Botão',
   `ds_botao` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Descrição do Botão (Posição/cor)',
   `nu_total_cliques` int(8) DEFAULT NULL COMMENT 'Número de cliques no botão',
-  `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'S - Sim / N - Não'
+  `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'S - Sim / N - Não',
+  PRIMARY KEY (`co_botao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -207,7 +214,7 @@ CREATE TABLE `tb_botao` (
 --
 
 CREATE TABLE `tb_categoria_fc` (
-  `co_categoria_fc` int(11) NOT NULL,
+  `co_categoria_fc` int(11) NOT NULL AUTO_INCREMENT,
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL
@@ -220,7 +227,7 @@ CREATE TABLE `tb_categoria_fc` (
 --
 
 CREATE TABLE `tb_categoria_fc_filha` (
-  `co_categoria_fc_filha` int(11) NOT NULL,
+  `co_categoria_fc_filha` int(11) NOT NULL AUTO_INCREMENT,
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_categoria_fc` int(11) NOT NULL,
@@ -234,7 +241,7 @@ CREATE TABLE `tb_categoria_fc_filha` (
 --
 
 CREATE TABLE `tb_categoria_fc_neta` (
-  `co_categoria_fc_neta` int(11) NOT NULL,
+  `co_categoria_fc_neta` int(11) NOT NULL AUTO_INCREMENT,
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_categoria_fc_filha` int(11) NOT NULL,
@@ -248,7 +255,7 @@ CREATE TABLE `tb_categoria_fc_neta` (
 --
 
 CREATE TABLE `tb_centro_custo` (
-  `co_centro_custo` int(11) NOT NULL,
+  `co_centro_custo` int(11) NOT NULL AUTO_INCREMENT,
   `nu_codigo` int(6) DEFAULT NULL,
   `ds_descricao` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL,
@@ -262,7 +269,7 @@ CREATE TABLE `tb_centro_custo` (
 --
 
 CREATE TABLE `tb_checkout` (
-  `co_checkout` int(11) NOT NULL,
+  `co_checkout` int(11) NOT NULL AUTO_INCREMENT,
   `nu_visitas_total` int(11) DEFAULT NULL,
   `dt_ultima_visita` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -274,7 +281,7 @@ CREATE TABLE `tb_checkout` (
 --
 
 CREATE TABLE `tb_clique` (
-  `co_clique` int(11) NOT NULL,
+  `co_clique` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `co_botao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -286,7 +293,7 @@ CREATE TABLE `tb_clique` (
 --
 
 CREATE TABLE `tb_contato` (
-  `co_contato` int(11) NOT NULL,
+  `co_contato` int(11) NOT NULL AUTO_INCREMENT,
   `nu_tel1` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_tel2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_tel3` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -312,7 +319,7 @@ INSERT INTO `tb_contato` (`co_contato`, `nu_tel1`, `nu_tel2`, `nu_tel3`, `nu_tel
 --
 
 CREATE TABLE `tb_conta_bancaria` (
-  `co_conta_bancaria` int(11) NOT NULL,
+  `co_conta_bancaria` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `no_banco` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -328,7 +335,7 @@ CREATE TABLE `tb_conta_bancaria` (
 --
 
 CREATE TABLE `tb_controller` (
-  `co_controller` int(11) NOT NULL,
+  `co_controller` int(11) NOT NULL AUTO_INCREMENT,
   `no_controller` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_class_icon` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -356,7 +363,7 @@ INSERT INTO `tb_controller` (`co_controller`, `no_controller`, `ds_class_icon`) 
 --
 
 CREATE TABLE `tb_crons` (
-  `co_cron` int(11) NOT NULL,
+  `co_cron` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `no_cron` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_sql` text COLLATE utf8_unicode_ci DEFAULT NULL
@@ -369,7 +376,7 @@ CREATE TABLE `tb_crons` (
 --
 
 CREATE TABLE `tb_empresa` (
-  `co_empresa` int(11) NOT NULL,
+  `co_empresa` int(11) NOT NULL AUTO_INCREMENT,
   `no_empresa` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Razão Social\n',
   `no_fantasia` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
@@ -390,7 +397,7 @@ CREATE TABLE `tb_empresa` (
 --
 
 CREATE TABLE `tb_endereco` (
-  `co_endereco` int(11) NOT NULL,
+  `co_endereco` int(11) NOT NULL AUTO_INCREMENT,
   `ds_endereco` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_complemento` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_bairro` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -413,7 +420,7 @@ INSERT INTO `tb_endereco` (`co_endereco`, `ds_endereco`, `ds_complemento`, `ds_b
 --
 
 CREATE TABLE `tb_fluxo_caixa` (
-  `co_fluxo_caixa` int(11) NOT NULL,
+  `co_fluxo_caixa` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_realizado` date DEFAULT NULL,
   `dt_vencimento` date DEFAULT NULL,
@@ -440,7 +447,7 @@ CREATE TABLE `tb_fluxo_caixa` (
 --
 
 CREATE TABLE `tb_funcionalidade` (
-  `co_funcionalidade` int(11) NOT NULL,
+  `co_funcionalidade` int(11) NOT NULL AUTO_INCREMENT,
   `no_funcionalidade` varchar(150) CHARACTER SET latin1 NOT NULL,
   `ds_action` varchar(120) CHARACTER SET latin1 DEFAULT NULL,
   `st_status` varchar(1) CHARACTER SET latin1 DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo''',
@@ -489,7 +496,7 @@ INSERT INTO `tb_funcionalidade` (`co_funcionalidade`, `no_funcionalidade`, `ds_a
 --
 
 CREATE TABLE `tb_historia` (
-  `co_historia` int(11) NOT NULL,
+  `co_historia` int(11) NOT NULL AUTO_INCREMENT,
   `ds_titulo` varchar(80) DEFAULT NULL,
   `ds_observacao` text DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
@@ -505,7 +512,7 @@ CREATE TABLE `tb_historia` (
 --
 
 CREATE TABLE `tb_historico_historia` (
-  `co_historico_historia` int(11) NOT NULL,
+  `co_historico_historia` int(11) NOT NULL AUTO_INCREMENT,
   `nu_esforco` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_esforco_restante` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
@@ -519,7 +526,7 @@ CREATE TABLE `tb_historico_historia` (
 --
 
 CREATE TABLE `tb_historico_pag_assinatura` (
-  `co_historico_pag_assinatura` int(11) NOT NULL,
+  `co_historico_pag_assinatura` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `ds_acao` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_usuario` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -534,7 +541,7 @@ CREATE TABLE `tb_historico_pag_assinatura` (
 --
 
 CREATE TABLE `tb_historico_suporte` (
-  `co_historico_suporte` int(11) NOT NULL,
+  `co_historico_suporte` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `ds_mensagem` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `st_lido` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT 'S - Sim / N - Não',
@@ -550,7 +557,7 @@ CREATE TABLE `tb_historico_suporte` (
 --
 
 CREATE TABLE `tb_hist_saldo_cb` (
-  `co_hist_saldo_cb` int(11) NOT NULL,
+  `co_hist_saldo_cb` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `tp_fluxo` int(1) DEFAULT NULL COMMENT '1 - Entrada / 2 - Saída',
   `nu_valor_pago` float(12,2) DEFAULT NULL,
@@ -567,7 +574,7 @@ CREATE TABLE `tb_hist_saldo_cb` (
 --
 
 CREATE TABLE `tb_hist_transferencia` (
-  `co_hist_transferencia` int(11) NOT NULL,
+  `co_hist_transferencia` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_realizado` datetime DEFAULT NULL,
   `nu_saldo_origem_ant` float(12,2) DEFAULT NULL,
@@ -605,7 +612,7 @@ INSERT INTO `tb_imagem` (`co_imagem`, `ds_caminho`) VALUES
 --
 
 CREATE TABLE `tb_imagem_assinante` (
-  `co_imagem_assinante` int(10) NOT NULL,
+  `co_imagem_assinante` int(11) NOT NULL AUTO_INCREMENT,
   `co_assinante` int(11) NOT NULL,
   `co_imagem` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -617,7 +624,7 @@ CREATE TABLE `tb_imagem_assinante` (
 --
 
 CREATE TABLE `tb_modulo` (
-  `co_modulo` int(11) NOT NULL,
+  `co_modulo` int(11) NOT NULL AUTO_INCREMENT,
   `no_modulo` varchar(50) DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   `co_projeto` int(11) NOT NULL
@@ -630,7 +637,7 @@ CREATE TABLE `tb_modulo` (
 --
 
 CREATE TABLE `tb_pacote` (
-  `co_pacote` int(11) NOT NULL,
+  `co_pacote` int(11) NOT NULL AUTO_INCREMENT,
   `no_pacote` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_descricao` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
@@ -644,11 +651,12 @@ CREATE TABLE `tb_pacote` (
 --
 
 CREATE TABLE `tb_pagina` (
-  `co_pagina` int(11) NOT NULL,
+  `co_pagina` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `ds_titulo_url_amigavel` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Url amigável da página',
   `nu_visualizacao` int(11) DEFAULT NULL,
-  `nu_usuario` int(11) DEFAULT NULL COMMENT 'Número de usuário que visitou a página'
+  `nu_usuario` int(11) DEFAULT NULL COMMENT 'Número de usuário que visitou a página',
+  PRIMARY KEY (`co_pagina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -658,9 +666,10 @@ CREATE TABLE `tb_pagina` (
 --
 
 CREATE TABLE `tb_pagina_visita` (
-  `co_pagina_visita` int(11) NOT NULL,
+  `co_pagina_visita` int(11) NOT NULL AUTO_INCREMENT,
   `co_visita` int(11) NOT NULL,
-  `co_pagina` int(11) NOT NULL
+  `co_pagina` int(11) NOT NULL,
+  PRIMARY KEY (`co_pagina_visita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -670,7 +679,7 @@ CREATE TABLE `tb_pagina_visita` (
 --
 
 CREATE TABLE `tb_perfil` (
-  `co_perfil` int(11) NOT NULL,
+  `co_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `no_perfil` varchar(45) CHARACTER SET latin1 NOT NULL COMMENT 'Nome do Perfil',
   `st_status` varchar(1) CHARACTER SET latin1 NOT NULL DEFAULT 'A' COMMENT '''A - Ativo / I - Inativo'''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -689,7 +698,7 @@ INSERT INTO `tb_perfil` (`co_perfil`, `no_perfil`, `st_status`) VALUES
 --
 
 CREATE TABLE `tb_perfil_assinante` (
-  `co_perfil_assinante` int(11) NOT NULL,
+  `co_perfil_assinante` int(11) NOT NULL AUTO_INCREMENT,
   `no_perfil` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL
@@ -702,7 +711,7 @@ CREATE TABLE `tb_perfil_assinante` (
 --
 
 CREATE TABLE `tb_perfil_funcionalidade` (
-  `co_perfil_funcionalidade` int(11) NOT NULL,
+  `co_perfil_funcionalidade` int(11) NOT NULL AUTO_INCREMENT,
   `co_funcionalidade` int(11) NOT NULL,
   `co_perfil` int(11) NOT NULL,
   `co_perfil_assinante` int(11) NOT NULL
@@ -722,7 +731,7 @@ INSERT INTO `tb_perfil_funcionalidade` (`co_perfil_funcionalidade`, `co_funciona
 --
 
 CREATE TABLE `tb_pessoa` (
-  `co_pessoa` int(11) NOT NULL,
+  `co_pessoa` int(11) NOT NULL AUTO_INCREMENT,
   `nu_cpf` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `no_pessoa` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_rg` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -748,7 +757,7 @@ INSERT INTO `tb_pessoa` (`co_pessoa`, `nu_cpf`, `no_pessoa`, `nu_rg`, `dt_cadast
 --
 
 CREATE TABLE `tb_plano` (
-  `co_plano` int(11) NOT NULL,
+  `co_plano` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `no_plano` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_mes_ativo` int(1) DEFAULT NULL COMMENT 'Número de meses ativo do plano (1, 3, 6, 12 e 24)',
@@ -776,7 +785,7 @@ CREATE TABLE `tb_plano_assinante` (
 --
 
 CREATE TABLE `tb_plano_assinante_assinatura` (
-  `co_plano_assinante_assinatura` int(11) NOT NULL,
+  `co_plano_assinante_assinatura` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_expiracao` date DEFAULT NULL COMMENT 'data de expiriração da assinatura',
   `dt_confirma_pagamento` datetime DEFAULT NULL COMMENT 'Data que confirmou o pagamento',
@@ -802,7 +811,7 @@ CREATE TABLE `tb_plano_assinante_assinatura` (
 --
 
 CREATE TABLE `tb_plano_pacote` (
-  `co_plano_pacote` int(10) NOT NULL COMMENT 'Planos do Módulo',
+  `co_plano_pacote` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Planos do Módulo',
   `co_plano` int(11) NOT NULL,
   `co_pacote` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -814,7 +823,7 @@ CREATE TABLE `tb_plano_pacote` (
 --
 
 CREATE TABLE `tb_projeto` (
-  `co_projeto` int(11) NOT NULL,
+  `co_projeto` int(11) NOT NULL AUTO_INCREMENT,
   `no_projeto` varchar(80) CHARACTER SET utf8 DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -833,7 +842,7 @@ INSERT INTO `tb_projeto` (`co_projeto`, `no_projeto`, `dt_cadastro`) VALUES
 --
 
 CREATE TABLE `tb_representacao` (
-  `co_representacao` int(11) NOT NULL,
+  `co_representacao` int(11) NOT NULL AUTO_INCREMENT,
   `no_representacao` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_tel1` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_email` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -847,7 +856,7 @@ CREATE TABLE `tb_representacao` (
 --
 
 CREATE TABLE `tb_sessao` (
-  `co_sessao` int(11) NOT NULL,
+  `co_sessao` int(11) NOT NULL AUTO_INCREMENT,
   `no_sessao` varchar(80) DEFAULT NULL,
   `dt_cadastro` datetime DEFAULT NULL,
   `co_modulo` int(11) NOT NULL
@@ -860,7 +869,7 @@ CREATE TABLE `tb_sessao` (
 --
 
 CREATE TABLE `tb_suporte` (
-  `co_suporte` int(11) NOT NULL,
+  `co_suporte` int(11) NOT NULL AUTO_INCREMENT,
   `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'A' COMMENT 'A - Ativa / I - Inativa',
   `dt_cadastro` datetime DEFAULT NULL,
   `ds_assunto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -875,7 +884,7 @@ CREATE TABLE `tb_suporte` (
 --
 
 CREATE TABLE `tb_trafego` (
-  `co_trafego` int(11) NOT NULL,
+  `co_trafego` int(11) NOT NULL AUTO_INCREMENT,
   `nu_ip` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_pais` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_code_pais` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -885,7 +894,8 @@ CREATE TABLE `tb_trafego` (
   `ds_navegador` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_sistema_operacional` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_dispositivo` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ds_agente` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `ds_agente` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`co_trafego`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -909,7 +919,7 @@ INSERT INTO `tb_trafego` (`co_trafego`, `nu_ip`, `ds_pais`, `ds_code_pais`, `ds_
 --
 
 CREATE TABLE `tb_usuario` (
-  `co_usuario` int(10) NOT NULL,
+  `co_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `ds_senha` varchar(100) NOT NULL,
   `ds_code` varchar(50) NOT NULL COMMENT 'Senha criptografada',
   `st_status` varchar(1) NOT NULL DEFAULT 'I' COMMENT '''A - Ativo / I - Inativo''',
@@ -934,7 +944,7 @@ INSERT INTO `tb_usuario` (`co_usuario`, `ds_senha`, `ds_code`, `st_status`, `st_
 --
 
 CREATE TABLE `tb_usuario_perfil` (
-  `co_usuario_perfil` int(11) NOT NULL,
+  `co_usuario_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `co_usuario` int(10) NOT NULL,
   `co_perfil` int(11) NOT NULL,
   `co_perfil_assinante` int(10) NOT NULL
@@ -954,11 +964,12 @@ INSERT INTO `tb_usuario_perfil` (`co_usuario_perfil`, `co_usuario`, `co_perfil`,
 --
 
 CREATE TABLE `tb_visita` (
-  `co_visita` int(11) NOT NULL,
+  `co_visita` int(11) NOT NULL AUTO_INCREMENT,
   `dt_realizado` datetime DEFAULT NULL,
   `dt_atualizado` datetime DEFAULT NULL,
   `nu_visitas` int(11) DEFAULT NULL,
-  `co_trafego` int(11) NOT NULL
+  `co_trafego` int(11) NOT NULL,
+  PRIMARY KEY (`co_visita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -968,9 +979,10 @@ CREATE TABLE `tb_visita` (
 --
 
 CREATE TABLE `tb_visita_checkout` (
-  `co_visita_checkout` int(11) NOT NULL,
+  `co_visita_checkout` int(11) NOT NULL AUTO_INCREMENT,
   `co_visita` int(11) NOT NULL,
-  `co_checkout` int(11) NOT NULL
+  `co_checkout` int(11) NOT NULL,
+  PRIMARY KEY (`co_visita_checkout`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
