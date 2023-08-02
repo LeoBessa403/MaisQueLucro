@@ -469,8 +469,9 @@ class  FluxocaixaService extends AbstractService
     public function CalcularPEL($dados)
     {
         $percMcLuc = $dados["mcPerc"] - $dados["perc_lucro"];
-        $retorno[SUCESSO] = Valida::FormataMoeda((Valida::FormataMoedaBanco($dados["despFix"])
-            / Valida::FormataMoedaBanco($percMcLuc)) * 100000);
+        $percMcLuc = (Valida::FormataMoedaBanco(str_replace(".", ",", $percMcLuc)));
+        $despFix = (Valida::FormataMoedaBanco(str_replace(".", ",", $dados["despFix"])));
+        $retorno[SUCESSO] = Valida::FormataMoeda(($despFix / $percMcLuc) * 100);
         return $retorno;
     }
 

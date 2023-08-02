@@ -44,5 +44,14 @@ $(function () {
         $('#anoPesquisa').val(ano);
     });
 
+    $('.netas').focusout(function () {
+        // vrl-2-202301-3-10
+        var id = $(this).attr('id').split('-');
+
+        $('.filhas' + id[1] + '-' + id[3]).each(function () {
+            Funcoes.Alerta($(this).attr('class'));
+        })
+    });
+
 
 });
