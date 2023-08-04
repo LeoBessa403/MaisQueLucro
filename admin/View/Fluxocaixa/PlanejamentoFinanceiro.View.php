@@ -712,13 +712,20 @@
                                                                 <table>
                                                                     <tr>
                                                                         <td class="linhan3-<?= $nu_codigo_n; ?>"><?php
+                                                                            $valor = '0';
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['planejado'])) {
-                                                                                echo Valida::FormataMoeda(
+                                                                                $valor = Valida::FormataMoeda(
                                                                                     $dadosNeta[$nu_codigo_n]['planejado']);
-                                                                            } else {
-                                                                                echo '-';
                                                                             }
-                                                                            ?></td>
+                                                                            ?>
+                                                                            <input type="text"
+                                                                                   class="form-control netas moeda"
+                                                                                   id="vrl-3-<?= $anomes . '-' . $nu_codigo .
+                                                                                   '-' . $nu_codigo_n; ?>"
+                                                                                   name="vrl-3-<?= $anomes
+                                                                                   . '-' . $nu_codigo . '-' . $nu_codigo_n; ?>"
+                                                                                   value="<?= $valor; ?>"/>
+                                                                        </td>
                                                                         <td class="linhan3-<?= $nu_codigo_n; ?>"><?php
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['realizado'])) {
                                                                                 echo Valida::FormataMoeda(
@@ -887,13 +894,20 @@
                                                                 <table>
                                                                     <tr>
                                                                         <td class="linhan4-<?= $nu_codigo_n; ?>"><?php
+                                                                            $valor = '0';
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['planejado'])) {
-                                                                                echo Valida::FormataMoeda(
+                                                                                $valor = Valida::FormataMoeda(
                                                                                     $dadosNeta[$nu_codigo_n]['planejado']);
-                                                                            } else {
-                                                                                echo '-';
                                                                             }
-                                                                            ?></td>
+                                                                            ?>
+                                                                            <input type="text"
+                                                                                   class="form-control netas moeda"
+                                                                                   id="vrl-4-<?= $anomes . '-' . $nu_codigo .
+                                                                                   '-' . $nu_codigo_n; ?>"
+                                                                                   name="vrl-4-<?= $anomes
+                                                                                   . '-' . $nu_codigo . '-' . $nu_codigo_n; ?>"
+                                                                                   value="<?= $valor; ?>"/>
+                                                                        </td>
                                                                         <td class="linhan4-<?= $nu_codigo_n; ?>"><?php
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['realizado'])) {
                                                                                 echo Valida::FormataMoeda(
@@ -1101,13 +1115,20 @@
                                                                 <table>
                                                                     <tr>
                                                                         <td class="linhan5-<?= $nu_codigo_n; ?>"><?php
+                                                                            $valor = '0';
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['planejado'])) {
-                                                                                echo Valida::FormataMoeda(
+                                                                                $valor = Valida::FormataMoeda(
                                                                                     $dadosNeta[$nu_codigo_n]['planejado']);
-                                                                            } else {
-                                                                                echo '-';
                                                                             }
-                                                                            ?></td>
+                                                                            ?>
+                                                                            <input type="text"
+                                                                                   class="form-control netas moeda"
+                                                                                   id="vrl-5-<?= $anomes . '-' . $nu_codigo .
+                                                                                   '-' . $nu_codigo_n; ?>"
+                                                                                   name="vrl-5-<?= $anomes
+                                                                                   . '-' . $nu_codigo . '-' . $nu_codigo_n; ?>"
+                                                                                   value="<?= $valor; ?>"/>
+                                                                        </td>
                                                                         <td class="linhan5-<?= $nu_codigo_n; ?>"><?php
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['realizado'])) {
                                                                                 echo Valida::FormataMoeda(
@@ -1239,13 +1260,20 @@
                                                                 <table>
                                                                     <tr>
                                                                         <td class="linhan6-<?= $nu_codigo_n; ?>"><?php
+                                                                            $valor = '0';
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['planejado'])) {
-                                                                                echo Valida::FormataMoeda(
+                                                                                $valor = Valida::FormataMoeda(
                                                                                     $dadosNeta[$nu_codigo_n]['planejado']);
-                                                                            } else {
-                                                                                echo '-';
                                                                             }
-                                                                            ?></td>
+                                                                            ?>
+                                                                            <input type="text"
+                                                                                   class="form-control netas moeda"
+                                                                                   id="vrl-6-<?= $anomes . '-' . $nu_codigo .
+                                                                                   '-' . $nu_codigo_n; ?>"
+                                                                                   name="vrl-6-<?= $anomes
+                                                                                   . '-' . $nu_codigo . '-' . $nu_codigo_n; ?>"
+                                                                                   value="<?= $valor; ?>"/>
+                                                                        </td>
                                                                         <td class="linhan6-<?= $nu_codigo_n; ?>"><?php
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['realizado'])) {
                                                                                 echo Valida::FormataMoeda(
