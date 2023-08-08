@@ -8,6 +8,8 @@
         margin-top: -10px;
         vertical-align : middle;
         padding: 6px;
+        position: absolute;
+        z-index: 999;
     }
     .dsv {
         background-color: darkgoldenrod;

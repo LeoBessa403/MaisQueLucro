@@ -56,7 +56,7 @@ $user = $us->getUser();
 <div class="navbar navbar-inverse navbar-fixed-top">
     <?php include 'library/Partial/valida_ambiente.php'; ?>
     <!-- start: TOP NAVIGATION CONTAINER -->
-    <div class="container">
+    <div class="container" style="padding-top: <?= ($padding) ? '25px' : 0 ; ?>">
         <div class="navbar-header">
             <!-- start: RESPONSIVE MENU TOGGLER -->
             <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">

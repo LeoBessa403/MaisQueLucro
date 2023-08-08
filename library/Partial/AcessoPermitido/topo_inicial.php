@@ -56,9 +56,16 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
     <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
 
     <style>
-        body.login.example1 {
-            background: url("<?= PASTAADMIN; ?>Imagens/bg (<?= rand(1, NUM_BG_IMAGENS); ?>).jpg") rgba(0, 0, 0, 0) top center !important;
-            background-size: 100% !important;
+        .coverimg {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background-size: cover;
+            background-position: center center;
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
         }
     </style>
     <!-- end: MAIN CSS -->
@@ -67,6 +74,12 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
 <!-- start: BODY -->
 <body class="login example1">
 <?php include 'library/Partial/valida_ambiente.php'; ?>
+<div class="coverimg" id="image-daytime"
+     style="background-image: url('<?= PASTAADMIN; ?>Imagens/bg (<?= rand(1, NUM_BG_IMAGENS); ?>).jpg')">
+    <div class="overlay"></div>
+    <img src="<?= PASTAADMIN; ?>Imagens/bg (<?= rand(1, NUM_BG_IMAGENS); ?>).jpg" alt=""
+         class="w-100" style="display: none;">
+</div>
 <div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" style="padding: 20px 50px;">
     <div class="logo">
         <span class="no_sistema box-shadow"><?= DESC_SIS; ?></span>
