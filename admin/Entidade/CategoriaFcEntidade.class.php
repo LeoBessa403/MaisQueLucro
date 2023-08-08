@@ -14,7 +14,6 @@ class CategoriaFcEntidade extends AbstractEntidade
 	private $co_categoria_fc;
 	private $ds_texto;
 	private $nu_codigo;
-	private $co_assinante;
 	private $co_categoria_fc_filha;
 	private $co_fluxo_caixa;
 
@@ -28,7 +27,6 @@ class CategoriaFcEntidade extends AbstractEntidade
 			CO_CATEGORIA_FC,
 			DS_TEXTO,
 			NU_CODIGO,
-			CO_ASSINANTE,
 		];
     }
 
@@ -91,23 +89,6 @@ class CategoriaFcEntidade extends AbstractEntidade
 	public function setNuCodigo($nu_codigo)
     {
         return $this->nu_codigo = $nu_codigo;
-    }
-
-	/**
-	* @return AssinanteEntidade $co_assinante
-    */
-	public function getCoAssinante()
-    {
-        return $this->co_assinante;
-    }
-
-	/**
-	* @param $co_assinante
-    * @return mixed
-    */
-	public function setCoAssinante($co_assinante)
-    {
-        return $this->co_assinante = $co_assinante;
     }
 
 	/**

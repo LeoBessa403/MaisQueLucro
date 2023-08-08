@@ -4,15 +4,15 @@
  * Config.Padrao [ HELPER ]
  * Constantes padrão gerados do sistema
  *
- * @copyright (c) 2021, Leo Bessa
+ * @copyright (c) 2023, Leo Bessa
  */ 
 define('TEM_SITE', '1');
-define('MODULO_ASSINANTE', true);
+define('MODULO_ASSINANTE', '1');
 define('LOGAR_EMAIL', '1');
 define('TABELA_AUDITORIA', '1');
-define('DESC', 'Atacadão Bessa');
-define('DESC_SIS', 'Atacadão Bessa');
-define('TITULO_SITE', 'Atacadão Bessa | Sistema Online Lucrativo');
+define('DESC', 'Sistema Online Lucrativo');
+define('DESC_SIS', 'SOL');
+define('TITULO_SITE', 'SOL | Sistema Online Lucrativo');
 define('DESC_SITE', 'O Único Sistema de gestão financeira que te trás a claresa suprema dos seus números.');
 define('CONTROLLER_INICIAL_ADMIN', 'Index');
 define('ACTION_INICIAL_ADMIN', 'IndexAdmin');
@@ -22,7 +22,7 @@ define('TABLE_USER', 'tb_usuario');
 define('CAMPO_PASS', 'ds_code');
 define('CAMPO_ID', 'co_usuario');
 define('CAMPO_PERFIL', 'ds_perfil');
-define('SESSION_USER', 'user_atacadao');
+define('SESSION_USER', 'user_sol');
 define('INATIVO', '30');
 define('BACKUP', '5');
 define('TAMANHO', '800');

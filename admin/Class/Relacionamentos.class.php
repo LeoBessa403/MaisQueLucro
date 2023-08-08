@@ -519,11 +519,6 @@ class Relacionamentos
                 ),
             ),
             (CategoriaFcEntidade::TABELA) => array(
-                (CO_ASSINANTE) => array(
-                    ('Campo') => CO_ASSINANTE,
-                    ('Entidade') => 'AssinanteEntidade',
-                    ('Tipo') => '1',
-                ),
                 (CO_CATEGORIA_FC_FILHA) => array(
                     ('Campo') => CO_CATEGORIA_FC,
                     ('Entidade') => 'CategoriaFcFilhaEntidade',
