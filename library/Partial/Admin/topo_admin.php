@@ -92,7 +92,7 @@ $user = $us->getUser();
 </div>
 <!-- end: HEADER -->
 <!-- start: MAIN CONTAINER -->
-<div class="main-container">
+<div class="main-container" style="padding-top: <?= ($padding) ? '30px' : 0 ; ?>">
     <div class="navbar-content">
         <!-- start: SIDEBAR -->
         <div class="main-navigation navbar-collapse collapse">

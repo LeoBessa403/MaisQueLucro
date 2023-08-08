@@ -66,7 +66,8 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
 <!-- end: HEAD -->
 <!-- start: BODY -->
 <body class="login example1">
-<div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+<?php include 'library/Partial/valida_ambiente.php'; ?>
+<div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" style="padding: 20px 50px;">
     <div class="logo">
         <span class="no_sistema box-shadow"><?= DESC_SIS; ?></span>
     </div>

@@ -182,6 +182,7 @@ class IndexController extends AbstractController
             $fat = 0;
             $despVar = 0;
             $despFix = 0;
+
             foreach ($dadosPE as $dadosPEs) {
                 if (!empty($dadosPEs["recebimentos"])) {
                     $fat += $dadosPEs["recebimentos"];
@@ -190,9 +191,15 @@ class IndexController extends AbstractController
                     $qtdMesAnt++;
                 }
             }
-            $dados['mcPerc'] = (($fat - $despVar) / $fat) * 100;
-            $dados['PE'] = (($despFix / $qtdMesAnt) / $dados['mcPerc']) * 100;
-            $dados['despFix'] = $despFix / $qtdMesAnt;
+            if ($fat > 0) {
+                $dados['mcPerc'] = (($fat - $despVar) / $fat) * 100;
+                $dados['PE'] = (($despFix / $qtdMesAnt) / $dados['mcPerc']) * 100;
+                $dados['despFix'] = $despFix / $qtdMesAnt;
+            } else {
+                $dados['mcPerc'] = 0;
+                $dados['PE'] = 0;
+                $dados['despFix'] = 0;
+            }
 
             $graficoFinalInd = array("['Mês', 'Lucro Líquido',{ role: 'annotation' }, 'Margem de Contribuição',
             { role: 'annotation' },'LL Antes dos Investimentos (LLAI)',{ role: 'annotation' }, 'Despesas Total',

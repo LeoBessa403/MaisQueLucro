@@ -43,16 +43,6 @@ CREATE TABLE `tb_acesso` (
 -- Extraindo dados da tabela `tb_acesso`
 --
 
-INSERT INTO `tb_acesso` (`co_acesso`, `ds_session_id`, `dt_inicio_acesso`, `dt_fim_acesso`, `tp_situacao`, `co_usuario`, `co_trafego`) VALUES
-(1, '8overdl2hlrtooug008eu2b0u9', '2022-03-14 12:15:15', '2022-03-14 12:41:41', 'F', 1, 1),
-(2, '8overdl2hlrtooug008eu2b0u9', '2022-03-14 12:42:27', '2022-03-14 13:12:32', 'F', 1, 2),
-(3, 'bie0joq2f3cjasc4g806ihqrdh', '2022-03-25 11:24:22', '2022-03-25 12:40:49', 'F', 1, 3),
-(4, 'iue0r2fe4j6qera1ls3jne6h8e', '2022-05-09 08:36:18', '2022-05-09 09:18:41', 'F', 1, 4),
-(5, 'kgirrbb5vlrkc9llercauv8mu9', '2022-05-12 10:38:16', '2022-05-12 11:11:34', 'F', 1, 5),
-(6, 'kgirrbb5vlrkc9llercauv8mu9', '2022-05-13 11:17:40', '2022-05-13 13:00:15', 'F', 1, 6),
-(7, 'kgirrbb5vlrkc9llercauv8mu9', '2022-05-16 12:11:52', '2022-05-16 12:12:37', 'F', 1, 7),
-(8, 'kgirrbb5vlrkc9llercauv8mu9', '2022-05-16 12:13:53', '2022-05-16 12:44:04', 'A', 1, 8);
-
 -- --------------------------------------------------------
 
 --
@@ -100,17 +90,6 @@ CREATE TABLE `tb_auditoria` (
   PRIMARY KEY (`co_auditoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `tb_auditoria`
---
-
-INSERT INTO `tb_auditoria` (`co_auditoria`, `dt_realizado`, `ds_perfil_usuario`, `co_usuario`) VALUES
-(1, '2022-03-25 12:08:01', 'Master', 1),
-(2, '2022-03-25 12:10:45', 'Master', 1),
-(3, '2022-05-13 11:42:16', 'Master', 1),
-(4, '2022-05-13 11:42:53', 'Master', 1);
-
--- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `tb_auditoria_itens`
@@ -125,34 +104,6 @@ CREATE TABLE `tb_auditoria_itens` (
   PRIMARY KEY (`co_auditoria_itens`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `tb_auditoria_itens`
---
-
-INSERT INTO `tb_auditoria_itens` (`co_auditoria_itens`, `ds_item_anterior`, `ds_item_atual`, `ds_campo`, `co_auditoria_tabela`) VALUES
-(1, NULL, 'Fluxocaixa', 'no_controller', 1),
-(2, NULL, 'fafa-money', 'ds_class_icon', 1),
-(3, NULL, 'Lancamento', 'no_funcionalidade', 2),
-(4, NULL, 'Lancamento', 'ds_action', 2),
-(5, NULL, 'S', 'st_menu', 2),
-(6, NULL, '10', 'co_controller', 2),
-(7, NULL, 'A', 'st_status', 2),
-(8, '34', NULL, 'co_funcionalidade', 3),
-(9, 'Lancamento', 'Lançamento', 'no_funcionalidade', 3),
-(10, 'Lancamento', 'Lancamento', 'ds_action', 3),
-(11, 'A', NULL, 'st_status', 3),
-(12, 'S', 'S', 'st_menu', 3),
-(13, '10', '10', 'co_controller', 3),
-(14, NULL, 'Análise', 'no_funcionalidade', 5),
-(15, NULL, 'ListarFluxoCaixa', 'ds_action', 5),
-(16, NULL, 'S', 'st_menu', 5),
-(17, NULL, '10', 'co_controller', 5),
-(18, NULL, 'A', 'st_status', 5),
-(19, NULL, 'Comparador', 'no_funcionalidade', 6),
-(20, NULL, 'Comparador', 'ds_action', 6),
-(21, NULL, 'S', 'st_menu', 6),
-(22, NULL, '10', 'co_controller', 6),
-(23, NULL, 'A', 'st_status', 6);
 
 -- --------------------------------------------------------
 
@@ -169,19 +120,6 @@ CREATE TABLE `tb_auditoria_tabela` (
   PRIMARY KEY (`co_auditoria_tabela`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `tb_auditoria_tabela`
---
-
-INSERT INTO `tb_auditoria_tabela` (`co_auditoria_tabela`, `no_tabela`, `tp_operacao`, `co_registro`, `co_auditoria`) VALUES
-(1, 'maisquelucro10.TB_CONTROLLER', 'I', 10, 1),
-(2, 'maisquelucro10.TB_FUNCIONALIDADE', 'I', 34, 1),
-(3, 'maisquelucro10.TB_FUNCIONALIDADE', 'U', 34, 2),
-(4, 'maisquelucro10.TB_PERFIL_FUNCIONALIDADE', 'D', NULL, 2),
-(5, 'maisquelucro10.TB_FUNCIONALIDADE', 'I', 35, 3),
-(6, 'maisquelucro10.TB_FUNCIONALIDADE', 'I', 36, 4);
-
--- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `tb_banco`

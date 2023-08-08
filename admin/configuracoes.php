@@ -26,10 +26,10 @@ function servidor_inicial()
             $config = array(
                 'HOME' => 'https://teste.maisquelucro.com.br/',
                 'HOST' => 'localhost',
-                'USER' => 'sistem25_mais_te',
-                'PASS' => 'MV]OC@j^(O2e',
-                'DBSA' => 'sistem25_mais_teste',
-                'SCHEMA' => 'sistem25_mais_teste',
+                'USER' => 'maisq671_maisq671',
+                'PASS' => '1rfB4s68hY',
+                'DBSA' => 'maisq671_teste',
+                'SCHEMA' => 'maisq671_teste',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'AMBI' => 2, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
@@ -44,10 +44,10 @@ function servidor_inicial()
             $config = array(
                 'HOME' => 'https://maisquelucro.com.br/',
                 'HOST' => 'localhost',
-                'USER' => 'sistem25_atacadao',
-                'PASS' => 'Admin101*/',
-                'DBSA' => 'sistem25_atacadao',
-                'SCHEMA' => 'sistem25_atacadao',
+                'USER' => 'maisq671_maisq671',
+                'PASS' => '1rfB4s68hY',
+                'DBSA' => 'maisq671_sol',
+                'SCHEMA' => 'maisq671_sol',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'AMBI' => 3, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
