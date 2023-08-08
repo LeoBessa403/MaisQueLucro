@@ -82,7 +82,8 @@ CREATE TABLE `tb_assinante` (
   `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'A' COMMENT 'A - Ativo / I - inativo',
   `tp_assinante` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'M' COMMENT 'M  - Matriz / F - Filial',
   `co_empresa` int(11) NOT NULL,
-  `co_pessoa` int(11) NOT NULL COMMENT 'Responsável pelo Assinante'
+  `co_pessoa` int(11) NOT NULL COMMENT 'Responsável pelo Assinante',
+  PRIMARY KEY (`co_assinante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -217,7 +218,8 @@ CREATE TABLE `tb_categoria_fc` (
   `co_categoria_fc` int(11) NOT NULL AUTO_INCREMENT,
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `co_assinante` int(11) NOT NULL
+  `co_assinante` int(11) NOT NULL,
+  PRIMARY KEY (`co_categoria_fc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -231,7 +233,8 @@ CREATE TABLE `tb_categoria_fc_filha` (
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_categoria_fc` int(11) NOT NULL,
-  `co_assinante` int(11) NOT NULL
+  `co_assinante` int(11) NOT NULL,
+  PRIMARY KEY (`co_categoria_fc_filha`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -245,7 +248,8 @@ CREATE TABLE `tb_categoria_fc_neta` (
   `ds_texto` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_codigo` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_categoria_fc_filha` int(11) NOT NULL,
-  `co_assinante` int(11) NOT NULL
+  `co_assinante` int(11) NOT NULL,
+  PRIMARY KEY (`co_categoria_fc_neta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -259,7 +263,8 @@ CREATE TABLE `tb_centro_custo` (
   `nu_codigo` int(6) DEFAULT NULL,
   `ds_descricao` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL,
-  `no_centro_custos` varchar(80) COLLATE utf8_unicode_ci NOT NULL
+  `no_centro_custos` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`co_centro_custo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -271,7 +276,8 @@ CREATE TABLE `tb_centro_custo` (
 CREATE TABLE `tb_checkout` (
   `co_checkout` int(11) NOT NULL AUTO_INCREMENT,
   `nu_visitas_total` int(11) DEFAULT NULL,
-  `dt_ultima_visita` datetime DEFAULT NULL
+  `dt_ultima_visita` datetime DEFAULT NULL,
+  PRIMARY KEY (`co_checkout`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -283,7 +289,8 @@ CREATE TABLE `tb_checkout` (
 CREATE TABLE `tb_clique` (
   `co_clique` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
-  `co_botao` int(11) NOT NULL
+  `co_botao` int(11) NOT NULL,
+  PRIMARY KEY (`co_clique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -302,7 +309,8 @@ CREATE TABLE `tb_contato` (
   `ds_site` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_facebook` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_twitter` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ds_instagram` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL
+  `ds_instagram` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`co_contato`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -325,7 +333,8 @@ CREATE TABLE `tb_conta_bancaria` (
   `st_status` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nu_agencia` int(6) DEFAULT NULL,
   `nu_conta` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `co_assinante` int(11) NOT NULL
+  `co_assinante` int(11) NOT NULL,
+  PRIMARY KEY (`co_conta_bancaria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -337,7 +346,8 @@ CREATE TABLE `tb_conta_bancaria` (
 CREATE TABLE `tb_controller` (
   `co_controller` int(11) NOT NULL AUTO_INCREMENT,
   `no_controller` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ds_class_icon` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone'
+  `ds_class_icon` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone',
+  PRIMARY KEY (`co_controller`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
