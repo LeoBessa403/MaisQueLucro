@@ -4,7 +4,7 @@ function servidor_inicial()
 {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
         $config = array(
-            'HOME' => 'http://localhost/AtacadaoBessa/',
+            'HOME' => 'http://localhost/MaisQueLucro/',
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
@@ -21,7 +21,7 @@ function servidor_inicial()
                 "sandbox.pagseguro.js",
         );
     } else {
-        $ambTeste = strstr($_SERVER['SERVER_NAME'], 'teste.atacadaobessa.com.br');
+        $ambTeste = strstr($_SERVER['SERVER_NAME'], 'teste.maisquelucro.com.br');
         if ($ambTeste != null) {
             $config = array(
                 'HOME' => 'https://teste.maisquelucro.com.br/',
@@ -42,7 +42,7 @@ function servidor_inicial()
             );
         } else {
             $config = array(
-                'HOME' => 'https://atacadaobessa.com.br/',
+                'HOME' => 'https://maisquelucro.com.br/',
                 'HOST' => 'localhost',
                 'USER' => 'sistem25_atacadao',
                 'PASS' => 'Admin101*/',
