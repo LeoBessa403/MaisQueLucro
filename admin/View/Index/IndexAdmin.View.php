@@ -3,14 +3,16 @@
         width: 20%;
         display: inline-block;
         font-size: 2em;
-        padding: 20px 10px;
+        padding: 8px 5px;
         margin-top: 10px;
     }
 
     #pricing_table_example2 .pricing-table {
-        width: 49%;
+        width: 100%;
         margin-right: 0.5%;
-        min-height: 250px;
+        min-height: 120px;
+        margin-bottom: 10px;
+        padding: 0 0 15px !important;
     }
 
     .pricing-table h2 {
@@ -19,25 +21,39 @@
     }
 
     .simbol_perc {
-        width: 6%;
+        width: 7%;
         display: inline-block;
-        padding: 5px 7px;
+        padding: 3px 3px 0;
         background-color: lightgray;
-        font-size: 2em;
+        font-size: 1.4em;
         font-weight: bolder;
         border: 1px solid #D5D5D5;
         border-radius: 0 0 0 0 !important;
         font-family: inherit;
-        line-height: 1.2;
         transition-duration: 0.1s;
         box-shadow: none;
         margin-left: -4px;
-        margin-top: -1px;
     }
 
     #calcular_pel {
-        padding: 12px 20px;
-        margin-top: -10px;
+        padding: 7px 20px;
+        margin-top: -7px;
+    }
+
+    #pricing_table_example2 .pricing-table h1 {
+        font-size: 4.5em !important;
+    }
+
+    #pricing_table_example2 .pricing-table h1 sup {
+        font-size: 0.5em !important;
+    }
+    #pagRecebi th, #pagRecebi td{
+        padding: 5px;
+        text-align: center;
+    }
+    .titulo{
+        font-size: 1.5em;
+        font-weight: bolder;
     }
 </style>
 
@@ -49,29 +65,77 @@
                 <?php
                 if (AssinanteService::getCoAssinanteLogado()) {
                 ?>
-                <h3>Ponto de Equilíbrio</h3>
                 <div id="pricing_table_example2" class="row">
-                    <div class="col-sm-12">
-                        <div class="pricing-table col-sm-6 col-xs-12">
+                    <div class="col-sm-4">
+                        <h3>Ponto de Equilíbrio</h3>
+                        <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">
                                 <h2 style="background-color: blue;">Operacional</h2>
                             </div>
                             <h1 style="margin-top: 7%"><sup>R$</sup><span id="ponto_equilibrio"><?=
                                     Valida::FormataMoeda($dados['PE']); ?></span></h1>
                         </div>
-                        <div class="pricing-table featured col-sm-6 col-xs-12">
+                        <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">
                                 <h2 style="background-color: green;">Lucrativo</h2>
                             </div>
                             <h1><sup>R$</sup><span id="ponto_equil_luc">0,00</span></h1>
                             <input type="text" class="form-control input-sm porc-int" placeholder="% de Lucro"
                                    name="perc_lucro" id="perc_lucro" value="10"/>
-                            <input type="hidden" name="despFix" id="despFix" value="<?= $dados['despFix']; ?>"/>
-                            <input type="hidden" name="mcPerc" id="mcPerc" value="<?= $dados['mcPerc']; ?>"/>
                             <span class="simbol_perc">%</span>
                             <a href="#" class="btn btn-green" id="calcular_pel">Calcular</a>
+                            <input type="hidden" name="despFix" id="despFix" value="<?= $dados['despFix']; ?>"/>
+                            <input type="hidden" name="mcPerc" id="mcPerc" value="<?= $dados['mcPerc']; ?>"/>
                         </div>
                     </div>
+
+                    <div class="col-md-8">
+                        <h3>Pagamentos e Recebimentos</h3>
+                        <table class="table-striped table-bordered table-hover table-full-width"
+                               id="pagRecebi" style="width: 100%">
+                            <thead>
+                            <tr style="background-color: #4F4F4F; color: #D0D9D9;">
+                                <th style="width: 16%"></th>
+                                <th style="width: 28%" class="titulo">Receber</th>
+                                <th style="width: 28%" class="titulo">Pagar</th>
+                                <th style="width: 28%" class="titulo">Saldo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="linha-tabela odd">
+                                <td class="titulo">Atrasado</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                            </tr>
+                            <tr class="linha-tabela odd">
+                                <td class="titulo">No Mês</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                            </tr>
+                            <tr class="linha-tabela odd">
+                                <td class="titulo">De Hoje</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                            </tr>
+                            <tr class="linha-tabela odd">
+                                <td class="titulo">Futuro</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                            </tr>
+                            <tr class="linha-tabela odd">
+                                <td class="titulo">Total</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                                <td>R$ 100,000.00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
 
 

@@ -250,6 +250,9 @@ class IndexController extends AbstractController
             $grafico->GeraGrafico();
 
 
+
+
+
         }
 
         return $dados;
