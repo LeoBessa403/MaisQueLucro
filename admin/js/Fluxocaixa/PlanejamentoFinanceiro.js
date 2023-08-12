@@ -50,11 +50,12 @@ $(function () {
         var somaNetas = 0;
         var somaFilhas = 0;
         $('#grid-col-' + id[2] + ' .filhasf' + id[1] + '-' + id[3]).each(function () {
-            var valorNeta = $(this).children('.grid-item-neta').children('table').children('tbody')
-                .children('tr').children('td').children('.netas').val();
-            somaNetas = somaNetas + valorFloat(valorNeta);
+            somaNetas = somaNetas + parseFloat($(this).children('.grid-item-neta').children('table').children('tbody')
+                .children('tr').children('td').children('.netas').val()
+                .replace('R$ ', '').replace('.', '')
+                .replace(',', '.'));
         });
-        var soma = converteReal(somaNetas);
+        var soma = somaNetas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
         $('#vrl-' + id[1] + '-' + id[2] + '-' + id[3]).val(soma);
 
         setTimeout(function () {
@@ -64,42 +65,15 @@ $(function () {
                     .children('tr').children('td').children('.filhas').val();
 
                 if (vlrCampoFilha != '0') {
-                    somaFilhas = somaFilhas + valorFloat(vlrCampoFilha);
+                    somaFilhas = somaFilhas + parseFloat(vlrCampoFilha
+                        .replace('R$', '').replace('.', '')
+                        .replace(',', '.').trim());
                 }
             });
-            var soma2 = converteReal(somaFilhas);
+
+            var soma2 = somaFilhas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
             $('#vrl-' + id[1] + '-' + id[2]).val(soma2);
         }, 200);
-
-        setTimeout(function () {
-            $('#grid-col-' + id[2] + ' .filhas' + id[1]).each(function () {
-
-                var receita = $('#vrl-1-' + id[2]).val();
-                var dd = $('#vrl-2-' + id[2]).val();
-                var di = $('#vrl-3-' + id[2]).val();
-                var inv = $('#vrl-4-' + id[2]).val();
-                var eno = $('#vrl-5-' + id[2]).val();
-                var sno = $('#vrl-6-' + id[2]).val();
-
-                $('#vrl-7-' + id[2]).val(converteReal(valorFloat(receita) - valorFloat(dd)));
-                $('#vrl-8-' + id[2]).val(converteReal(valorFloat(receita) - valorFloat(dd) - valorFloat(di)));
-                $('#vrl-9-' + id[2]).val(converteReal(valorFloat(dd) + valorFloat(di)));
-                $('#vrl-10-' + id[2] + ', #vrl-10-' + id[2] + '-2').val(converteReal(
-                    valorFloat(receita) - valorFloat(dd) - valorFloat(di) - valorFloat(inv)));
-                $('#vrl-11-' + id[2]).val(converteReal(valorFloat(receita) - valorFloat(dd)
-                    - valorFloat(di) - valorFloat(inv) - valorFloat(sno) + valorFloat(eno)));
-            });
-        }, 300);
     });
-
-    function valorFloat(vlrCampo) {
-        return parseFloat(vlrCampo
-            .replace('R$', '').replace('.', '')
-            .replace(',', '.').trim());
-    }
-
-    function converteReal(valor) {
-        return valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
-    }
 
 });
