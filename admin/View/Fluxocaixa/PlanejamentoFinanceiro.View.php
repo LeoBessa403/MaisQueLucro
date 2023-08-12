@@ -341,7 +341,7 @@
                                                                         $dadosFC[$anomes][1]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control moeda" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-1-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-1-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>
@@ -485,7 +485,7 @@
                                                                         $dadosFC[$anomes][2]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-2-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-2-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>
@@ -669,7 +669,7 @@
                                                                         $dadosFC[$anomes][3]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-3-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-3-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>
@@ -851,7 +851,7 @@
                                                                         $dadosFC[$anomes][4]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-4-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-4-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>
@@ -1072,7 +1072,7 @@
                                                                         $dadosFC[$anomes][5]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-5-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-5-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>
@@ -1217,7 +1217,7 @@
                                                                         $dadosFC[$anomes][6]['filhas'][$nu_codigo]['planejado']);
                                                                 }
                                                                 ?>
-                                                                <input type="text" class="form-control" disabled
+                                                                <input type="text" class="form-control filhas" disabled
                                                                        id="vrl-6-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        name="vrl-6-<?= $anomes . '-' . $nu_codigo; ?>"
                                                                        value="<?= $valor; ?>"/>

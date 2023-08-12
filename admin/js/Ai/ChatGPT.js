@@ -1,6 +1,6 @@
 $(function () {
 
-    var api_key = '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';
+    var api_key = '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';
     var endpoint = 'https://api.openai.com/v1/completions';
 
     $('#send').click(function() {
