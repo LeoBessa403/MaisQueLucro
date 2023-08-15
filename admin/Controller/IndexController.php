@@ -182,7 +182,6 @@ class IndexController extends AbstractController
             $fat = 0;
             $despVar = 0;
             $despFix = 0;
-
             foreach ($dadosPE as $dadosPEs) {
                 if (!empty($dadosPEs["recebimentos"])) {
                     $fat += $dadosPEs["recebimentos"];
