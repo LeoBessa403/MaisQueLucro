@@ -177,7 +177,6 @@ class IndexController extends AbstractController
                 $dadosPE[implode('/', $mesExt)] =
                     $FluxocaixaService->PesquisaAvancDadosIndicadores($dt1, $dt2);
             }
-
             $qtdMesAnt = 0;
             $fat = 0;
             $despVar = 0;
