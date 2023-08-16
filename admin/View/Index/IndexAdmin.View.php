@@ -104,33 +104,38 @@
                             <tbody>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Atrasado</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_atraso'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['pag_atraso'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_atraso'] -
+                                        $dados['RecPag']['pag_atraso'],'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">No Mês</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_mes'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['pag_mes'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_mes'] -
+                                        $dados['RecPag']['pag_mes'],'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">De Hoje</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_hoje'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['pag_hoje'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_hoje'] -
+                                        $dados['RecPag']['pag_hoje'],'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Futuro</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_futuro'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['pag_futuro'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_futuro'] -
+                                        $dados['RecPag']['pag_futuro'],'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Total</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_total'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['pag_total'],'R$'); ?></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_total'] -
+                                        $dados['RecPag']['pag_total'],'R$'); ?></td>
                             </tr>
                             </tbody>
                         </table>

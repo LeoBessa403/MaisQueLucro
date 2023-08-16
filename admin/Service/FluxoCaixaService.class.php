@@ -539,6 +539,11 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaDadosIndicadores($where);
     }
 
+    public function PesquisaAvancPagRec()
+    {
+        return $this->ObjetoModel->PesquisaAvancadaPagRec();
+    }
+
     public function montaWherePesquisa($dados)
     {
         $where = 'where 1 = 1';
