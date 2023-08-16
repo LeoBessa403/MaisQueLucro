@@ -21,7 +21,6 @@
                                           <span class="checkmark"></span>
                                     </label>';
 
-
                         $arrColunas = array($cpTodos, 'Tipo de Lançamento', 'Categoria', 'Lançado', 'Vencimento', 'Pago em',
                             'Status Pagamento', 'Valor', 'Valor Pago', 'Forma de Pagamento',
                             'Conta', 'Centro de Custo', 'Representação', 'Ações');

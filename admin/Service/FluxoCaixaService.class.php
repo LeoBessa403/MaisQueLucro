@@ -492,6 +492,12 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
+    public function PesquisaAvancadaFCRecPag($pesquisa)
+    {
+        $where = $this->PesquisaAvancRecPag($pesquisa);
+        return $this->ObjetoModel->PesquisaAvancada($where);
+    }
+
     public function PesquisaAvancadaComparador($dados)
     {
         $where = $this->montaWherePesquisaComparador($dados);
@@ -707,7 +713,6 @@ class  FluxocaixaService extends AbstractService
         return $where;
     }
 
-
     public function PesquisaAvancDadosIndicad($dt1, $dt2)
     {
         $where = " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
@@ -715,6 +720,69 @@ class  FluxocaixaService extends AbstractService
         $where = $where . " and " . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and " . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
         $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+
+        return $where;
+    }
+
+    public function PesquisaAvancRecPag($pesquisa)
+    {
+        $where = "where tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        switch ($pesquisa) {
+            case 1:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::EM_ATRASO;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " < '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 2:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::SAIDA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::EM_ATRASO;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " < '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 3:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " in (" .
+                    StatusPagamentoFCEnum::EM_ATRASO . "," . StatusPagamentoFCEnum::A_RECEBER . ")";
+                $where = $where . " and tfc." . DT_VENCIMENTO . " >= '" . date('Y-m') . "-01'";
+                $where = $where . " and tfc." . DT_VENCIMENTO . " <= '" . date('Y-m') . "-31'";
+                break;
+            case 4:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::SAIDA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " in (" .
+                    StatusPagamentoFCEnum::EM_ATRASO . "," . StatusPagamentoFCEnum::A_PAGAR . ")";
+                $where = $where . " and tfc." . DT_VENCIMENTO . " >= '" . date('Y-m') . "-01'";
+                $where = $where . " and tfc." . DT_VENCIMENTO . " <= '" . date('Y-m') . "-31'";
+                break;
+            case 5:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::A_RECEBER;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " = '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 6:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::SAIDA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::A_PAGAR;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " = '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 7:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::A_RECEBER;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " >= '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 8:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::SAIDA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::A_PAGAR;
+                $where = $where . " and tfc." . DT_VENCIMENTO . " >= '" . Valida::DataAtualBanco() . "'";
+                break;
+            case 9:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
+                    StatusPagamentoFCEnum::A_RECEBER . ")";
+                break;
+            case 10:
+                $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::SAIDA;
+                $where = $where . " and tfc." . ST_PAGAMENTO . " in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
+                    StatusPagamentoFCEnum::A_PAGAR . ")";
+                break;
+        }
 
         return $where;
     }

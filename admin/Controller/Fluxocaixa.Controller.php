@@ -41,9 +41,13 @@ class Fluxocaixa extends AbstractController
         $session = new Session();
         $Condicoes = [];
         $session->setSession(PESQUISA_AVANCADA, $Condicoes);
+        $pesquisa = UrlAmigavel::PegaParametro("pesquisa");
+
         if (!empty($_POST["PesquisaLancamento"])) {
             $_POST[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
             $this->result = $FluxoCaixaService->PesquisaAvancada($_POST);
+        } elseif ($pesquisa) {
+            $this->result = $FluxoCaixaService->PesquisaAvancadaFCRecPag($pesquisa);
         } else {
             $this->result = $FluxoCaixaService->PesquisaAvancada([
                 CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()

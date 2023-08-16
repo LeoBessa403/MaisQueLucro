@@ -59,7 +59,6 @@ class  FluxocaixaModel extends AbstractModel
         $where = $where . ' ORDER BY cat.' . CategoriaFcEntidade::CHAVE . ', ctf.' . CategoriaFcFilhaEntidade::CHAVE . ', 
         ctn.' . CategoriaFcNetaEntidade::CHAVE . ', dt_realizado, dt_vencimento ASC';
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
-
         return $pesquisa->getResult();
     }
 
