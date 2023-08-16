@@ -26,8 +26,8 @@ function servidor_inicial()
             $config = array(
                 'HOME' => 'https://teste.maisquelucro.com.br/',
                 'HOST' => 'localhost',
-                'USER' => 'maisq671_maisq671',
-                'PASS' => '1rfB4s68hY',
+                'USER' => 'maisq671_dev',
+                'PASS' => 'Admin101*/',
                 'DBSA' => 'maisq671_teste',
                 'SCHEMA' => 'maisq671_teste',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
@@ -44,8 +44,8 @@ function servidor_inicial()
             $config = array(
                 'HOME' => 'https://maisquelucro.com.br/',
                 'HOST' => 'localhost',
-                'USER' => 'maisq671_maisq671',
-                'PASS' => '1rfB4s68hY',
+                'USER' => 'maisq671_dev',
+                'PASS' => 'Admin101*/',
                 'DBSA' => 'maisq671_sol',
                 'SCHEMA' => 'maisq671_sol',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
