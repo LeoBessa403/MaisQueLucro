@@ -47,13 +47,29 @@
     #pricing_table_example2 .pricing-table h1 sup {
         font-size: 0.5em !important;
     }
-    #pagRecebi th, #pagRecebi td{
+
+    #pagRecebi th, #pagRecebi td {
         padding: 5px;
         text-align: center;
     }
-    .titulo{
-        font-size: 1.5em;
+
+    #pagRecebi td {
+        font-size: 2em;
         font-weight: bolder;
+        font-style: italic;
+    }
+
+    #pagRecebi td a {
+        color: #0e0e0e !important;
+    }
+
+    #pagRecebi td a:hover {
+        cursor: pointer;
+    }
+
+    .titulo {
+        font-size: 1.5em !important;
+        font-style: unset !important;
     }
 </style>
 
@@ -104,33 +120,58 @@
                             <tbody>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Atrasado</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/1'); ?>"><?=
+                                        Valida::FormataMoeda($dados['RecPag']['rec_atraso'], 'R$'); ?></a></td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/2'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['pag_atraso'], 'R$'); ?></a></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_atraso'] -
+                                        $dados['RecPag']['pag_atraso'], 'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">No Mês</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/3'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['rec_mes'], 'R$'); ?></a></td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/4'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['pag_mes'], 'R$'); ?></a></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_mes'] -
+                                        $dados['RecPag']['pag_mes'], 'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">De Hoje</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/5'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['rec_hoje'], 'R$'); ?></a></td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/6'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['pag_hoje'], 'R$'); ?></a></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_hoje'] -
+                                        $dados['RecPag']['pag_hoje'], 'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Futuro</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/7'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['rec_futuro'], 'R$'); ?></a></td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/8'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['pag_futuro'], 'R$'); ?></a></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_futuro'] -
+                                        $dados['RecPag']['pag_futuro'], 'R$'); ?></td>
                             </tr>
                             <tr class="linha-tabela odd">
                                 <td class="titulo">Total</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
-                                <td>R$ 100,000.00</td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/9'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['rec_total'], 'R$'); ?></a></td>
+                                <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
+                                    Valida::GeraParametro('pesquisa/10'); ?>"><?=
+                                    Valida::FormataMoeda($dados['RecPag']['pag_total'], 'R$'); ?></a></td>
+                                <td><?= Valida::FormataMoeda($dados['RecPag']['rec_total'] -
+                                        $dados['RecPag']['pag_total'], 'R$'); ?></td>
                             </tr>
                             </tbody>
                         </table>

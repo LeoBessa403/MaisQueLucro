@@ -247,10 +247,7 @@ class IndexController extends AbstractController
             $grafico->SetDados($graficoFinalInd);
             $grafico->GeraGrafico();
 
-
-
-
-
+            $dados['RecPag'] = $FluxocaixaService->PesquisaAvancPagRec();
         }
 
         return $dados;

@@ -163,11 +163,15 @@ define('PESQUISA_AVANCADA', "pesquisa_avancada");
 
 // AUTO LOAD DE CLASSES ####################
 
-class ClassAutoloader {
-    public function __construct() {
+class ClassAutoloader
+{
+    public function __construct()
+    {
         spl_autoload_register(array($this, 'loader'));
     }
-    private function loader($Class) {
+
+    private function loader($Class)
+    {
         $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
         $rotas = array(
             './library/',
@@ -240,7 +244,8 @@ function Redireciona($local)
 function debug($array, $Exit = false)
 {
     $aTrace = debug_backtrace();
-    $strMessage = "<fieldset style='margin: 10px; padding: 5px;'><legend style=' background-color: #fcfcfc; padding: 5px;'><font color=\"#007000\">DEBUG</font></legend><pre>";
+    $strMessage = "<fieldset style='margin: 10px; padding: 5px; width: 500px'>
+        <legend style=' background-color: #fcfcfc; padding: 5px;'><font color=\"#007000\">DEBUG</font></legend><pre>";
     $strMessage .= "<b>Arquivo:</b> " . $aTrace[0]['file'] . "\n";
     $strMessage .= "<b>Linha:</b> " . $aTrace[0]['line'] . "\n";
     $strMessage .= "<b>Quando: </b> " . date("d/m/Y H:i:s") . "\n<hr />";
@@ -269,8 +274,10 @@ function carregaJs($urlAmigavel)
 {
     $arquivo = 'js/' . $urlAmigavel::$controller . '/' . $urlAmigavel::$action . '.js';
     if (file_exists(UrlAmigavel::$modulo . '/' . $arquivo)) {
-        echo '<script src="' . HOME . UrlAmigavel::$modulo  . '/' . $arquivo . '"></script>';
+        echo "<script src='" . HOME . UrlAmigavel::$modulo . '/' . $arquivo . '?v=' . filemtime(
+                PASTA_RAIZ . UrlAmigavel::$modulo . '/' . $arquivo) . "'></script>";
     } elseif (file_exists('library/' . $arquivo)) {
-        echo '<script src="' . PASTA_LIBRARY . $arquivo . '"></script>';
+        echo "<script src='" . PASTA_LIBRARY . $arquivo . '?v=' . filemtime(
+                PASTA_RAIZ . $arquivo) . "'></script>";
     }
 }

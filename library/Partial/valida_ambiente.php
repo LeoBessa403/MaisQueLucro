@@ -6,19 +6,29 @@
         text-align: center;
         height: 36px;
         margin-top: -10px;
-        vertical-align : middle;
+        vertical-align: middle;
         padding: 6px;
         position: absolute;
         z-index: 999;
     }
+
     .dsv {
         background-color: darkgoldenrod;
     }
+
     .tst {
         background-color: darkred;
     }
+
     .ambiente h6 {
         font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+        .ambiente {
+            margin-top: -62px;
+            padding: 0;
+        }
     }
 </style>
 <?php

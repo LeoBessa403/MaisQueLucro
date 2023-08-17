@@ -29,31 +29,47 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- end: META -->
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>fonts/style.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/main-responsive.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/main.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/iCheck/skins/all.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/theme_navy.css" type="text/css" id="skin_color">
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/css3-animation/animations.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap/css/bootstrap.min.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/bootstrap/css/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/font-awesome.min.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/font-awesome.min.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>fonts/style.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."fonts/style.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/main-responsive.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/main-responsive.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/main.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/main.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/iCheck/skins/all.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/iCheck/skins/all.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/perfect-scrollbar/src/perfect-scrollbar.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/perfect-scrollbar/src/perfect-scrollbar.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/theme_navy.css" type="text/css" id="skin_color?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/theme_navy.css"); ?>">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/css3-animation/animations.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/css3-animation/animations.css"); ?>">
     <![endif]-->
     <!-- start: CSS REQUIRED Gritter -->
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/gritter/css/jquery.gritter.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/gritter/css/jquery.gritter.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/gritter/css/jquery.gritter.css"); ?>">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico"/>
+    <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico?v=<?= filemtime(
+        PASTA_RAIZ ."favicon.ico"); ?>"/>
     <!-- end: MAIN CSS -->
     <!-- start: CSS REQUIRED FOR SELECT -->
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/select2/select2.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/select2/select2.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/select2/select2.css"); ?>">
     <!-- start: CSS REQUIRED FOR CHECK -->
     <link rel="stylesheet"
-          href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
+          href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css?v=<?= filemtime(
+              INCLUDES_LIBRARY ."plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css"); ?>">
     <!--  PARA CADASTRAR USUÁRIO  -->
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."plugins/bootstrap-fileupload/bootstrap-fileupload.min.css"); ?>">
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
-    <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
+    <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."Helpers/includes/Jcalendar.css"); ?>">
 
     <style>
         .coverimg {
