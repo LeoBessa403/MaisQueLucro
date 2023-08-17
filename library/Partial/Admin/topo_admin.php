@@ -40,14 +40,18 @@ $user = $us->getUser();
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- end: META -->
-    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/css_padrao.min.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/css_padrao.min.css?v=<?= filemtime(
+            INCLUDES_LIBRARY ."css/css_padrao.min.css"); ?>">
 
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico"/>
+    <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico?v=<?= filemtime(
+        PASTA_RAIZ ."favicon.ico"); ?>"/>
     <!-- SCRIPT GERAR GRAFICOS -->
-    <script type="text/javascript" src="<?= INCLUDES; ?>gera-grafico.min.js"></script>
+    <script type="text/javascript" src="<?= INCLUDES; ?>gera-grafico.min.js?v=<?= filemtime(
+        INCLUDES_LIBRARY ."/Helpers/includes/gera-grafico.min.js"); ?>"></script>
 
-    <script src="<?= PASTA_LIBRARY; ?>fonts/fontawesome_min.js" crossorigin="anonymous"></script>
+    <script src="<?= PASTA_LIBRARY; ?>fonts/fontawesome_min.js?v=<?= filemtime(
+        INCLUDES_LIBRARY ."fonts/fontawesome_min.js"); ?>" crossorigin="anonymous"></script>
 </head>
 <!-- end: HEAD -->
 <!-- start: BODY -->

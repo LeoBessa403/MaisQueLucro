@@ -19,7 +19,8 @@ $url->pegaControllerAction();
 </div>
 <!-- end: FOOTER -->
 <!-- start: MAIN JAVASCRIPTS -->
-<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/js_padrao.min.js"></script>
+<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>js/js_padrao.min.js?v=<?= filemtime(
+    INCLUDES_LIBRARY . 'js/js_padrao.min.js'); ?>"></script>
 <?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>
 
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->

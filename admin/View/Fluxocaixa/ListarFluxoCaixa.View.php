@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/TableFluxoCaixa.css">
+<link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/TableFluxoCaixa.css?v=<?= filemtime(
+    INCLUDES_LIBRARY . 'css/TableFluxoCaixa.css'); ?>">
 <div class="main-content">
     <div class="container">
         <div class="row">

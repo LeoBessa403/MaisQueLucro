@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/TableFluxoCaixa.css">
+<link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/TableFluxoCaixa.css?v=<?= filemtime(
+    INCLUDES_LIBRARY . 'css/TableFluxoCaixa.css'); ?>">
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -233,7 +234,7 @@
                                 $nuMes = ($nuMes < 10) ? '0' . $nuMes : $nuMes;
                                 $anomes = date('Y') . $nuMes;
                                 ?>
-                                <div id="grid-col-<?= $anomes;?>" class="grid-col">
+                                <div id="grid-col-<?= $anomes; ?>" class="grid-col">
                                     <div class="grid-item grid-item--header">
                                         <table>
                                             <thead>
