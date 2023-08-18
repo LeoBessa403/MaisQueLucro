@@ -83,6 +83,12 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
             image-rendering: -moz-crisp-edges;
             image-rendering: -webkit-optimize-contrast;
         }
+        @media (max-width: 768px) {
+            .ambiente {
+                margin-top: -62px;
+                padding: 0;
+            }
+        }
     </style>
     <!-- end: MAIN CSS -->
 </head>

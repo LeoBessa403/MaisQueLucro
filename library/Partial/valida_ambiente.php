@@ -23,13 +23,6 @@
     .ambiente h6 {
         font-weight: 800;
     }
-
-    @media (max-width: 768px) {
-        .ambiente {
-            margin-top: -62px;
-            padding: 0;
-        }
-    }
 </style>
 <?php
 $padding = false;
