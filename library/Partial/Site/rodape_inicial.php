@@ -116,6 +116,9 @@
 <script src="<?= PASTASITE; ?>js/main.js"></script>
 <script src="<?= HOME ?>library/Helpers/includes/jquery.mask.js"></script>
 
+<script type="text/javascript" src="<?= HOME; ?>pwa-services.js?v=<?=
+filemtime(PASTA_RAIZ . "pwa-services.js"); ?>"></script>
+
 <?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>
 <?php carregaJs($url); ?>
 </body>

@@ -94,9 +94,37 @@ $visitaService->gestaoVisita();
 <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/font-awesome.min.css">
 
+    <link rel="manifest" href="<?= HOME; ?>manifest.json?v=<?= filemtime(PASTA_RAIZ . "manifest.json"); ?>" />
 
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="<?= PASTASITE; ?>css/responsive.css"/>
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('pwabuilder-sw.js')
+        }
+
+        /* PWA add to phone Install ap button */
+        var btnAdd = document.getElementById('instalaApp')
+        var defferedPrompt;
+        window.addEventListener("beforeinstallprompt", function (event) {
+            event.preventDefault();
+            defferedPrompt = event;
+
+            btnAdd.addEventListener("click", function (event) {
+                defferedPrompt.prompt();
+
+                defferedPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    defferedPrompt = null;
+                });
+            });
+        });
+
+    </script>
 </head>
 <body>
 <h1 style="display: none;"><?= $seo->getTitulo(); ?></h1>
@@ -161,6 +189,7 @@ $visitaService->gestaoVisita();
                                     <?php echo $packagePage; ?></a></li>
                         <?php endforeach; ?>
                         <li><a href="<?= PASTAADMIN; ?>Index/PrimeiroAcesso" target="_blank">SisBela</a></li>
+                        <li id="instalaApp"><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </nav>
