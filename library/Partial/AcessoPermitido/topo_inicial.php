@@ -85,7 +85,7 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
         }
         @media (max-width: 768px) {
             .ambiente {
-                margin-top: -62px;
+                margin-top: -70px !important;
                 padding: 0;
             }
         }
