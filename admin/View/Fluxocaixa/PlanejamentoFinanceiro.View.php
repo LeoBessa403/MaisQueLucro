@@ -228,9 +228,7 @@
                             </div>
                             <?php
                             $meses = Valida::getMeses();
-                            foreach ($meses
-
-                                     as $nuMes => $mes) {
+                            foreach ($meses as $nuMes => $mes) {
                                 $nuMes = ($nuMes < 10) ? '0' . $nuMes : $nuMes;
                                 $anomes = date('Y') . $nuMes;
                                 ?>
@@ -390,6 +388,10 @@
                                                                                 $valor = Valida::FormataMoeda(
                                                                                     $dadosNeta[$nu_codigo_n]['planejado']);
                                                                             }
+                                                                            $passou = '';
+//                                                                            $anomesAtual = date('Ym');
+//                                                                            if ($anomes <= $anomesAtual)
+//                                                                                $passou = 'disabled';
                                                                             ?>
                                                                             <input type="text"
                                                                                    class="form-control netas moeda"
@@ -397,7 +399,7 @@
                                                                                    '-' . $nu_codigo_n; ?>"
                                                                                    name="vrl-1-<?= $anomes
                                                                                    . '-' . $nu_codigo . '-' . $nu_codigo_n; ?>"
-                                                                                   value="<?= $valor; ?>"/>
+                                                                                   value="<?= $valor; ?>" <?= $passou; ?>/>
                                                                         </td>
                                                                         <td class="linhan1-<?= $nu_codigo_n; ?>"><?php
                                                                             if (!empty($dadosNeta[$nu_codigo_n]['realizado'])) {
