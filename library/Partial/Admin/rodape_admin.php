@@ -32,8 +32,7 @@ $url->pegaControllerAction();
         FormWizard.init();
     });
 </script>
-<?php carregaJs($url); ?>
-<!-- Carrega DIVs dos Alertas e Notificações   -->
+<?php carregaJs($url); ?><!-- Carrega DIVs dos Alertas e Notificações   -->
 <?php include_once 'alertas.php'; ?>
 </body>
 <!-- end: BODY -->
