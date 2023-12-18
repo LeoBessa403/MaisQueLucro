@@ -1,5 +1,5 @@
--- Atualizado em: 08/08/2023 11:17:40
--- Link HOME: http://localhost/MaisQueLucro/
+-- Atualizado em: 30/07/2023 09:15:34
+-- Link HOME: http://localhost/AtacadaoBessa/
 -- AMBIENTE: 1
 -- BANCO: atacadao10
 
@@ -13,11 +13,11 @@ DROP TABLE IF EXISTS TB_ANOTACAO;
 CREATE TABLE `TB_ANOTACAO` (
   `co_anotacao` int(11) NOT NULL AUTO_INCREMENT,
   `dt_cadastro` datetime DEFAULT NULL,
-  `ds_observacao` text DEFAULT NULL,
-  `ds_titulo` varchar(80) DEFAULT NULL,
+  `ds_observacao` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ds_titulo` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `co_historia` int(11) NOT NULL,
-  PRIMARY KEY (`co_anotacao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`co_anotacao`,`co_historia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -393,9 +393,9 @@ CREATE TABLE `TB_CONTATO` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060',NULL,NULL,'sistema@maisquelucro.com.br',NULL,NULL,NULL,NULL);
+INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060',NULL,NULL,'sistema@atacadaobessa.com.br',NULL,NULL,NULL,NULL);
 
-INSERT INTO TB_CONTATO VALUES('2','61993274991','6130826060',NULL,NULL,'gestor@maisquelucro.com.br',NULL,NULL,NULL,NULL);
+INSERT INTO TB_CONTATO VALUES('2','61993274991','6130826060',NULL,NULL,'gestor@atacadaobessa.com.br',NULL,NULL,NULL,NULL);
 
 INSERT INTO TB_CONTATO VALUES('3','61992931084',NULL,NULL,NULL,'ramos.amaury96@gmail.com',NULL,NULL,NULL,'loja.sangiuseppe');
 
@@ -1141,7 +1141,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('312','2023-07-22 11:03:49','2023-04-14',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('313','2023-07-22 11:08:11','2023-05-22',NULL,NULL,'39876.11',NULL,'2','1','3','2','3','10',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('314','2023-07-22 11:09:51','2023-05-16',NULL,NULL,'3451.15',NULL,'2','1','3','2','4','17',NULL,'7','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('314','2023-07-22 11:09:51','2023-05-16',null,NULL,'3451.15',NULL,'2','1','3','2','4','17',NULL,'7','117','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('316','2023-07-22 11:12:50','2023-05-08',NULL,NULL,'1466.68',NULL,'2','1','3','2','5','19',NULL,'8','115','3','2');
 
@@ -1161,13 +1161,13 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('323','2023-07-22 11:28:28','2023-06-29',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('324','2023-07-22 11:31:47','2023-07-03',NULL,NULL,'22567.23',NULL,'2','4','3','2','3','10',NULL,'9','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('325','2023-07-22 11:33:02',NULL,'2023-07-31','4098.86',NULL,NULL,'2','1','4','2','4','17',NULL,'9','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('325','2023-07-22 11:33:02',NULL,'2023-07-31','4098.86',NULL,NULL,'2','1','1','2','4','17',NULL,'9','115','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('326','2023-07-22 11:34:02',NULL,'2023-07-28','1234.56',NULL,NULL,'2','1','4','2','5','19',NULL,'9','116','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('327','2023-07-22 11:34:46','2023-07-21',NULL,NULL,'3209.88',NULL,'2','1','3','2','2','8',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('328','2023-07-22 14:32:32',NULL,'2023-07-31','28906.00',NULL,NULL,'1','3','4','1','1','4',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('328','2023-07-22 14:32:32',NULL,'2023-07-31','28906.00',NULL,NULL,'1','3','2','1','1','4',NULL,'7','113','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('329','2023-07-26 06:58:28','2023-06-20',NULL,NULL,'2145.69',NULL,'1','1','3','1','1','3',NULL,'8','112','3','2');
 
@@ -1175,7 +1175,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('330','2023-07-27 14:44:36','2023-07-21',NULL,
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('331','2023-07-27 14:46:02','2023-07-27',NULL,NULL,'100.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('332','2023-07-27 21:37:30',NULL,'2023-08-01','279.30',NULL,NULL,'1','3','4','1','1','4',NULL,'3','118','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('332','2023-07-27 21:37:30',NULL,'2023-08-01','279.30',NULL,NULL,'1','3','2','1','1','4',NULL,'3','118','2','1');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('333','2023-07-27 21:39:42','2023-07-19',NULL,NULL,'115.00',NULL,'1','1','3','1','1','1',NULL,'2','119','2','1');
 
@@ -1204,7 +1204,7 @@ CREATE TABLE `TB_FUNCIONALIDADE` (
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO TB_FUNCIONALIDADE VALUES('1','Perfil Master','PerfilMaster','A','S','1');
+INSERT INTO TB_FUNCIONALIDADE VALUES('1','Perfil Master','PerfilMaster','A','S',1);
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('2','Auditoria Listar','ListarAuditoria','A','S','2');
 
@@ -2372,11 +2372,13 @@ INSERT INTO TB_HISTORIA VALUES('29','Listar dados Comparador','Listar dados Comp
 
 INSERT INTO TB_HISTORIA VALUES('30','Painel de Filtros','Período 1 (Mês/Ano a Mês/Ano) com Período 2 (Mês/Ano a Mês/Ano) e centro de custo e Categorias Pais ou Filhas','2022-05-30 14:14:49','2022-05-30 14:14:49','C','4');
 
-INSERT INTO TB_HISTORIA VALUES('31','Tela de análises e sugestões dos dados','Guru, génio das finanças, oráculo, Personal FInanceiro (Maria Clara)\n\nDar dicas de como melhoraar o Fluxo de caixa os pontos positivos e negativos, analise mais elaborada.,','2022-05-30 14:15:36','2023-05-19 12:51:41','N','3');
+INSERT INTO TB_HISTORIA VALUES('31','Tela de análises e sugestões dos dados','Guru, génio das finanças, oráculo, Personal FInanceiro (Maria Clara)
+\nDar dicas de como melhoraar o Fluxo de caixa os pontos positivos e negativos, analise mais elaborada.,','2022-05-30 14:15:36','2023-05-19 12:51:41','N','3');
 
 INSERT INTO TB_HISTORIA VALUES('32','Acelerador De Preços de Serviços','Acelerador De Preços de Serviços\ndividi história','2022-05-30 14:17:06','2022-05-30 14:17:06','N','2');
 
-INSERT INTO TB_HISTORIA VALUES('33','Acelerador De Preços de Produtos','Acelerador De Preços de Produtos\n\nDividi história','2022-05-30 14:17:41','2023-07-19 11:26:28','N','2');
+INSERT INTO TB_HISTORIA VALUES('33','Acelerador De Preços de Produtos','Acelerador De Preços de Produtos
+\nDividi história','2022-05-30 14:17:41','2023-07-19 11:26:28','N','2');
 
 INSERT INTO TB_HISTORIA VALUES('34','Acelerador De Ponto de Equilíbrio','Acelerador De Ponto de Equilíbrio','2022-05-30 14:18:01','2022-05-30 14:18:01','N','2');
 
@@ -3925,7 +3927,7 @@ CREATE TABLE `TB_VISITA_CHECKOUT` (
   `co_visita_checkout` int(11) NOT NULL AUTO_INCREMENT,
   `co_visita` int(11) NOT NULL,
   `co_checkout` int(11) NOT NULL,
-  PRIMARY KEY (`co_visita_checkout`)
+  PRIMARY KEY (`co_visita_checkout`,`co_visita`,`co_checkout`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
