@@ -187,7 +187,7 @@
                                                 <thead>
                                                 <tr class="topo_tabela">
                                                     <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR MINHA
-                                                        QUANTIDADE VENDIDA MÉDIA EM:
+                                                        QUANTIDADE VENDIDA MÉDIA EM X%?
                                                     </th>
                                                     <th class="titulo">
                                                         <span class="iMenos control_perc">-</span>
@@ -264,7 +264,7 @@
                                                 <thead>
                                                 <tr class="topo_tabela">
                                                     <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR MEU
-                                                        PREÇO MÉDIO EM:
+                                                        PREÇO MÉDIO EM X%?
                                                     </th>
                                                     <th class="titulo">
                                                         <span class="iMenos control_perc">-</span>
@@ -341,7 +341,7 @@
                                                 <thead>
                                                 <tr class="topo_tabela">
                                                     <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR MEU
-                                                        CUSTO VARIÁVEL EM:
+                                                        CUSTO VARIÁVEL EM X%?
                                                     </th>
                                                     <th class="titulo">
                                                         <span class="iMenos control_perc">-</span>
@@ -417,7 +417,7 @@
                                                 <thead>
                                                 <tr class="topo_tabela">
                                                     <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR O
-                                                        GASTO FIXO EM:
+                                                        GASTO FIXO EM X%?
                                                     </th>
                                                     <th class="titulo">
                                                         <span class="iMenos control_perc">-</span>
