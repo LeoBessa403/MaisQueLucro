@@ -36,7 +36,7 @@
                                     <p>Categorias \ Período</p>
                                 </div>
                                 <div class="grid-item catPai linha12" data-hover="linha12">
-                                    <p>LUCRO LÍQUIDO</p>
+                                    <p>LUCRO LÍQUIDO (LO)</p>
                                 </div>
                                 <div class="grid-item catPai linha1" data-hover="linha1">
                                     <p><i class="fa fa-caret-right acao" title="Expandir"></i> 1 - RECEITA / FATURAMENTO
@@ -162,7 +162,7 @@
                                     <p>DESPESA LÍQUIDA TOTAL</p>
                                 </div>
                                 <div class="grid-item catPai linha10" data-hover="linha10">
-                                    <p>LUCRO LÍQUIDO</p>
+                                    <p>LUCRO LÍQUIDO (LO)</p>
                                 </div>
                                 <div class="grid-item catPai linha5" data-hover="linha5">
                                     <p><i class="fa fa-caret-right acao" title="Expandir"></i> 5 - ENTRADAS NÃO

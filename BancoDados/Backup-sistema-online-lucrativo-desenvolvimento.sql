@@ -1,4 +1,4 @@
--- Atualizado em: 19/12/2023 16:19:12
+-- Atualizado em: 26/12/2023 10:45:15
 -- Link HOME: http://localhost/MaisQueLucro/
 -- AMBIENTE: 1
 -- BANCO: atacadao10
@@ -410,7 +410,7 @@ CREATE TABLE `TB_CONTROLLER` (
   `no_controller` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ds_class_icon` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Classe do Ícone',
   PRIMARY KEY (`co_controller`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_CONTROLLER VALUES('1','Gestão','bi bi-kanban clip-cog');
@@ -438,6 +438,8 @@ INSERT INTO TB_CONTROLLER VALUES('11','Plano','bi bi-cash-coin fa-money fa');
 INSERT INTO TB_CONTROLLER VALUES('12','Assinante','bi bi-person-circle clip-user-5');
 
 INSERT INTO TB_CONTROLLER VALUES('13','Ai','bi bi-globe clip-globe');
+
+INSERT INTO TB_CONTROLLER VALUES('14','Acelerador','bi bi-speedometer fas fa-tachometer-alt');
 
 
 
@@ -1089,7 +1091,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('286','2023-07-20 21:14:21',NULL,'2023-10-23',
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('287','2023-07-20 21:14:21',NULL,'2023-11-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('288','2023-07-20 21:14:21',NULL,'2023-12-22','230.00',NULL,NULL,'2','1','1','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('288','2023-07-20 21:14:21',NULL,'2023-12-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('289','2023-07-20 21:14:21',NULL,'2024-01-21','230.00',NULL,NULL,'2','1','1','3','7','24',NULL,'9','117','3','2');
 
@@ -1129,7 +1131,7 @@ INSERT INTO TB_FLUXO_CAIXA VALUES('306','2023-07-20 21:18:20',NULL,'2023-10-22',
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('307','2023-07-20 21:18:20',NULL,'2023-11-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('308','2023-07-20 21:18:20',NULL,'2023-12-21','18789.90',NULL,NULL,'2','4','1','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('308','2023-07-20 21:18:20',NULL,'2023-12-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
 INSERT INTO TB_FLUXO_CAIXA VALUES('309','2023-07-20 21:18:20',NULL,'2024-01-20','18789.90',NULL,NULL,'2','4','1','3','8','31',NULL,'7','113','3','2');
 
@@ -1213,7 +1215,7 @@ CREATE TABLE `TB_FUNCIONALIDADE` (
   `st_menu` varchar(1) CHARACTER SET latin1 DEFAULT 'S' COMMENT 'S - Sim / N - Não (Se apresenta no menu)',
   `co_controller` int(11) NOT NULL,
   PRIMARY KEY (`co_funcionalidade`,`co_controller`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('1','Perfil Master','PerfilMaster','A','S','1');
@@ -1293,6 +1295,8 @@ INSERT INTO TB_FUNCIONALIDADE VALUES('45','Notificação PagSeguro','Notificacao
 INSERT INTO TB_FUNCIONALIDADE VALUES('46','ChatGPT','ChatGPT','A','S','13');
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('47','Planejamento','PlanejamentoFinanceiro','A','S','10');
+
+INSERT INTO TB_FUNCIONALIDADE VALUES('48','Lucros','Lucros','A','S','14');
 
 
 
@@ -3326,7 +3330,7 @@ CREATE TABLE `TB_PERFIL_FUNCIONALIDADE` (
   `co_perfil` int(11) NOT NULL,
   `co_perfil_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_perfil_funcionalidade`,`co_funcionalidade`,`co_perfil`,`co_perfil_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('1','1','1','1');
@@ -3366,6 +3370,8 @@ INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('19','35','2','1');
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('20','46','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('21','47','2','1');
+
+INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('24','48','2',NULL);
 
 
 
