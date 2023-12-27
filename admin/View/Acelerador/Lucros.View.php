@@ -324,38 +324,63 @@
                                                         PREÇO MÉDIO EM X%?
                                                     </th>
                                                     <th class="titulo">
-                                                        <span class="iMenos control_perc">-</span>
+                                                        <span class="iMenos control_perc" id="iMenos_preco">-</span>
                                                         <input type="text" id="valor_perc_preco" name="valor_perc_preco"
                                                                value="0" class="form-control valor_perc" disabled/>
-                                                        <span class="iMais control_perc">+</span>
+                                                        <span class="iMais control_perc" id="iMais_preco">+</span>
                                                     </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Receita / Faturamento</td>
-                                                    <td class="titulo">50.000,00</td>
-                                                    <td class="titulo">100%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_rec_preco"  id="valor_rec_preco"
+                                                               disabled class="moeda" value="R$ 0,00" />
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_rec_preco_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Diretas (CV)</td>
-                                                    <td class="titulo">30.000,00</td>
-                                                    <td class="titulo">60%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cv_preco"  id="valor_cv_preco"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cv_preco_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Margem de Contribuição</td>
-                                                    <td class="titulo">20.000,00</td>
-                                                    <td class="titulo">40%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_mc_preco"  id="valor_mc_preco"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_mc_preco_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cf_preco"  id="valor_cf_preco"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cf_preco_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo"><b>Lucro Líquido (LO)</b></td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_lo_preco"  id="valor_lo_preco"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_lo_preco_perc">0%</span>
+                                                    </td>
                                                 </tr>
 
                                                 </tbody>
@@ -401,38 +426,63 @@
                                                         CUSTO VARIÁVEL EM X%?
                                                     </th>
                                                     <th class="titulo">
-                                                        <span class="iMenos control_perc">-</span>
-                                                        <input type="text" id="valor_perc_cv" name="valor_perc_cv"
+                                                        <span class="iMenos control_perc" id="iMenos_custVar">-</span>
+                                                        <input type="text" id="valor_perc_custVar" name="valor_perc_custVar"
                                                                value="0" class="form-control valor_perc" disabled/>
-                                                        <span class="iMais control_perc">+</span>
+                                                        <span class="iMais control_perc" id="iMais_custVar">+</span>
                                                     </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Receita / Faturamento</td>
-                                                    <td class="titulo">50.000,00</td>
-                                                    <td class="titulo">100%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_rec_custVar"  id="valor_rec_custVar"
+                                                               disabled class="moeda" value="R$ 0,00" />
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_rec_custVar_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Diretas (CV)</td>
-                                                    <td class="titulo">30.000,00</td>
-                                                    <td class="titulo">60%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cv_custVar"  id="valor_cv_custVar"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cv_custVar_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Margem de Contribuição</td>
-                                                    <td class="titulo">20.000,00</td>
-                                                    <td class="titulo">40%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_mc_custVar"  id="valor_mc_custVar"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_mc_custVar_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cf_custVar"  id="valor_cf_custVar"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cf_custVar_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo"><b>Lucro Líquido (LO)</b></td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_lo_custVar"  id="valor_lo_custVar"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_lo_custVar_perc">0%</span>
+                                                    </td>
                                                 </tr>
 
                                                 </tbody>
@@ -477,38 +527,63 @@
                                                         GASTO FIXO EM X%?
                                                     </th>
                                                     <th class="titulo">
-                                                        <span class="iMenos control_perc">-</span>
-                                                        <input type="text" id="valor_perc_cf" name="valor_perc_cf"
+                                                        <span class="iMenos control_perc" id="iMenos_custFix">-</span>
+                                                        <input type="text" id="valor_perc_custFix" name="valor_perc_custFix"
                                                                value="0" class="form-control valor_perc" disabled/>
-                                                        <span class="iMais control_perc">+</span>
+                                                        <span class="iMais control_perc" id="iMais_custFix">+</span>
                                                     </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Receita / Faturamento</td>
-                                                    <td class="titulo">50.000,00</td>
-                                                    <td class="titulo">100%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_rec_custFix"  id="valor_rec_custFix"
+                                                               disabled class="moeda" value="R$ 0,00" />
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_rec_custFix_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Diretas (CV)</td>
-                                                    <td class="titulo">30.000,00</td>
-                                                    <td class="titulo">60%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cv_custFix"  id="valor_cv_custFix"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cv_custFix_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Margem de Contribuição</td>
-                                                    <td class="titulo">20.000,00</td>
-                                                    <td class="titulo">40%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_mc_custFix"  id="valor_mc_custFix"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_mc_custFix_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_cf_custFix"  id="valor_cf_custFix"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_cf_custFix_perc">0%</span>
+                                                    </td>
                                                 </tr>
                                                 <tr class="linha-tabela odd">
                                                     <td class="titulo"><b>Lucro Líquido (LO)</b></td>
-                                                    <td class="titulo">10.000,00</td>
-                                                    <td class="titulo">20%</td>
+                                                    <td class="titulo">
+                                                        <input type="text" name="valor_lo_custFix"  id="valor_lo_custFix"
+                                                               disabled class="moeda" value="R$ 0,00">
+                                                    </td>
+                                                    <td class="titulo">
+                                                        <span id="valor_lo_custFix_perc">0%</span>
+                                                    </td>
                                                 </tr>
 
                                                 </tbody>
