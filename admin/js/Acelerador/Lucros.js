@@ -18,23 +18,32 @@ $(function () {
     });
 
     function calcPercDif(tipo, valorPerc) {
-        var percBase = $('#valor_lo_base').val().replace('R$', '').trim();
+        var percBase = $('#valor_lo_base').val().replace('R$ ', '').trim();
         var percTipo = $('#valor_lo_' + tipo).val().replace('R$', '').trim();
-        var percDif = ((parseFloat(percTipo) / parseFloat(percBase)) * 100).toFixed(2);
-        Funcoes.Informativo('percBase: ' + percBase + ' /n percTipo: ' + percTipo + ' /n percDif: ' + percDif);
+        var valorDif = 0;
+        Funcoes.Informativo(parseFloat(percTipo));
+        if(converteRealSemSimbolo(percTipo) < 0){
+            percTipo = percTipo * -1;
+            valorDif = (converteRealSemSimbolo(percTipo) - valorFloat(percBase)).toFixed(2);
+        }else{
+            valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
+        }
+        var percDif = ((valorDif / valorFloat(percBase)) * 100).toFixed(2);
+        // Funcoes.Informativo('valorDif: ' + valorDif + ' / percBase: ' + valorFloat(percBase) +
+        //     ' / percDif: ' + percDif + ' / percTipo: ' + valorFloat(percTipo));
         var elemValor = $('#valor_diflo_' + tipo);
         var elemValorPerc = $('#valor_diflo_' + tipo + '_perc');
-        var valorDif = converteReal(valorFloat(percTipo) - valorFloat(percBase));
+        valorDif = 'R$ ' + converteReal(valorDif);
         if (valorPerc == 0) {
             percDif = '0.00%'
             valorDif = 'R$ 0.00'
             elemValorPerc.css('color', 'black');
             elemValor.css('color', '#858585');
-        }else if (percDif < 0) {
+        } else if (percDif < 0) {
             percDif = '<i class="fa fa-level-down"></i> ' + percDif + '%'
             elemValorPerc.css('color', 'red');
             elemValor.css('color', 'red');
-        }else if (percDif > 0) {
+        } else if (percDif > 0) {
             percDif = '<i class="fa fa-level-up"></i> ' + percDif + '%'
             elemValorPerc.css('color', 'green');
             elemValor.css('color', 'green');
