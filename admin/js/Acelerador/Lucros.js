@@ -110,11 +110,14 @@ $(function () {
                     $('#valor_lo_' + tipo).val(converteReal(lo));
                     $('#valor_lo_' + tipo + '_perc').text(valorPorc(lo, receita));
                     $('#perc_' + tipo).text(valorPorc(lo, receita));
-
-                    if (lo > 0) {
-                        $('#perc_' + tipo).css('background-color', 'green');
-                    } else {
-                        $('#perc_' + tipo).css('background-color', 'red');
+                    if (tipo == 'base') {
+                        if (lo > 0) {
+                            $('#perc_' + tipo).css('background-color', 'green');
+                        } else {
+                            $('#perc_' + tipo).css('background-color', 'red');
+                        }
+                    }else{
+                        $('#valor_lo_' + tipo + '_perc')
                     }
                 }
             }
