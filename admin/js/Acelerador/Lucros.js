@@ -6,6 +6,7 @@ $(function () {
         elementProx.val(valorPerc);
         var tipo = $(this).attr('id').replace('iMenos_', '');
         calculaValores(valorPerc, tipo);
+        calcPercDif(tipo, valorPerc);
     });
     $('.iMais').click(function () {
         var elementProx = $(this).prev();
@@ -13,7 +14,34 @@ $(function () {
         elementProx.val(valorPerc);
         var tipo = $(this).attr('id').replace('iMais_', '');
         calculaValores(valorPerc, tipo);
+        calcPercDif(tipo, valorPerc);
     });
+
+    function calcPercDif(tipo, valorPerc) {
+        var percBase = $('#valor_lo_base').val().replace('R$', '').trim();
+        var percTipo = $('#valor_lo_' + tipo).val().replace('R$', '').trim();
+        var percDif = ((parseFloat(percTipo) / parseFloat(percBase)) * 100).toFixed(2);
+        Funcoes.Informativo('percBase: ' + percBase + ' /n percTipo: ' + percTipo + ' /n percDif: ' + percDif);
+        var elemValor = $('#valor_diflo_' + tipo);
+        var elemValorPerc = $('#valor_diflo_' + tipo + '_perc');
+        var valorDif = converteReal(valorFloat(percTipo) - valorFloat(percBase));
+        if (valorPerc == 0) {
+            percDif = '0.00%'
+            valorDif = 'R$ 0.00'
+            elemValorPerc.css('color', 'black');
+            elemValor.css('color', '#858585');
+        }else if (percDif < 0) {
+            percDif = '<i class="fa fa-level-down"></i> ' + percDif + '%'
+            elemValorPerc.css('color', 'red');
+            elemValor.css('color', 'red');
+        }else if (percDif > 0) {
+            percDif = '<i class="fa fa-level-up"></i> ' + percDif + '%'
+            elemValorPerc.css('color', 'green');
+            elemValor.css('color', 'green');
+        }
+        elemValorPerc.html(percDif);
+        elemValor.val(valorDif);
+    }
 
     function calculaValores(valorPerc, tipo) {
         var valorRef = (valorPerc / 100) + 1
@@ -46,11 +74,7 @@ $(function () {
         var receita = valorFloat($(this).val());
         var cv = valorFloat($('#valor_cv_' + tipo).val());
         var cf = valorFloat($('#valor_cf_' + tipo).val());
-        calcDados(receita, tipo, cv, cf);
-        calcDados(receita, 'venda', cv, cf);
-        calcDados(receita, 'preco', cv, cf);
-        calcDados(receita, 'custVar', cv, cf);
-        calcDados(receita, 'custFix', cv, cf);
+        refazCalcDados(receita, cv, cf);
     });
 
     $('.cv').blur(function () {
@@ -58,11 +82,7 @@ $(function () {
         var cv = valorFloat($(this).val());
         var receita = valorFloat($('#valor_rec_' + tipo).val());
         var cf = valorFloat($('#valor_cf_' + tipo).val());
-        calcDados(receita, tipo, cv, cf);
-        calcDados(receita, 'venda', cv, cf);
-        calcDados(receita, 'preco', cv, cf);
-        calcDados(receita, 'custVar', cv, cf);
-        calcDados(receita, 'custFix', cv, cf);
+        refazCalcDados(receita, cv, cf);
     });
 
     $('.cf').blur(function () {
@@ -70,12 +90,16 @@ $(function () {
         var cf = valorFloat($(this).val());
         var receita = valorFloat($('#valor_rec_' + tipo).val());
         var cv = valorFloat($('#valor_cv_' + tipo).val());
-        calcDados(receita, tipo, cv, cf);
+        refazCalcDados(receita, cv, cf);
+    });
+
+    function refazCalcDados(receita = 0, cv = 0, cf = 0) {
+        calcDados(receita, 'base', cv, cf);
         calcDados(receita, 'venda', cv, cf);
         calcDados(receita, 'preco', cv, cf);
         calcDados(receita, 'custVar', cv, cf);
         calcDados(receita, 'custFix', cv, cf);
-    });
+    }
 
     function calcDados(receita = 0, tipo = '', cv = 0, cf = 0) {
         if (receita) {
@@ -116,7 +140,7 @@ $(function () {
                         } else {
                             $('#perc_' + tipo).css('background-color', 'red');
                         }
-                    }else{
+                    } else {
                         $('#valor_lo_' + tipo + '_perc')
                     }
                 }
