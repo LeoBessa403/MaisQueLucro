@@ -21,12 +21,12 @@ $(function () {
         var percBase = $('#valor_lo_base').val().replace('R$ ', '').trim();
         var percTipo = $('#valor_lo_' + tipo).val().replace('R$', '').trim();
         var valorDif = 0;
-        Funcoes.Informativo(percTipo);
-        if(percTipo > 0){
+        if(valorFloat(percTipo) > 0){
             valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
         }else{
-            percTipo = percTipo * -1;
-            valorDif = (converteRealSemSimbolo(percTipo) - valorFloat(percBase)).toFixed(2);
+            percTipo = percTipo.replace('-', '').trim();
+            Funcoes.Alerta(percTipo);
+            valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
         }
         var percDif = ((valorDif / valorFloat(percBase)) * 100).toFixed(2);
         // Funcoes.Informativo('valorDif: ' + valorDif + ' / percBase: ' + valorFloat(percBase) +
