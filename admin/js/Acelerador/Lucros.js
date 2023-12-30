@@ -25,12 +25,9 @@ $(function () {
             valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
         }else{
             percTipo = percTipo.replace('-', '').trim();
-            Funcoes.Alerta(percTipo);
-            valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
+            valorDif = ((valorFloat(percTipo) * -1) - valorFloat(percBase)).toFixed(2);
         }
         var percDif = ((valorDif / valorFloat(percBase)) * 100).toFixed(2);
-        // Funcoes.Informativo('valorDif: ' + valorDif + ' / percBase: ' + valorFloat(percBase) +
-        //     ' / percDif: ' + percDif + ' / percTipo: ' + valorFloat(percTipo));
         var elemValor = $('#valor_diflo_' + tipo);
         var elemValorPerc = $('#valor_diflo_' + tipo + '_perc');
         valorDif = 'R$ ' + converteReal(valorDif);
