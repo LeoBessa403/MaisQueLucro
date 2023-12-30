@@ -702,34 +702,53 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="3">O QUE CAUSA MAIOR IMPACTO</th>
+                                                        <th class="titulo" colspan="3">O QUE CAUSA MAIOR IMPACTO?</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">Receita / Faturamento</td>
-                                                        <td class="titulo">50.000,00</td>
-                                                        <td class="titulo">100%</td>
+                                                        <td class="titulo">Alteração na Receita</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_difvenda"
+                                                                   id="valor_difvenda"
+                                                                   disabled class="moeda" value="R$ 0,00">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_difvenda_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">Despesas Diretas (CV)</td>
-                                                        <td class="titulo">30.000,00</td>
-                                                        <td class="titulo">60%</td>
+                                                        <td class="titulo">Alteração na Despesas Diretas (CV)</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_difcustVar"
+                                                                   id="valor_difcustVar"
+                                                                   disabled class="moeda" value="R$ 0,00">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_difcustVar_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">Margem de Contribuição</td>
-                                                        <td class="titulo">20.000,00</td>
-                                                        <td class="titulo">40%</td>
+                                                        <td class="titulo">Alteração no Preço</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_difpreco"
+                                                                   id="valor_difpreco"
+                                                                   disabled class="moeda" value="R$ 0,00">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_difpreco_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
-                                                        <td class="titulo">10.000,00</td>
-                                                        <td class="titulo">20%</td>
-                                                    </tr>
-                                                    <tr class="linha-tabela odd">
-                                                        <td class="titulo"><b>Lucro Líquido (LO)</b></td>
-                                                        <td class="titulo">10.000,00</td>
-                                                        <td class="titulo">20%</td>
+                                                        <td class="titulo">Alteração na Despesas Indiretas (CF)</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_difcustFix"
+                                                                   id="valor_difcustFix"
+                                                                   disabled class="moeda" value="R$ 0,00">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_difcustFix_perc">0%</span>
+                                                        </td>
                                                     </tr>
 
                                                     </tbody>

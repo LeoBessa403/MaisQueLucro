@@ -30,23 +30,34 @@ $(function () {
         var percDif = ((valorDif / valorFloat(percBase)) * 100).toFixed(2);
         var elemValor = $('#valor_diflo_' + tipo);
         var elemValorPerc = $('#valor_diflo_' + tipo + '_perc');
+        var elemValorImp = $('#valor_dif' + tipo);
+        var elemValorPercImp = $('#valor_dif' + tipo + '_perc');
         valorDif = 'R$ ' + converteReal(valorDif);
         if (valorPerc == 0) {
             percDif = '0.00%'
             valorDif = 'R$ 0.00'
             elemValorPerc.css('color', 'black');
             elemValor.css('color', '#858585');
+            elemValorPercImp.css('color', 'black');
+            elemValorImp.css('color', '#858585');
         } else if (percDif < 0) {
             percDif = '<i class="fa fa-level-down"></i> ' + percDif + '%'
             elemValorPerc.css('color', 'red');
             elemValor.css('color', 'red');
+            elemValorPercImp.css('color', 'red');
+            elemValorImp.css('color', 'red');
         } else if (percDif > 0) {
             percDif = '<i class="fa fa-level-up"></i> ' + percDif + '%'
             elemValorPerc.css('color', 'green');
             elemValor.css('color', 'green');
+            elemValorPercImp.css('color', 'green');
+            elemValorImp.css('color', 'green');
+
         }
         elemValorPerc.html(percDif);
         elemValor.val(valorDif);
+        elemValorImp.val(valorDif);
+        elemValorPercImp.html(percDif);
     }
 
     function calculaValores(valorPerc, tipo) {
