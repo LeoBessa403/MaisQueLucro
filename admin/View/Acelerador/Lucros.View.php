@@ -795,41 +795,66 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="3">SE TODAS AS ALTERAÇÕES OCORREREM
-                                                            SIMULTANEAMENTE
+                                                        <th class="titulo" colspan="2">SE TODAS AS ALTERAÇÕES OCORREREM
+                                                            SIMULTANEAMENTE?
                                                         </th>
+                                                        <th class="titulo"><span id="perc_total">0%</span></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo">Receita / Faturamento</td>
-                                                        <td class="titulo">50.000,00</td>
-                                                        <td class="titulo">100%</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_rec_total" id="valor_rec_total"
+                                                                 disabled class="moeda receita" alt="total" value="R$ 0,00"/>
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_rec_total_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo">Despesas Diretas (CV)</td>
-                                                        <td class="titulo">30.000,00</td>
-                                                        <td class="titulo">60%</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_cv_total" id="valor_cv_total"
+                                                                 disabled class="moeda cv" alt="total" value="R$ 0,00"/>
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_cv_total_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo">Margem de Contribuição</td>
-                                                        <td class="titulo">20.000,00</td>
-                                                        <td class="titulo">40%</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_mc_total" id="valor_mc_total"
+                                                                   disabled class="moeda" value="R$ 0,00" />
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_mc_total_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
-                                                        <td class="titulo">10.000,00</td>
-                                                        <td class="titulo">20%</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_cf_total" id="valor_cf_total"
+                                                                   disabled class="moeda cf" alt="base" value="R$ 0,00"/>
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_cf_total_perc">0%</span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo"><b>Lucro Líquido (LO)</b></td>
-                                                        <td class="titulo">10.000,00</td>
-                                                        <td class="titulo">20%</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_lo_total" id="valor_lo_total"
+                                                                   disabled class="moeda" value="R$ 0,00"/>
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_lo_total_perc">0%</span>
+                                                        </td>
                                                     </tr>
 
                                                     </tbody>
                                                 </table>
-
 
                                             </div>
                                         </div>

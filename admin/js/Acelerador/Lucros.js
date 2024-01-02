@@ -84,6 +84,7 @@ $(function () {
                 break;
         }
         calcDados(receita, tipo, cv, cf);
+        calcDados(receita, 'total', cv, cf);
     }
 
     $('.receita').blur(function () {
@@ -116,6 +117,7 @@ $(function () {
         calcDados(receita, 'preco', cv, cf);
         calcDados(receita, 'custVar', cv, cf);
         calcDados(receita, 'custFix', cv, cf);
+        calcDados(receita, 'total', cv, cf);
     }
 
     function calcDados(receita = 0, tipo = '', cv = 0, cf = 0) {
@@ -151,7 +153,7 @@ $(function () {
                     $('#valor_lo_' + tipo).val(converteReal(lo));
                     $('#valor_lo_' + tipo + '_perc').text(valorPorc(lo, receita));
                     $('#perc_' + tipo).text(valorPorc(lo, receita));
-                    if (tipo == 'base') {
+                    if (tipo == 'base' || tipo == 'total' ) {
                         if (lo > 0) {
                             $('#perc_' + tipo).css('background-color', 'green');
                         } else {
