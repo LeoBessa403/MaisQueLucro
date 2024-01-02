@@ -31,8 +31,8 @@ $(function () {
         var elemValor = $('#valor_diflo_' + tipo);
         var elemValorPerc = $('#valor_diflo_' + tipo + '_perc');
         var elemValorImp = $('#valor_dif' + tipo);
-        var elemValorPercImp = $('#valor_dif' + tipo + '_perc');
-        valorDif = 'R$ ' + converteReal(valorDif);
+        var elemValorPercImp = $('#valor_dif' + tipo + '_perc');//55678
+        valorDif = 'R$ ' + formatReal(valorDif);
         if (valorPerc == 0) {
             percDif = '0.00%'
             valorDif = 'R$ 0.00'
@@ -55,8 +55,8 @@ $(function () {
 
         }
         elemValorPerc.html(percDif);
-        elemValor.val(valorDif);
-        elemValorImp.val(valorDif);
+        elemValor.val(converteReal(valorDif));
+        elemValorImp.val(converteReal(valorDif));
         elemValorPercImp.html(percDif);
     }
 
@@ -174,12 +174,57 @@ $(function () {
             .replace(',', '.').trim());
     }
 
+    function valorMoeda(vlrCampo) {
+        return parseFloat(vlrCampo
+            .replace('R$', '').replace('.', '')
+            .replace(',', '.').trim());
+    }
+
     function valorPorc(vlrCampo, receita) {
         return parseFloat((vlrCampo / receita) * 100).toFixed(2) + '%';
     }
 
     function converteReal(valor) {
         return valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+    }
+
+    function formatReal(numero) {
+        var tmp = numero + '';
+        var neg = false;
+
+        if (tmp - (Math.round(numero)) == 0) {
+            tmp = tmp + '00';
+        }
+
+        if (tmp.indexOf(".")) {
+            tmp = tmp.replace(".", "");
+        }
+
+        if (tmp.indexOf("-") == 0) {
+            neg = true;
+            tmp = tmp.replace("-", "");
+        }
+
+        if (tmp.length == 1) tmp = "0" + tmp
+
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+
+        if (tmp.length > 6)
+            tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+        if (tmp.length > 9)
+            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, ".$1.$2,$3");
+
+        if (tmp.length = 12)
+            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, ".$1.$2.$3,$4");
+
+        if (tmp.length > 12)
+            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, ".$1.$2.$3.$4,$5");
+
+        if (tmp.indexOf(".") == 0) tmp = tmp.replace(".", "");
+        if (tmp.indexOf(",") == 0) tmp = tmp.replace(",", "0,");
+
+        return (neg ? '-' + tmp : tmp);
     }
 
     function converteRealSemSimbolo(valor) {

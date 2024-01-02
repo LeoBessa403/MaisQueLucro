@@ -105,6 +105,10 @@
         width: 120px;
         font-weight: bolder;
     }
+    #pricing_table_maior_dif tr td:last-child{
+        width: 20%;
+        font-size: 1.3em !important;
+    }
 </style>
 <div class="main-content">
     <!-- end: SPANEL CONFIGURATION MODAL FORM -->
@@ -693,7 +697,7 @@
 
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <div id="pricing_table_example2" class="row">
+                                    <div id="pricing_table_maior_dif" class="row">
                                         <div class="col-sm-12">
                                             <h3>A MAIOR DIFERENÇA</h3>
                                             <div class="pricing-table col-sm-12 col-xs-12">
