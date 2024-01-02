@@ -67,24 +67,31 @@ $(function () {
         var cv = valorFloat($('#valor_cv_base').val());
         var cf = valorFloat($('#valor_cf_base').val());
 
+        var receitaTT = valorFloat($('#valor_rec_total').val());
+        var cvTT = valorFloat($('#valor_cv_total').val());
+        var cfTT = valorFloat($('#valor_cf_total').val());
+
         switch (tipo) {
             case 'venda':
                 var percCV = parseFloat(valorPorc(cv, receita)) / 100;
                 receita = receita * valorRef;
                 cv = receita * percCV;
+                cvTT = cv;
                 break;
             case 'preco':
                 receita = receita * valorRef;
+                receitaTT = receita;
                 break;
             case 'custVar':
                 cv = cv * valorRef;
                 break;
             case 'custFix':
                 cf = cf * valorRef;
+                cfTT = cf;
                 break;
         }
         calcDados(receita, tipo, cv, cf);
-        calcDados(receita, 'total', cv, cf);
+        calcDados(receitaTT, 'total', cvTT, cfTT);
     }
 
     $('.receita').blur(function () {

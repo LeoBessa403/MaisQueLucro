@@ -54,6 +54,10 @@
         border-top-right-radius: 10px;
     }
 
+    .topo_tabela_perc {
+        padding: 10px;
+    }
+
     .topo_tabela th:nth-child(1) {
         border-top-right-radius: 0;
     }
@@ -105,7 +109,8 @@
         width: 120px;
         font-weight: bolder;
     }
-    #pricing_table_maior_dif tr td:last-child{
+
+    #pricing_table_maior_dif tr td:last-child {
         width: 20%;
         font-size: 1.3em !important;
     }
@@ -137,7 +142,8 @@
                                                         <th class="titulo" colspan="2">QUAL LUCRO BASE VOCÊ DESEJA
                                                             AVALIAR?
                                                         </th>
-                                                        <th class="titulo"><span id="perc_base">0%</span></th>
+                                                        <th class="titulo"><span id="perc_base"
+                                                                                 class="topo_tabela_perc">0%</span></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -798,15 +804,18 @@
                                                         <th class="titulo" colspan="2">SE TODAS AS ALTERAÇÕES OCORREREM
                                                             SIMULTANEAMENTE?
                                                         </th>
-                                                        <th class="titulo"><span id="perc_total">0%</span></th>
+                                                        <th class="titulo"><span id="perc_total"
+                                                                                 class="topo_tabela_perc">0%</span></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo">Receita / Faturamento</td>
                                                         <td class="titulo">
-                                                            <input type="text" name="valor_rec_total" id="valor_rec_total"
-                                                                 disabled class="moeda receita" alt="total" value="R$ 0,00"/>
+                                                            <input type="text" name="valor_rec_total"
+                                                                   id="valor_rec_total"
+                                                                   disabled class="moeda receita" alt="total"
+                                                                   value="R$ 0,00"/>
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_rec_total_perc">0%</span>
@@ -816,7 +825,8 @@
                                                         <td class="titulo">Despesas Diretas (CV)</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_cv_total" id="valor_cv_total"
-                                                                 disabled class="moeda cv" alt="total" value="R$ 0,00"/>
+                                                                   disabled class="moeda cv" alt="total"
+                                                                   value="R$ 0,00"/>
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_cv_total_perc">0%</span>
@@ -826,7 +836,7 @@
                                                         <td class="titulo">Margem de Contribuição</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_mc_total" id="valor_mc_total"
-                                                                   disabled class="moeda" value="R$ 0,00" />
+                                                                   disabled class="moeda" value="R$ 0,00"/>
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_mc_total_perc">0%</span>
@@ -836,7 +846,8 @@
                                                         <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_cf_total" id="valor_cf_total"
-                                                                   disabled class="moeda cf" alt="base" value="R$ 0,00"/>
+                                                                   disabled class="moeda cf" alt="base"
+                                                                   value="R$ 0,00"/>
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_cf_total_perc">0%</span>
