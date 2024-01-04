@@ -76,20 +76,25 @@ $(function () {
                 var percCV = parseFloat(valorPorc(cv, receita)) / 100;
                 receita = receita * valorRef;
                 cv = receita * percCV;
-                cvTT = cv;
+
+                var percCVTT = parseFloat(valorPorc(cvTT, receitaTT)) / 100;
+                receitaTT = receitaTT * valorRef;
+                cvTT = receitaTT * percCVTT;
                 break;
             case 'preco':
                 receita = receita * valorRef;
-                receitaTT = receita;
+                receitaTT = receitaTT * valorRef;
                 break;
             case 'custVar':
                 cv = cv * valorRef;
+                cvTT = cvTT * valorRef;
                 break;
             case 'custFix':
                 cf = cf * valorRef;
                 cfTT = cf;
                 break;
         }
+
         calcDados(receita, tipo, cv, cf);
         calcDados(receitaTT, 'total', cvTT, cfTT);
     }
