@@ -863,6 +863,17 @@
                                                             <span id="valor_lo_total_perc">0%</span>
                                                         </td>
                                                     </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"><b>Diferença no Lucro</b></td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_diflo_total"
+                                                                   id="valor_diflo_total"
+                                                                   disabled class="moeda" value="R$ 0,00">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <span id="valor_diflo_total_perc">0%</span>
+                                                        </td>
+                                                    </tr>
 
                                                     </tbody>
                                                 </table>

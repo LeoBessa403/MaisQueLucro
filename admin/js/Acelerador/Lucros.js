@@ -5,25 +5,60 @@ $(function () {
         var valorPerc = parseFloat(elementProx.val()) - 1;
         elementProx.val(valorPerc);
         var tipo = $(this).attr('id').replace('iMenos_', '');
-        calculaValores(valorPerc, tipo);
+        calculaValores(tipo);
         calcPercDif(tipo, valorPerc);
+        calcPercDifTotal();
     });
     $('.iMais').click(function () {
         var elementProx = $(this).prev();
         var valorPerc = parseFloat(elementProx.val()) + 1;
         elementProx.val(valorPerc);
         var tipo = $(this).attr('id').replace('iMais_', '');
-        calculaValores(valorPerc, tipo);
+        calculaValores(tipo);
         calcPercDif(tipo, valorPerc);
+        calcPercDifTotal();
     });
+
+    function calcPercDifTotal() {
+        var percBase = $('#valor_lo_base').val().replace('R$ ', '').trim();
+        var percTotal = $('#valor_lo_total').val().replace('R$', '').trim();
+
+        var valorDif = 0;
+        if (valorFloat(percTotal) > 0) {
+            valorDif = (valorFloat(percTotal) - valorFloat(percBase)).toFixed(2);
+        } else {
+            percTotal = percTotal.replace('-', '').trim();
+            valorDif = ((valorFloat(percTotal) * -1) - valorFloat(percBase)).toFixed(2);
+        }
+        var percDif = ((valorDif / valorFloat(percBase)) * 100).toFixed(2);
+        var elemValor = $('#valor_diflo_total');
+        var elemValorPerc = $('#valor_diflo_total_perc');
+        valorDif = 'R$ ' + formatReal(valorDif);
+        if (percTotal == 0) {
+            percDif = '0.00%'
+            valorDif = 'R$ 0.00'
+            elemValorPerc.css('color', 'black');
+            elemValor.css('color', '#858585');
+        } else if (percDif < 0) {
+            percDif = '<i class="fa fa-level-down"></i> ' + percDif + '%'
+            elemValorPerc.css('color', 'red');
+            elemValor.css('color', 'red');
+        } else if (percDif > 0) {
+            percDif = '<i class="fa fa-level-up"></i> ' + percDif + '%'
+            elemValorPerc.css('color', 'green');
+            elemValor.css('color', 'green');
+        }
+        elemValorPerc.html(percDif);
+        elemValor.val(converteReal(valorDif));
+    }
 
     function calcPercDif(tipo, valorPerc) {
         var percBase = $('#valor_lo_base').val().replace('R$ ', '').trim();
         var percTipo = $('#valor_lo_' + tipo).val().replace('R$', '').trim();
         var valorDif = 0;
-        if(valorFloat(percTipo) > 0){
+        if (valorFloat(percTipo) > 0) {
             valorDif = (valorFloat(percTipo) - valorFloat(percBase)).toFixed(2);
-        }else{
+        } else {
             percTipo = percTipo.replace('-', '').trim();
             valorDif = ((valorFloat(percTipo) * -1) - valorFloat(percBase)).toFixed(2);
         }
@@ -60,37 +95,59 @@ $(function () {
         elemValorPercImp.html(percDif);
     }
 
-    function calculaValores(valorPerc, tipo) {
-        var valorRef = (valorPerc / 100) + 1
+    function calculaValores(tipo) {
 
         var receita = valorFloat($('#valor_rec_base').val());
         var cv = valorFloat($('#valor_cv_base').val());
         var cf = valorFloat($('#valor_cf_base').val());
+        var percCV = parseFloat(valorPorc(cv, receita)) / 100;
 
         var receitaTT = valorFloat($('#valor_rec_total').val());
         var cvTT = valorFloat($('#valor_cv_total').val());
         var cfTT = valorFloat($('#valor_cf_total').val());
 
+        var percVenda = (parseFloat($('#valor_perc_venda').val()) / 100) + 1;
+        var percPreco = (parseFloat($('#valor_perc_preco').val()) / 100) + 1;
+        var percCustVar = (parseFloat($('#valor_perc_custVar').val()) / 100) + 1;
+        var perccustFix = (parseFloat($('#valor_perc_custFix').val()) / 100) + 1;
+
+        // var valorRef = (valorPerc
+
         switch (tipo) {
             case 'venda':
-                var percCV = parseFloat(valorPorc(cv, receita)) / 100;
-                receita = receita * valorRef;
+                receita = receita * percVenda;
                 cv = receita * percCV;
 
-                var percCVTT = parseFloat(valorPorc(cvTT, receitaTT)) / 100;
-                receitaTT = receitaTT * valorRef;
-                cvTT = receitaTT * percCVTT;
+                // Fator de Venda
+                receitaTT = receita * percVenda;
+                cvTT = receitaTT * percCV;
+                // Fator de Preço
+                receitaTT = receitaTT * percPreco;
+
                 break;
             case 'preco':
-                receita = receita * valorRef;
-                receitaTT = receitaTT * valorRef;
+                receita = receita * percPreco;
+
+                // Fator de Venda
+                receitaTT = receita * percVenda;
+                cvTT = receitaTT * percCV;
+                // Fator de Preço
+                receitaTT = receitaTT * percPreco;
                 break;
             case 'custVar':
-                cv = cv * valorRef;
-                cvTT = cvTT * valorRef;
+                cv = cv * percCustVar;
+
+                // Fator de Venda
+                receitaTT = receita * percVenda;
+                cvTT = receitaTT * percCV;
+                // Fator de Preço
+                receitaTT = receitaTT * percPreco;
+                // Fator de CV
+                cvTT = cvTT * percCustVar;
+
                 break;
             case 'custFix':
-                cf = cf * valorRef;
+                cf = cf * perccustFix;
                 cfTT = cf;
                 break;
         }
@@ -165,7 +222,7 @@ $(function () {
                     $('#valor_lo_' + tipo).val(converteReal(lo));
                     $('#valor_lo_' + tipo + '_perc').text(valorPorc(lo, receita));
                     $('#perc_' + tipo).text(valorPorc(lo, receita));
-                    if (tipo == 'base' || tipo == 'total' ) {
+                    if (tipo == 'base' || tipo == 'total') {
                         if (lo > 0) {
                             $('#perc_' + tipo).css('background-color', 'green');
                         } else {
