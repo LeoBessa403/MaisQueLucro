@@ -111,28 +111,25 @@ $(function () {
         var percCustVar = (parseFloat($('#valor_perc_custVar').val()) / 100) + 1;
         var perccustFix = (parseFloat($('#valor_perc_custFix').val()) / 100) + 1;
 
-        // var valorRef = (valorPerc
-
         switch (tipo) {
             case 'venda':
+                // Fator de Venda
+                receitaTT = receita * percVenda;
+                cvTT = receitaTT * percCV;
+                // Fator de Preço
+                receitaTT = receitaTT * percPreco;
+
                 receita = receita * percVenda;
                 cv = receita * percCV;
-
-                // Fator de Venda
-                receitaTT = receita * percVenda;
-                cvTT = receitaTT * percCV;
-                // Fator de Preço
-                receitaTT = receitaTT * percPreco;
-
                 break;
             case 'preco':
-                receita = receita * percPreco;
-
                 // Fator de Venda
                 receitaTT = receita * percVenda;
                 cvTT = receitaTT * percCV;
                 // Fator de Preço
                 receitaTT = receitaTT * percPreco;
+
+                receita = receita * percPreco;
                 break;
             case 'custVar':
                 cv = cv * percCustVar;

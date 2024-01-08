@@ -717,6 +717,11 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
                                                         <td class="titulo">Alteração na Receita</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_difvenda"
@@ -760,7 +765,11 @@
                                                             <span id="valor_difcustFix_perc">0%</span>
                                                         </td>
                                                     </tr>
-
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
 
