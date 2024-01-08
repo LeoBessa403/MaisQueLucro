@@ -323,28 +323,6 @@
                                     </div>
                                 </div>
 
-
-                                <div class="col-md-6" style="height: 400px">
-                                    <div id="pricing_table_example2" class="row">
-                                        <div class="col-sm-12">
-                                            <h3>TURBINANDO PELA RECEITA</h3>
-                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
-                                                <div id="receita" class="div_graf1">
-                                                    <span>50.000,00<br>Faturamento / Receita</span>
-                                                </div>
-                                                <div id="desp" class="div_graf1">
-                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
-                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
-                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
@@ -439,25 +417,6 @@
                                     </div>
                                 </div>
 
-
-                                <div class="col-md-6" style="height: 400px">
-                                    <div id="pricing_table_example2" class="row">
-                                        <div class="col-sm-12">
-                                            <h3>TURBINANDO PELO PREÇO</h3>
-                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
-                                                <div id="receita" class="div_graf1">
-                                                    <span>50.000,00<br>Faturamento / Receita</span>
-                                                </div>
-                                                <div id="desp" class="div_graf1">
-                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
-                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
-                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="col-md-12">
@@ -560,27 +519,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6" style="height: 400px">
-                                    <div id="pricing_table_example2" class="row">
-                                        <div class="col-sm-12">
-                                            <h3>TURBINANDO PELA DESPESA DIRETA (CV)</h3>
-                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
-                                                <div id="receita" class="div_graf1">
-                                                    <span>50.000,00<br>Faturamento / Receita</span>
-                                                </div>
-                                                <div id="desp" class="div_graf1">
-                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
-                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
-                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
@@ -681,24 +619,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6" style="height: 400px">
-                                    <div id="pricing_table_example2" class="row">
-                                        <div class="col-sm-12">
-                                            <h3>TURBINANDO PELA DESPESA INDIRETA (CF)</h3>
-                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
-                                                <div id="receita" class="div_graf1">
-                                                    <span>50.000,00<br>Faturamento / Receita</span>
-                                                </div>
-                                                <div id="desp" class="div_graf1">
-                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
-                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
-                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="col-md-12">
@@ -779,27 +699,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6" style="height: 400px">
-                                    <div id="pricing_table_example2" class="row">
-                                        <div class="col-sm-12">
-                                            <h3>NOVO PONTO DE EQUILÍBRIO</h3>
-                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
-                                                <div id="receita" class="div_graf1">
-                                                    <span>50.000,00<br>Faturamento / Receita</span>
-                                                </div>
-                                                <div id="desp" class="div_graf1">
-                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
-                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
-                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
@@ -892,10 +791,32 @@
                                     </div>
                                 </div>
 
+                            </div>
+
+
+                            <div class="col-md-12" >
                                 <div class="col-md-6" style="height: 400px">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
-                                            <h3>TURBINANDO GERAL</h3>
+                                            <h3>TURBINADO P.E. OPERACIONAL</h3>
+                                            <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
+                                                <div id="receita" class="div_graf1">
+                                                    <span>50.000,00<br>Faturamento / Receita</span>
+                                                </div>
+                                                <div id="desp" class="div_graf1">
+                                                    <span style="background-color: darkred; height: 60%">50.000,00<br>Custos Variáveis</span>
+                                                    <span style="background-color: #ee5f5b; height: 20%">50.000,00<br>Despesas Fixas</span>
+                                                    <span style="background-color: #0a90eb; height: 20%">50.000,00<br>Lucro Operacional</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="height: 400px">
+                                    <div id="pricing_table_example2" class="row">
+                                        <div class="col-sm-12">
+                                            <h3>TURBINADO P.E. LUCRATIVO</h3>
                                             <div id="graf1" class="pricing-table col-sm-12 col-xs-12">
                                                 <div id="receita" class="div_graf1">
                                                     <span>50.000,00<br>Faturamento / Receita</span>
@@ -911,8 +832,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="col-md-12" style="margin-top: 30px">
                                 <div id="pricing_table_example2" class="row">
                                     <div class="col-sm-12">
