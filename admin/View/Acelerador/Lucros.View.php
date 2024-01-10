@@ -10,30 +10,6 @@
         padding: 5px 3px;
     }
 
-    .div_graf1 {
-        float: left;
-        height: 290px;
-        width: 30%;
-        margin-left: 15%;
-        box-shadow: 1px 1px 10px black;
-        border: 1px solid black;
-        margin-top: 4%;
-        font-size: 1.3em;
-        border-radius: 10px;
-        color: darkgreen;
-        font-weight: 600;
-    }
-
-    .div_graf1 span {
-        display: inline-block;
-        width: 100%;
-        padding: 5px;
-    }
-
-    #receita {
-        background-color: green;
-    }
-
     .topo_tabela {
         background-color: lightslategray;
         color: darkblue;
@@ -119,6 +95,15 @@
     .graf {
         height: 350px;
         padding: 0 !important;
+    }
+
+    .tab-pane {
+        text-align: left;
+
+    }
+
+    .tab-pane ul li {
+        list-style: decimal;
     }
 </style>
 <div class="main-content">
@@ -800,13 +785,122 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12" style="margin-top: 30px">
+                            <div class="col-md-12" style="margin: 30px 0 0;">
                                 <div id="pricing_table_example2" class="row">
-                                    <div class="col-sm-12">
+                                    <div class="pricing-table col-sm-12 col-xs-12">
                                         <div class="top">
                                             <h2 style="background-color: darkseagreen;">COLOCANDO EM PRÁTICA</h2>
                                         </div>
-
+                                        <div class="tabbable">
+                                            <ul id="myTab4" class="nav nav-tabs tab-padding tab-space-3 tab-blue">
+                                                <li class="active">
+                                                    <a href="#panel_tab3_example1" data-toggle="tab">
+                                                        <i class="fa fa-shopping-cart"></i> Receita / Faturamento
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#panel_tab3_example2" data-toggle="tab">
+                                                        <i class="fa fa-dollar"></i> Preço
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#panel_tab3_example3" data-toggle="tab">
+                                                        <i class="fa fa-barcode"></i> Despesas Diretas (CV)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#panel_tab3_example4" data-toggle="tab">
+                                                        <i class="fa fa-group"></i> Despesas Indiretas (CF)
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane in active" id="panel_tab3_example1">
+                                                    <ul>
+                                                        <li>Estude e utilize de estratégias de vendas como: Upsell,
+                                                            Cross Sell e Downsell. Veja nesse
+                                                            <a href="https://www.youtube.com/watch?v=MBBCkMLyyEY"
+                                                               target="_blank">LINK</a></li>
+                                                        <li>
+                                                            Busque parcerias com pessoas que tem influência na sua
+                                                            região
+                                                            para expor seus produtos.
+                                                        </li>
+                                                        <li>
+                                                            Procure melhorar seu atendimento ao cliente em toda os
+                                                            pontos de "contato" com o seu negóico.
+                                                            <ul>
+                                                                <li>
+                                                                    Outdoor / Letreiro / Placa do estabelecimento bem
+                                                                    claro e bem iluminada.
+                                                                </li>
+                                                                <li>
+                                                                    Treine todas as pessaos que tem contato com seus
+                                                                    clientes para fazerem o melhor atendimento,
+                                                                    lembre-se de que não esta apenas vendendo um produto
+                                                                    ou serviço, mas sim um pacote de satisfação ao
+                                                                    cliente.
+                                                                </li>
+                                                                <li>
+                                                                    Analise seus canais de comunicação se estão todos
+                                                                    funcionando como deve. (Ex: Site, Instagram, Canal
+                                                                    do YouTube, WhatsApp, Telefones e outros.. )
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            Estude sobre Gatilhos mentais, para utilizar dessas técnicas
+                                                            para vender mais e conhecer melhor seus clientes. Saiba mais
+                                                            nesse <a href="https://www.youtube.com/watch?v=arrads2h1zI"
+                                                                     target="_blank">LINK</a>
+                                                        </li>
+                                                        <li>
+                                                            Busque aprimorar e implementar de forma clara para suas
+                                                            clientes o seu diferencial. (Ex: porque comprar isso oom
+                                                            você?)
+                                                        </li>
+                                                        <li>
+                                                            Foque em priorizar o primeiro atendimento ao cliente, onde
+                                                            uma vez o cliente conquistado ele poderar ser fidelizado.
+                                                            Seja por email, telefone, redes sociais, WhatsApp,
+                                                            Presencial ou outros meios.
+                                                        </li>
+                                                        <li>
+                                                            Busque criar e colocar em prática estratégicas de
+                                                            Fidelização de Clientes. (Ex: Planos anuais...)
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="tab-pane" id="panel_tab3_example2">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                                        diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                                        aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                                                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                                                        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                                                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                                                        sed diam voluptua. At vero eos et accusam et justo.
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane" id="panel_tab3_example3">
+                                                    <p>
+                                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                                                        art party before they sold out master cleanse gluten-free squid
+                                                        scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                                                        art party locavore wolf cliche high life echo park Austin.
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane" id="panel_tab3_example4">
+                                                    <p>
+                                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                                                        art party before they sold out master cleanse gluten-free squid
+                                                        scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                                                        art party locavore wolf cliche high life echo park Austin.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
