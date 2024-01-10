@@ -867,7 +867,14 @@
                                                         </li>
                                                         <li>
                                                             Busque criar e colocar em prática estratégicas de
-                                                            Fidelização de Clientes. (Ex: Planos anuais...)
+                                                            Fidelização de Clientes, afim de que ele se torne um
+                                                            comprador recorrete dos seus serviços ou produtos (Ex:
+                                                            Planos anuais...)
+                                                        </li>
+                                                        <li>
+                                                            Ultilize o marketing digital, ele pode e muito alavancar
+                                                            suas vendas. (Ex: Site, anuncios on-lines, WhatsApp Para
+                                                            Empresas, Redes Sociais, YouTube, e outros..)
                                                         </li>
                                                     </ul>
                                                 </div>
