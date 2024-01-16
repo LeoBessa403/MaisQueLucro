@@ -48,11 +48,12 @@ $(function () {
             var mc = $('#valor_mc_base_perc').text().replace('%', '');
             var mcTT = $('#valor_mc_total_perc').text().replace('%', '');
 
-            var PEOBASE = parseFloat((cf / mc) * 100).toFixed(2);
-            var PELBASE = parseFloat((cf / (mc + 10)) * 100).toFixed(2);
+            var PEOBASE =  parseFloat(((cf / mc) * 100).toFixed(2));
+            var PELBASE = parseFloat(((cf / (mc + 10)) * 100).toFixed(2));
+            var PEOTURBO =  parseFloat(((cfTT / mcTT) * 100).toFixed(2));
+            var PELTURBO = parseFloat(((cfTT / (mcTT + 10)) * 100).toFixed(2));
 
-            atualGrafPE(PEOBASE, PEOBASE, PELBASE, PELBASE);
-
+            atualGrafPE(PEOBASE, PEOTURBO, PELBASE, PELTURBO);
         }
 
         $('.navigation-toggler').click(function () {
