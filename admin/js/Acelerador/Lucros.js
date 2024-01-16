@@ -4,12 +4,14 @@ $(function () {
         var divGraf2 = document.getElementById('graf2');
         // Carrega Grafico 1 PIZZA
         google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart2);
+        google.charts.setOnLoadCallback(atuaGrafInicial);
 
-        function drawChart2() {
+        function atuaGrafInicial(CV = 1, CF = 1, LO = 1) {
+            if (LO < 0)
+                LO = 0;
             var data2 = google.visualization.arrayToDataTable([['', ''],
-                ['DESPESAS DIRETAS (CV)', 1], ['DESPESAS INDIRETAS (CF)', 1],
-                ['LUCRO LÍQUIDO (LO)', 1]]);
+                ['DESPESAS DIRETAS (CV)', CV], ['DESPESAS INDIRETAS (CF)', CF],
+                ['LUCRO LÍQUIDO (LO)', LO]]);
             var options2 = {
                 title: 'DIVISÃO DO FATURAMENTO',
                 is3D: true
@@ -18,35 +20,20 @@ $(function () {
             chart2.draw(data2, options2);
         }
 
-        // FIM Grafico 1 PIZZA
-        function atualizaGrafPizza(CV, CF, LO) {
-            if (LO < 0)
-                LO = 0;
-            var data11 = google.visualization.arrayToDataTable([['', ''],
-                ['DESPESAS DIRETAS (CV)', CV], ['DESPESAS INDIRETAS (CF)', CF],
-                ['LUCRO LÍQUIDO (LO)', LO]]);
-            var options11 = {
-                title: 'DIVISÃO DO FATURAMENTO',
-                is3D: true
-            };
-            var chart11 = new google.visualization.PieChart(divGraf1);
-            chart11.draw(data11, options11);
-        }
-
         // Carrega Grafico PONTO EQUILIBRIO
         google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(atualGrafPE);
 
-        function drawChart() {
+        function atualGrafPE(PEOBASE = 1, PEOTURBO = 1, PELBASE = 1, PELTURBO = 1) {
             var data5 = google.visualization.arrayToDataTable([['', 'BASE',
                 {role: 'annotation'}, {role: 'style'}, 'TURBINADO',
                 {role: 'annotation'}, {role: 'style'}],
-                ['P.E OPERACIONAL', 47564.31, 47564.31, 'color: darkgreen', 39654.31, 39654.31, 'color: darkblue'],
-                ['P.E LUCRATIVO', 59564.31, 59564.31, 'color: green', 49854.31, 49854.31, 'color: blue']]);
+                ['P.E OPERACIONAL', PEOBASE, PEOBASE, 'color: darkgreen', PEOTURBO, PEOTURBO, 'color: darkblue'],
+                ['P.E LUCRATIVO', PELBASE, PELBASE, 'color: green', PELTURBO, PELTURBO, 'color: blue']]);
             var options5 = {
                 title: '',
                 width: $('#graf2').width(),
-                height:  $('#graf2').height(),
+                height: $('#graf2').height(),
                 titleTextStyle: {color: 'gray', fontSize: 20},
                 legend: {position: 'none', maxLines: 3, textStyle: {fontSize: 10}},
             };
@@ -55,24 +42,17 @@ $(function () {
             chart5.draw(data5, options5);
         }
 
-        // FIM Grafico PONTO EQUILIBRIO
+        function atualizaGrafPE() {
+            var cf = valorFloat($('#valor_cf_base').val());
+            var cfTT = valorFloat($('#valor_cf_total').val());
+            var mc = $('#valor_mc_base_perc').text().replace('%', '');
+            var mcTT = $('#valor_mc_total_perc').text().replace('%', '');
 
-        function atualizaGrafPE(CV, CF, LO) {
-            var data33 = google.visualization.arrayToDataTable([['', 'BASE',
-                {role: 'annotation'}, {role: 'style'}, 'TURBINADO',
-                {role: 'annotation'}, {role: 'style'}],
-                ['P.E OPERACIONAL', 564.31, 564.31, 'color: darkgreen', 654.31, 654.31, 'color: darkblue'],
-                ['P.E LUCRATIVO', 564.31, 564.31, 'color: green', 854.31, 854.31, 'color: blue']]);
-            var options33 = {
-                title: '',
-                width: $('#graf2').width(),
-                height:  $('#graf2').height(),
-                titleTextStyle: {color: 'gray', fontSize: 20},
-                legend: {position: 'none', maxLines: 3, textStyle: {fontSize: 10}},
-            };
+            var PEOBASE = parseFloat((cf / mc) * 100).toFixed(2);
+            var PELBASE = parseFloat((cf / (mc + 10)) * 100).toFixed(2);
 
-            var chart33 = new google.visualization.ColumnChart(divGraf2);
-            chart33.draw(data33, options33);
+            atualGrafPE(PEOBASE, PEOBASE, PELBASE, PELBASE);
+
         }
 
         $('.navigation-toggler').click(function () {
@@ -167,7 +147,6 @@ $(function () {
                 elemValor.css('color', 'green');
                 elemValorPercImp.css('color', 'green');
                 elemValorImp.css('color', 'green');
-
             }
             elemValorPerc.html(percDif);
             elemValor.val(converteReal(valorDif));
@@ -228,7 +207,6 @@ $(function () {
                     cfTT = cf;
                     break;
             }
-
             calcDados(receita, tipo, cv, cf);
             calcDados(receitaTT, 'total', cvTT, cfTT);
         }
@@ -240,8 +218,8 @@ $(function () {
             var cf = valorFloat($('#valor_cf_' + tipo).val());
             refazCalcDados(receita, cv, cf);
             var lo1 = receita - cv - cf;
-            atualizaGrafPizza(cv, cf, lo1);
-            atualizaGrafPE(cv, cf, lo1);
+            atuaGrafInicial(cv, cf, lo1);
+            atualizaGrafPE();
         });
 
         $('.cv').blur(function () {
@@ -251,8 +229,8 @@ $(function () {
             var cf = valorFloat($('#valor_cf_' + tipo).val());
             refazCalcDados(receita, cv, cf);
             var lo1 = receita - cv - cf;
-            atualizaGrafPizza(cv, cf, lo1);
-            atualizaGrafPE(cv, cf, lo1);
+            atuaGrafInicial(cv, cf, lo1);
+            atualizaGrafPE();
         });
 
         $('.cf').blur(function () {
@@ -262,8 +240,8 @@ $(function () {
             var cv = valorFloat($('#valor_cv_' + tipo).val());
             refazCalcDados(receita, cv, cf);
             var lo1 = receita - cv - cf;
-            atualizaGrafPizza(cv, cf, lo1);
-            atualizaGrafPE(cv, cf, lo1);
+            atuaGrafInicial(cv, cf, lo1);
+            atualizaGrafPE();
         });
 
         function refazCalcDados(receita = 0, cv = 0, cf = 0) {
@@ -322,7 +300,6 @@ $(function () {
             } else {
                 $('#valor_rec_' + tipo + '_perc').text('0%');
             }
-            atualizaGrafPizza(cv)
         }
 
         function valorFloat(vlrCampo) {
