@@ -142,7 +142,7 @@
                                                         <td class="titulo">Receita / Faturamento</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_rec_base" id="valor_rec_base"
-                                                                   class="moeda receita" alt="base">
+                                                                   class="moeda receita" alt="base" value="0">
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_rec_base_perc">0%</span>
@@ -152,7 +152,7 @@
                                                         <td class="titulo">Despesas Diretas (CV)</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_cv_base" id="valor_cv_base"
-                                                                   class="moeda cv" alt="base">
+                                                                   class="moeda cv" alt="base" value="0">
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_cv_base_perc">0%</span>
@@ -172,7 +172,7 @@
                                                         <td class="titulo">Despesas Indiretas (CF) e Investimentos</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_cf_base" id="valor_cf_base"
-                                                                   class="moeda cf" alt="base">
+                                                                   class="moeda cf" alt="base" value="0">
                                                         </td>
                                                         <td class="titulo">
                                                             <span id="valor_cf_base_perc">0%</span>
@@ -779,7 +779,7 @@
                             <div class="col-md-12">
                                 <div id="pricing_table_example2" class="row">
                                     <div class="col-sm-12">
-                                        <h3>TURBINADO PONTO DE EQUILIBRIO</h3>
+                                        <h3>FATURAMENTO TURBINADO DO PONTO DE EQUILIBRIO</h3>
                                         <div id="graf2" class="graf pricing-table col-sm-12 col-xs-12">
                                         </div>
                                     </div>
