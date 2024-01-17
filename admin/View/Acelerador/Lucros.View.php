@@ -779,7 +779,7 @@
                             <div class="col-md-12">
                                 <div id="pricing_table_example2" class="row">
                                     <div class="col-sm-12">
-                                        <h3>FATURAMENTO TURBINADO DO PONTO DE EQUILIBRIO</h3>
+                                        <h3>PONTO DE EQUILIBRIO TURBINADO</h3>
                                         <div id="graf2" class="graf pricing-table col-sm-12 col-xs-12">
                                         </div>
                                     </div>

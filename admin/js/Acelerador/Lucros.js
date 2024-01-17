@@ -43,18 +43,18 @@ $(function () {
         }
 
         function atualizaGrafPE() {
-            var cf = valorFloat($('#valor_cf_base').val());
-            var cfTT = valorFloat($('#valor_cf_total').val());
-            var mc = $('#valor_mc_base_perc').text().replace('%', '');
-            var mcTT = $('#valor_mc_total_perc').text().replace('%', '');
+            var cf2 = valorFloat($('#valor_cf_base').val());
+            var cfTT2 = valorFloat($('#valor_cf_total').val());
+            var mc2 = $('#valor_mc_base_perc').text().replace('%', '');
+            var mcTT2 = $('#valor_mc_total_perc').text().replace('%', '');
+            var loTT2 = $('#valor_lo_total_perc').text().replace('%', '');
 
-            var PEOBASE = parseFloat(((cf / mc) * 100).toFixed(2));
-            var PELBASE = parseFloat(((cf / (mc + 10)) * 100).toFixed(2));
-            var PEOTURBO =  parseFloat(((cfTT / mcTT) * 100).toFixed(2));
-            var PELTURBO = parseFloat(((cfTT / (mcTT + 10)) * 100).toFixed(2));
-
-            Funcoes.Alerta('cf: ' + cf + ' / cfTT: ' + cfTT + ' / mc: ' + mc + ' / mcTT: ' + mcTT +
-                ' / PEOBASE: ' + PEOBASE + ' / PELBASE: ' + PELBASE + ' / PEOTURBO: ' + PEOTURBO + ' / PELTURBO: ' + PELTURBO);
+            var PEOBASE = parseFloat(((cf2 / mc2) * 100).toFixed(2));
+            var PELBASE = parseFloat(((cf2 / (parseFloat(mc2) - parseFloat(loTT2))) * 100)
+                .toFixed(2));
+            var PEOTURBO = parseFloat(((cfTT2 / mcTT2) * 100).toFixed(2));
+            var PELTURBO = parseFloat(((cfTT2 / (parseFloat(mcTT2) - parseFloat(loTT2))) * 100)
+                .toFixed(2));
 
             atualGrafPE(PEOBASE, PEOTURBO, PELBASE, PELTURBO);
         }
@@ -72,6 +72,7 @@ $(function () {
             calculaValores(tipo);
             calcPercDif(tipo, valorPerc);
             calcPercDifTotal();
+            atualizaGrafPE();
         });
         $('.iMais').click(function () {
             var elementProx = $(this).prev();
@@ -81,6 +82,7 @@ $(function () {
             calculaValores(tipo);
             calcPercDif(tipo, valorPerc);
             calcPercDifTotal();
+            atualizaGrafPE();
         });
 
         function calcPercDifTotal() {
