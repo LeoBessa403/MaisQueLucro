@@ -828,7 +828,7 @@
                                                         <li>
                                                             Aprimore o atendimento ao cliente em todos os pontos de
                                                             contato com o seu negócio.
-                                                            <ul style="margin: 0 20px 20px;">
+                                                            <ul style="margin: 0 20px 15px;">
                                                                 <li>
                                                                     Certifique-se de que o outdoor, letreiro e placa do
                                                                     estabelecimento estejam bem iluminados e visíveis.
