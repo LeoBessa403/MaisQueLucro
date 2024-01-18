@@ -982,7 +982,7 @@
                                                 <div class="tab-pane" id="panel_tab3_example4">
                                                     <ul>
                                                         <li>
-                                                            Defina de maneira definitiva o valor do pró-labore dos
+                                                            Estabeleça de maneira definitiva o valor do pró-labore dos
                                                             sócios, levando em conta a capacidade financeira da empresa,
                                                             e estabeleça uma data específica para o pagamento.
                                                         </li>
