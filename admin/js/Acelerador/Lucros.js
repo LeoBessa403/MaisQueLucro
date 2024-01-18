@@ -28,8 +28,10 @@ $(function () {
             var data5 = google.visualization.arrayToDataTable([['', 'BASE',
                 {role: 'annotation'}, {role: 'style'}, 'TURBINADO',
                 {role: 'annotation'}, {role: 'style'}],
-                ['P.E OPERACIONAL', PEOBASE, PEOBASE, 'color: darkgreen', PEOTURBO, PEOTURBO, 'color: darkblue'],
-                ['P.E LUCRATIVO', PELBASE, PELBASE, 'color: green', PELTURBO, PELTURBO, 'color: blue']]);
+                ['P.E OPERACIONAL', PEOBASE, converteReal(PEOBASE), 'color: darkgreen',
+                    PEOTURBO, converteReal(PEOTURBO), 'color: darkblue'],
+                ['P.E LUCRATIVO', PELBASE, converteReal(PELBASE), 'color: green',
+                    PELTURBO, converteReal(PELTURBO), 'color: blue']]);
             var options5 = {
                 title: '',
                 width: $('#graf2').width(),
