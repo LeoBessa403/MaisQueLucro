@@ -817,110 +817,115 @@
                                             <div class="tab-content">
                                                 <div class="tab-pane in active" id="panel_tab3_example1">
                                                     <ul>
-                                                        <li>Estude e utilize de estratégias de vendas como: Upsell,
+                                                        <li>Estude e aplique estratégias de vendas, incluindo Upsell,
                                                             Cross Sell e Downsell. Veja nesse
                                                             <a href="https://www.youtube.com/watch?v=MBBCkMLyyEY"
                                                                target="_blank">LINK</a></li>
                                                         <li>
-                                                            Busque parcerias com pessoas que tem influência na sua
-                                                            região para expor seus produtos.
+                                                            Estabeleça parcerias com pessoas influentes em sua região
+                                                            para promover seus produtos.
                                                         </li>
                                                         <li>
-                                                            Procure melhorar seu atendimento ao cliente em toda os
-                                                            pontos de "contato" com o seu negóico.
+                                                            Aprimore o atendimento ao cliente em todos os pontos de
+                                                            contato com o seu negócio.
                                                             <ul>
                                                                 <li>
-                                                                    Outdoor / Letreiro / Placa do estabelecimento bem
-                                                                    claro e bem iluminada.
+                                                                    Certifique-se de que o outdoor, letreiro e placa do
+                                                                    estabelecimento estejam bem iluminados e visíveis.
                                                                 </li>
                                                                 <li>
-                                                                    Treine todas as pessaos que tem contato com seus
-                                                                    clientes para fazerem o melhor atendimento,
-                                                                    lembre-se de que não esta apenas vendendo um produto
+                                                                    Capacite todas as pessoas que têm contato com seus
+                                                                    clientes para oferecer o melhor atendimento.
+                                                                    Lembre-se de que não está apenas vendendo um produto
                                                                     ou serviço, mas sim um pacote de satisfação ao
                                                                     cliente.
                                                                 </li>
                                                                 <li>
-                                                                    Analise seus canais de comunicação se estão todos
-                                                                    funcionando como deve. (Ex: Site, Instagram, Canal
-                                                                    do YouTube, WhatsApp, Telefones e outros.. )
+                                                                    Avalie se todos os seus canais de comunicação estão
+                                                                    operando corretamente, incluindo o site, Instagram,
+                                                                    Canal do YouTube, WhatsApp, telefones e outros.
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            Estude sobre Gatilhos mentais, para utilizar dessas técnicas
-                                                            para vender mais e conhecer melhor seus clientes. Saiba mais
+                                                            Estude sobre gatilhos mentais para empregar essas
+                                                            técnicas, impulsionando suas vendas e aprofundando o
+                                                            conhecimento sobre seus clientes. Saiba mais
                                                             nesse <a href="https://www.youtube.com/watch?v=arrads2h1zI"
                                                                      target="_blank">LINK</a>
                                                         </li>
                                                         <li>
-                                                            Busque aprimorar e implementar de forma clara para suas
-                                                            clientes o seu diferencial. (Ex: porque comprar isso oom
-                                                            você?)
+                                                            Aprimore e destaque de maneira clara o seu diferencial para
+                                                            os seus clientes. Por que escolher comprar conosco?
                                                         </li>
                                                         <li>
-                                                            Foque em priorizar o primeiro atendimento ao cliente, onde
-                                                            uma vez o cliente conquistado ele poderar ser fidelizado.
-                                                            Seja por email, telefone, redes sociais, WhatsApp,
-                                                            Presencial ou outros meios.
+                                                            Dê ênfase à priorização do primeiro atendimento ao cliente,
+                                                            pois conquistá-lo nesse momento pode levar à fidelização.
+                                                            Utilize diversos meios, como email, telefone, redes sociais,
+                                                            WhatsApp, presencial, entre outros
                                                         </li>
                                                         <li>
-                                                            Busque criar e colocar em prática estratégicas de
-                                                            Fidelização de Clientes, afim de que ele se torne um
-                                                            comprador recorrete dos seus serviços ou produtos (Ex:
-                                                            Planos anuais...)
+                                                            Desenvolva e implemente estratégias de fidelização de
+                                                            clientes, visando transformá-los em compradores recorrentes
+                                                            de seus produtos ou serviços, como, por exemplo, através de
+                                                            planos anuais.
                                                         </li>
                                                         <li>
-                                                            Ultilize o marketing digital, ele pode e muito alavancar
-                                                            suas vendas. (Ex: Site, anuncios on-lines, WhatsApp Para
-                                                            Empresas, Redes Sociais, YouTube, e outros..)
+                                                            Aproveite o potencial do marketing digital, pois ele pode
+                                                            impulsionar significativamente suas vendas. Isso inclui a
+                                                            presença online, anúncios, WhatsApp para Empresas, redes
+                                                            sociais, YouTube, entre outras estratégias.
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="panel_tab3_example2">
                                                     <ul>
                                                         <li>
-                                                            Verifique sua precificação a cada 2 meses no máximo dos seus
-                                                            produtos/serviços para conhecer os de melhores margens e
-                                                            focar na venda deles.
+                                                            Revise a precificação dos seus produtos/serviços a cada dois
+                                                            meses, no máximo, identificando aqueles com melhores margens
+                                                            para concentrar esforços nas vendas.
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="panel_tab3_example3">
                                                     <ul>
-                                                        <li>Impostos: Reveja a questão do CNAE com seu contador para ver
-                                                            se tem como reduzir a questão dos impostos. As vezes só um
-                                                            ajuste já muda muito a aliquota cobrada.
+                                                        <li>
+                                                            Em relação aos impostos, analise o CNAE em conjunto com seu
+                                                            contador para avaliar a possibilidade de reduzir a carga
+                                                            tributária. Às vezes, um simples ajuste pode resultar em
+                                                            significativa mudança na alíquota cobrada.
                                                         </li>
                                                         <li>
-                                                            Renegocie as taxas das maquininhas de cartões. Há todo
-                                                            momento você consegue renegociar e obter melhores taxas, por
-                                                            conta da grande concorrência entre as operados de
-                                                            maquininhas. Faça esse negociação ao menos 3x ao ano.
+                                                            Renegocie regularmente as taxas das maquininhas de cartões.
+                                                            Devido à intensa concorrência entre as operadoras, é
+                                                            possível obter condições mais vantajosas. Recomenda-se
+                                                            realizar essa negociação pelo menos três vezes ao ano.
                                                         </li>
                                                         <li>
-                                                            Treine seus vendedores/atendentes para focar em vender os
-                                                            seus produtos/serviços de melhores margens.
+                                                            Capacite seus vendedores/atendentes para direcionar seus
+                                                            esforços na venda dos produtos/serviços com melhores
+                                                            margens.
                                                         </li>
                                                         <li>
-                                                            Busque fazer melhores negociações com seus fornecedores para
-                                                            conseguir melhores preços e prazos.
+                                                            Procure otimizar as negociações com seus fornecedores
+                                                            visando obter preços e prazos mais vantajosos.
                                                         </li>
                                                         <li>
-                                                            Tenha um melhor controle do seu estoque, principalmente das
-                                                            perdas/quebras, essa ação aumenta consideravelmente sua
-                                                            margem de contribuição.
+                                                            Estabeleça um controle mais eficiente do seu estoque, com
+                                                            foco especial nas perdas e quebras, pois essa prática
+                                                            contribui significativamente para a melhoria da margem de
+                                                            contribuição.
                                                         </li>
                                                         <li>
-                                                            Tente sempre que possível, negociar as taxas de comissões
-                                                            dos seus vendedores, frete para entrega tanto do seu
-                                                            fornecedor quanto do seu entregador e taxa de aplicativos de
-                                                            vendas.
+                                                            Procure negociar regularmente as taxas de comissões dos seus
+                                                            vendedores, os custos de entrega com fornecedores e
+                                                            transportadoras, bem como as taxas de aplicativos de vendas
+                                                            sempre que possível.
                                                         </li>
                                                         <li>
-                                                            Conheça quais são os maiores fatores de custos e elabore
-                                                            metas de redução de gastos, priorizando os que causam
-                                                            maiores impactos.
+                                                            Identifique os principais fatores de custo e estabeleça
+                                                            metas para redução de despesas, priorizando aqueles que têm
+                                                            maiores impactos financeiros.
                                                         </li>
                                                     </ul>
 
@@ -928,10 +933,40 @@
                                                 <div class="tab-pane" id="panel_tab3_example4">
                                                     <ul>
                                                         <li>
-                                                            Renegocie as taxas dos bancos, para as contas da empresa,
-                                                            principalmente se NÃO forem bancos digitais. Utilize os
-                                                            pacotes mínimo, ou troque sua conta para bancos digitais que
-                                                            nrmalmente tem nemores taxas.
+                                                            Defina de maneira definitiva o valor do pró-labore dos
+                                                            sócios, levando em conta a capacidade financeira da empresa,
+                                                            e estabeleça uma data específica para o pagamento.
+                                                        </li>
+                                                        <li>
+                                                            Minimize as taxas bancárias associadas às contas da empresa,
+                                                            especialmente se não forem bancos digitais. Considere
+                                                            utilizar pacotes mínimos ou migrar as contas para bancos
+                                                            digitais, que geralmente oferecem taxas mais baixas.
+                                                        </li>
+                                                        <li>
+                                                            Reavalie e renegocie as taxas de telefonia, celulares e
+                                                            internet. É possível que você esteja pagando mais do que as
+                                                            tarifas de mercado. Recomenda-se realizar essa negociação
+                                                            pelo menos duas vezes ao ano.
+                                                        </li>
+                                                        <li>
+                                                            Avalie a infraestrutura física do seu negócio; seu espaço
+                                                            atual não está ocioso? Analise se o valor do aluguel está
+                                                            alinhado com seu faturamento/receita atual.
+                                                        </li>
+                                                        <li>
+                                                            Inclua a equipe de colaboradores no processo de redução de
+                                                            custos e crie uma estratégia de bonificação em caso de
+                                                            alcance de metas estabelecidas.
+                                                        </li>
+                                                        <li>
+                                                            Avalie a equipe de colaboradores para determinar a real
+                                                            necessidade de cada membro para a operação do negócio,
+                                                            evitando mão de obra ociosa.
+                                                        </li>
+                                                        <li>
+                                                            Estabeleça metas e elabore um plano de ação para redução de
+                                                            custos, focando nas maiores despesas indiretas (CF).
                                                         </li>
                                                     </ul>
                                                 </div>
