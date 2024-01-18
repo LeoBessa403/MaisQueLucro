@@ -823,8 +823,7 @@
                                                                target="_blank">LINK</a></li>
                                                         <li>
                                                             Busque parcerias com pessoas que tem influência na sua
-                                                            região
-                                                            para expor seus produtos.
+                                                            região para expor seus produtos.
                                                         </li>
                                                         <li>
                                                             Procure melhorar seu atendimento ao cliente em toda os
@@ -879,32 +878,62 @@
                                                     </ul>
                                                 </div>
                                                 <div class="tab-pane" id="panel_tab3_example2">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                                        diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                                        aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                                                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                                                        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                                                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                                                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                                                        sed diam voluptua. At vero eos et accusam et justo.
-                                                    </p>
+                                                    <ul>
+                                                        <li>
+                                                            Verifique sua precificação a cada 2 meses no máximo dos seus
+                                                            produtos/serviços para conhecer os de melhores margens e
+                                                            focar na venda deles.
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                                 <div class="tab-pane" id="panel_tab3_example3">
-                                                    <p>
-                                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-                                                        art party before they sold out master cleanse gluten-free squid
-                                                        scenester freegan cosby sweater. Fanny pack portland seitan DIY,
-                                                        art party locavore wolf cliche high life echo park Austin.
-                                                    </p>
+                                                    <ul>
+                                                        <li>Impostos: Reveja a questão do CNAE com seu contador para ver
+                                                            se tem como reduzir a questão dos impostos. As vezes só um
+                                                            ajuste já muda muito a aliquota cobrada.
+                                                        </li>
+                                                        <li>
+                                                            Renegocie as taxas das maquininhas de cartões. Há todo
+                                                            momento você consegue renegociar e obter melhores taxas, por
+                                                            conta da grande concorrência entre as operados de
+                                                            maquininhas. Faça esse negociação ao menos 3x ao ano.
+                                                        </li>
+                                                        <li>
+                                                            Treine seus vendedores/atendentes para focar em vender os
+                                                            seus produtos/serviços de melhores margens.
+                                                        </li>
+                                                        <li>
+                                                            Busque fazer melhores negociações com seus fornecedores para
+                                                            conseguir melhores preços e prazos.
+                                                        </li>
+                                                        <li>
+                                                            Tenha um melhor controle do seu estoque, principalmente das
+                                                            perdas/quebras, essa ação aumenta consideravelmente sua
+                                                            margem de contribuição.
+                                                        </li>
+                                                        <li>
+                                                            Tente sempre que possível, negociar as taxas de comissões
+                                                            dos seus vendedores, frete para entrega tanto do seu
+                                                            fornecedor quanto do seu entregador e taxa de aplicativos de
+                                                            vendas.
+                                                        </li>
+                                                        <li>
+                                                            Conheça quais são os maiores fatores de custos e elabore
+                                                            metas de redução de gastos, priorizando os que causam
+                                                            maiores impactos.
+                                                        </li>
+                                                    </ul>
+
                                                 </div>
                                                 <div class="tab-pane" id="panel_tab3_example4">
-                                                    <p>
-                                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-                                                        art party before they sold out master cleanse gluten-free squid
-                                                        scenester freegan cosby sweater. Fanny pack portland seitan DIY,
-                                                        art party locavore wolf cliche high life echo park Austin.
-                                                    </p>
+                                                    <ul>
+                                                        <li>
+                                                            Renegocie as taxas dos bancos, para as contas da empresa,
+                                                            principalmente se NÃO forem bancos digitais. Utilize os
+                                                            pacotes mínimo, ou troque sua conta para bancos digitais que
+                                                            nrmalmente tem nemores taxas.
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
