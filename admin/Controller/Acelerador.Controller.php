@@ -7,4 +7,8 @@ class Acelerador extends AbstractController
     public function Lucros()
     {
     }
+
+    public function Estrategico()
+    {
+    }
 }
