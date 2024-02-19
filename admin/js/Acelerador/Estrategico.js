@@ -6,13 +6,13 @@ $(function () {
         google.charts.load('current', {packages: ['corechart']});
         google.charts.setOnLoadCallback(atualGrafPE);
 
-        function atualGrafPE(PEOBASE = 1, PEOTURBO = 1, PELBASE = 1, PELTURBO = 1) {
-            var data5 = google.visualization.arrayToDataTable([['', 'BASE',
-                {role: 'annotation'}, {role: 'style'}, 'TURBINADO',
+        function atualGrafPE(PEOBASE = 1, PEOTURBO = 1, PELBASE = 1, PELTURBO = 1, CENARIO = 1) {
+            var data5 = google.visualization.arrayToDataTable([['', 'FATURAMENTO' + CENARIO,
+                {role: 'annotation'}, {role: 'style'}, 'P.Eq.' + CENARIO,
                 {role: 'annotation'}, {role: 'style'}],
-                ['P.E OPERACIONAL', PEOBASE, converteReal(PEOBASE), 'color: darkgreen',
+                ['CENÁRIO ATUAL', PEOBASE, converteReal(PEOBASE), 'color: darkgreen',
                     PEOTURBO, converteReal(PEOTURBO), 'color: darkblue'],
-                ['P.E LUCRATIVO', PELBASE, converteReal(PELBASE), 'color: green',
+                ['CENÁRIO SIMULADO', PELBASE, converteReal(PELBASE), 'color: green',
                     PELTURBO, converteReal(PELTURBO), 'color: blue']]);
             var options5 = {
                 title: '',
