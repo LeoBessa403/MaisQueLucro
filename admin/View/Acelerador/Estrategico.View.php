@@ -21,7 +21,7 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela topo_tabela2">
-                                                        <th class="titulo">CALCULO DO PONTO DE EQUILIBRIO</th>
+                                                        <th class="titulo">CALCULO DO PONTO DE EQUILIBRIO OPERACIONAL</th>
                                                         <th class="titulo">Cenário Atual</th>
                                                         <th class="titulo">Cenário Simulado</th>
                                                     </tr>
@@ -56,7 +56,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_cf_base"
                                                                        id="valor_cf_base"
-                                                                       class="porc-decimal form-control cf" alt="base"
+                                                                       class="porc-decimal form-control porc1" alt="base"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -65,7 +65,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_cf_simu"
                                                                        id="valor_cf_simu"
-                                                                       class="porc-decimal form-control cf" alt="simu"
+                                                                       class="porc-decimal form-control porc2" alt="simu"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -77,7 +77,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_imp_base"
                                                                        id="valor_imp_base"
-                                                                       class="porc-decimal form-control imp" alt="base"
+                                                                       class="porc-decimal form-control porc1" alt="base"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -86,7 +86,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_imp_simu"
                                                                        id="valor_imp_simu"
-                                                                       class="porc-decimal form-control imp" alt="simu"
+                                                                       class="porc-decimal form-control porc2" alt="simu"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -98,7 +98,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_com_base"
                                                                        id="valor_com_base"
-                                                                       class="porc-decimal form-control com" alt="base"
+                                                                       class="porc-decimal form-control porc1" alt="base"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -107,7 +107,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_com_simu"
                                                                        id="valor_com_simu"
-                                                                       class="porc-decimal form-control com" alt="simu"
+                                                                       class="porc-decimal form-control porc2" alt="simu"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -119,7 +119,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_tax_base"
                                                                        id="valor_tax_base"
-                                                                       class="porc-decimal form-control tax" alt="base"
+                                                                       class="porc-decimal form-control porc1" alt="base"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -128,7 +128,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_tax_simu"
                                                                        id="valor_tax_simu"
-                                                                       class="porc-decimal form-control tax" alt="simu"
+                                                                       class="porc-decimal form-control porc2" alt="simu"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -140,7 +140,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_out_base"
                                                                        id="valor_out_base"
-                                                                       class="porc-decimal form-control out" alt="base"
+                                                                       class="porc-decimal form-control porc1" alt="base"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -149,7 +149,7 @@
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_out_simu"
                                                                        id="valor_out_simu"
-                                                                       class="porc-decimal form-control out" alt="simu"
+                                                                       class="porc-decimal form-control porc2" alt="simu"
                                                                        value="0">
                                                                 <span class="input-group-addon">%</span>
                                                             </div>
@@ -204,18 +204,18 @@
                                                     <tr class="topo_tabela topo_tabela2">
                                                         <th class="titulo">PEq1 =</th>
                                                         <th class="titulo">
-                                                            <span class="numerador1">1010</span><br>
-                                                            <span class="denominador1">60,3%</span>
+                                                            <span class="numerador1">1</span><br>
+                                                            <span class="denominador1">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res1">R$ 60.699,35</span></th>
+                                                        <th class="titulo">= <span class="res1">R$ 1,00</span></th>
                                                     </tr>
                                                     <tr class="topo_tabela topo_tabela2">
                                                         <th class="titulo">PEq2 =</th>
                                                         <th class="titulo">
-                                                            <span class="numerador2">1010</span><br>
-                                                            <span class="denominador2">60,3%</span>
+                                                            <span class="numerador2">1</span><br>
+                                                            <span class="denominador2">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res2">R$ 60.699,35</span></th>
+                                                        <th class="titulo">= <span class="res2">R$ 1,00</span></th>
                                                     </tr>
                                                     </thead>
                                                 </table>

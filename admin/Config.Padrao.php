@@ -23,7 +23,7 @@ define('CAMPO_PASS', 'ds_code');
 define('CAMPO_ID', 'co_usuario');
 define('CAMPO_PERFIL', 'ds_perfil');
 define('SESSION_USER', 'user_sol');
-define('INATIVO', '30');
+define('INATIVO', '180');
 define('BACKUP', '5');
 define('TAMANHO', '800');
 define('NUM_BG_IMAGENS', '20');

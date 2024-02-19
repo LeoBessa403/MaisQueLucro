@@ -69,7 +69,7 @@ if (defined('TEM_SITE') == false) {
     // Atribui o nome da Sessão do usuario Logado no sitema
     define('SESSION_USER', 'user_sistema_novinho');
     // Tempo de Inativadade Máximo em Minutos, aceito para deslogar do Sistema.
-    define('INATIVO', 30);
+    define('INATIVO', 180);
     // A frequencia em dias para realizar o BACKUP NO BANCO DE DADOS
     define('BACKUP', 5);
     // TAMANHO PADRÃO DO WIDTH DAS IAMGENS A SEREM CARREGADAS
