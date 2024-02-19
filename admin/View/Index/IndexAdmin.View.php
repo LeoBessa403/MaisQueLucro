@@ -1,11 +1,4 @@
 <style>
-    #perc_lucro {
-        width: 20%;
-        display: inline-block;
-        font-size: 2em;
-        padding: 8px 5px;
-        margin-top: 10px;
-    }
 
     #pricing_table_example2 .pricing-table {
         width: 100%;
@@ -20,24 +13,10 @@
         border-top-right-radius: 10px;
     }
 
-    .simbol_perc {
-        width: 7%;
-        display: inline-block;
-        padding: 3px 3px 0;
-        background-color: lightgray;
-        font-size: 1.4em;
-        font-weight: bolder;
-        border: 1px solid #D5D5D5;
-        border-radius: 0 0 0 0 !important;
-        font-family: inherit;
-        transition-duration: 0.1s;
-        box-shadow: none;
-        margin-left: -4px;
-    }
-
     #calcular_pel {
         padding: 7px 20px;
-        margin-top: -7px;
+        margin-top: -35px;
+        float: right;
     }
 
     #pricing_table_example2 .pricing-table h1 {
@@ -71,6 +50,31 @@
         font-size: 1.5em !important;
         font-style: unset !important;
     }
+
+    .input-group_perc{
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .input-group{
+        width: 50%;
+    }
+
+    .input-group-addon{
+        font-weight: 900;
+        padding: 0 10px;
+        font-size: 1.2em;
+    }
+
+    .input-group_perc #perc_lucro{
+        width: 100%;
+        display: inline-block;
+        font-size: 2em;
+        padding: 18px 5px;
+    }
+
 </style>
 
 <div class="main-content">
@@ -96,10 +100,14 @@
                                 <h2 style="background-color: green;">Lucrativo</h2>
                             </div>
                             <h1><sup>R$</sup><span id="ponto_equil_luc">0,00</span></h1>
-                            <input type="text" class="form-control input-sm porc-int" placeholder="% de Lucro"
-                                   name="perc_lucro" id="perc_lucro" value="10"/>
-                            <span class="simbol_perc">%</span>
-                            <a href="#" class="btn btn-green" id="calcular_pel">Calcular</a>
+                            <div class="input-group_perc">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm porc-int" placeholder="% de Lucro"
+                                           name="perc_lucro" id="perc_lucro" value="10"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                                <a href="#" class="btn btn-green" id="calcular_pel">Calcular</a>
+                            </div>
                             <input type="hidden" name="despFix" id="despFix" value="<?= $dados['despFix']; ?>"/>
                             <input type="hidden" name="mcPerc" id="mcPerc" value="<?= $dados['mcPerc']; ?>"/>
                         </div>
@@ -125,7 +133,7 @@
                                         Valida::FormataMoeda($dados['RecPag']['rec_atraso'], 'R$'); ?></a></td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/2'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['pag_atraso'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['pag_atraso'], 'R$'); ?></a></td>
                                 <td><?= Valida::FormataMoeda($dados['RecPag']['rec_atraso'] -
                                         $dados['RecPag']['pag_atraso'], 'R$'); ?></td>
                             </tr>
@@ -133,10 +141,10 @@
                                 <td class="titulo">No Mês</td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/3'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['rec_mes'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['rec_mes'], 'R$'); ?></a></td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/4'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['pag_mes'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['pag_mes'], 'R$'); ?></a></td>
                                 <td><?= Valida::FormataMoeda($dados['RecPag']['rec_mes'] -
                                         $dados['RecPag']['pag_mes'], 'R$'); ?></td>
                             </tr>
@@ -144,10 +152,10 @@
                                 <td class="titulo">De Hoje</td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/5'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['rec_hoje'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['rec_hoje'], 'R$'); ?></a></td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/6'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['pag_hoje'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['pag_hoje'], 'R$'); ?></a></td>
                                 <td><?= Valida::FormataMoeda($dados['RecPag']['rec_hoje'] -
                                         $dados['RecPag']['pag_hoje'], 'R$'); ?></td>
                             </tr>
@@ -155,10 +163,10 @@
                                 <td class="titulo">Futuro</td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/7'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['rec_futuro'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['rec_futuro'], 'R$'); ?></a></td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/8'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['pag_futuro'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['pag_futuro'], 'R$'); ?></a></td>
                                 <td><?= Valida::FormataMoeda($dados['RecPag']['rec_futuro'] -
                                         $dados['RecPag']['pag_futuro'], 'R$'); ?></td>
                             </tr>
@@ -166,10 +174,10 @@
                                 <td class="titulo">Total</td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/9'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['rec_total'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['rec_total'], 'R$'); ?></a></td>
                                 <td><a href="<?= HOME . ADMIN ?>/Fluxocaixa/Lancamento/<?=
                                     Valida::GeraParametro('pesquisa/10'); ?>"><?=
-                                    Valida::FormataMoeda($dados['RecPag']['pag_total'], 'R$'); ?></a></td>
+                                        Valida::FormataMoeda($dados['RecPag']['pag_total'], 'R$'); ?></a></td>
                                 <td><?= Valida::FormataMoeda($dados['RecPag']['rec_total'] -
                                         $dados['RecPag']['pag_total'], 'R$'); ?></td>
                             </tr>
