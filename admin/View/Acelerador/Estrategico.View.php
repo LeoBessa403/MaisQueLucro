@@ -15,13 +15,13 @@
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
-                                            <h3>DADOS INICIAIS</h3>
+                                            <h3>CALCULO DO PONTO DE EQUILIBRIO OPERACIONAL</h3>
                                             <div class="pricing-table col-sm-12 col-xs-12">
                                                 <table class="table-striped table-bordered table-hover table-full-width"
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela topo_tabela2">
-                                                        <th class="titulo">CALCULO DO PONTO DE EQUILIBRIO OPERACIONAL</th>
+                                                        <th class="titulo">DADOS INICIAIS</th>
                                                         <th class="titulo">Cenário Atual</th>
                                                         <th class="titulo">Cenário Simulado</th>
                                                     </tr>
