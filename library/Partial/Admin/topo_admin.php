@@ -43,6 +43,9 @@ $user = $us->getUser();
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/css_padrao.min.css?v=<?= filemtime(
             INCLUDES_LIBRARY ."css/css_padrao.min.css"); ?>">
 
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/padrao_responsivo.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/padrao_responsivo.css"); ?>">
+
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico?v=<?= filemtime(
         PASTA_RAIZ ."favicon.ico"); ?>"/>
@@ -52,6 +55,8 @@ $user = $us->getUser();
 
     <script src="<?= PASTA_LIBRARY; ?>fonts/fontawesome_min.js?v=<?= filemtime(
         INCLUDES_LIBRARY ."fonts/fontawesome_min.js"); ?>" crossorigin="anonymous"></script>
+
+
 </head>
 <!-- end: HEAD -->
 <!-- start: BODY -->

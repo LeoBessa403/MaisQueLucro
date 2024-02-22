@@ -86,7 +86,7 @@
                 if (AssinanteService::getCoAssinanteLogado()) {
                 ?>
                 <div id="pricing_table_example2" class="row">
-                    <div class="col-sm-4">
+                    <div class="col-md-4">
                         <h3>Ponto de Equilíbrio</h3>
                         <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">

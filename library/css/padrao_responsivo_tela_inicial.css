@@ -1,0 +1,42 @@
+@media (max-width: 1500px) {
+    .main-login {
+        width: 44%;
+        margin-left: 28%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .main-login {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 700px) {
+    .main-login {
+        width: 76%;
+        margin-left: 12%;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-login {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .box-login {
+        padding: 12px !important;
+    }
+
+    .box-login h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-login {
+        width: 100%;
+        margin-left: 0;
+    }
+}

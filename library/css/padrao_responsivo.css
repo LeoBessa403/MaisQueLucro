@@ -1,0 +1,36 @@
+@media (max-width: 1300px) {
+    .input-group_perc #perc_lucro{
+        font-size: 1.8em !important;
+        padding: 15px 5px !important;
+    }
+
+    #calcular_pel{
+        padding: 6px 20px !important;
+        margin-top: -32px !important;
+        margin-left: 15px;
+    }
+
+    .input-group_perc{
+        width: 70% !important;
+        margin-left: 15% !important;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .input-group_perc{
+        width: 84% !important;
+        margin-left: 8% !important;
+    }
+
+    #pricing_table_example2 .pricing-table{
+        width: 49% !important;
+        min-height: 205px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #pricing_table_example2 .pricing-table h1{
+        font-size: 1.5em !important;
+    }
+}

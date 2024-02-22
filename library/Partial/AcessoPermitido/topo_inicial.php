@@ -70,6 +70,9 @@ if ($url::$controller . '/' . $url::$action != 'Index/Acessar') {
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
     <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css?v=<?= filemtime(
         INCLUDES_LIBRARY ."Helpers/includes/Jcalendar.css"); ?>">
+    <!-- start: CSS RESPONSIVO -->
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/padrao_responsivo_tela_inicial.css?v=<?= filemtime(
+        INCLUDES_LIBRARY ."css/padrao_responsivo_tela_inicial.css"); ?>">
 
     <style>
         .coverimg {
