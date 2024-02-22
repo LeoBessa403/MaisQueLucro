@@ -30,7 +30,45 @@
 }
 
 @media (max-width: 767px) {
-    #pricing_table_example2 .pricing-table h1{
-        font-size: 1.5em !important;
+    #pricing_table_example2 .pricing-table h1 span{
+        font-size: 0.8em !important;
     }
+}
+
+@media (max-width: 600px) {
+    #pricing_table_example2 .pricing-table h1 span{
+        font-size: 0.7em !important;
+    }
+
+    .container .col-md-12{
+        padding-right: 0!important;
+    }
+}
+
+@media (max-width: 500px) {
+    #pricing_table_example2 .pricing-table h1 span{
+        font-size: 0.6em !important;
+    }
+    #pricing_table_example2 .pricing-table h1 sub{
+        font-size: 0.35em !important;
+    }
+    .input-group_perc{
+        width: 94% !important;
+        margin-left: 4% !important;
+    }
+
+    #calcular_pel{
+        padding: 6px 8px !important;
+        margin-left: 15px;
+    }
+
+    .input-group_perc #perc_lucro{
+        font-size: 1.6em !important;
+        padding: 15px 3px !important;
+    }
+
+    .input-group-addon{
+        padding: 0 6px !important;
+    }
+
 }
