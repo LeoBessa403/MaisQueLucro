@@ -13,9 +13,9 @@ $(function () {
             var cf1 = valorFloat($('.res1').text());
             var cf2 = valorFloat($('.res2').text());
 
-            if(rec1 == '0')
+            if (rec1 == '0')
                 rec1 = 1;
-            if(rec2 == '0')
+            if (rec2 == '0')
                 rec2 = 1;
 
             var data5 = google.visualization.arrayToDataTable([['', 'FATURAMENTO',
@@ -47,9 +47,9 @@ $(function () {
             var cf1 = valorFloat($('.res3').text());
             var cf2 = valorFloat($('.res4').text());
 
-            if(rec1 == '0')
+            if (rec1 == '0')
                 rec1 = 1;
-            if(rec2 == '0')
+            if (rec2 == '0')
                 rec2 = 1;
 
             var data2 = google.visualization.arrayToDataTable([['', 'FATURAMENTO',
@@ -77,15 +77,9 @@ $(function () {
 
 
         $('.receita').blur(function () {
-            var CENARIO = $(this).attr('alt');
-            var receita = valorFloat($(this).val());
-
             atualGrafPE();
         });
         $('.receita2').blur(function () {
-            var CENARIO2 = $(this).attr('alt');
-            var receita2 = valorFloat($(this).val());
-
             atualGrafPE2();
         });
 
@@ -99,9 +93,16 @@ $(function () {
             /// SIMULADOR DE GASTO
             $('.denominador5').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
-            var peo = converteReal(parseFloat((cf / mc) * 100));
-            $('.res' + cenario).text(peo);
+            var peo = parseFloat((cf / mc) * 100);
+            $('.res' + cenario).text(converteReal(peo));
             atualGrafPE();
+
+            if (cenario == 1) {
+                $('#fmg1').text(converteReal(parseFloat((1 / mc) * 100)));
+                var rec1 = valorFloat($('#valor_rec_base').val());
+                var gcr = parseFloat((peo / rec1) * 100).toFixed(2) + '%';
+                $('#gcr1').text(gcr);
+            }
         }
 
         function calculaMC2(cenario) {
@@ -114,9 +115,16 @@ $(function () {
             /// SIMULADOR DE GASTO
             $('.denominador6').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
-            var peo = converteReal(parseFloat((cf / mc) * 100));
-            $('.res' + cenario).text(peo);
+            var peo = parseFloat((cf / mc) * 100);
+            $('.res' + cenario).text(converteReal(peo));
             atualGrafPE2();
+
+            if (cenario == 3) {
+                $('#fmg2').text(converteReal(parseFloat((1 / mc) * 100)));
+                var rec2 = valorFloat($('#valor_rec_base').val());
+                var gcr = parseFloat((peo / rec2) * 100).toFixed(2) + '%';
+                $('#gcr2').text(gcr);
+            }
         }
 
         $('.porc1').blur(function () {
@@ -176,7 +184,7 @@ $(function () {
             calculaPEGasto(CENARIO);
         });
 
-        function calculaPEGasto(CENARIO){
+        function calculaPEGasto(CENARIO) {
             var tipo = '';
             var gasto = valorFloat($('#valor_gas_' + CENARIO + '_gasto').val());
 

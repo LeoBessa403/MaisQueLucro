@@ -4,7 +4,7 @@
     <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-12">
-                <div id="pricing_table_example2" class="row">
+                <div id="pricing_table_example2" class="row"style="padding-bottom: 20px">
                     <div class="col-sm-12">
                         <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">
@@ -225,7 +225,9 @@
                                                             <span class="numerador2">1</span><br>
                                                             <span class="denominador2">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res2">R$ 1,00</span></th>
+                                                        <th class="titulo">= <span class="res2">
+                                                                <span class="separador3">META DE VENDAS OPERACIONAL</span>
+                                                            <br>R$ 1,00</span></th>
                                                     </tr>
                                                     </thead>
                                                 </table>
@@ -468,7 +470,10 @@
                                                             <span class="numerador4">1</span><br>
                                                             <span class="denominador4">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res4">R$ 1,00</span></th>
+                                                        <th class="titulo">=
+                                                            <span class="separador3">META DE VENDAS LUCRATIVA</span>
+                                                            <br><span class="res4">R$ 1,00</span>
+                                                        </th>
                                                     </tr>
                                                     </thead>
                                                 </table>
@@ -491,13 +496,14 @@
                                                     <thead>
                                                     <tr class="topo_tabela topo_tabela2">
                                                         <th class="titulo">DADOS INICIAIS</th>
-                                                        <th class="titulo">Cenário OPERACIONAL</th>
-                                                        <th class="titulo">Cenário LUCRATIVO</th>
+                                                        <th class="titulo">Cenário OPERACIONAL Atual</th>
+                                                        <th class="titulo">Cenário LUCRATIVO Atual</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd separador">
-                                                        <td class="titulo" colspan="3">Estimativa de Gasto Específico Mensal
+                                                        <td class="titulo" colspan="3">Estimativa de Gasto Específico
+                                                            Mensal
                                                         </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd separador2">
@@ -512,6 +518,16 @@
                                                                    id="valor_gas_simu_gasto"
                                                                    class="moeda gasto" alt="simu" value="0">
                                                         </td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -544,11 +560,52 @@
                                                             <span class="numerador6">1</span><br>
                                                             <span class="denominador6">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res6">R$ 1,00</span></th>
+                                                        <th class="titulo">= <span class="res6">
+                                                                <span class="separador3">META DE VENDAS GASTO</span>
+                                                            <br>R$ 1,00</span></th>
                                                     </tr>
                                                     </thead>
                                                 </table>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div id="pricing_table_example2" class="row">
+                                    <div class="col-sm-12">
+                                        <h3>FATORES ESTRATÉGICOS</h3>
+                                        <div class="pricing-table col-sm-12 col-xs-12">
+                                            <table class="table-striped table-bordered table-hover table-full-width"
+                                                   id="pagRecebi" style="width: 100%">
+                                                <thead>
+                                                <tr class="topo_tabela topo_tabela2">
+                                                    <th colspan="2" class="titulo">FATOR MULTIPLICADOR DE GASTOS (FMG)
+                                                    </th>
+                                                    <th colspan="2" class="titulo">GRAU DO COMPROMETIMENTO DA RECEITA
+                                                        (GCR)
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="linha-tabela odd separador">
+                                                    <td class="titulo">OPERACIONAL Atual</td>
+                                                    <td class="titulo">LUCRATIVO Atual</td>
+                                                    <td class="titulo">OPERACIONAL Atual</td>
+                                                    <td class="titulo">LUCRATIVO Atual</td>
+                                                </tr>
+                                                <tr class="linha-tabela odd separador4">
+                                                    <td style="text-align: center;" class="titulo"
+                                                    id="fmg1">R$ 1,00</td>
+                                                    <td class="titulo" id="fmg2">R$ 1,00</td>
+                                                    <td class="titulo" id="gcr1">R$ 1,00</td>
+                                                    <td class="titulo" id="gcr2">R$ 1,00</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+
                                         </div>
                                     </div>
                                 </div>

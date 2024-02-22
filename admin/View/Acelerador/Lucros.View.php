@@ -32,6 +32,16 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
                                                         <td class="titulo">Receita / Faturamento</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_rec_base" id="valor_rec_base"
@@ -80,6 +90,16 @@
                                                         <td class="titulo">
                                                             <span id="valor_lo_base_perc">0%</span>
                                                         </td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
                                                     </tr>
 
                                                     </tbody>
@@ -517,6 +537,11 @@
                                                         <td class="titulo"></td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
                                                         <td class="titulo">Alteração na Receita</td>
                                                         <td class="titulo">
                                                             <input type="text" name="valor_difvenda"
@@ -559,6 +584,16 @@
                                                         <td class="titulo">
                                                             <span id="valor_difcustFix_perc">0%</span>
                                                         </td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd">
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
+                                                        <td class="titulo"></td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
                                                         <td class="titulo"></td>

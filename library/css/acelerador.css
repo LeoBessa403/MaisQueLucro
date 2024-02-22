@@ -150,8 +150,21 @@
 .separador2 td{
     background-color: darkcyan;
 }
+.separador3{
+    background-color: yellow;
+    padding: 5px 10px;
+}
+.separador4{
+    background-color: lightblue;
+    font-weight: bolder;
+}
+
 
 .numerador1, .numerador2, .numerador3, .numerador4, .numerador5, .numerador6{
     border-bottom: 1px solid black;
     padding: 0 30px;
+}
+
+#pricing_table_example2 .pricing-table{
+    padding-bottom: 3px !important;
 }
