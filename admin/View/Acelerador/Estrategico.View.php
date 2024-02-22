@@ -4,7 +4,7 @@
     <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-12">
-                <div id="pricing_table_example2" class="row"style="padding-bottom: 20px">
+                <div id="pricing_table_example2" class="row" style="padding-bottom: 20px">
                     <div class="col-sm-12">
                         <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">
@@ -225,9 +225,9 @@
                                                             <span class="numerador2">1</span><br>
                                                             <span class="denominador2">100%</span>
                                                         </th>
-                                                        <th class="titulo">= <span class="res2">
-                                                                <span class="separador3">META DE VENDAS OPERACIONAL</span>
-                                                            <br>R$ 1,00</span></th>
+                                                        <th class="titulo">=
+                                                            <span class="separador3">META DE VENDAS OPERACIONAL</span>
+                                                            <br><span class="res2">R$ 1,00</span></th>
                                                     </tr>
                                                     </thead>
                                                 </table>
@@ -597,7 +597,8 @@
                                                 </tr>
                                                 <tr class="linha-tabela odd separador4">
                                                     <td style="text-align: center;" class="titulo"
-                                                    id="fmg1">R$ 1,00</td>
+                                                        id="fmg1">R$ 1,00
+                                                    </td>
                                                     <td class="titulo" id="fmg2">R$ 1,00</td>
                                                     <td class="titulo" id="gcr1">R$ 1,00</td>
                                                     <td class="titulo" id="gcr2">R$ 1,00</td>
