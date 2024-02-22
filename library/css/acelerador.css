@@ -136,16 +136,22 @@
     font-size: 1.1em;
 }
 
-.separador td{
+.separador td, .separador2 td{
     font-size: 1.4em !important;
     font-weight: bolder;
     padding: 5px 3px;
-    background-color: darkseagreen;
     color: white;
     text-align: center !important;
 }
 
-.numerador1, .numerador2{
+.separador td{
+    background-color: darkseagreen;
+}
+.separador2 td{
+    background-color: darkcyan;
+}
+
+.numerador1, .numerador2, .numerador3, .numerador4{
     border-bottom: 1px solid black;
     padding: 0 30px;
 }

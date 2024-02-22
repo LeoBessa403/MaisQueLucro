@@ -1,6 +1,7 @@
 $(function () {
 
         var divGraf1 = document.getElementById('graf1');
+        var divGraf2 = document.getElementById('graf2');
 
         // Carrega Grafico PONTO EQUILIBRIO
         google.charts.load('current', {packages: ['corechart']});
@@ -36,6 +37,40 @@ $(function () {
             chart5.draw(data5, options5);
         }
 
+        // Carrega Grafico PONTO EQUILIBRIO
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(atualGrafPE2);
+
+        function atualGrafPE2() {
+            var rec1 = valorFloat($('#valor_rec_base_lucro').val());
+            var rec2 = valorFloat($('#valor_rec_simu_lucro').val());
+            var cf1 = valorFloat($('.res3').text());
+            var cf2 = valorFloat($('.res4').text());
+
+            if(rec1 == '0')
+                rec1 = 1;
+            if(rec2 == '0')
+                rec2 = 1;
+
+            var data2 = google.visualization.arrayToDataTable([['', 'FATURAMENTO',
+                {role: 'annotation'}, {role: 'style'}, 'P.Eq.',
+                {role: 'annotation'}, {role: 'style'}],
+                ['CENÁRIO ATUAL', rec1, converteReal(rec1), 'color: darkgreen',
+                    cf1, converteReal(cf1), 'color: darkblue'],
+                ['CENÁRIO SIMULADO', rec2, converteReal(rec2), 'color: green',
+                    cf2, converteReal(cf2), 'color: blue']]);
+            var options2 = {
+                title: '',
+                width: $('#graf2').width(),
+                height: $('#graf2').height(),
+                titleTextStyle: {color: 'gray', fontSize: 20},
+                legend: {position: 'none', maxLines: 3, textStyle: {fontSize: 10}},
+            };
+
+            var chart2 = new google.visualization.ColumnChart(divGraf2);
+            chart2.draw(data2, options2);
+        }
+
         $('.navigation-toggler').click(function () {
             $(this).hide();
         }).click();
@@ -46,6 +81,12 @@ $(function () {
             var receita = valorFloat($(this).val());
 
             atualGrafPE();
+        });
+        $('.receita2').blur(function () {
+            var CENARIO2 = $(this).attr('alt');
+            var receita2 = valorFloat($(this).val());
+
+            atualGrafPE2();
         });
 
         function calculaMC(cenario) {
@@ -61,12 +102,33 @@ $(function () {
             atualGrafPE();
         }
 
+        function calculaMC2(cenario) {
+            var total = 0;
+            $('.porc' + cenario).each(function () {
+                total += valorFloat($(this).val());
+            });
+            var mc = (100 - total).toFixed(2);
+            $('.denominador' + cenario).text(mc + "%");
+            var cf = valorFloat($('.numerador' + cenario).text());
+            var peo = converteReal(parseFloat((cf / mc) * 100));
+            $('.res' + cenario).text(peo);
+            atualGrafPE2();
+        }
+
         $('.porc1').blur(function () {
             calculaMC(1);
         });
 
         $('.porc2').blur(function () {
             calculaMC(2);
+        });
+
+        $('.porc3').blur(function () {
+            calculaMC2(3);
+        });
+
+        $('.porc4').blur(function () {
+            calculaMC2(4);
         });
 
         $('.despInd, .pro').blur(function () {
@@ -84,6 +146,23 @@ $(function () {
 
             $('.numerador' + tipo).text(total);
             calculaMC(tipo);
+        });
+
+        $('.despInd2, .pro2').blur(function () {
+            var tipo = '';
+            var CENARIO = $(this).attr('alt');
+            var cf = valorFloat($('#valor_des_' + CENARIO + '_lucro').val());
+            var pro = valorFloat($('#valor_pro_' + CENARIO + '_lucro').val());
+
+            if (CENARIO == 'base') {
+                tipo = 3;
+            } else {
+                tipo = 4;
+            }
+            var total = formatReal(parseFloat(cf + pro));
+
+            $('.numerador' + tipo).text(total);
+            calculaMC2(tipo);
         });
 
         function valorFloat(vlrCampo) {
