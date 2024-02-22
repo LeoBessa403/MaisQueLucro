@@ -96,6 +96,8 @@ $(function () {
             });
             var mc = (100 - total).toFixed(2);
             $('.denominador' + cenario).text(mc + "%");
+            /// SIMULADOR DE GASTO
+            $('.denominador5').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
             var peo = converteReal(parseFloat((cf / mc) * 100));
             $('.res' + cenario).text(peo);
@@ -109,6 +111,8 @@ $(function () {
             });
             var mc = (100 - total).toFixed(2);
             $('.denominador' + cenario).text(mc + "%");
+            /// SIMULADOR DE GASTO
+            $('.denominador6').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
             var peo = converteReal(parseFloat((cf / mc) * 100));
             $('.res' + cenario).text(peo);
@@ -117,6 +121,7 @@ $(function () {
 
         $('.porc1').blur(function () {
             calculaMC(1);
+            calculaPEGasto('base');
         });
 
         $('.porc2').blur(function () {
@@ -125,6 +130,7 @@ $(function () {
 
         $('.porc3').blur(function () {
             calculaMC2(3);
+            calculaPEGasto('simu');
         });
 
         $('.porc4').blur(function () {
@@ -164,6 +170,29 @@ $(function () {
             $('.numerador' + tipo).text(total);
             calculaMC2(tipo);
         });
+
+        $('.gasto').blur(function () {
+            var CENARIO = $(this).attr('alt');
+            calculaPEGasto(CENARIO);
+        });
+
+        function calculaPEGasto(CENARIO){
+            var tipo = '';
+            var gasto = valorFloat($('#valor_gas_' + CENARIO + '_gasto').val());
+
+            if (CENARIO == 'base') {
+                tipo = 5;
+            } else {
+                tipo = 6;
+            }
+            var total = formatReal(parseFloat(gasto));
+
+            $('.numerador' + tipo).text(total);
+
+            var mc = valorFloat($('.denominador' + tipo).text());
+            var peo = converteReal(parseFloat((gasto / mc)) * 10000);
+            $('.res' + tipo).text(peo);
+        }
 
         function valorFloat(vlrCampo) {
             return parseFloat(vlrCampo

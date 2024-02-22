@@ -206,7 +206,7 @@
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
-                                            <h3>RESULTADO INICIAL</h3>
+                                            <h3>RESULTADO OPERACIONAL</h3>
                                             <div class="pricing-table col-sm-12 col-xs-12">
                                                 <table class="table-striped table-bordered table-hover table-full-width"
                                                        id="pagRecebi" style="width: 100%">
@@ -449,7 +449,7 @@
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
-                                            <h3>RESULTADO INICIAL</h3>
+                                            <h3>RESULTADO LUCRATIVO</h3>
                                             <div class="pricing-table col-sm-12 col-xs-12">
                                                 <table class="table-striped table-bordered table-hover table-full-width"
                                                        id="pagRecebi" style="width: 100%">
@@ -474,6 +474,80 @@
                                                 </table>
                                             </div>
                                             <div id="graf2" class="graf pricing-table col-sm-12 col-xs-12">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div id="pricing_table_example2" class="row">
+                                        <div class="col-sm-12">
+                                            <h3>CALCULO DE META DE VENDAS PARA GASTO</h3>
+                                            <div class="pricing-table col-sm-12 col-xs-12">
+                                                <table class="table-striped table-bordered table-hover table-full-width"
+                                                       id="pagRecebi" style="width: 100%">
+                                                    <thead>
+                                                    <tr class="topo_tabela topo_tabela2">
+                                                        <th class="titulo">DADOS INICIAIS</th>
+                                                        <th class="titulo">Cenário OPERACIONAL</th>
+                                                        <th class="titulo">Cenário LUCRATIVO</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="linha-tabela odd separador">
+                                                        <td class="titulo" colspan="3">Estimativa de Gasto Específico Mensal
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="linha-tabela odd separador2">
+                                                        <td class="titulo">Gasto Específico</td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_gas_base_gasto"
+                                                                   id="valor_gas_base_gasto"
+                                                                   class="moeda gasto" alt="base" value="0">
+                                                        </td>
+                                                        <td class="titulo">
+                                                            <input type="text" name="valor_gas_simu_gasto"
+                                                                   id="valor_gas_simu_gasto"
+                                                                   class="moeda gasto" alt="simu" value="0">
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div id="pricing_table_example2" class="row">
+                                        <div class="col-sm-12">
+                                            <h3>RESULTADO LUCRATIVO</h3>
+                                            <div class="pricing-table col-sm-12 col-xs-12">
+                                                <table class="table-striped table-bordered table-hover table-full-width"
+                                                       id="pagRecebi" style="width: 100%">
+                                                    <thead>
+                                                    <tr class="topo_tabela topo_tabela2">
+                                                        <th class="titulo">PEqOp =</th>
+                                                        <th class="titulo">
+                                                            <span class="numerador5">1</span><br>
+                                                            <span class="denominador5">100%</span>
+                                                        </th>
+                                                        <th class="titulo">= <span class="res5">R$ 1,00</span></th>
+                                                    </tr>
+                                                    <tr class="topo_tabela topo_tabela2">
+                                                        <th class="titulo">PEqLuc =</th>
+                                                        <th class="titulo">
+                                                            <span class="numerador6">1</span><br>
+                                                            <span class="denominador6">100%</span>
+                                                        </th>
+                                                        <th class="titulo">= <span class="res6">R$ 1,00</span></th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
