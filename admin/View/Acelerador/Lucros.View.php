@@ -4,7 +4,7 @@
     <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-12">
-                <div id="pricing_table_example2" class="row">
+                <div id="pricing_table_example2" class="row acelerador">
                     <div class="col-sm-12">
                         <h3>Simulador 1</h3>
                         <div class="pricing-table col-sm-12 col-xs-12">
@@ -133,9 +133,8 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR
-                                                            MINHA
-                                                            QUANTIDADE VENDIDA EM X%?
+                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE ALTERAR
+                                                            MINHA QUANTIDADE VENDIDA EM X%?
                                                         </th>
                                                         <th class="titulo">
                                                             <span class="iMenos control_perc" id="iMenos_venda">-</span>
@@ -228,7 +227,7 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR MEU
+                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE ALTERAR MEU
                                                             PREÇO MÉDIO EM X%?
                                                         </th>
                                                         <th class="titulo">
@@ -325,7 +324,7 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR MEU
+                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE ALTERAR MEU
                                                             CUSTO VARIÁVEL EM X%?
                                                         </th>
                                                         <th class="titulo">
@@ -424,7 +423,7 @@
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela">
-                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE EU ALTERAR O
+                                                        <th class="titulo" colspan="2">O QUE ACONTECE SE ALTERAR O
                                                             GASTO FIXO EM X%?
                                                         </th>
                                                         <th class="titulo">

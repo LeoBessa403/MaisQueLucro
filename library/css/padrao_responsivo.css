@@ -1,74 +1,164 @@
+@media (max-width: 1500px) {
+    .topo_tabela th:nth-child(1){
+        font-size: 1.2em !important;
+    }
+}
+
 @media (max-width: 1300px) {
-    .input-group_perc #perc_lucro{
+    .input-group_perc #perc_lucro {
         font-size: 1.8em !important;
         padding: 15px 5px !important;
     }
 
-    #calcular_pel{
+    .topo_tabela th:nth-child(1){
+        font-size: 1em !important;
+    }
+
+    #calcular_pel {
         padding: 6px 20px !important;
         margin-top: -32px !important;
         margin-left: 15px;
     }
 
-    .input-group_perc{
+    .input-group_perc {
         width: 70% !important;
         margin-left: 15% !important;
+    }
+
+    .topo_tabela{
+        height: 150px;
+        font-size: 1.3em !important;
+    }
+
+    #pricing_table_example2 .pricing-table{
+        padding-right: 0!important;
+    }
+
+
+}
+
+@media (max-width: 1200px) {
+    #pricing_table_example2 .pricing-table ul, #pricing_table_example2 .pricing-table ul ul{
+        font-size: 16px !important;
+    }
+
+    .pricing-table .col-md-12 .col-md-6{
+        padding: 0 !important;
+    }
+
+    .acelerador h3{
+        font-size: 20px;
     }
 }
 
 @media (max-width: 1000px) {
-
-    .input-group_perc{
+    .pricing-table{
+        width: 100% !important;
+    }
+    .input-group_perc {
         width: 84% !important;
         margin-left: 8% !important;
     }
 
-    #pricing_table_example2 .pricing-table{
+    .peop .pricing-table {
         width: 49% !important;
         min-height: 205px !important;
+    }
+
+    .acelerador .pricing-table{
+        width: 100% !important;
     }
 }
 
 @media (max-width: 767px) {
-    #pricing_table_example2 .pricing-table h1 span{
+    #pricing_table_example2 .pricing-table h1 span {
         font-size: 0.8em !important;
+    }
+
+    .navbar-header {
+        background: rgba(35, 35, 35, .9);
+    }
+
+    ul.main-navigation-menu {
+        margin-top: 30px;
+    }
+
+    .acelerador .col-sm-12{
+        padding-right: 0 !important;
+    }
+
+    .peop .col-md-12, .peop .col-sm-12, .peop .col-md-6, .peop .col-sm-6 {
+        padding-right: 0 !important;
     }
 }
 
 @media (max-width: 600px) {
-    #pricing_table_example2 .pricing-table h1 span{
+    #pricing_table_example2 .pricing-table h1 span {
         font-size: 0.7em !important;
-    }
-
-    .container .col-md-12{
-        padding-right: 0!important;
     }
 }
 
 @media (max-width: 500px) {
-    #pricing_table_example2 .pricing-table h1 span{
+    #pricing_table_example2 .pricing-table h1 span {
         font-size: 0.6em !important;
     }
-    #pricing_table_example2 .pricing-table h1 sub{
+
+    .acelerador th:nth-child(1){
+        padding: 10px 4px;
+        font-size: 0.9em !important;
+    }
+
+    #pricing_table_example2 .pricing-table h1 sub {
         font-size: 0.35em !important;
     }
-    .input-group_perc{
+
+    .input-group_perc {
         width: 94% !important;
         margin-left: 4% !important;
     }
 
-    #calcular_pel{
+    #calcular_pel {
         padding: 6px 8px !important;
         margin-left: 15px;
     }
 
-    .input-group_perc #perc_lucro{
+    .input-group_perc #perc_lucro {
         font-size: 1.6em !important;
         padding: 15px 3px !important;
     }
 
-    .input-group-addon{
+    .input-group-addon {
         padding: 0 6px !important;
+    }
+
+    .pricing-table h2 {
+        font-size: 1.8em !important;
+    }
+
+    .moeda{
+        width: 90px !important;
+        font-size: 13px !important;
+    }
+
+    .acelerador th:nth-child(2){
+        width: 120px !important;
+    }
+
+    .acelerador .valor_perc{
+        width: 50% !important;
+    }
+
+    .acelerador .control_perc{
+        width: 25% !important;
+    }
+
+    .linha-tabela td:first-child{
+        font-size: 1.2em !important;
+    }
+
+    .acelerador .pricing-table .col-md-12{
+        padding-right: 22px !important;
+        padding-left: 8px !important;
     }
 
 }
