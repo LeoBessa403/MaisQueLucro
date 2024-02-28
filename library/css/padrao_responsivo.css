@@ -1,6 +1,10 @@
 @media (max-width: 1500px) {
-    .topo_tabela th:nth-child(1){
+    .topo_tabela th:nth-child(1) {
         font-size: 1.2em !important;
+    }
+
+    .estrategico .separador3 {
+        font-size: .9em !important;
     }
 }
 
@@ -10,7 +14,7 @@
         padding: 15px 5px !important;
     }
 
-    .topo_tabela th:nth-child(1){
+    .topo_tabela th:nth-child(1) {
         font-size: 1em !important;
     }
 
@@ -25,36 +29,51 @@
         margin-left: 15% !important;
     }
 
-    .topo_tabela{
+    .topo_tabela {
         height: 150px;
         font-size: 1.3em !important;
     }
 
-    #pricing_table_example2 .pricing-table{
-        padding-right: 0!important;
+    #pricing_table_example2 .pricing-table {
+        padding-right: 0 !important;
     }
 
-
-}
-
-@media (max-width: 1200px) {
-    #pricing_table_example2 .pricing-table ul, #pricing_table_example2 .pricing-table ul ul{
-        font-size: 16px !important;
+    .estrategico .separador3 {
+        font-size: .75em !important;
     }
 
-    .pricing-table .col-md-12 .col-md-6{
+    .estrategico .marcador1{
         padding: 0 !important;
     }
 
-    .acelerador h3{
+    .estrategico .marcador1 .col-md-6{
+        padding: 5px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    #pricing_table_example2 .pricing-table ul, #pricing_table_example2 .pricing-table ul ul {
+        font-size: 16px !important;
+    }
+
+    .pricing-table .col-md-12 .col-md-6 {
+        padding: 0 !important;
+    }
+
+    .acelerador h3 {
         font-size: 20px;
+    }
+
+    .estrategico .marcador1 .col-md-6{
+        padding: 0 !important;
     }
 }
 
 @media (max-width: 1000px) {
-    .pricing-table{
+    .pricing-table {
         width: 100% !important;
     }
+
     .input-group_perc {
         width: 84% !important;
         margin-left: 8% !important;
@@ -65,7 +84,7 @@
         min-height: 205px !important;
     }
 
-    .acelerador .pricing-table{
+    .acelerador .pricing-table {
         width: 100% !important;
     }
 }
@@ -83,12 +102,24 @@
         margin-top: 30px;
     }
 
-    .acelerador .col-sm-12{
+    .acelerador .col-sm-12 {
         padding-right: 0 !important;
     }
 
     .peop .col-md-12, .peop .col-sm-12, .peop .col-md-6, .peop .col-sm-6 {
         padding-right: 0 !important;
+    }
+
+    .estrategico{
+        margin-right: -50px !important;
+    }
+
+    .estrategico .topo_tabela .titulo{
+        font-size: 1em !important;
+    }
+
+    .estrategico .pricing-table .final{
+        font-size: .8em !important;
     }
 }
 
@@ -103,7 +134,7 @@
         font-size: 0.6em !important;
     }
 
-    .acelerador th:nth-child(1){
+    .acelerador th:nth-child(1) {
         padding: 10px 4px;
         font-size: 0.9em !important;
     }
@@ -135,30 +166,49 @@
         font-size: 1.8em !important;
     }
 
-    .moeda{
+    .moeda {
         width: 90px !important;
         font-size: 13px !important;
     }
 
-    .acelerador th:nth-child(2){
+    .acelerador th:nth-child(2) {
         width: 120px !important;
     }
 
-    .acelerador .valor_perc{
+    .acelerador .valor_perc {
         width: 50% !important;
     }
 
-    .acelerador .control_perc{
+    .acelerador .control_perc {
         width: 25% !important;
     }
 
-    .linha-tabela td:first-child{
+    .linha-tabela td:first-child {
         font-size: 1.2em !important;
     }
 
-    .acelerador .pricing-table .col-md-12{
+    .acelerador .pricing-table .col-md-12 {
         padding-right: 22px !important;
         padding-left: 8px !important;
     }
 
+    .estrategico .topo_tabela .titulo{
+        font-size: .9em !important;
+    }
+
+    .estrategico .input-group-addon{
+        padding: 0 3px !important;
+        font-size: .9em !important;
+    }
 }
+
+@media (max-width: 400px) {
+    .estrategico .ultima .topo_tabela .titulo{
+        font-size: .8em !important;
+    }
+
+    .estrategico .ultima .final{
+        font-size: .7em !important;
+    }
+}
+

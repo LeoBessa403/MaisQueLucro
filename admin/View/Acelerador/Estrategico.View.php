@@ -4,14 +4,14 @@
     <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-12">
-                <div id="pricing_table_example2" class="row" style="padding-bottom: 20px">
+                <div id="pricing_table_example2" class="row estrategico" style="padding-bottom: 20px">
                     <div class="col-sm-12">
                         <div class="pricing-table col-sm-12 col-xs-12">
                             <div class="top">
                                 <h2 style="background-color: blue;">ACELERADOR ESTRATÉGICO</h2>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 marcador1">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
@@ -239,7 +239,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 marcador1">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
@@ -485,13 +485,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 marcador1">
                                 <div class="col-md-6">
                                     <div id="pricing_table_example2" class="row">
                                         <div class="col-sm-12">
                                             <h3>CALCULO DE META DE VENDAS PARA GASTO</h3>
                                             <div class="pricing-table col-sm-12 col-xs-12">
-                                                <table class="table-striped table-bordered table-hover table-full-width"
+                                                <table class="table-striped table-bordered table-hover table-full-width ultima"
                                                        id="pagRecebi" style="width: 100%">
                                                     <thead>
                                                     <tr class="topo_tabela topo_tabela2">
@@ -572,12 +572,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 marcador1">
                                 <div id="pricing_table_example2" class="row">
                                     <div class="col-sm-12">
                                         <h3>FATORES ESTRATÉGICOS</h3>
                                         <div class="pricing-table col-sm-12 col-xs-12">
-                                            <table class="table-striped table-bordered table-hover table-full-width"
+                                            <table class="table-striped table-bordered table-hover table-full-width ultima"
                                                    id="pagRecebi" style="width: 100%">
                                                 <thead>
                                                 <tr class="topo_tabela topo_tabela2">
@@ -589,7 +589,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="linha-tabela odd separador">
+                                                <tr class="linha-tabela odd separador final">
                                                     <td class="titulo">OPERACIONAL Atual</td>
                                                     <td class="titulo">LUCRATIVO Atual</td>
                                                     <td class="titulo">OPERACIONAL Atual</td>
