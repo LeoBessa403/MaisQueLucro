@@ -121,6 +121,14 @@
     .estrategico .pricing-table .final{
         font-size: .8em !important;
     }
+
+    .inicial {
+        margin-right: -30px !important;
+    }
+
+    .inicial .col-md-8,  .inicial .col-md-4 {
+        padding-right: 10px!important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -205,6 +213,14 @@
         width: 80%;
         margin-left: 10%;
     }
+
+    #pagRecebi td{
+        font-size: 1.5em !important;
+    }
+
+    .inicial .pricing-table .input-group_perc{
+        margin-bottom: 10px !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -214,6 +230,10 @@
 
     .estrategico .ultima .final{
         font-size: .7em !important;
+    }
+
+    #pagRecebi td{
+        font-size: 1.3em !important;
     }
 }
 

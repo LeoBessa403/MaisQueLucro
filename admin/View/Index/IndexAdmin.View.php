@@ -85,7 +85,7 @@
                 <?php
                 if (AssinanteService::getCoAssinanteLogado()) {
                 ?>
-                <div id="pricing_table_example2" class="row peop">
+                <div id="pricing_table_example2" class="row peop inicial">
                     <div class="col-md-4">
                         <h3>Ponto de Equilíbrio</h3>
                         <div class="pricing-table col-sm-12 col-xs-12">
