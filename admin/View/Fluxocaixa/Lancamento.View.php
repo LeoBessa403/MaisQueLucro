@@ -1,5 +1,5 @@
 <div class="main-content">
-    <div class="container">
+    <div class="container lancamento">
         <?php include_once 'BotoesLancamento.View.php' ?>
         <div class="row">
             <div class="col-md-12">
