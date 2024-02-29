@@ -158,11 +158,45 @@
     .menu2{
         display: block !important;
     }
+
+
+    .modal-scrollable .modal-body{
+        padding: 0 !important;
+    }
+
+    .modal-scrollable .modal-body .col-md-12{
+        padding: 5px !important;
+    }
+
+    .modal-scrollable .modal-body .panel-box{
+        margin-top: 0 !important;
+    }
+
+    .modal-scrollable .modal-body .panel-box form .col-md-12{
+        padding: 0 !important;
+    }
+
+    .modal-scrollable .modal-body .panel-box form .col-sm-6, .modal-scrollable .modal-body .panel-box form .col-sm-4,
+    .modal-scrollable .modal-body .panel-box form .col-sm-3{
+        width: 49% !important;
+        float: left;
+    }
+
+    .modal-scrollable .modal-body .panel-box form .col-sm-8, .modal-scrollable .modal-body .panel-box form .col-sm-9 {
+        width: 98% !important;
+        display: inline-block;
+    }
 }
 
 @media (max-width: 600px) {
     #pricing_table_example2 .pricing-table h1 span {
         font-size: 0.7em !important;
+    }
+
+    .modal-scrollable .modal-body .panel-box form .col-sm-6, .modal-scrollable .modal-body .panel-box form .col-sm-4,
+    .modal-scrollable .modal-body .panel-box form .col-sm-3,
+    .modal-scrollable .modal-body .panel-box form .col-sm-8, .modal-scrollable .modal-body .panel-box form .col-sm-9 {
+        margin-right: 1% !important;
     }
 }
 
@@ -203,7 +237,7 @@
         font-size: 1.8em !important;
     }
 
-    .moeda {
+    .acelerador .moeda, .estrategico .moeda {
         width: 90px !important;
         font-size: 13px !important;
     }
@@ -254,6 +288,12 @@
     .lancamento .btn {
         font-size: 18px !important;
     }
+
+    .modal-scrollable .modal-body .panel-box form .col-sm-6, .modal-scrollable .modal-body .panel-box form .col-sm-4,
+    .modal-scrollable .modal-body .panel-box form .col-sm-3,
+    .modal-scrollable .modal-body .panel-box form .col-sm-8, .modal-scrollable .modal-body .panel-box form .col-sm-9 {
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -268,4 +308,43 @@
     #pagRecebi td {
         font-size: 1.3em !important;
     }
+
+    .modal-scrollable .modal-body form button{
+        padding: 4px !important;
+    }
+}
+
+
+.lancamento .menu2 {
+    display: none;
+}
+
+.lancamento .btn-group {
+    float: right;
+}
+
+.lancamento .menu2 ul li {
+    cursor: pointer;
+    padding: 8px 4px;
+    font-size: 1em;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.lancamento .menu2 ul li.divider {
+    padding: 0 !important;
+    margin: 1px;
+}
+
+.lancamento .menu2 ul li i {
+    font-size: 1.6em !important;
+}
+
+.lancamento .menu2 .dropdown-menu {
+    min-width: 200px !important;
+    left: -100px !important;
+}
+.select2-search input, .select2-search-choice-close, .select2-container .select2-choice abbr,
+.select2-container .select2-choice .select2-arrow b {
+    background-size: 300px 40px!important;
 }

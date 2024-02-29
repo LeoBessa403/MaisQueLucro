@@ -1,34 +1,3 @@
-<style>
-    .menu2 {
-        display: none;
-    }
-
-    .lancamento .btn-group {
-        float: right;
-    }
-
-    .lancamento .menu2 ul li {
-        cursor: pointer;
-        padding: 8px 4px;
-        font-size: 1em;
-        letter-spacing: 3px;
-        font-weight: 700;
-    }
-
-    .lancamento .menu2 ul li.divider {
-        padding: 0 !important;
-        margin: 1px;
-    }
-
-    .lancamento .menu2 ul li i {
-        font-size: 1.6em !important;
-    }
-
-    .lancamento .menu2 .dropdown-menu {
-        min-width: 200px !important;
-        left: -100px !important;
-    }
-</style>
 <div class="row">
     <div class="col-sm-12">
         <div class="page-header">
