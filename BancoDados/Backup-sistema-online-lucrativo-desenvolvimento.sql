@@ -1,4 +1,4 @@
--- Atualizado em: 26/02/2024 15:02:36
+-- Atualizado em: 13/03/2024 12:28:33
 -- Link HOME: http://localhost/MaisQueLucro/
 -- AMBIENTE: 1
 -- BANCO: atacadao10
