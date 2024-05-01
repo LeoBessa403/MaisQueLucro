@@ -94,7 +94,7 @@ ul.main-navigation-menu > li a {
 
 ul.main-navigation-menu > li a > i {
     color: #A47441;
-    font-weight: normal;
+    font-weight: 600;
 }
 
 ul.main-navigation-menu > li.active > a {
