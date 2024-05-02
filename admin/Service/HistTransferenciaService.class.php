@@ -85,4 +85,9 @@ class  HistTransferenciaService extends AbstractService
 
         return $retorno;
     }
+
+    public function PesquisaTransferencias($dados)
+    {
+        return $this->ObjetoModel->PesquisaTransferencias($dados);
+    }
 }

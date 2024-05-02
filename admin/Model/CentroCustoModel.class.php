@@ -12,5 +12,12 @@ class  CentroCustoModel extends AbstractModel
         parent::__construct(CentroCustoEntidade::ENTIDADE);
     }
 
+    public function PesquisaCentroCusto($Condicoes)
+    {
+        $pesquisa = new Pesquisa();
+        $where = $pesquisa->getClausula($Condicoes);
+        $pesquisa->Pesquisar(CentroCustoEntidade::TABELA, $where);
+        return $pesquisa->getResult();
+    }
 
 }

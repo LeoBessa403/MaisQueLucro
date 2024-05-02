@@ -12,5 +12,29 @@ class  CategoriaFcNetaModel extends AbstractModel
         parent::__construct(CategoriaFcNetaEntidade::ENTIDADE);
     }
 
+    public function carregaComboCatPesquisaLanc($coAssinante)
+    {
+        $tabela = "tb_categoria_fc tc
+                 inner join tb_categoria_fc_filha tcff
+                    on tc.co_categoria_fc = tcff.co_categoria_fc
+                 inner join tb_categoria_fc_neta tcfn
+                    on tcff.co_categoria_fc_filha = tcfn.co_categoria_fc_filha";
+
+        $campos = "tc.co_categoria_fc as cod,
+                   tc.nu_codigo as numero,
+                   tc.ds_texto as nome,
+                   tcff.co_categoria_fc_filha as codFil,
+                   tcff.nu_codigo as numeroFil,
+                   tcff.ds_texto as nomeFil,
+                   tcfn.co_categoria_fc_neta as codNet,
+                   tcfn.nu_codigo as numeroNet,
+                   tcfn.ds_texto as nomeNet";
+
+        $pesquisa = new Pesquisa();
+        $where = 'where tcfn.co_assinante = ' . $coAssinante . ' order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
+        $pesquisa->Pesquisar($tabela, $where, null, $campos);
+
+        return $pesquisa->getResult();
+    }
 
 }

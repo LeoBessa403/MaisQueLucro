@@ -22,17 +22,16 @@
         $grid->setColunasIndeces($arrColunas);
         $grid->criaGrid();
 
-        /** @var RepresentacaoEntidade $rep */
         foreach ($representacoes as $rep):
             $acao = '<a class="btn btn-primary tooltips editRep" data-id="' .
-                $rep->getCoRepresentacao() . '" data-original-title="Editar Representação" 
+                $rep["co_representacao"] . '" data-original-title="Editar Representação" 
                         data-placement="top"><i class="fa fa-clipboard"></i>
                     </a>';
-            $grid->setColunas(strtoupper($rep->getNoRepresentacao()));
-            $grid->setColunas($rep->getDsEmail(), 2);
-            $grid->setColunas(Valida::MascaraTel($rep->getNuTel1()), 2);
+            $grid->setColunas(strtoupper($rep["no_representacao"]));
+            $grid->setColunas($rep["ds_email"], 2);
+            $grid->setColunas(Valida::MascaraTel($rep["nu_tel1"]), 2);
             $grid->setColunas($acao, 1);
-            $grid->criaLinha($rep->getCoRepresentacao());
+            $grid->criaLinha($rep["co_representacao"]);
         endforeach;
         $grid->finalizaGrid();
         ?>

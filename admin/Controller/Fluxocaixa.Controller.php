@@ -62,7 +62,7 @@ class Fluxocaixa extends AbstractController
             CO_CONTA_BANCARIA => null,
             CO_ASSINANTE => $coAssinante
         ]);
-        $this->formTransSaldo = FluxocaixaForm::TransfSaldo([]);
+        $this->formTransSaldo = FluxocaixaForm::TransfSaldo([], $coAssinante);
         $this->formCliFor = FluxocaixaForm::Representacao([
             CO_REPRESENTACAO => null,
             CO_ASSINANTE => $coAssinante
@@ -83,7 +83,6 @@ class Fluxocaixa extends AbstractController
             CO_ASSINANTE => $coAssinante
         ]);
 
-
         $resultVlr = $FluxoCaixaService->PesquisaAvancadaValorPesquisa();
         $vl1 = $resultVlr['menor_valor_pago'];
         if ($resultVlr['menor_valor'] < $resultVlr['menor_valor_pago']) {
@@ -96,36 +95,19 @@ class Fluxocaixa extends AbstractController
 
         $resultValores = $vl1 . '==' . $vl2;
         $this->formPesquisa = FluxocaixaForm::PesquisaLancamento($resultValores, $coAssinante);
-//        debug(1,1);
         $this->bancos = $ContaBancariaService->PesquisaAvancada([
             CO_ASSINANTE => $coAssinante
         ]);
 
-        $this->transferencias = $HistTransferenciaService->PesquisaTodos([
+        $this->transferencias = $HistTransferenciaService->PesquisaTransferencias([
+            "trans." . CO_ASSINANTE => $coAssinante
+        ]);
+        $this->representacoes = $RepresentacaoService->PesquisaRepresentacoes([
             CO_ASSINANTE => $coAssinante
         ]);
-        $this->representacoes = $RepresentacaoService->PesquisaTodos([
+        $this->centros = $CentroCustoService->PesquisaCentroCusto([
             CO_ASSINANTE => $coAssinante
         ]);
-        $this->centros = $CentroCustoService->PesquisaTodos([
-            CO_ASSINANTE => $coAssinante
-        ]);
-
-        $i = 0;
-        /** @var HistTransferenciaEntidade $trans */
-        foreach ($this->transferencias as $trans) {
-            /** @var ContaBancariaEntidade $contaOrig */
-            $contaOrig = $ContaBancariaService->PesquisaUmRegistro($trans->getCoContaBancariaOrigem());
-            $trans->setCoContaBancariaOrigem($contaOrig);
-            /** @var ContaBancariaEntidade $contaDest */
-            $contaDest = $ContaBancariaService->PesquisaUmRegistro($trans->getCoContaBancariaDestino());
-            $trans->setCoContaBancariaDestino($contaDest);
-            /** @var UsuarioEntidade $user */
-            $user = $UsuarioService->PesquisaUmRegistro($trans->getCoUsuario()->getCoUsuario());
-            $trans->setCoUsuario($user);
-            $this->transferencias[$i] = $trans;
-            $i++;
-        }
     }
 
     public static function CadastroCategoriaFC($dados)

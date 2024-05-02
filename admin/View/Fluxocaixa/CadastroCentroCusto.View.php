@@ -21,15 +21,14 @@
 
         $grid->setColunasIndeces($arrColunas);
         $grid->criaGrid();
-        /** @var CentroCustoEntidade $centro */
         foreach ($centros as $centro):
             $acao = '<a class="btn btn-primary tooltips editCentro" data-id="' .
-                $centro->getCoCentroCusto() . '" data-original-title="Editar Centro de Custo" 
+                $centro[CO_CENTRO_CUSTO] . '" data-original-title="Editar Centro de Custo" 
                         data-placement="top"><i class="fa fa-clipboard"></i>
                     </a>';
-            $grid->setColunas(strtoupper($centro->getNoCentroCustos()));
+            $grid->setColunas(strtoupper($centro[NO_CENTRO_CUSTOS]));
             $grid->setColunas($acao, 1);
-            $grid->criaLinha($centro->getCoCentroCusto());
+            $grid->criaLinha($centro[CO_CENTRO_CUSTO]);
         endforeach;
         $grid->finalizaGrid();
         ?>

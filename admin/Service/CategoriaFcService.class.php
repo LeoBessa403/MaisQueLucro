@@ -237,6 +237,7 @@ class  CategoriaFcService extends AbstractService
 
         return $retorno;
     }
+
     /**
      * @param $dados
      * @return array
@@ -392,48 +393,27 @@ class  CategoriaFcService extends AbstractService
         return $retorno;
     }
 
-    public static function getComboTodasCategoriasFC()
+    public static function getComboTodasCategoriasFC($coAssinante)
     {
-        /** @var CategoriaFcService $CategoriaFcService */
-        $CategoriaFcService = new CategoriaFcService();
-        /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
-        $CategoriaFcFilhaService = new CategoriaFcFilhaService();
         /** @var CategoriaFcNetaService $CategoriaFcNetaService */
         $CategoriaFcNetaService = new CategoriaFcNetaService();
         $comboCategoria = [
             '' => Mensagens::MSG_SEM_ITEM_SELECIONADO
         ];
-        $i = 0;
-        $Categorias = $CategoriaFcService->PesquisaTodos([],'A', NU_CODIGO);
-        /** @var CategoriaFcEntidade $cat */
+        $Categorias = $CategoriaFcNetaService->carregaComboCatPesquisaLanc($coAssinante);
         foreach ($Categorias as $cat) {
-            $i++;
-            $comboCategoria['p-' . $cat->getCoCategoriaFc() .
-            '-' . $cat->getNuCodigo()] = $cat->getNuCodigo() . ' - ' . $cat->getDsTexto();
 
-            $catFilhas = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $cat->getCoCategoriaFc()
-            ], 'A', NU_CODIGO);
-            /** @var CategoriaFcFilhaEntidade $catFilha */
-            foreach ($catFilhas as $catFilha) {
-                $i++;
-                $comboCategoria['f-' . $catFilha->getCoCategoriaFcFilha() .
-                '-' . $catFilha->getNuCodigo()] = '...' . $catFilha->getNuCodigo() .
-                    ' - ' . $catFilha->getDsTexto();
+            $comboCategoria['p-' . $cat["cod"] . '-' . $cat["numero"]]
+                = $cat["numero"] . ' - ' . $cat["nome"];
 
-                $catNetas = $CategoriaFcNetaService->PesquisaTodos([
-                    CO_CATEGORIA_FC_FILHA => $catFilha->getCoCategoriaFcFilha()
-                ], 'A', NU_CODIGO);
-                /** @var CategoriaFcNetaEntidade $catNeta */
-                foreach ($catNetas as $catNeta) {
-                    $i++;
-                    $comboCategoria['n-' . $catNeta->getCoCategoriaFcNeta() .
-                    '-' . $catNeta->getNuCodigo()] =  '......' . $catNeta->getNuCodigo() .
-                        ' - ' . $catNeta->getDsTexto();
-                }
-            }
+            $comboCategoria['f-' . $cat["codFil"] . '-' . $cat["numeroFil"]]
+                = '...' . $cat["numeroFil"] . ' - ' . $cat["nomeFil"];
+
+            $comboCategoria['n-' . $cat["codNet"] . '-' . $cat["numeroNet"]]
+                = '......' . $cat["numeroNet"] . ' - ' . $cat["nomeNet"];
         }
         return $comboCategoria;
     }
+
 
 }

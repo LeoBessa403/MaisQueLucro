@@ -23,16 +23,16 @@
 
         /** @var HistTransferenciaEntidade $trans */
         foreach ($transferencias as $trans):
-            $grid->setColunas($trans->getCoContaBancariaOrigem()->getNoBanco(), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoOrigemAnt()), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoOrigemDep()), 2);
-            $grid->setColunas($trans->getCoContaBancariaDestino()->getNoBanco(), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoDestinoAnt()), 2);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuSaldoDestinoDep()), 1);
-            $grid->setColunas(Valida::DataShow($trans->getDtRealizado()), 1);
-            $grid->setColunas(Valida::FormataMoeda($trans->getNuValorTransferido()), 1);
-            $grid->setColunas($trans->getCoUsuario()->getCoPessoa()->getNoPessoa(), 3);
-            $grid->criaLinha($trans->getCoHistTransferencia());
+            $grid->setColunas($trans["bancoOri"], 2);
+            $grid->setColunas(Valida::FormataMoeda($trans["nu_saldo_origem_ant"]), 2);
+            $grid->setColunas(Valida::FormataMoeda($trans["nu_saldo_origem_dep"]), 2);
+            $grid->setColunas($trans["bancoDes"], 2);
+            $grid->setColunas(Valida::FormataMoeda($trans["nu_saldo_destino_ant"]), 2);
+            $grid->setColunas(Valida::FormataMoeda($trans["nu_saldo_destino_dep"]), 1);
+            $grid->setColunas(Valida::DataShow($trans["dt_realizado"]), 1);
+            $grid->setColunas(Valida::FormataMoeda($trans["nu_valor_transferido"]), 1);
+            $grid->setColunas($trans["no_pessoa"], 3);
+            $grid->criaLinha($trans["co_hist_transferencia"]);
         endforeach;
         $grid->finalizaGrid();
         ?>

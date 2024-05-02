@@ -67,7 +67,7 @@ class  FluxocaixaModel extends AbstractModel
         $campos = "max(nu_valor) as maior_valor, min(nu_valor) as menor_valor, 
         max(nu_valor_pago) as maior_valor_pago, max(nu_valor_pago) as menor_valor_pago";
         $pesquisa = new Pesquisa();
-        $where = ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 200';
+        $where = ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 1000';
         $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, $where, null, $campos);
 
         return $pesquisa->getResult()[0];

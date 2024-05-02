@@ -167,14 +167,14 @@ class  ContaBancariaService extends AbstractService
     }
 
 
-    public static function ContaBancariaCombo()
+    public static function ContaBancariaCombo($coAssinante)
     {
         $comboConta = [
             '' => Mensagens::MSG_SEM_ITEM_SELECIONADO
         ];
 
         $Contas = self::PesquisaAvancadaCombo([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         foreach ($Contas as $Conta) {

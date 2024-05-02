@@ -69,4 +69,9 @@ class  CentroCustoService extends AbstractService
         return $comboCentros;
     }
 
+    public function PesquisaCentroCusto($dados)
+    {
+        return $this->ObjetoModel->PesquisaCentroCusto($dados);
+    }
+
 }

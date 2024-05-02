@@ -55,5 +55,10 @@ class  RepresentacaoService extends AbstractService
         return $retorno;
     }
 
+    public function PesquisaRepresentacoes($dados)
+    {
+        return $this->ObjetoModel->PesquisaRepresentacoes($dados);
+    }
+
 
 }

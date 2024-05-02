@@ -40,14 +40,14 @@ class FluxocaixaForm
         return $formulario->finalizaForm(false, false);
     }
 
-    public static function TransfSaldo($res)
+    public static function TransfSaldo($res, $coAssinante)
     {
         $id = "TransfSaldo";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Transferir", 12);
 
-        $options = ContaBancariaService::ContaBancariaCombo();
+        $options = ContaBancariaService::ContaBancariaCombo($coAssinante);
         $formulario
             ->setId(CO_CONTA_BANCARIA_ORIGEM)
             ->setType(TiposCampoEnum::SELECT)
@@ -71,7 +71,7 @@ class FluxocaixaForm
             ->setLabel("Data Realizado")
             ->CriaInpunt();
 
-        $options = ContaBancariaService::ContaBancariaCombo();
+        $options = ContaBancariaService::ContaBancariaCombo($coAssinante);
         $formulario
             ->setId(CO_CONTA_BANCARIA_DESTINO)
             ->setType(TiposCampoEnum::SELECT)
@@ -280,14 +280,14 @@ class FluxocaixaForm
                 NO_REPRESENTACAO,
                 RepresentacaoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $res[CO_ASSINANTE]]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Cliente")
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
-        $options = ContaBancariaService::ContaBancariaCombo();
+        $options = ContaBancariaService::ContaBancariaCombo($res[CO_ASSINANTE]);
         $formulario
             ->setId(CO_CONTA_BANCARIA)
             ->setType(TiposCampoEnum::SELECT)
@@ -327,7 +327,7 @@ class FluxocaixaForm
                 NO_CENTRO_CUSTOS,
                 CentroCustoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $res[CO_ASSINANTE]]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Centro de custo")
@@ -422,14 +422,14 @@ class FluxocaixaForm
                 NO_REPRESENTACAO,
                 RepresentacaoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $res[CO_ASSINANTE]]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Fornecedor")
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
-        $options = ContaBancariaService::ContaBancariaCombo();
+        $options = ContaBancariaService::ContaBancariaCombo($res[CO_ASSINANTE]);
         $formulario
             ->setId(CO_CONTA_BANCARIA)
             ->setType(TiposCampoEnum::SELECT)
@@ -469,7 +469,7 @@ class FluxocaixaForm
                 NO_CENTRO_CUSTOS,
                 CentroCustoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $res[CO_ASSINANTE]]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Centro de custo")
@@ -509,7 +509,8 @@ class FluxocaixaForm
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Pesquisar", 12);
 
-        $options = CategoriaFcService::getComboTodasCategoriasFC();
+        $options = CategoriaFcService::getComboTodasCategoriasFC($coAssinante);
+
         $formulario
             ->setId(CO_CATEGORIA_FC)
             ->setType(TiposCampoEnum::SELECT)
@@ -528,7 +529,7 @@ class FluxocaixaForm
             ->setOptions($options3)
             ->CriaInpunt();
 
-        $options = ContaBancariaService::ContaBancariaCombo();
+        $options = ContaBancariaService::ContaBancariaCombo($coAssinante);
         $formulario
             ->setId(CO_CONTA_BANCARIA)
             ->setType(TiposCampoEnum::SELECT)
