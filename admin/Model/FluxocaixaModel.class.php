@@ -29,9 +29,8 @@ class  FluxocaixaModel extends AbstractModel
         cen.no_centro_custos, rep.no_representacao, ctn.ds_texto as no_neta, ctn.nu_codigo as nu_codigo_n,
         tfc.tp_fluxo, tfc.dt_cadastro, tfc.tp_pagamento, con.no_banco";
         $pesquisa = new Pesquisa();
-        $where = $where . ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 200';
+        $where = $where . ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 1000';
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
-
         return $pesquisa->getResult();
     }
 
