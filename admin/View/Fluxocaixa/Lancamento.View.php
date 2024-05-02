@@ -55,7 +55,7 @@
                             $valPg = ($res["nu_valor_pago"]) ? Valida::FormataMoeda($res["nu_valor_pago"]) : '';
                             $centro = ($res["no_centro_custos"])
                                 ? $res["no_centro_custos"] : '';
-                            $rep = ($res["no_representacao"])
+                            $rep = (!empty($res["no_representacao"]))
                                 ? $res["no_representacao"] : '';
                             $cpBaixa = '';
                             if ($res["st_pagamento"] != StatusPagamentoFCEnum::PAGO) {
