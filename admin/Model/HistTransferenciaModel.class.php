@@ -14,14 +14,14 @@ class  HistTransferenciaModel extends AbstractModel
 
     public function PesquisaTransferencias($Condicoes)
     {
-        $tabela = "tb_hist_transferencia trans
-                     inner join tb_conta_bancaria tcbOri
+        $tabela = "TB_HIST_TRANSFERENCIA trans
+                     inner join TB_CONTA_BANCARIA tcbOri
                                 on trans.co_conta_bancaria_origem = tcbOri.co_conta_bancaria
-                     inner join tb_conta_bancaria tcbDes
+                     inner join TB_CONTA_BANCARIA tcbDes
                                 on trans.co_conta_bancaria_destino = tcbDes.co_conta_bancaria
-                     inner join tb_usuario tu
+                     inner join TB_USUARIO tu
                                 on trans.co_usuario = tu.co_usuario
-                     inner join tb_pessoa tp
+                     inner join TB_PESSOA tp
                                 on tu.co_pessoa = tp.co_pessoa";
 
         $campos = "trans.*,

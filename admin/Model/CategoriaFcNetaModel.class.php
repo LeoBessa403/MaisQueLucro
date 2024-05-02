@@ -14,10 +14,10 @@ class  CategoriaFcNetaModel extends AbstractModel
 
     public function carregaComboCatPesquisaLanc($coAssinante)
     {
-        $tabela = "tb_categoria_fc tc
-                 inner join tb_categoria_fc_filha tcff
+        $tabela = "TB_CATEGORIA_FC tc
+                 inner join TB_CATEGORIA_FC_FILHA tcff
                     on tc.co_categoria_fc = tcff.co_categoria_fc
-                 inner join tb_categoria_fc_neta tcfn
+                 inner join TB_CATEGORIA_FC_NETA tcfn
                     on tcff.co_categoria_fc_filha = tcfn.co_categoria_fc_filha";
 
         $campos = "tc.co_categoria_fc as cod,
