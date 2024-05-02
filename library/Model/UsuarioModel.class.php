@@ -32,23 +32,18 @@ class  UsuarioModel extends AbstractModel
 
     public function PesquisaUsuarioLogar($dados)
     {
-        $tabela = UsuarioEntidade::TABELA . " usu" .
-            " inner join " . PessoaEntidade::TABELA . " pes" .
-            " on usu." . PessoaEntidade::CHAVE . " = pes." . PessoaEntidade::CHAVE .
-            " inner join " . ContatoEntidade::TABELA . " con" .
-            " on con." . ContatoEntidade::CHAVE . " = pes." . ContatoEntidade::CHAVE;
+        $tabela = "TB_PESSOA pes
+                             left join TB_CONTATO con  on con.co_contato = pes.co_contato
+                             left join TB_USUARIO usu on usu.co_pessoa = pes.co_pessoa
+                             left join TB_ASSINANTE ass on ass.co_assinante = usu.co_assinante
+                             left join TB_IMAGEM img on pes.co_imagem = img.co_imagem";
 
-        $campos = "usu.*";
+        $campos = "usu.st_status, usu.co_usuario, img.ds_caminho, pes.nu_cpf, pes.no_pessoa,
+       usu.st_troca_senha, pes.st_sexo, usu.co_assinante, ass.dt_expiracao, ass.st_dados_complementares";
         $pesquisa = new Pesquisa();
         $where = $pesquisa->getClausula($dados);
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
-        $usuarios = [];
-        /** @var UsuarioEntidade $usuario */
-        foreach ($pesquisa->getResult() as $usuario) {
-            $usu[0] = $usuario;
-            $usuarios[] = $this->getUmObjeto(UsuarioEntidade::ENTIDADE, $usu);
-        }
-        return $usuarios;
+        return $pesquisa->getResult()[0];
     }
 
     public function Deleta($coUsuario)

@@ -504,50 +504,50 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
-    public function PesquisaAvancadaGrafico1()
+    public function PesquisaAvancadaGrafico1($coAssinante)
     {
-        $where = $this->montaWherePesquisaGrafico1();
+        $where = $this->montaWherePesquisaGrafico1($coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico1($where);
     }
 
-    public function PesquisaAvancadaGrafico2()
+    public function PesquisaAvancadaGrafico2($coAssinante)
     {
-        $where = $this->montaWherePesquisaGrafico1();
+        $where = $this->montaWherePesquisaGrafico1($coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico2($where);
     }
 
-    public function PesquisaAvancadaGrafico3($dt1, $dt2, $coCats)
+    public function PesquisaAvancadaGrafico3($dt1, $dt2, $coCats, $coAssinante)
     {
-        $where = $this->montaWherePesquisaGrafico3($dt1, $dt2, $coCats);
+        $where = $this->montaWherePesquisaGrafico3($dt1, $dt2, $coCats, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico2($where);
     }
 
-    public function PesquisaAvancadaGrafico4($dt1, $dt2)
+    public function PesquisaAvancadaGrafico4($dt1, $dt2, $coAssinante)
     {
-        $where = $this->montaWherePesquisaGrafico4($dt1, $dt2);
+        $where = $this->montaWherePesquisaGrafico4($dt1, $dt2, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico3($where);
     }
 
-    public function PesquisaAvancadaGrafico5($dt1, $dt2)
+    public function PesquisaAvancadaGrafico5($dt1, $dt2, $coAssinante)
     {
-        $where = $this->montaWherePesquisaGrafico5($dt1, $dt2);
+        $where = $this->montaWherePesquisaGrafico5($dt1, $dt2, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFCGrafico4($where);
     }
 
-    public function PesquisaAvancadaGrafico6()
+    public function PesquisaAvancadaGrafico6($coAssinante)
     {
-        return $this->ObjetoModel->PesquisaAvancadaFCGrafico5();
+        return $this->ObjetoModel->PesquisaAvancadaFCGrafico5($coAssinante);
     }
 
-    public function PesquisaAvancDadosIndicadores($dt1, $dt2)
+    public function PesquisaAvancDadosIndicadores($dt1, $dt2, $coAssinante)
     {
-        $where = $this->PesquisaAvancDadosIndicad($dt1, $dt2);
+        $where = $this->PesquisaAvancDadosIndicad($dt1, $dt2, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaDadosIndicadores($where);
     }
 
-    public function PesquisaAvancPagRec()
+    public function PesquisaAvancPagRec($coAssinante)
     {
-        return $this->ObjetoModel->PesquisaAvancadaPagRec();
+        return $this->ObjetoModel->PesquisaAvancadaPagRec($coAssinante);
     }
 
     public function montaWherePesquisa($dados)
@@ -658,12 +658,12 @@ class  FluxocaixaService extends AbstractService
                 '31/' . $dados["periodoFinal"]) . "'";
 
         $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
-        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function montaWherePesquisaGrafico1()
+    public function montaWherePesquisaGrafico1($coAssinante)
     {
         $where = 'where 1 = 1';
         $where = $where . " and tfi." . CO_CATEGORIA_FC . " in (2,3)";
@@ -673,12 +673,12 @@ class  FluxocaixaService extends AbstractService
                 '01/01/' . date('Y')) . "'";
         $where = $where . " and tfi." . DT_REALIZADO . " <= '" . Valida::DataDBDate(
                 '31/' . date('m/Y')) . "'";
-        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function montaWherePesquisaGrafico3($dt1, $dt2, $coCats)
+    public function montaWherePesquisaGrafico3($dt1, $dt2, $coCats, $coAssinante)
     {
         $where = 'where 1 = 1';
         $where = $where . " and tfi." . CO_CATEGORIA_FC . " in (2,3)";
@@ -687,46 +687,46 @@ class  FluxocaixaService extends AbstractService
         $where = $where . " and " . NU_VALOR_PAGO . " is not null";
         $where = $where . " and tfi." . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and tfi." . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
-        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and tfi." . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function montaWherePesquisaGrafico4($dt1, $dt2)
+    public function montaWherePesquisaGrafico4($dt1, $dt2, $coAssinante)
     {
         $where = " and " . NU_VALOR_PAGO . " is not null";
         $where = $where . " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
         $where = $where . " and " . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and " . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
-        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function montaWherePesquisaGrafico5($dt1, $dt2)
+    public function montaWherePesquisaGrafico5($dt1, $dt2, $coAssinante)
     {
         $where = " and " . NU_VALOR_PAGO . " is null";
         $where = $where . " and " . DT_VENCIMENTO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and " . DT_VENCIMENTO . " <= '" . Valida::DataDBDate($dt2) . "'";
-        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function PesquisaAvancDadosIndicad($dt1, $dt2)
+    public function PesquisaAvancDadosIndicad($dt1, $dt2, $coAssinante)
     {
         $where = " and " . ST_PAGAMENTO . " = " . StatusPagamentoFCEnum::PAGO;
         $where = $where . " and " . NU_VALOR_PAGO . " is not null";
         $where = $where . " and " . DT_REALIZADO . " >= '" . Valida::DataDBDate($dt1) . "'";
         $where = $where . " and " . DT_REALIZADO . " <= '" . Valida::DataDBDate($dt2) . "'";
-        $where = $where . " and " . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and " . CO_ASSINANTE . " in (" . $coAssinante . ")";
 
         return $where;
     }
 
-    public function PesquisaAvancRecPag($pesquisa)
+    public function PesquisaAvancRecPag($pesquisa, $coAssinante)
     {
-        $where = "where tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = "where tfc." . CO_ASSINANTE . " in (" . $coAssinante . ")";
         switch ($pesquisa) {
             case 1:
                 $where = $where . " and tfc." . TP_FLUXO . " = " . TipoFluxoCaixaEnum::ENTRADA;

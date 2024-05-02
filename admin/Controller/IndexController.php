@@ -10,12 +10,13 @@ class IndexController extends AbstractController
             $FluxocaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
             /** @var ContaBancariaService $ContaBancariaService */
             $ContaBancariaService = $this->getService(CONTA_BANCARIA_SERVICE);
+            $coAssinante = AssinanteService::getCoAssinanteLogado();
 
             $dados['bancos'] = $ContaBancariaService->PesquisaAvancada([
-                CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+                CO_ASSINANTE => $coAssinante
             ]);
 
-            $graficos1 = $FluxocaixaService->PesquisaAvancadaGrafico1();
+            $graficos1 = $FluxocaixaService->PesquisaAvancadaGrafico1($coAssinante);
 
             $graficoSO1[] = "['Categoria','Total']";
             foreach ($graficos1 as $grafico1) {
@@ -27,7 +28,7 @@ class IndexController extends AbstractController
             $grafico->SetDados($graficoSO1);
             $grafico->GeraGrafico();
 
-            $graficos2 = $FluxocaixaService->PesquisaAvancadaGrafico2();
+            $graficos2 = $FluxocaixaService->PesquisaAvancadaGrafico2($coAssinante);
 
             $graficoSO2[] = "['Categoria','Total']";
             $coCats = '0';
@@ -51,7 +52,7 @@ class IndexController extends AbstractController
                 $mesArray = Valida::getMesesHistorico();
                 $mesExt[0] = $mesArray[$mesExt[0]];
                 $graficos3[implode('/', $mesExt)] =
-                    $FluxocaixaService->PesquisaAvancadaGrafico3($dt1, $dt2, $coCats);
+                    $FluxocaixaService->PesquisaAvancadaGrafico3($dt1, $dt2, $coCats, $coAssinante);
             }
             $cats = [];
 
@@ -84,7 +85,6 @@ class IndexController extends AbstractController
             $grafico->SetDados($graficoFinal3);
             $grafico->GeraGrafico();
 
-
             $graficos4 = [];
             for ($i = 5; $i >= 0; $i--) {
                 $dt1 = Valida::CalculaData('01/' . date('m/Y'), $i, '-', 'm');
@@ -94,7 +94,7 @@ class IndexController extends AbstractController
                 $mesArray = Valida::getMesesHistorico();
                 $mesExt[0] = $mesArray[$mesExt[0]];
                 $graficos4[implode('/', $mesExt)] =
-                    $FluxocaixaService->PesquisaAvancadaGrafico4($dt1, $dt2);
+                    $FluxocaixaService->PesquisaAvancadaGrafico4($dt1, $dt2, $coAssinante);
             }
 
             $graficoFinal4090 = array("['Mês', 'Recebimentos', { role: 'style' }, 'Despesas', { role: 'style' }]");
@@ -131,10 +131,10 @@ class IndexController extends AbstractController
                 $mesArray = Valida::getMesesHistorico();
                 $mesExt[0] = $mesArray[$mesExt[0]];
                 $graficos5[implode('/', $mesExt)] =
-                    $FluxocaixaService->PesquisaAvancadaGrafico5($dt1, $dt2);
+                    $FluxocaixaService->PesquisaAvancadaGrafico5($dt1, $dt2, $coAssinante);
             }
 
-            $saldo_geral = $FluxocaixaService->PesquisaAvancadaGrafico6();
+            $saldo_geral = $FluxocaixaService->PesquisaAvancadaGrafico6($coAssinante);
 
             $graficoFinal5 = array("['Mês', 'Recebimentos',{ role: 'annotation' }, 'Despesas',{ role: 'annotation' }, 
             'Saldo Acumulado', { role: 'style' },{ role: 'annotation' }]");
@@ -175,7 +175,7 @@ class IndexController extends AbstractController
                 $mesArray = Valida::getMesesHistorico();
                 $mesExt[0] = $mesArray[$mesExt[0]];
                 $dadosPE[implode('/', $mesExt)] =
-                    $FluxocaixaService->PesquisaAvancDadosIndicadores($dt1, $dt2);
+                    $FluxocaixaService->PesquisaAvancDadosIndicadores($dt1, $dt2, $coAssinante);
             }
             $qtdMesAnt = 0;
             $fat = 0;
@@ -247,7 +247,7 @@ class IndexController extends AbstractController
             $grafico->SetDados($graficoFinalInd);
             $grafico->GeraGrafico();
 
-            $dados['RecPag'] = $FluxocaixaService->PesquisaAvancPagRec();
+            $dados['RecPag'] = $FluxocaixaService->PesquisaAvancPagRec($coAssinante);
         }
 
         return $dados;

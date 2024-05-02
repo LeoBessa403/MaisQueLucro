@@ -138,14 +138,14 @@ class  FluxocaixaModel extends AbstractModel
         return $pesquisa->getResult();
     }
 
-    public function PesquisaAvancadaFCGrafico5()
+    public function PesquisaAvancadaFCGrafico5($coAssinante)
     {
         $campos = "sum(nu_saldo) as saldo_geral";
         $where = 'where co_hist_saldo_cb in (SELECT max(hs.co_hist_saldo_cb)
                             FROM ' . HistSaldoCbEntidade::TABELA . ' hs
                                      inner join ' . ContaBancariaEntidade::TABELA . ' tcb
                             on hs.co_conta_bancaria = tcb.co_conta_bancaria
-                            where ' . CO_ASSINANTE . ' in (' . AssinanteService::getCoAssinanteLogado() . ')
+                            where ' . CO_ASSINANTE . ' in (' . $coAssinante . ')
                           group by hs.co_conta_bancaria)';
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar(HistSaldoCbEntidade::TABELA, $where, null, $campos);
@@ -191,63 +191,64 @@ class  FluxocaixaModel extends AbstractModel
         return $pesquisa->getResult()[0];
     }
 
-    public function PesquisaAvancadaPagRec()
+    public function PesquisaAvancadaPagRec($coAssinante)
     {
         $campos = "distinct (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::EM_ATRASO . "
                           and dt_vencimento < '" . Valida::DataAtualBanco() . "') as rec_atraso,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::EM_ATRASO . "
                           and dt_vencimento < '" . Valida::DataAtualBanco() . "') as pag_atraso,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," . StatusPagamentoFCEnum::A_RECEBER . ")
                           and dt_vencimento >= '" . date('Y-m') . "-01'
                           and dt_vencimento <= '" . date('Y-m') . "-31') as rec_mes,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," . StatusPagamentoFCEnum::A_PAGAR . ")
                           and dt_vencimento >= '" . date('Y-m') . "-01'
                           and dt_vencimento <= '" . date('Y-m') . "-31') as pag_mes,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::A_RECEBER . "
                           and dt_vencimento = '" . Valida::DataAtualBanco() . "') as rec_hoje,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::A_PAGAR . "
                           and dt_vencimento = '" . Valida::DataAtualBanco() . "') as pag_hoje,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::A_RECEBER . "
                           and dt_vencimento >= '" . Valida::DataAtualBanco() . "') as rec_futuro,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento = " . StatusPagamentoFCEnum::A_PAGAR . "
                           and dt_vencimento >= '" . Valida::DataAtualBanco() . "') as pag_futuro,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
                                         StatusPagamentoFCEnum::A_RECEBER . ")) as rec_total,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
-                        where co_assinante = " . AssinanteService::getCoAssinanteLogado() . "
+                        where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
                                 StatusPagamentoFCEnum::A_PAGAR . ")) as pag_total"
                         ;
         $pesquisa = new Pesquisa();
-        $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, null, null, $campos);
+        $where = "where co_assinante = " . $coAssinante;
+        $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, $where, null, $campos);
         return $pesquisa->getResult()[0];
     }
 

@@ -189,13 +189,7 @@ class Index extends AbstractController
     public function Logar()
     {
         // Verifica se o loguin e por Email ou CPF
-        if (LOGAR_EMAIL):
-            $campo_logar = Valida::LimpaVariavel($_POST[DS_EMAIL]);
-            $campo = "con." . DS_EMAIL;
-        else:
-            $campo_logar = Valida::RetiraMascara(Valida::LimpaVariavel($_POST[NU_CPF]));
-            $campo = "pes." . NU_CPF;
-        endif;
+        $campo_logar = Valida::LimpaVariavel($_POST[DS_EMAIL]);
         $senha = Valida::LimpaVariavel($_POST[DS_SENHA]);
         if (($campo_logar != "") && ($senha != "")):
             // Codifica a senha
@@ -203,15 +197,12 @@ class Index extends AbstractController
             /** @var UsuarioService $usuariaService */
             $usuariaService = $this->getService(USUARIO_SERVICE);
             $dados = [
-                "usu." . DS_CODE => $senha,
-                $campo => $campo_logar,
+                "=#usu." . DS_CODE => $senha,
+                "=#con." . DS_EMAIL => $campo_logar,
             ];
-            $usuarios = $usuariaService->PesquisaUsuarioLogar($dados);
-            $user = "";
-            if (!empty($usuarios)) :
-                /** @var UsuarioEntidade $user */
-                $user = unserialize(serialize($usuarios[0]));
-                if ($user->getStStatus() == "I"):
+            $user = $usuariaService->PesquisaUsuarioLogar($dados);
+            if (!empty($user)) :
+                if ($user[ST_STATUS] == "I"):
                     Redireciona(ADMIN . LOGIN . Valida::GeraParametro("acesso/I"));
                     exit();
                 endif;
@@ -244,7 +235,7 @@ class Index extends AbstractController
                 }
             endif;
             if ($user != ""):
-                $this->geraDadosSessao($user, $user->getCoUsuario());
+                $this->geraDadosSessao($user, $user[CO_USUARIO]);
                 Redireciona(ADMIN . PRIMEIRO_ACESSO);
             else:
                 Redireciona(ADMIN . LOGIN . Valida::GeraParametro("acesso/A"));
@@ -283,29 +274,26 @@ class Index extends AbstractController
         $perfis = array();
         $no_perfis = array();
         $usuarioAcesso["perfil_master"] = false;
-        /** @var UsuarioPerfilEntidade $perfil */
-        foreach ($user->getCoUsuarioPerfil() as $perfil) {
-            $perfis[] = $perfil->getCoPerfil()->getCoPerfil();
-            $no_perfis[] = $perfil->getCoPerfil()->getNoPerfil();
-            if ($perfil->getCoPerfil()->getCoPerfil() == 1)
-                $usuarioAcesso["perfil_master"] = true;
+        if (!empty($user[CO_USUARIO_PERFIL])) {
+            foreach ($user[CO_USUARIO_PERFIL] as $perfil) {
+                $perfis[] = $perfil[CO_PERFIL];
+                $no_perfis[] = $perfil[NO_PERFIL];
+                if ($perfil[CO_PERFIL] == 1)
+                    $usuarioAcesso["perfil_master"] = true;
+            }
         }
         if (MODULO_ASSINANTE) {
-            /** @var AssinanteService $assinanteService */
-            $assinanteService = $this->getService(ASSINANTE_SERVICE);
-            if (!empty($user->getCoAssinante())) {
-                /** @var AssinanteEntidade $assinante */
-                $assinante = $assinanteService->getAssinanteLogado($user->getCoAssinante());
-                $usuarioAcesso[ST_DADOS_COMPLEMENTARES] = $assinante->getStDadosComplementares();
+            if (!empty($user[CO_ASSINANTE])) {
+                $usuarioAcesso[ST_DADOS_COMPLEMENTARES] = $user["st_dados_complementares"];
             } else {
                 $usuarioAcesso[ST_DADOS_COMPLEMENTARES] = SimNaoEnum::SIM;
             }
-            $usuarioAcesso[CO_ASSINANTE] = $user->getCoAssinante();
-            $usuarioAcesso[DT_EXPIRACAO] = (!empty($user->getCoPessoa()->getCoAssinante()))
-                ? Valida::DataShow($user->getCoPessoa()->getCoAssinante()->getDtExpiracao()) : null;
+            $usuarioAcesso[CO_ASSINANTE] = $user[CO_ASSINANTE];
+            $usuarioAcesso[DT_EXPIRACAO] = (!empty($user[CO_ASSINANTE]))
+                ? Valida::DataShow($user[DT_EXPIRACAO]) : null;
 
-            $statusSis = (!empty($user->getCoPessoa()->getCoAssinante()))
-                ? Valida::DataShow($user->getCoPessoa()->getCoAssinante()->getDtExpiracao()) : null;
+            $statusSis = (!empty($user[CO_ASSINANTE]))
+                ? Valida::DataShow($user[DT_EXPIRACAO]) : null;
 
             if ($statusSis) {
                 $statusSis = AssinanteService::getStatusAssinante($usuarioAcesso[DT_EXPIRACAO]);
@@ -320,18 +308,19 @@ class Index extends AbstractController
             }
             $usuarioAcesso['status_sistema'] = $statusSis;
         }
-        $usuarioAcesso[CO_USUARIO] = $user->getCoUsuario();
-        $usuarioAcesso[DS_CAMINHO] = (!empty($user->getCoImagem())) ? $user->getCoImagem()->getDsCaminho() : null;
-        $usuarioAcesso[NU_CPF] = $user->getCoPessoa()->getNuCpf();
-        $usuarioAcesso[NO_PESSOA] = $user->getCoPessoa()->getNoPessoa();
-        $usuarioAcesso[ST_TROCA_SENHA] = $user->getStTrocaSenha();
-        $usuarioAcesso[ST_SEXO] = $user->getCoPessoa()->getStSexo();
+        $usuarioAcesso[CO_USUARIO] = $user[CO_USUARIO];
+        $usuarioAcesso[DS_CAMINHO] = $user[DS_CAMINHO];
+        $usuarioAcesso[NU_CPF] = $user[NU_CPF];
+        $usuarioAcesso[NO_PESSOA] = $user[NO_PESSOA];
+        $usuarioAcesso[ST_TROCA_SENHA] = $user[ST_TROCA_SENHA];
+        $usuarioAcesso[ST_SEXO] = $user[ST_SEXO];
         $usuarioAcesso[DT_FIM_ACESSO] = $acessoService->geraDataFimAcesso();
+        $usuarioAcesso[CO_ASSINANTE] = $user[CO_ASSINANTE];
         $usuarioAcesso[CAMPO_PERFIL] = implode(',', $perfis);
         $usuarioAcesso['no_perfis'] = implode(', ', $no_perfis);
-
         $session = new Session();
         $session->setUser($usuarioAcesso);
+        return $usuarioAcesso;
     }
 
 
