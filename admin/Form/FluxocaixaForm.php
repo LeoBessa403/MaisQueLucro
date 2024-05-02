@@ -502,7 +502,7 @@ class FluxocaixaForm
     }
 
 
-    public static function PesquisaLancamento($resultIntervalo)
+    public static function PesquisaLancamento($resultIntervalo, $coAssinante)
     {
         $id = "PesquisaLancamento";
 
@@ -554,7 +554,7 @@ class FluxocaixaForm
                 NO_REPRESENTACAO,
                 RepresentacaoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $coAssinante]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Credor")
@@ -568,7 +568,7 @@ class FluxocaixaForm
                 NO_CENTRO_CUSTOS,
                 CentroCustoEntidade::CHAVE,
                 'ASC',
-                [CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()]
+                [CO_ASSINANTE => $coAssinante]
             )
             ->setType(TiposCampoEnum::SELECT)
             ->setLabel("Centro de Custo")

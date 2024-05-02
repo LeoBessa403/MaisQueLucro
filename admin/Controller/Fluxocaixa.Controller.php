@@ -42,45 +42,47 @@ class Fluxocaixa extends AbstractController
         $Condicoes = [];
         $session->setSession(PESQUISA_AVANCADA, $Condicoes);
         $pesquisa = UrlAmigavel::PegaParametro("pesquisa");
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
 
         if (!empty($_POST["PesquisaLancamento"])) {
-            $_POST[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
+            $_POST[CO_ASSINANTE] = $coAssinante;
             $this->result = $FluxoCaixaService->PesquisaAvancada($_POST);
         } elseif ($pesquisa) {
             $this->result = $FluxoCaixaService->PesquisaAvancadaFCRecPag($pesquisa);
         } else {
             $this->result = $FluxoCaixaService->PesquisaAvancada([
-                CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+                CO_ASSINANTE => $coAssinante
             ]);
         }
 
         $this->formCat = FluxocaixaForm::CadastrarFluxocaixa([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
         $this->formConta = FluxocaixaForm::CadastrarContaBancaria([
             CO_CONTA_BANCARIA => null,
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
         $this->formTransSaldo = FluxocaixaForm::TransfSaldo([]);
         $this->formCliFor = FluxocaixaForm::Representacao([
             CO_REPRESENTACAO => null,
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         $this->formCentro = FluxocaixaForm::CentroCustos([
             CO_CENTRO_CUSTO => null,
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         $this->formEntrada = FluxocaixaForm::FCEntrada([
             CO_FLUXO_CAIXA => null,
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         $this->formSaida = FluxocaixaForm::FCSaida([
             CO_FLUXO_CAIXA => null,
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
+
 
         $resultVlr = $FluxoCaixaService->PesquisaAvancadaValorPesquisa();
         $vl1 = $resultVlr['menor_valor_pago'];
@@ -93,20 +95,20 @@ class Fluxocaixa extends AbstractController
         }
 
         $resultValores = $vl1 . '==' . $vl2;
-        $this->formPesquisa = FluxocaixaForm::PesquisaLancamento($resultValores);
-
+        $this->formPesquisa = FluxocaixaForm::PesquisaLancamento($resultValores, $coAssinante);
+//        debug(1,1);
         $this->bancos = $ContaBancariaService->PesquisaAvancada([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         $this->transferencias = $HistTransferenciaService->PesquisaTodos([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
         $this->representacoes = $RepresentacaoService->PesquisaTodos([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
         $this->centros = $CentroCustoService->PesquisaTodos([
-            CO_ASSINANTE => AssinanteService::getCoAssinanteLogado()
+            CO_ASSINANTE => $coAssinante
         ]);
 
         $i = 0;
@@ -1642,7 +1644,6 @@ class Fluxocaixa extends AbstractController
                         }
                     }
                 }
-
 
             }
 

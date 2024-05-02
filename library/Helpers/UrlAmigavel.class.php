@@ -256,10 +256,10 @@ class UrlAmigavel
             endif;
         }
         echo '<li>
-                           <a href="' . PASTAADMIN . 'login/deslogar/desloga/10">
-                           <i class="fa-solid fa-right-to-bracket"></i>
-                                   <span class="title"> SAIR </span><span class="selected"></span>
-                           </a>
+                   <a href="' . HOME . 'admin/login/deslogar/desloga/10">
+                   <i class="fa-solid fa-right-to-bracket"></i>
+                           <span class="title"> SAIR </span><span class="selected"></span>
+                   </a>
                    </li>';
         echo '<li><a href="javascript:void(0)"></a></li>';
         echo '</ul>';
