@@ -27,8 +27,6 @@ class Fluxocaixa extends AbstractController
         $ContaBancariaService = $this->getService(CONTA_BANCARIA_SERVICE);
         /** @var HistTransferenciaService $HistTransferenciaService */
         $HistTransferenciaService = $this->getService(HIST_TRANSFERENCIA_SERVICE);
-        /** @var UsuarioService $UsuarioService */
-        $UsuarioService = $this->getService(USUARIO_SERVICE);
         /** @var RepresentacaoService $RepresentacaoService */
         $RepresentacaoService = $this->getService(REPRESENTACAO_SERVICE);
         /** @var CentroCustoService $CentroCustoService */

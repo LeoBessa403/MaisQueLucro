@@ -29,6 +29,8 @@ class  FluxocaixaService extends AbstractService
             SUCESSO => false,
             MSG => null
         ];
+        $coUsuario = UsuarioService::getCoUsuarioLogado();
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
 
         $PDO->beginTransaction();
 
@@ -50,7 +52,7 @@ class  FluxocaixaService extends AbstractService
             $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
             $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
             $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
-            $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $fcEnt[CO_USUARIO] = $coUsuario;
 
             $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
             if ($dados[NU_VALOR_PAGO]) {
@@ -59,7 +61,7 @@ class  FluxocaixaService extends AbstractService
                 $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
 
                 $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+                $histSaldoCB[CO_USUARIO] = $coUsuario;
                 $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
                 $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
                 $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
@@ -81,7 +83,7 @@ class  FluxocaixaService extends AbstractService
             } else {
                 $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::ENTRADA;
                 $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $fcEnt[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
+                $fcEnt[CO_ASSINANTE] = $coAssinante;
 
                 if ($dados["tp_lanc"] > 1) {
 
@@ -161,6 +163,9 @@ class  FluxocaixaService extends AbstractService
             SUCESSO => false,
             MSG => null
         ];
+
+        $coUsuario = UsuarioService::getCoUsuarioLogado();
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
         $PDO->beginTransaction();
 
         $finValidador = new FluxocaixaValidador();
@@ -181,7 +186,7 @@ class  FluxocaixaService extends AbstractService
             $fcEnt[CO_REPRESENTACAO] = $dados[CO_REPRESENTACAO];
             $fcEnt[CO_CENTRO_CUSTO] = $dados[CO_CENTRO_CUSTO];
             $fcEnt[DS_DESCRICAO] = trim($dados[DS_DESCRICAO]);
-            $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $fcEnt[CO_USUARIO] = $coUsuario;
 
             $dias = Valida::CalculaDiferencaDiasData(date("d/m/Y"), $dados[DT_VENCIMENTO]);
             if ($dados[NU_VALOR_PAGO]) {
@@ -191,7 +196,7 @@ class  FluxocaixaService extends AbstractService
                 $contaDest = $ContaBancariaService->PesquisaUmRegistro($dados[CO_CONTA_BANCARIA]);
 
                 $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+                $histSaldoCB[CO_USUARIO] = $coUsuario;
                 $histSaldoCB[NU_VALOR_PAGO] = Valida::FormataMoedaBanco($dados[NU_VALOR_PAGO]);
                 $histSaldoCB[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
                 $histSaldoCB[CO_CONTA_BANCARIA] = $contaDest->getCoContaBancaria();
@@ -212,7 +217,7 @@ class  FluxocaixaService extends AbstractService
             } else {
                 $fcEnt[TP_FLUXO] = TipoFluxoCaixaEnum::SAIDA;
                 $fcEnt[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $fcEnt[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
+                $fcEnt[CO_ASSINANTE] = $coAssinante;
 
                 if ($dados["tp_lanc"] > 1) {
                     $fcEntAux[DT_VENCIMENTO] = $fcEnt[DT_VENCIMENTO];
@@ -368,6 +373,7 @@ class  FluxocaixaService extends AbstractService
             SUCESSO => false,
             MSG => null
         ];
+        $coUsuario = UsuarioService::getCoUsuarioLogado();
 
         $fluxos = explode(',', $dados);
         unset($fluxos[0]);
@@ -387,11 +393,11 @@ class  FluxocaixaService extends AbstractService
             }
 
             $fcEnt[NU_VALOR_PAGO] = $fc->getNuValor();
-            $fcEnt[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $fcEnt[CO_USUARIO] = $coUsuario;
             $fcEnt[ST_PAGAMENTO] = StatusPagamentoFCEnum::PAGO;
 
             $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $histSaldoCB[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();
+            $histSaldoCB[CO_USUARIO] = $coUsuario;
             $histSaldoCB[NU_VALOR_PAGO] = $fc->getNuValor();
             $histSaldoCB[TP_FLUXO] = $fc->getTpFluxo();
             $histSaldoCB[CO_CONTA_BANCARIA] = $fc->getCoContaBancaria()->getCoContaBancaria();
@@ -612,7 +618,7 @@ class  FluxocaixaService extends AbstractService
             or (tfc." . NU_VALOR . " >= " . $dados[NU_VALOR_PAGO . 1] .
                 " and tfc." . NU_VALOR . " <= " . $dados[NU_VALOR_PAGO . 2] . "))";
         }
-        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . $dados[CO_ASSINANTE] . ")";
 
         return $where;
     }
