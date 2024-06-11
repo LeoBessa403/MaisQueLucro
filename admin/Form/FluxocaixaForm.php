@@ -123,6 +123,7 @@ class FluxocaixaForm
             ->setId(NO_BANCO)
             ->setTamanhoInput(9)
             ->setLabel("Banco")
+            ->setInfo('Nome da Conta')
             ->CriaInpunt();
 
         $formulario
@@ -146,7 +147,7 @@ class FluxocaixaForm
             ->setTamanhoInput(3)
             ->setClasses('moeda')
             ->setInfo('Saldo atual da Conta')
-            ->setLabel("Saldo")
+            ->setLabel("Saldo atual da Conta")
             ->CriaInpunt();
 
         $formulario

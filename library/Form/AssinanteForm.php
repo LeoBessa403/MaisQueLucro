@@ -120,8 +120,8 @@ class AssinanteForm
         ];
         $formulario
             ->setId('chave')
-            ->setLabel("Chave PIX")
-            ->setPlace('contato@sistemadabeleza.com.br')
+            ->setLabel("Chave PIX CNPJ")
+            ->setPlace('44.777.359/0001-45')
             ->setClasses("debito disabilita")
             ->setTamanhoInput(12)
             ->setOptions($bancos)

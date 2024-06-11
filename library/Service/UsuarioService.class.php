@@ -23,7 +23,7 @@ class  UsuarioService extends AbstractService
             return NO_USUARIO_PADRAO;
         } else {
             /** @var Session $us */
-            $us = $_SESSION[SESSION_USER];
+            $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
             return (!empty($user[md5('no_perfis')])) ? $user[md5('no_perfis')] : null;
         }
@@ -37,7 +37,7 @@ class  UsuarioService extends AbstractService
             return CO_USUARIO_PADRAO;
         } else {
             /** @var Session $us */
-            $us = $_SESSION[SESSION_USER];
+            $us = unserialize(serialize($_SESSION[SESSION_USER]));
             $user = $us->getUser();
             return (!empty($user[md5(CO_USUARIO)])) ? $user[md5(CO_USUARIO)] : null;
         }
@@ -105,7 +105,7 @@ class  UsuarioService extends AbstractService
             $session = new Session();
             if ($session->CheckSession(SESSION_USER)) {
                 /** @var Session $us */
-                $us = $_SESSION[SESSION_USER];
+                $us = unserialize(serialize($_SESSION[SESSION_USER]));
                 $user = $us->getUser();
                 $meusPerfis = $user[md5(CAMPO_PERFIL)];
                 $meusPerfis = explode(',', $meusPerfis);

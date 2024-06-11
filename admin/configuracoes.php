@@ -32,8 +32,8 @@ function servidor_inicial()
                 'SCHEMA' => 'maisq671_teste',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'AMBI' => 2, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
-                'DEBUG' => false,
-                'PROD' => false,
+                'DEBUG' => true,
+                'PROD' => true,
                 'TOKEN_PAGSEGURO' => "5FDD35645CC1412296CE57A3542E48D0",
                 'URL_PAGSEGURO' =>
                     "https://ws.sandbox.pagseguro.uol.com.br/v2/",

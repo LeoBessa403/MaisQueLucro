@@ -162,7 +162,6 @@ define('PESQUISA_AVANCADA', "pesquisa_avancada");
 
 
 // AUTO LOAD DE CLASSES ####################
-// AUTO LOAD DE CLASSES ####################
 function __autoload($Class)
 {
     $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
@@ -201,54 +200,6 @@ function __autoload($Class)
         debug("Não foi possível incluir {$Class}");
     endif;
 }
-//
-//class ClassAutoloader
-//{
-//    public function __construct()
-//    {
-//        spl_autoload_register(array($this, 'loader'));
-//    }
-//
-//    private function loader($Class)
-//    {
-//        $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
-//        $rotas = array(
-//            './library/',
-//            '../../library/',
-//            '../',
-//            '',
-//            './' . ADMIN . '/',
-//            '../../' . ADMIN . '/',
-//            './' . SITE . '/',
-//            '../../' . SITE . '/'
-//        );
-//        $control = false;
-//
-//        foreach ($pastas as $pasta):
-//            foreach ($rotas as $rota):
-//                $arquivos = array(
-//                    $rota . $pasta . '/' . $Class . '.' . $pasta . '.php',
-//                    $rota . $pasta . '/' . $Class . '.class.php',
-//                    $rota . $pasta . '/' . $Class . '.php',
-//                );
-//                foreach ($arquivos as $arquivo):
-//                    if (file_exists($arquivo) && !is_dir($arquivo)):
-//                        include_once($arquivo);
-//                        $control = true;
-//                        break;
-//                    endif;
-//                endforeach;
-//                if ($control) break;
-//            endforeach;
-//            if ($control) break;
-//        endforeach;
-//        if (!$control):
-//            debug("Não foi possível incluir {$Class}");
-//        endif;
-//    }
-//}
-//
-//$autoloader = new ClassAutoloader();
 
 //PHPErro :: personaliza o gatilho do PHP
 function PHPErro($ErrNo, $ErrMsg, $ErrFile, $ErrLine)

@@ -124,7 +124,7 @@ class  WhatsAppService extends AbstractService
               
    Acesso pelo link: " . HOME . "admin para fazer a ATIVAÇÃO DO CADASTRO.
    
-   Acesse o SOL agora mesmo e começe a usar-lo para uma melhor Controle Financeiro. Esperamos por você!";
+   Acesse o SOL agora mesmo e começe a usar-lo para ter a Clareza Financeira. Esperamos por você!";
         return $this->enviarMensagem($dadosEmail[NU_TEL1], $Mensagem);
     }
 

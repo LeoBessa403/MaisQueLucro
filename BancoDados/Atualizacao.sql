@@ -106,3 +106,39 @@ INSERT INTO TB_HISTORICO_PAG_ASSINATURA (co_plano_assinante_assinatura, dt_cadas
 
 INSERT INTO sol.TB_USUARIO_PERFIL (co_perfil, co_usuario) VALUES ("2", "19");
 
+UPDATE sol.TB_FUNCIONALIDADE SET no_funcionalidade = "Cadastro Assinante", ds_action = "CadastroAssinante", st_menu = "N", co_controller = "12" where co_funcionalidade = 41;
+
+DELETE FROM sol.TB_PERFIL_FUNCIONALIDADE where co_funcionalidade in (41);
+
+UPDATE TB_HISTORICO_SUPORTE SET st_lido = "S" where co_historico_suporte = 1;
+
+INSERT INTO sol.TB_IMAGEM (ds_caminho) VALUES ("suporte-1-6668aaa25af29.jpg");
+
+INSERT INTO TB_HISTORICO_SUPORTE (co_suporte, dt_cadastro, ds_mensagem, st_lido, co_usuario, co_imagem) VALUES ("1", "2024-06-11 16:50:58", "<p>Estamos trabalhando para melhor Receber</p>", "N", "1", "6");
+
+UPDATE TB_CATEGORIA_FC_FILHA SET ds_texto = "Investimentos em Desenvolvimento Empresarial 2" where co_categoria_fc_filha = 12;
+
+UPDATE TB_CATEGORIA_FC_FILHA SET ds_texto = "Investimentos em Desenvolvimento Empresarial" where co_categoria_fc_filha = 12;
+
+INSERT INTO TB_CATEGORIA_FC_NETA (ds_texto, nu_codigo, co_categoria_fc_filha) VALUES ("Teste", "4.2.3", "12");
+
+DELETE FROM TB_CATEGORIA_FC_NETA where co_categoria_fc_neta = "68";
+
+INSERT INTO TB_CONTA_BANCARIA (st_status, nu_agencia, nu_conta, no_banco, dt_cadastro, co_assinante) VALUES ("S", "1", "3345455", "DINHEIRO (Caixa da loja)", "2024-06-11 17:30:52", "12");
+
+INSERT INTO TB_HIST_SALDO_CB (co_conta_bancaria, nu_saldo, ds_observacao, dt_cadastro, co_usuario) VALUES ("10", "289.80", "Caixa da loja", "2024-06-11 17:30:52", "13");
+
+INSERT INTO TB_CONTA_BANCARIA (st_status, nu_agencia, nu_conta, no_banco, dt_cadastro, co_assinante) VALUES ("S", "2345", "000002", "Nu Bank", "2024-06-11 17:32:19", "12");
+
+INSERT INTO TB_HIST_SALDO_CB (co_conta_bancaria, nu_saldo, ds_observacao, dt_cadastro, co_usuario) VALUES ("11", "2765.39", "", "2024-06-11 17:32:19", "13");
+
+INSERT INTO TB_HIST_SALDO_CB (dt_cadastro, co_usuario, nu_valor_pago, tp_fluxo, co_conta_bancaria, ds_observacao, nu_saldo) VALUES ("2024-06-11 17:33:24", "13", "250.00", "2", "10", "Transferência entre contas.", "39.8");
+
+INSERT INTO TB_HIST_SALDO_CB (dt_cadastro, co_usuario, nu_valor_pago, tp_fluxo, co_conta_bancaria, ds_observacao, nu_saldo) VALUES ("2024-06-11 17:33:24", "13", "250.00", "1", "11", "transferência entre contas.", "3015.39");
+
+INSERT INTO TB_HIST_TRANSFERENCIA (co_conta_bancaria_origem, dt_realizado, co_conta_bancaria_destino, nu_valor_transferido, dt_cadastro, co_usuario, co_assinante, nu_saldo_origem_ant, nu_saldo_origem_dep, nu_saldo_destino_ant, nu_saldo_destino_dep) VALUES ("10", "2024-06-11 17:33:24", "11", "250.00", "2024-06-11 17:33:24", "13", "12", "289.80", "39.8", "2765.39", "3015.39");
+
+INSERT INTO TB_REPRESENTACAO (no_representacao, ds_email, nu_tel1, co_assinante) VALUES ("LEONARDO MACHADO CARVALHO BESSA", "leonardomcbessa@gmail.com", "", "12");
+
+INSERT INTO TB_REPRESENTACAO (no_representacao, ds_email, nu_tel1, co_assinante) VALUES ("AMAURY COSTA SILVA RAMOS", "ramos.amaury96@gmail.com", "", "12");
+

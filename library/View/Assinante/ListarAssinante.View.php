@@ -17,6 +17,7 @@
                 <div class="page-header">
                     <h1>Assinante
                         <small>Listar Assinante</small>
+                        <?php Valida::geraBtnNovo('Cadastrar Assinante'); ?>
                     </h1>
                 </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->

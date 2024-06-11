@@ -70,7 +70,10 @@ class  FluxocaixaModel extends AbstractModel
         $where = ' ORDER BY ' . FluxocaixaEntidade::CHAVE . ' DESC LIMIT 1000';
         $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, $where, null, $campos);
 
-        return $pesquisa->getResult()[0];
+        if ($pesquisa->getResult())
+            return $pesquisa->getResult()[0];
+        else
+            return null;
     }
 
 
@@ -150,7 +153,10 @@ class  FluxocaixaModel extends AbstractModel
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar(HistSaldoCbEntidade::TABELA, $where, null, $campos);
 
-        return $pesquisa->getResult()[0];
+        if ($pesquisa->getResult())
+            return $pesquisa->getResult()[0];
+        else
+            return null;
     }
 
     public function PesquisaAvancadaDadosIndicadores($where)
@@ -184,11 +190,13 @@ class  FluxocaixaModel extends AbstractModel
                              sum(nu_valor_pago)
                          FROM
                              " . FluxocaixaEntidade::TABELA . "
-                         WHERE co_categoria_fc in(6) " . $where . ") AS entradas"
-                        ;
+                         WHERE co_categoria_fc in(6) " . $where . ") AS entradas";
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, null, null, $campos);
-        return $pesquisa->getResult()[0];
+        if ($pesquisa->getResult())
+            return $pesquisa->getResult()[0];
+        else
+            return null;
     }
 
     public function PesquisaAvancadaPagRec($coAssinante)
@@ -239,17 +247,19 @@ class  FluxocaixaModel extends AbstractModel
                         where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::ENTRADA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
-                                        StatusPagamentoFCEnum::A_RECEBER . ")) as rec_total,
+            StatusPagamentoFCEnum::A_RECEBER . ")) as rec_total,
                         (select sum(nu_valor) from " . FluxocaixaEntidade::TABELA . "
                         where co_assinante = " . $coAssinante . "
                           and tp_fluxo = " . TipoFluxoCaixaEnum::SAIDA . "
                           and st_pagamento in (" . StatusPagamentoFCEnum::EM_ATRASO . "," .
-                                StatusPagamentoFCEnum::A_PAGAR . ")) as pag_total"
-                        ;
+            StatusPagamentoFCEnum::A_PAGAR . ")) as pag_total";
         $pesquisa = new Pesquisa();
         $where = "where co_assinante = " . $coAssinante;
         $pesquisa->Pesquisar(FluxocaixaEntidade::TABELA, $where, null, $campos);
-        return $pesquisa->getResult()[0];
+        if ($pesquisa->getResult())
+            return $pesquisa->getResult()[0];
+        else
+            return null;
     }
 
 }
