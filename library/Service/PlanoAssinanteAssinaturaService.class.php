@@ -190,9 +190,7 @@ class  PlanoAssinanteAssinaturaService extends AbstractService
             'm'
         ));
         $planoAssinanteAssinatura[CO_PLANO_ASSINANTE_ASSINATURA_ATIVO] =
-            PlanoAssinanteAssinaturaService::getCoPlanoAssinaturaAtivo(
-                AssinanteService::getCoAssinanteLogado()
-            );
+            PlanoAssinanteAssinaturaService::getCoPlanoAssinaturaAtivo((int)$coAssinante);
 
         $planoAssinanteAssinatura[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
         $planoAssinanteAssinatura[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
@@ -754,7 +752,10 @@ class  PlanoAssinanteAssinaturaService extends AbstractService
             ST_STATUS => StatusSistemaEnum::ATIVO
         ]);
 
-        return $planoAssinante->getCoPlanoAssinanteAssinatura();
+        if (!empty($planoAssinante))
+            return $planoAssinante->getCoPlanoAssinanteAssinatura();
+        else
+            return null;
     }
 
     public function DetalharPagamentoAjax($coPlanoAssAss)
