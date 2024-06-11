@@ -74,3 +74,35 @@ INSERT INTO TB_HISTORICO_PAG_ASSINATURA (co_plano_assinante_assinatura, dt_cadas
 
 INSERT INTO sol.TB_USUARIO_PERFIL (co_perfil, co_usuario) VALUES ("2", "17");
 
+INSERT INTO sol.TB_CONTATO (ds_email, nu_tel1) VALUES ("ramos.amaury96@gmail.com", "61993274991");
+
+INSERT INTO sol.TB_PESSOA (no_pessoa, co_contato, dt_cadastro) VALUES ("AMAURY COSTA SILVA RAMOS", "20", "2024-06-11 15:19:47");
+
+INSERT INTO sol.TB_EMPRESA (no_fantasia, dt_cadastro) VALUES ("AMAURY COSTA SILVA RAMOS", "2024-06-11 15:19:47");
+
+INSERT INTO TB_ASSINANTE (tp_assinante, co_pessoa, co_empresa, dt_cadastro, dt_expiracao) VALUES ("M", "20", "19", "2024-06-11 15:19:47", "2025-06-11");
+
+INSERT INTO sol.TB_USUARIO (co_assinante, co_pessoa, ds_senha, ds_code, st_status, dt_cadastro) VALUES ("17", "20", "JUA4MQT2", "U2xWQk5FMVJWREk9", "A", "2024-06-11 15:19:47");
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA (co_plano_assinante, co_assinante, nu_filiais, nu_valor_assinatura, tp_pagamento, dt_cadastro, dt_expiracao, co_plano_assinante_assinatura_ativo, st_pagamento, dt_modificado, st_status) VALUES ("10", "17", "0", "997.00", "9", "2024-06-11 15:19:47", "2026-06-11", "10"_assinatura_ativo, "3", "2024-06-11 15:19:47", "A");
+
+INSERT INTO TB_HISTORICO_PAG_ASSINATURA (co_plano_assinante_assinatura, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("17", "2024-06-11 15:19:47", "Cadastro no Sistema", "Leo Bessa Fez o Cadastro", "3");
+
+INSERT INTO sol.TB_USUARIO_PERFIL (co_perfil, co_usuario) VALUES ("2", "18");
+
+INSERT INTO sol.TB_CONTATO (ds_email, nu_tel1) VALUES ("leonardomcbessa@gmail.com", "61993274991");
+
+INSERT INTO sol.TB_PESSOA (no_pessoa, co_contato, dt_cadastro) VALUES ("Leonardo Bessa", "21", "2024-06-11 15:21:40");
+
+INSERT INTO sol.TB_EMPRESA (no_fantasia, dt_cadastro) VALUES ("Leonardo Bessa", "2024-06-11 15:21:40");
+
+INSERT INTO TB_ASSINANTE (tp_assinante, co_pessoa, co_empresa, dt_cadastro, dt_expiracao) VALUES ("M", "21", "20", "2024-06-11 15:21:40", "2024-09-11");
+
+INSERT INTO sol.TB_USUARIO (co_assinante, co_pessoa, ds_senha, ds_code, st_status, dt_cadastro) VALUES ("18", "21", "IWB5YHL8", "U1ZkQ05WbElURGc9", "A", "2024-06-11 15:21:40");
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA (co_plano_assinante, co_assinante, nu_filiais, nu_valor_assinatura, tp_pagamento, dt_cadastro, dt_expiracao, co_plano_assinante_assinatura_ativo, st_pagamento, dt_modificado, st_status) VALUES ("12", "18", "0", "247.00", "9", "2024-06-11 15:21:40", "2024-12-11", "12"_assinatura_ativo, "3", "2024-06-11 15:21:40", "A");
+
+INSERT INTO TB_HISTORICO_PAG_ASSINATURA (co_plano_assinante_assinatura, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("18", "2024-06-11 15:21:40", "Cadastro no Sistema", "Leo Bessa Fez o Cadastro", "3");
+
+INSERT INTO sol.TB_USUARIO_PERFIL (co_perfil, co_usuario) VALUES ("2", "19");
+

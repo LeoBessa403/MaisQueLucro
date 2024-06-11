@@ -117,16 +117,14 @@ class  WhatsAppService extends AbstractService
         $Mensagem = "  Olá " . strtoupper($dadosEmail[NO_PESSOA]) . ", Seu cadastro no *" . DESC .
             "* foi realizado com sucesso.
                  
-   Seu Login é: _*" . $dadosEmail[DS_EMAIL] . "*_              
+   Seu Login é: " . $dadosEmail[DS_EMAIL] . "              
    Sua Senha é: _*" . $dadosEmail[DS_SENHA] . "*_";
         $Mensagem .= ". 
         _Ao acessar o Sistema pela primeira vez, deve trocar a senha._
               
-   Acesso pelo link: " . HOME . "admin/ para fazer a ATIVAÇÃO DO CADASTRO.
+   Acesso pelo link: " . HOME . "admin para fazer a ATIVAÇÃO DO CADASTRO.
    
-   Acesse o SOL agora mesmo e começe a usar-lo para uma melhor Controle Financeiro. Esperamos por você
-
-   ";
+   Acesse o SOL agora mesmo e começe a usar-lo para uma melhor Controle Financeiro. Esperamos por você!";
         return $this->enviarMensagem($dadosEmail[NU_TEL1], $Mensagem);
     }
 
