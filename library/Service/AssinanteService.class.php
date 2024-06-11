@@ -20,6 +20,8 @@ class  AssinanteService extends AbstractService
     {
         /** @var ContatoService $contatoService */
         $contatoService = $this->getService(CONTATO_SERVICE);
+        /** @var WhatsAppService $WhatsAppService */
+        $WhatsAppService = $this->getService(WHATSAPP_SERVICE);
         /** @var PessoaService $pessoaService */
         $pessoaService = $this->getService(PESSOA_SERVICE);
         /** @var EmpresaService $empresaService */
@@ -90,7 +92,7 @@ class  AssinanteService extends AbstractService
                     $usuarioPerfil[CO_USUARIO] = $dadosUsuario[CO_USUARIO];
                     $retorno[SUCESSO] = $usuarioPerfilService->Salva($usuarioPerfil);
 
-//                    $usuarioService->enviaEmailNovoUsuario($dadosUsuario["dados"], $dadosUsuario[CO_USUARIO]);
+                    $WhatsAppService->enviaMsgUsuarioInicial($dadosUsuario["dados"], $dadosUsuario[CO_USUARIO]);
                 } else {
                     Notificacoes::geraMensagem(
                         'Não foi possível realizar a ação',

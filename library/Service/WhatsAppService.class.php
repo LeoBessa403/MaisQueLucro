@@ -1,59 +1,75 @@
 <?php
 
 /**
- * WhatsAppService.class [ SEVICE ]
+ * WhatsAppService.class [ SERVICE ]
  * @copyright (c) 2020, Leo Bessa
  */
 class  WhatsAppService extends AbstractService
 {
-
-    private $urlApiWhats;
     private $tokenApiWhats;
+    private $InstanceApiWhats;
 
 
     public function __construct()
     {
-        $this->urlApiWhats = "https://api.chat-api.com/instance" . WHATSAPP_INSTANCE . "/";
+        $this->InstanceApiWhats = WHATSAPP_INSTANCE;
         $this->tokenApiWhats = API_WHATS_TOKEN;
-        if (!$this->verificaStatus()) {
+    }
 
-            if (PerfilService::perfilMaster()) {
-                Notificacoes::geraMensagem(
-                    'O Status do Servidor de Envio do WhatsApp esta Inativo.<br>' .
-                    'Verifique as configurações no site:
-            <a href="https://app.chat-api.com/login" target="_blank">Chat Api</a>',
-                    TiposMensagemEnum::ERRO
-                );
-            } else {
-                Notificacoes::geraMensagem(
-                    'O Status do Servidor de Envio do WhatsApp esta Inativo.<br>' .
-                    'Favor entrar em Contato com o Administrador do Sistema: <br>
-                    <div class="icon-whats">
-             <a class="pulse" title="Nos chame no WhatsApp"
-                           href="' . Valida::geraLinkWhatSapp('Status do WhatsApp do Sistema esta Inativo.') . '"
-                           target="_blank">
-                            <i class="fa fa-whatsapp"></i>
-                        </a></div>',
-                    TiposMensagemEnum::ALERTA
-                );
-            }
+    private function conectaApi($url, $dados)
+    {
+        $curl = curl_init();
 
-            Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller .
-                '/' . UrlAmigavel::$action);
+        $dados['appkey'] = $this->InstanceApiWhats;
+        $dados['authkey'] = $this->tokenApiWhats;
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://chatbot.menuia.com/api/" . $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $dados,
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        $retorno = json_decode($response);
+        if ($retorno->status == 200) {
+            Notificacoes::geraMensagem(
+                'Mensagem enviada com Sucesso!',
+                TiposMensagemEnum::SUCESSO
+            );
+        } else {
+            Notificacoes::geraMensagem(
+                'Erro ao Enviar! <br>' . $retorno->message,
+                TiposMensagemEnum::ERRO
+            );
         }
+        return json_decode($response);
     }
 
     public function verificaStatus()
     {
         if (API_WHATS_SERVER) {
-            $url = $this->urlApiWhats . 'status?token=' . $this->tokenApiWhats;
-            $result = file_get_contents($url); // Send a request
-            $data = json_decode($result, 1); // Parse JSON
-            if ($data["accountStatus"] == 'authenticated') {
-                return true;
-            } else {
-                return false;
-            }
+            $dados = [
+                'authkey' => 'uLjsts3u5ObTXfMDh31qS6y63mp1tBgR5Ew3Lq9fg4eMgsaGMy',
+                'message' => WHATSAPP_MSG,
+                'checkDispositivo' => 'true',
+            ];
+
+            $retorno = $this->conectaApi('developer', $dados);
+
+            debug($retorno, 1);
+
+//            if ($data["accountStatus"] == 'authenticated') {
+//                return true;
+//            } else {
+//                return false;
+//            }
         }
         return false;
     }
@@ -62,22 +78,14 @@ class  WhatsAppService extends AbstractService
     {
         $msgZap = urldecode($msg);
         $telDestinatario = filter_var(Valida::RetiraMascara($telDestinatario), FILTER_SANITIZE_NUMBER_INT);
-        $url = $this->urlApiWhats . 'sendMessage?token=' . $this->tokenApiWhats;
+        $url = 'create-message';
         $telSendMsg = (PROD) ? ($nacional) ? '55' . $telDestinatario : $telDestinatario : WHATSAPP_MSG;
-        $data = [
-            'phone' => $telSendMsg, // Número do Telefone
-            'body' => $msgZap, // Menssagem
+        $dados = [
+            'to' => $telSendMsg,
+            'message' => $msgZap,
+            'sandbox' => 'false'
         ];
-        $json = json_encode($data); // Encode data to JSON
-        // Make a POST request
-        $options = stream_context_create(['http' => [
-            'method' => 'POST',
-            'header' => 'Content-type: application/json',
-            'content' => $json
-        ]
-        ]);
-        // Send a request
-        return file_get_contents($url, false, $options);
+        return $this->conectaApi($url, $dados);
     }
 
     public function enviarMensagemArquivo($telDestinatario, $msg, $arquivo, $nacional = true)
@@ -104,40 +112,21 @@ class  WhatsAppService extends AbstractService
         return file_get_contents($url, false, $options);
     }
 
-    public function enviaMsgRetornoPagamento($coAssinante, $Xml)
-    {
-        /** @var AssinanteService $AssinanteService */
-        $AssinanteService = $this->getService(ASSINANTE_SERVICE);
-        /** @var AssinanteEntidade $assinante */
-        $assinante = $AssinanteService->PesquisaUmRegistro($coAssinante);
-
-        $data = explode('T', (string)$Xml->lastEventDate);
-        $hora = explode('.', $data[1]);
-
-        $msg = '  Olá, ' . strtoupper($assinante->getCoPessoa()->getNoPessoa()) . ', Eu Sou O *SisBela*, 
-seu _Sistema da Beleza_, e gostaria de te informar que o _Pagamento_ do Assinante *' .
-            $assinante->getCoEmpresa()->getNoFantasia() . '* Mudou o Status do pagamento para _*' .
-            StatusPagamentoEnum::getDescricaoValor((string)$Xml->status) . '*_ em ' .
-            Valida::DataShow($data[0] . ' ' . $hora[0], 'd/m/Y H:i') .
-            ' conforme retornado da operadora do pagamento. 
-            
-   Acesse nosso sistema para maiores Informações.';
-        return $this->enviarMensagem($assinante->getCoPessoa()->getCoContato()->getNuTel1(), $msg);
-    }
-
     public function enviaMsgUsuarioInicial($dadosEmail, $coUsuario)
     {
         $Mensagem = "  Olá " . strtoupper($dadosEmail[NO_PESSOA]) . ", Seu cadastro no *" . DESC .
             "* foi realizado com sucesso.
                  
-   Sua senha é: _*" . $dadosEmail[DS_SENHA] . "*_";
+   Seu Login é: _*" . $dadosEmail[DS_EMAIL] . "*_              
+   Sua Senha é: _*" . $dadosEmail[DS_SENHA] . "*_";
         $Mensagem .= ". 
         _Ao acessar o Sistema pela primeira vez, deve trocar a senha._
               
-   Acesse o Nosso _Sistema da Beleza_ agora mesmo e começe a usar-lo para uma melhor organização de sua agenda. Esperamos por você
+   Acesso pelo link: " . HOME . "admin/ para fazer a ATIVAÇÃO DO CADASTRO.
    
-   Acesso o link para a <a href='" . HOME . "admin/Index/AtivacaoUsuario/" .
-            Valida::GeraParametro(CO_USUARIO . "/" . $coUsuario) . "'>ATIVAÇÃO DO CADASTRO</a>";
+   Acesse o SOL agora mesmo e começe a usar-lo para uma melhor Controle Financeiro. Esperamos por você
+
+   ";
         return $this->enviarMensagem($dadosEmail[NU_TEL1], $Mensagem);
     }
 

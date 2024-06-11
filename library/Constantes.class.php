@@ -191,6 +191,7 @@ define('CRONS_SERVICE', 'CronsService');
 define('SUPORTE_SERVICE', 'SuporteService');
 define('HISTORICO_SUPORTE_SERVICE', 'HistoricoSuporteService');
 define('HISTORICO_PAG_ASSINATURA_SERVICE', 'HistoricoPagAssinaturaService');
+define('WHATSAPP_SERVICE', 'WhatsAppService');
 
 
 // CONSTANTES
