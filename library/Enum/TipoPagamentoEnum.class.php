@@ -14,7 +14,8 @@ class TipoPagamentoEnum extends AbstractEnum
     const PROMISSORIA = 6;
     const CHEQUE = 7;
     const PARCELAMENTO_PROPRIO = 8;
-    const OUTROS = 9;
+    const CLIENTE_FAROL = 9;
+    const OUTROS = 10;
 
     public static $descricao = [
         TipoPagamentoEnum::GRATIS => 'Grátis',
@@ -26,6 +27,7 @@ class TipoPagamentoEnum extends AbstractEnum
         TipoPagamentoEnum::PROMISSORIA => 'Promissória',
         TipoPagamentoEnum::CHEQUE => 'Cheque',
         TipoPagamentoEnum::PARCELAMENTO_PROPRIO => 'Parcelamento Próprio',
+        TipoPagamentoEnum::CLIENTE_FAROL => 'Cliente da Mentoria FAROL',
         TipoPagamentoEnum::OUTROS => 'Outros',
     ];
 }

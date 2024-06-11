@@ -186,9 +186,17 @@ class UrlAmigavel
     {
         /** @var ControllerService $controllerService */
         $controllerService = new ControllerService();
-        $controllers = $controllerService->PesquisaTodos();
-
+        $controllers = $controllerService->PesquisaAvancadaMenu();
         $ativo = UrlAmigavel::$controller;
+
+        $dadosMenu = [];
+        foreach ($controllers as $cont) {
+            if ($cont[CO_FUNCIONALIDADE] > 1) {
+                if (($cont[ST_MENU] == SimNaoEnum::SIM) && (Valida::ValPerfil($cont[DS_ACTION]))) {
+                    $dadosMenu[$cont[NO_CONTROLLER]][] = $cont;
+                }
+            }
+        }
 
         echo '<ul class="main-navigation-menu">';
         if ($ativo == ACTION_INICIAL_ADMIN):
@@ -207,54 +215,35 @@ class UrlAmigavel
                            </a>
                    </li>';
         }
-        /** @var ControllerEntidade $controller */
-        foreach ($controllers as $controller) {
-            $label = $controller->getNoController();
-            $titulo = ucwords(Valida::ValNome($label));
-            $tem = false;
-            if (!empty($controller->getCoFuncionalidade())) {
-                /** @var FuncionalidadeEntidade $func */
-                foreach ($controller->getCoFuncionalidade() as $func) :
-                    if ($func->getStMenu() == SimNaoEnum::SIM):
-                        if (Valida::ValPerfil($func->getDsAction())) :
-                            $tem = true;
-                            break;
-                        endif;
-                    endif;
-                endforeach;
-            }
-            if (($titulo == 'Assinante' || $titulo == 'Plano') && (!MODULO_ASSINANTE)) {
-                $tem = false;
-            }
-            if ($titulo == 'Visita' && !TEM_SITE) {
-                $tem = false;
-            }
-            if ($tem):
+
+        foreach ($dadosMenu as $noControl => $control) {
+            if (count($control)) {
+                $titulo = ucwords(Valida::ValNome($noControl));
                 if ($ativo == $titulo):
                     echo '<li class="active">';
                 else:
                     echo '<li>';
                 endif;
-                echo '<a href="javascript:void(0)"><i class="' . $controller->getDsClassIcon() . '"></i>
-                                       <span class="title"> ' . $label . ' </span><i class="icon-arrow"></i>
+                echo '<a href="javascript:void(0)"><i class="' . $control[0][DS_CLASS_ICON] . '"></i>
+                                       <span class="title"> ' . $titulo . ' </span><i class="icon-arrow"></i>
                                        <span class="selected"></span>
                                </a>
                                <ul class="sub-menu" style="display: none;">';
-                /** @var FuncionalidadeEntidade $func */
-                foreach ($controller->getCoFuncionalidade() as $func) {
-                    $titulo_menu = str_replace($titulo, "", $func->getNoFuncionalidade());
-                    if (Valida::ValPerfil($func->getDsAction()) && $func->getStMenu() == SimNaoEnum::SIM):
+                foreach ($control as $controller) {
+                    if (($controller[ST_MENU] == SimNaoEnum::SIM) && (Valida::ValPerfil($controller[DS_ACTION]))) {
+                        $titulo_menu = str_replace($titulo, "", $controller[NO_FUNCIONALIDADE]);
                         echo '<li>
-                                    <a href="' . PASTAADMIN . $titulo . '/' . $func->getDsAction() . '">
+                                    <a href="' . PASTAADMIN . $titulo . '/' . $controller[DS_ACTION] . '">
                                             <span class="title"> ' . $titulo_menu . ' </span>
                                     </a>
                                  </li>';
-                    endif;
+                    }
                 }
                 echo '</ul>
                        </li>';
-            endif;
+            }
         }
+
         echo '<li>
                    <a href="' . HOME . 'admin/login/deslogar/desloga/10">
                    <i class="fa-solid fa-right-to-bracket"></i>
@@ -263,6 +252,7 @@ class UrlAmigavel
                    </li>';
         echo '<li><a href="javascript:void(0)"></a></li>';
         echo '</ul>';
+
 
     }
 

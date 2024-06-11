@@ -268,14 +268,18 @@ class Index extends AbstractController
     {
         /** @var AcessoService $acessoService */
         $acessoService = $this->getService(ACESSO_SERVICE);
+        /** @var UsuarioPerfilService $UsuarioPerfilService */
+        $UsuarioPerfilService = $this->getService(USUARIO_PERFIL_SERVICE);
+
         $acessoService->finalizaAcessos();
         $acessoService->salvarAcesso($coUsuario);
 
+        $perf = $UsuarioPerfilService->PesquisaPerfisUsuario($coUsuario);
         $perfis = array();
         $no_perfis = array();
         $usuarioAcesso["perfil_master"] = false;
-        if (!empty($user[CO_USUARIO_PERFIL])) {
-            foreach ($user[CO_USUARIO_PERFIL] as $perfil) {
+        if (!empty($perf)) {
+            foreach ($perf as $perfil) {
                 $perfis[] = $perfil[CO_PERFIL];
                 $no_perfis[] = $perfil[NO_PERFIL];
                 if ($perfil[CO_PERFIL] == 1)

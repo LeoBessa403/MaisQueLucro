@@ -8,8 +8,8 @@ function servidor_inicial()
             'HOST' => 'localhost',
             'USER' => 'root',
             'PASS' => '',
-            'DBSA' => 'atacadao10',
-            'SCHEMA' => 'atacadao10',
+            'DBSA' => 'sol',
+            'SCHEMA' => 'sol',
             'BANCO' => 1, // 1 = mysql, 2 = postgres
             'AMBI' => 1, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
             'DEBUG' => true,
@@ -27,7 +27,7 @@ function servidor_inicial()
                 'HOME' => 'https://teste.maisquelucro.com.br/',
                 'HOST' => 'localhost',
                 'USER' => 'maisq671_dev',
-                'PASS' => 'Admin101*/',
+                'PASS' => 'sVl!;q{Jq;yp',
                 'DBSA' => 'maisq671_teste',
                 'SCHEMA' => 'maisq671_teste',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
@@ -45,7 +45,7 @@ function servidor_inicial()
                 'HOME' => 'https://maisquelucro.com.br/',
                 'HOST' => 'localhost',
                 'USER' => 'maisq671_dev',
-                'PASS' => 'Admin101*/',
+                'PASS' => 'sVl!;q{Jq;yp',
                 'DBSA' => 'maisq671_sol',
                 'SCHEMA' => 'maisq671_sol',
                 'BANCO' => 1, // 1 = mysql, 2 = postgres

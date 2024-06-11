@@ -33,9 +33,9 @@ define('WHATSAPP_INSTANCE', '322318');
 define('API_WHATS_TOKEN', 'gljbo9laxfdzeetc');
 define('API_WHATS_SERVER', 'on');
 define('CONTROLLER_SEO', 'Curso');
-define('USER_EMAIL', 'contato@maisquelucro.com.br');
-define('PASS_EMAIL', 'Admin101**');
-define('HOST_EMAIL', 'mail.maisquelucro.com.br');
-define('PORTA_EMAIL', '587');
+define('USER_EMAIL', 'contato.maisquelucro@gmail.com');
+define('PASS_EMAIL', 'Admin101*/');
+define('HOST_EMAIL', 'smtp.gmail.com');
+define('PORTA_EMAIL', '995');
 define('ID_ANALITCS', '');
 

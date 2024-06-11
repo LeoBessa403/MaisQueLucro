@@ -161,6 +161,65 @@ class  PlanoAssinanteAssinaturaService extends AbstractService
         return $retorno;
     }
 
+    public function salvaPagamentoAssinanteFarol($coAssinante, $plano)
+    {
+        /** @var AssinanteService $AssinanteService */
+        $AssinanteService = $this->getService(ASSINANTE_SERVICE);
+        /** @var PlanoAssinanteAssinaturaService $planoAssinanteAssinaturaService */
+        $planoAssinanteAssinaturaService = $this->getService(PLANO_ASSINANTE_ASSINATURA_SERVICE);
+        /** @var HistoricoPagAssinaturaService $HistPagAssService */
+        $HistPagAssService = $this->getService(HISTORICO_PAG_ASSINATURA_SERVICE);
+        $retorno = [
+            SUCESSO => false,
+            MSG => null
+        ];
+
+        /** @var AssinanteEntidade $assinante */
+        $assinante = $AssinanteService->PesquisaUmRegistro($coAssinante);
+
+        $planoAssinanteAssinatura[CO_PLANO_ASSINANTE] = $plano->getCoUltimoPlanoAssinante()->getCoPlanoAssinante();
+        $planoAssinanteAssinatura[CO_ASSINANTE] = $coAssinante;
+        $planoAssinanteAssinatura[NU_FILIAIS] = 0;
+        $planoAssinanteAssinatura[NU_VALOR_ASSINATURA] = $plano->getCoUltimoPlanoAssinante()->getNuValor();
+        $planoAssinanteAssinatura[TP_PAGAMENTO] = TipoPagamentoEnum::CLIENTE_FAROL;
+        $planoAssinanteAssinatura[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+        $planoAssinanteAssinatura[DT_EXPIRACAO] = Valida::DataDBDate(Valida::CalculaData(
+            Valida::DataShow($assinante->getDtExpiracao()),
+            $plano->getNuMesAtivo(),
+            "+",
+            'm'
+        ));
+        $planoAssinanteAssinatura[CO_PLANO_ASSINANTE_ASSINATURA_ATIVO] =
+            PlanoAssinanteAssinaturaService::getCoPlanoAssinaturaAtivo(
+                AssinanteService::getCoAssinanteLogado()
+            );
+
+        $planoAssinanteAssinatura[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
+        $planoAssinanteAssinatura[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
+        $planoAssinanteAssinatura[ST_STATUS] = StatusUsuarioEnum::ATIVO;
+        $retorno[SUCESSO] = $planoAssinanteAssinaturaService->Salva($planoAssinanteAssinatura);
+        $retorno[MSG] = CADASTRADO;
+
+
+        // HISTORICO DO PAGAMENTO INICIADO
+        $histPagAss[CO_PLANO_ASSINANTE_ASSINATURA] = $retorno[SUCESSO];
+        $histPagAss[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+        $histPagAss[DS_ACAO] = 'Cadastro no Sistema';
+        $histPagAss[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
+            . ' Fez o Cadastro';
+        $histPagAss[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
+
+        $HistPagAssService->Salva($histPagAss);
+
+        if ($retorno[SUCESSO]) {
+            $retorno[SUCESSO] = true;
+        } else {
+            $retorno[SUCESSO] = false;
+        }
+
+        return $retorno;
+    }
+
     public function salvaPagamentoAssinanteSite($dados, $coAssinante, PlanoEntidade $plano)
     {
         /** @var AssinanteService $AssinanteService */

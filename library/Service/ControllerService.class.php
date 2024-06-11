@@ -16,5 +16,10 @@ class  ControllerService extends AbstractService
         $this->ObjetoModel = New ControllerModel();
     }
 
+    public function PesquisaAvancadaMenu()
+    {
+        return $this->ObjetoModel->PesquisaAvancadaMenu();
+    }
+
 
 }

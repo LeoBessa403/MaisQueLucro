@@ -23,7 +23,7 @@ class  UsuarioService extends AbstractService
             return NO_USUARIO_PADRAO;
         } else {
             /** @var Session $us */
-            $us = unserialize(serialize($_SESSION[SESSION_USER]));
+            $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
             return (!empty($user[md5('no_perfis')])) ? $user[md5('no_perfis')] : null;
         }
@@ -37,7 +37,7 @@ class  UsuarioService extends AbstractService
             return CO_USUARIO_PADRAO;
         } else {
             /** @var Session $us */
-            $us = unserialize(serialize($_SESSION[SESSION_USER]));
+            $us = $_SESSION[SESSION_USER];
             $user = $us->getUser();
             return (!empty($user[md5(CO_USUARIO)])) ? $user[md5(CO_USUARIO)] : null;
         }
@@ -105,7 +105,7 @@ class  UsuarioService extends AbstractService
             $session = new Session();
             if ($session->CheckSession(SESSION_USER)) {
                 /** @var Session $us */
-                $us = unserialize(serialize($_SESSION[SESSION_USER]));
+                $us = $_SESSION[SESSION_USER];
                 $user = $us->getUser();
                 $meusPerfis = $user[md5(CAMPO_PERFIL)];
                 $meusPerfis = explode(',', $meusPerfis);
@@ -352,7 +352,7 @@ class  UsuarioService extends AbstractService
         $usuario[CO_PESSOA] = $coPessoa;
         $usuario[DS_SENHA] = trim(Valida::GeraCodigo());
         $usuario[DS_CODE] = base64_encode(base64_encode($usuario[DS_SENHA]));
-        $usuario[ST_STATUS] = StatusUsuarioEnum::INATIVO;
+        $usuario[ST_STATUS] = StatusUsuarioEnum::ATIVO;
         $usuario[DT_CADASTRO] = Valida::DataHoraAtualBanco();
 
         $coUsuario = $this->Salva($usuario);
@@ -372,7 +372,7 @@ class  UsuarioService extends AbstractService
     {
         if ($coUsuario) {
 
-            $whats = new WhatsAppService();
+//            $whats = new WhatsAppService();
 //            $retWhats = $whats->enviaMsgUsuarioInicial($dadosEmail, $coUsuario);
 
             /** @var Email $email */

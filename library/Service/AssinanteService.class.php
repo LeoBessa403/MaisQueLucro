@@ -83,14 +83,14 @@ class  AssinanteService extends AbstractService
 
                 $coAssinante = $this->Salva($assinante);
                 $dadosUsuario = $usuarioService->salvaUsuarioInicial($assinante[CO_PESSOA], $dadosEmail, $coAssinante);
-                $retorno = $PlanoAssinanteAssinaturaService->salvaPagamentoAssinanteSite($dados, $coAssinante, $plano);
+                $retorno = $PlanoAssinanteAssinaturaService->salvaPagamentoAssinanteFarol($coAssinante, $plano);
 
                 if ($retorno[SUCESSO]) {
                     $usuarioPerfil[CO_PERFIL] = 2;
                     $usuarioPerfil[CO_USUARIO] = $dadosUsuario[CO_USUARIO];
                     $retorno[SUCESSO] = $usuarioPerfilService->Salva($usuarioPerfil);
 
-                    $usuarioService->enviaEmailNovoUsuario($dadosUsuario["dados"], $dadosUsuario[CO_USUARIO]);
+//                    $usuarioService->enviaEmailNovoUsuario($dadosUsuario["dados"], $dadosUsuario[CO_USUARIO]);
                 } else {
                     Notificacoes::geraMensagem(
                         'Não foi possível realizar a ação',
@@ -104,6 +104,10 @@ class  AssinanteService extends AbstractService
             if ($retorno[SUCESSO]) {
                 $retorno[SUCESSO] = true;
                 $PDO->commit();
+                Notificacoes::geraMensagem(
+                    'Cadastrado com Sucesso!',
+                    TiposMensagemEnum::SUCESSO
+                );
             } else {
                 Notificacoes::geraMensagem(
                     'Não foi possível realizar a ação',

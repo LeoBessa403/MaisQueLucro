@@ -45,6 +45,16 @@ class AssinanteForm
             ->setTamanhoInput(8)
             ->CriaInpunt();
 
+        $options = PlanoService::montaComboPlanosAtivos();
+        $formulario
+            ->setId(CO_PLANO)
+            ->setType(TiposCampoEnum::SELECT)
+            ->setLabel("Plano")
+            ->setTamanhoInput(12)
+            ->setClasses("ob")
+            ->setOptions($options)
+            ->CriaInpunt();
+
         Form::CriaInputHidden($formulario, $res, [CO_ASSINANTE]);
 
         return $formulario->finalizaForm();
