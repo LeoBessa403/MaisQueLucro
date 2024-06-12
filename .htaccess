@@ -1,3 +1,32 @@
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula03\-pt1$ "https\:\/\/zoom\.us\/rec\/play\/uro\-Mv9iIkOnK0SJK90LvSScTmmS_2wxgBIGNJUOT0pFSpxQODHANJn5kko\-vLuhhGrCD7GD_uKrny_L\.ZYjJjgXa51sFitta\?autoplay\=true\&startTime\=1718144180000" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula03\-pt2$ "https\:\/\/zoom\.us\/rec\/play\/fixBTJcHUuU2L4ndS8v2Rd4aRCFEYcwjcU\-8EIMnCRrJg5vV9\-ODuHds1CMX8RikUoXWo\-jSDxjKRbgz\.X2xlE2N1CCe8ZI_s\?autoplay\=true\&startTime\=1718146283000" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula2\-material$ "https\:\/\/maisquelucro\.com\.br\/Documentos\/Aula\ 02\ \-\ Separação\ das\ finanças\ e\ introdução\ ao\ Fluxo\ de\ Caixa\.pdf" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula02$ "https\:\/\/us06web\.zoom\.us\/rec\/share\/Lrg6eGUqRjuRf9E0on5\-V1u664KCI4Odnba6EBIbessB0NHzJezfBStl1gYftTzX\.6gDD4wmb2RqubIr5\ \ Senha\:\ dzbG12\&\#" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula1$ "https\:\/\/us06web\.zoom\.us\/rec\/play\/V\-5HvtKdRsZWsgzqEW3PzHKG9NfMU77qdnXKvQIfGDelK2GiCIYJoAG6PkruAi5EnahCORZOGNf98YFm\.zZVjT7em4UcJ0KIL\?autoplay\=true" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula1\-material$ "https\:\/\/maisquelucro\.com\.br\/Documentos\/MateriaisAula\.rar" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^tutorial\-gestao\-anticrise$ "https\:\/\/youtu\.be\/Q7JADtjfi6k" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^tutorial\-pro\-labore$ "https\:\/\/youtu\.be\/q\-7cRRzaAj8" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^fale\-conosco$ "https\:\/\/api\.whatsapp\.com\/send\?phone\=5561993274991\&text\=Ol\ quero\ saber\ mais\ \ sobre\ seus\ serviços\." [R=301,L]
+
 RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?url=$1
+

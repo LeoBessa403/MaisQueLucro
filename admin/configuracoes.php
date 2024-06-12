@@ -42,7 +42,7 @@ function servidor_inicial()
             );
         } else {
             $config = array(
-                'HOME' => 'https://maisquelucro.com.br/',
+                'HOME' => 'https://sol.maisquelucro.com.br/',
                 'HOST' => 'localhost',
                 'USER' => 'maisq671_dev',
                 'PASS' => 'sVl!;q{Jq;yp',
