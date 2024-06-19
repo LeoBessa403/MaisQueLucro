@@ -1,7 +1,7 @@
 <?php
 //Inicia a Sessão
 // Pasta do arquivos do site
-define('SITE', 'web');
+define('SITE', 'admin');
 // Pasta dos arquivos da Admiistração
 define('ADMIN', 'admin');
 session_start();
@@ -50,9 +50,9 @@ if (defined('TEM_SITE') == false) {
     // Título do Sistema
     define('DESC_SIS', 'SisNovo');
     // CONTROLLER INICIAL DO SITE
-    define('CONTROLLER_INICIAL_SITE', 'IndexWeb');
+    define('CONTROLLER_INICIAL_SITE', 'Index');
     // AÇÃO INICIAL DO SITE
-    define('ACTION_INICIAL_SITE', 'Index');
+    define('ACTION_INICIAL_SITE', 'IndexAdmin');
     // CONTROLLER INICIAL DO ADMIN
     define('CONTROLLER_INICIAL_ADMIN', 'Index');
     // AÇÃO INICIAL DO ADMIN

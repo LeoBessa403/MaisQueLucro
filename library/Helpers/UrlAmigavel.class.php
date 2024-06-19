@@ -108,25 +108,25 @@ class UrlAmigavel
         endif;
 
         if (self::$modulo != SITE && self::$modulo != ADMIN):
-            self::$modulo = SITE;
-            self::$controller = CONTROLLER_INICIAL_SITE;
-            self::$action = ACTION_INICIAL_SITE;
+            self::$modulo = ADMIN;
+            self::$controller = CONTROLLER_INICIAL_ADMIN;
+            self::$action = ACTION_INICIAL_ADMIN;
             $erro_404 = true;
         endif;
 
         if (self::$controller == ""):
-            self::$controller = CONTROLLER_INICIAL_SITE;
-            self::$action = ACTION_INICIAL_SITE;
+            self::$controller = CONTROLLER_INICIAL_ADMIN;
+            self::$action = ACTION_INICIAL_ADMIN;
         elseif (self::$action == ""):
-            self::$action = ACTION_INICIAL_SITE;
+            self::$action = ACTION_INICIAL_ADMIN;
         endif;
 
         $controller_path = self::$modulo . "/Controller/" . self::$controller . '.Controller.php';
         if ((!file_exists($controller_path)) &&
             (!file_exists("Controller/" . self::$controller . '.Controller.php')) &&
             (!file_exists("library/Controller/" . self::$controller . '.Controller.php'))):
-            self::$controller = (self::$modulo == ADMIN) ? CONTROLLER_INICIAL_ADMIN : CONTROLLER_INICIAL_SITE;
-            self::$action = (self::$modulo == ADMIN) ? ACTION_INICIAL_ADMIN : ACTION_INICIAL_SITE;
+            self::$controller = CONTROLLER_INICIAL_ADMIN;
+            self::$action = ACTION_INICIAL_ADMIN;
             $erro_404 = true;
         endif;
 
@@ -140,7 +140,7 @@ class UrlAmigavel
         $app = new self::$controller();
 
         if (!method_exists($app, self::$action)):
-            self::$action = (self::$modulo == ADMIN) ? ACTION_INICIAL_ADMIN : ACTION_INICIAL_SITE;
+            self::$action = ACTION_INICIAL_ADMIN ;
             $erro_404 = true;
         endif;
 
@@ -161,7 +161,7 @@ class UrlAmigavel
         $actAux = self::$action;
 
         if ($erro_404):
-            $module = (self::$modulo == SITE) ? CONTROLLER_INICIAL_SITE : CONTROLLER_INICIAL_ADMIN;
+            $module = CONTROLLER_INICIAL_ADMIN;
             $arquivo_include = 'View/' . $module . '/' . ERRO_404 . '.View.php';
         else:
             $arquivo_include = 'View/' . self::$controller . "/" . self::$action . '.View.php';
@@ -290,7 +290,7 @@ class UrlAmigavel
 
     private static function setAction()
     {
-        $act = (self::$modulo == ADMIN) ? ACTION_INICIAL_ADMIN : ACTION_INICIAL_SITE;
+        $act = ACTION_INICIAL_ADMIN;
         $ac = (!isset(self::$explode[2]) || self::$explode[2] == null || self::$explode[2] == $act
             ? $act : self::$explode[2]);
         self::$action = $ac;
