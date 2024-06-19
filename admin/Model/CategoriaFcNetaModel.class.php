@@ -31,9 +31,9 @@ class  CategoriaFcNetaModel extends AbstractModel
                    tcfn.ds_texto as nomeNet";
 
         $pesquisa = new Pesquisa();
-        $where = 'where tcfn.co_assinante = ' . $coAssinante . ' order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
+//        $where = 'where tcfn.co_assinante = ' . $coAssinante . ' order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
+        $where = 'order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
         $pesquisa->Pesquisar($tabela, $where, null, $campos);
-
         return $pesquisa->getResult();
     }
 

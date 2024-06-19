@@ -311,82 +311,58 @@ class  CategoriaFcService extends AbstractService
 
     public static function EstruturaCategoriasFC()
     {
-        /** @var CategoriaFcService $CategoriaFcService */
-        $CategoriaFcService = new CategoriaFcService();
-        /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
-        $CategoriaFcFilhaService = new CategoriaFcFilhaService();
         /** @var CategoriaFcNetaService $CategoriaFcNetaService */
         $CategoriaFcNetaService = new CategoriaFcNetaService();
 
-        $Categorias = $CategoriaFcService->PesquisaTodos([], 'A', NU_CODIGO);
+        $Categorias = $CategoriaFcNetaService->carregaComboCatPesquisaLanc(AssinanteService::getCoAssinanteLogado());
 
         $est = '';
-        /** @var CategoriaFcEntidade $cat */
+        $dadosCat = [];
         foreach ($Categorias as $cat) {
-
-            $est .= '<li class="catPai"><i class="fa fa-caret-right acao" title="Expandir"></i> ' .
-                $cat->getNuCodigo() . ' - ' . $cat->getDsTexto() . '</li>';
-
-            $catFilhas = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $cat->getCoCategoriaFc()
-            ], 'A', NU_CODIGO);
-
-            if (count($catFilhas))
-                $est .= '<ul class="estCatFilha">';
-
-            /** @var CategoriaFcFilhaEntidade $catFilha */
-            foreach ($catFilhas as $catFilha) {
-
-                $est .= '<li class="catFilha">
-                                <i class="fa fa-caret-right acao" title="Expandir"></i> 
-                                ' . $catFilha->getNuCodigo() . ' - <span class="dsTexto">' .
-                    $catFilha->getDsTexto() . '</span> 
-                        <input type="text" class="form-control spanDsTexto"
-                                id="ds_texto_f-' . $catFilha->getCoCategoriaFcFilha() . '" 
-                                name="ds_texto_f-' . $catFilha->getCoCategoriaFcFilha() . '" 
-                                value="' . $catFilha->getDsTexto() . '">
-                        <i class="fa fa-save save-cat" title="Salvar"
-                            data-id="f-' . $catFilha->getCoCategoriaFcFilha() . '"></i>
-                        <i class="clip-pencil-2 edit-cat" title="Editar"
-                           data-id="f-' . $catFilha->getCoCategoriaFcFilha() . '"></i>
-                        <i class="fa fa-ban cancelar-cat" title="Cancelar"
-                           data-id="f-' . $catFilha->getCoCategoriaFcFilha() . '"></i>
-                        <i class="fa fa-trash-o exc-cat" title="Excluir"
-                           data-id="f-' . $catFilha->getCoCategoriaFcFilha() . '"></i></li>';
-
-                $catNetas = $CategoriaFcNetaService->PesquisaTodos([
-                    CO_CATEGORIA_FC_FILHA => $catFilha->getCoCategoriaFcFilha()
-                ], 'A', NU_CODIGO);
-
-                if (count($catNetas))
-                    $est .= '<ul class="estCatNeta">';
-
-                /** @var CategoriaFcNetaEntidade $catNeta */
-                foreach ($catNetas as $catNeta) {
-
-                    $est .= '<li class="catNeta">
-                                ' . $catNeta->getNuCodigo() . ' -  <span class="dsTexto">' .
-                        $catNeta->getDsTexto() . '</span> 
-                        <input type="text" class="form-control spanDsTexto"
-                                id="ds_texto_n-' . $catNeta->getCoCategoriaFcNeta() . '" 
-                                name="ds_texto_n-' . $catNeta->getCoCategoriaFcNeta() . '" 
-                                value="' . $catNeta->getDsTexto() . '">
-                        <i class="fa fa-save save-cat" title="Salvar"
-                            data-id="n-' . $catNeta->getCoCategoriaFcNeta() . '"></i>
-                        <i class="clip-pencil-2 edit-cat" title="Editar" 
-                            data-id="n-' . $catNeta->getCoCategoriaFcNeta() . '"></i>
-                        <i class="fa fa-ban cancelar-cat" title="Cancelar" 
-                            data-id="n-' . $catNeta->getCoCategoriaFcNeta() . '"></i>
-                        <i class="fa fa-trash-o exc-cat" title="Excluir"
-                            data-id="n-' . $catNeta->getCoCategoriaFcNeta() . '"></i></li>';
-                }
-
-                if (count($catNetas))
-                    $est .= '</ul>';
+            if (empty($dadosCat[$cat["cod"]])) {
+                $est .= '<li class="catPai"><i class="fa fa-caret-right acao" title="Expandir"></i> ' .
+                    $cat["cod"] . ' - ' . $cat["nome"] . '</li>';
+                $dadosCat[$cat["cod"]] = $cat["nome"];
             }
 
-            if (count($catFilhas))
-                $est .= '</ul>';
+            $est .= '<ul class="estCatFilha">';
+
+            $est .= '<li class="catFilha">
+                                <i class="fa fa-caret-right acao" title="Expandir"></i> 
+                                ' . $cat["numeroFil"] . ' - <span class="dsTexto">' .
+                $cat["nomeFil"] . '</span> 
+                        <input type="text" class="form-control spanDsTexto"
+                                id="ds_texto_f-' . $cat["codFil"] . '" 
+                                name="ds_texto_f-' . $cat["codFil"] . '" 
+                                value="' . $cat["numeroFil"] . '">
+                        <i class="fa fa-save save-cat" title="Salvar"
+                            data-id="f-' . $cat["codFil"] . '"></i>
+                        <i class="clip-pencil-2 edit-cat" title="Editar"
+                           data-id="f-' . $cat["codFil"] . '"></i>
+                        <i class="fa fa-ban cancelar-cat" title="Cancelar"
+                           data-id="f-' . $cat["codFil"] . '"></i>
+                        <i class="fa fa-trash-o exc-cat" title="Excluir"
+                           data-id="f-' . $cat["codFil"] . '"></i></li>';
+
+            $est .= '<ul class="estCatNeta">';
+
+            $est .= '<li class="catNeta">
+                                ' . $cat["numeroNet"] . ' -  <span class="dsTexto">' .
+                $cat["nomeNet"] . '</span> 
+                        <input type="text" class="form-control spanDsTexto"
+                                id="ds_texto_n-' . $cat["codNet"] . '" 
+                                name="ds_texto_n-' . $cat["codNet"] . '" 
+                                value="' . $cat["nomeNet"] . '">
+                        <i class="fa fa-save save-cat" title="Salvar"
+                            data-id="n-' . $cat["codNet"] . '"></i>
+                        <i class="clip-pencil-2 edit-cat" title="Editar" 
+                            data-id="n-' . $cat["codNet"] . '"></i>
+                        <i class="fa fa-ban cancelar-cat" title="Cancelar" 
+                            data-id="n-' . $cat["codNet"] . '"></i>
+                        <i class="fa fa-trash-o exc-cat" title="Excluir"
+                            data-id="n-' . $cat["codNet"] . '"></i></li>';
+            $est .= '</ul>
+            </ul>';
         }
 
         $retorno['html'] = $est;
