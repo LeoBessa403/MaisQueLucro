@@ -504,9 +504,9 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancada($where);
     }
 
-    public function PesquisaAvancadaComparador($dados)
+    public function PesquisaAvancadaComparador($dados, $coAssinante)
     {
-        $where = $this->montaWherePesquisaComparador($dados);
+        $where = $this->montaWherePesquisaComparador($dados, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
@@ -650,7 +650,7 @@ class  FluxocaixaService extends AbstractService
         return $where;
     }
 
-    public function montaWherePesquisaComparador($dados)
+    public function montaWherePesquisaComparador($dados, $coAssinante)
     {
         $where = 'where 1 = 1';
 

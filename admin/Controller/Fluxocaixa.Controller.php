@@ -821,12 +821,13 @@ class Fluxocaixa extends AbstractController
         $FluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
         $CondicoesA = [];
         $CondicoesB = [];
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
 
         if (!empty($_POST)) {
             $CondicoesA["periodoInicio"] = $_POST["periodoA1"];
             $CondicoesA["periodoFinal"] = $_POST["periodoA2"];
             $CondicoesA[CO_CENTRO_CUSTO] = $_POST[CO_CENTRO_CUSTO];
-            $fluxosA = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesA);
+            $fluxosA = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesA, $coAssinante);
             $Condicoes['A'] = $CondicoesA;
             $qtdMesesA = Valida::CalculaDiferencaMesesData('01/' . $_POST["periodoA1"], '01/' . $_POST["periodoA2"]);
             $qtdMesesA = $qtdMesesA + 1;
@@ -834,7 +835,7 @@ class Fluxocaixa extends AbstractController
             $CondicoesB["periodoInicio"] = $_POST["periodoB1"];
             $CondicoesB["periodoFinal"] = $_POST["periodoB2"];
             $CondicoesB[CO_CENTRO_CUSTO] = $_POST[CO_CENTRO_CUSTO];
-            $fluxosB = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesB);
+            $fluxosB = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesB, $coAssinante);
             $Condicoes['B'] = $CondicoesB;
             $qtdMesesB = Valida::CalculaDiferencaMesesData('01/' . $_POST["periodoB1"], '01/' . $_POST["periodoB2"]);
             $qtdMesesB = $qtdMesesB + 1;
@@ -849,13 +850,13 @@ class Fluxocaixa extends AbstractController
             $CondicoesA[CO_CENTRO_CUSTO] = '';
             $qtdMesesA = 1;
             $Condicoes['A'] = $CondicoesA;
-            $fluxosA = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesA);
+            $fluxosA = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesA, $coAssinante);
             $CondicoesB["periodoInicio"] = date('m/Y');
             $CondicoesB["periodoFinal"] = date('m/Y');
             $CondicoesB[CO_CENTRO_CUSTO] = '';
             $Condicoes['B'] = $CondicoesB;
             $qtdMesesB = 1;
-            $fluxosB = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesB);
+            $fluxosB = $FluxoCaixaService->PesquisaAvancadaComparador($CondicoesB, $coAssinante);
         }
 
         $this->condicoes = $Condicoes;
