@@ -46,7 +46,7 @@ class Fluxocaixa extends AbstractController
             $_POST[CO_ASSINANTE] = $coAssinante;
             $this->result = $FluxoCaixaService->PesquisaAvancada($_POST);
         } elseif ($pesquisa) {
-            $this->result = $FluxoCaixaService->PesquisaAvancadaFCRecPag($pesquisa);
+            $this->result = $FluxoCaixaService->PesquisaAvancadaFCRecPag($pesquisa, $coAssinante);
         } else {
             $this->result = $FluxoCaixaService->PesquisaAvancada([
                 CO_ASSINANTE => $coAssinante

@@ -498,9 +498,9 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
-    public function PesquisaAvancadaFCRecPag($pesquisa)
+    public function PesquisaAvancadaFCRecPag($pesquisa, $coAssinante)
     {
-        $where = $this->PesquisaAvancRecPag($pesquisa);
+        $where = $this->PesquisaAvancRecPag($pesquisa, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancada($where);
     }
 
