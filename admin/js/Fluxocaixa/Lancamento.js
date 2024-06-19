@@ -375,11 +375,11 @@ $(function () {
         return false;
     });
 
-    $('#Centro_custo .btn-success').click(function () {
+    $('#CentroCustos .btn-success').click(function () {
 
         var data5 = {
-            no_centro_custo: $("#Centro_custo #no_centro_custo").val(),
-            co_centro_custo: $('#Centro_custo #co_centro_custo').val()
+            no_centro_custos : $("#CentroCustos #no_centro_custos").val(),
+            co_centro_custo: $('#CentroCustos #co_centro_custo').val()
         };
 
         var dados = Funcoes.Ajax('Fluxocaixa/CadastroCentroCustos', data5);
@@ -580,7 +580,7 @@ $(function () {
         contaNova();
     });
 
-    $(".btn-novo-centro_custo").click(function () {
+    $(".btn-novo-centro").click(function () {
         limpaDadosCentro_custo();
         centro_custoNovo();
     });
@@ -758,9 +758,9 @@ $(function () {
 
     function centro_custoNovo() {
         $('.modal-scrollable').animate({
-            scrollTop: $('#cadCentro_custo').offset().top
+            scrollTop: $('#novoCentro').offset().top
         }, 800, function () {
-            $('#Centro_custo #no_centro_custo').focus();
+            $('#CentroCustos #no_centro_custos').focus();
         });
     }
 
@@ -774,7 +774,7 @@ $(function () {
     }
 
     function limpaDadosCentro_custo() {
-        $('#Centro_custo #no_centro_custo, #Centro_custo #co_centro_custo').val('');
+        $('#CentroCustos #no_centro_custos, #CentroCustos #co_centro_custo').val('');
     }
 
     function desabilitaCat(id, filha = false) {

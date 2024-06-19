@@ -31,6 +31,7 @@ class  CentroCustoService extends AbstractService
 
         $PDO2->beginTransaction();
         $centro[NO_CENTRO_CUSTOS] = $dados[NO_CENTRO_CUSTOS];
+        $centro[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
 
         if ($dados[CO_CENTRO_CUSTO]) {
             $retorno[SUCESSO] = $this->Salva($centro, $dados[CO_CENTRO_CUSTO]);
