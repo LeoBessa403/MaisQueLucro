@@ -19,17 +19,17 @@ class  CategoriaFcService extends AbstractService
 
     public static function CategoriasFCCombo()
     {
-        return self::comboCat("'1','2','3','4','5','6'", false);
+        return self::comboCat("1,2,3,4,5,6", false);
     }
 
     public static function CategoriasFCComboEntrada()
     {
-        return self::comboCat("'1','5'");
+        return self::comboCat("1,5");
     }
 
     public static function CategoriasFCComboSaida()
     {
-        return self::comboCat("'2','3','4','6'");
+        return self::comboCat("2,3,4,6");
     }
 
     public static function comboCat($catsPai, $catNetas = true)
