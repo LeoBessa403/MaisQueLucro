@@ -4,7 +4,6 @@ $(function () {
     var carregaEstruturaCat = true;
     var carregaComboCatEnt = true;
     var carregaComboCatSaida = true;
-    var imgLoad = $('.img-load');
 
     $('.navigation-toggler').click(function () {
         $(this).hide();
@@ -16,7 +15,7 @@ $(function () {
             carregaComboCat = false;
         }
         $("#j_cadastro").click();
-        desabilitaCat('CadastrarFluxocaixa');
+        // desabilitaCat('CadastrarFluxocaixa');
         return false;
     });
 

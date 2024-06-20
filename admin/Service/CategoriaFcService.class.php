@@ -19,138 +19,68 @@ class  CategoriaFcService extends AbstractService
 
     public static function CategoriasFCCombo()
     {
-        /** @var CategoriaFcService $CategoriaFcService */
-        $CategoriaFcService = new CategoriaFcService();
-        /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
-        $CategoriaFcFilhaService = new CategoriaFcFilhaService();
-        $comboCategoria = [
-            '' => 'Selecione uma Categoria Pai.'
-        ];
-        $i = 0;
-        $Categorias = $CategoriaFcService->PesquisaTodos([], 'A', NU_CODIGO);
-        /** @var CategoriaFcEntidade $cat */
-        foreach ($Categorias as $cat) {
-            $i++;
-            $comboCategoria[$i]['nuCodigo'] =
-                'p-' . $cat->getCoCategoriaFc() . '-' . $cat->getNuCodigo();
-            $comboCategoria[$i]['dsTexto'] =
-                $cat->getNuCodigo() . ' - ' . $cat->getDsTexto();
-
-            $catFilhas = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $cat->getCoCategoriaFc()
-            ], 'A', NU_CODIGO);
-            /** @var CategoriaFcFilhaEntidade $catFilha */
-            foreach ($catFilhas as $catFilha) {
-                $i++;
-                $comboCategoria[$i]['nuCodigo'] =
-                    'f-' . $catFilha->getCoCategoriaFcFilha() . '-' . $catFilha->getNuCodigo();
-                $comboCategoria[$i]['dsTexto'] =
-                    '...' . $catFilha->getNuCodigo() .
-                    ' - ' . $catFilha->getDsTexto();
-
-            }
-        }
-        return $comboCategoria;
+        return self::comboCat("'1','2','3','4','5','6'", false);
     }
 
     public static function CategoriasFCComboEntrada()
     {
-        /** @var CategoriaFcService $CategoriaFcService */
-        $CategoriaFcService = new CategoriaFcService();
-        /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
-        $CategoriaFcFilhaService = new CategoriaFcFilhaService();
-        /** @var CategoriaFcNetaService $CategoriaFcNetaService */
-        $CategoriaFcNetaService = new CategoriaFcNetaService();
-        $comboCategoria = [
-            '' => 'Selecione uma Categoria Pai.'
-        ];
-        $i = 0;
-        $Categorias = $CategoriaFcService->PesquisaTodos([
-            "in#" . NU_CODIGO => "1','5"
-        ], 'A', NU_CODIGO);
-        /** @var CategoriaFcEntidade $cat */
-        foreach ($Categorias as $cat) {
-            $i++;
-            $comboCategoria[$i]['nuCodigo'] =
-                'p-' . $cat->getCoCategoriaFc() . '-' . $cat->getNuCodigo();
-            $comboCategoria[$i]['dsTexto'] =
-                $cat->getNuCodigo() . ' - ' . $cat->getDsTexto();
-
-            $catFilhas = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $cat->getCoCategoriaFc()
-            ], 'A', NU_CODIGO);
-            /** @var CategoriaFcFilhaEntidade $catFilha */
-            foreach ($catFilhas as $catFilha) {
-                $i++;
-                $comboCategoria[$i]['nuCodigo'] =
-                    'f-' . $catFilha->getCoCategoriaFcFilha() . '-' . $catFilha->getNuCodigo();
-                $comboCategoria[$i]['dsTexto'] =
-                    '...' . $catFilha->getNuCodigo() .
-                    ' - ' . $catFilha->getDsTexto();
-
-                $catNetas = $CategoriaFcNetaService->PesquisaTodos([
-                    CO_CATEGORIA_FC_FILHA => $catFilha->getCoCategoriaFcFilha()
-                ], 'A', NU_CODIGO);
-                /** @var CategoriaFcNetaEntidade $catNeta */
-                foreach ($catNetas as $catNeta) {
-                    $i++;
-                    $comboCategoria[$i]['nuCodigo'] =
-                        'n-' . $catNeta->getCoCategoriaFcNeta() . '-' . $catNeta->getNuCodigo();
-                    $comboCategoria[$i]['dsTexto'] =
-                        '......' . $catNeta->getNuCodigo() .
-                        ' - ' . $catNeta->getDsTexto();
-                }
-            }
-        }
-        return $comboCategoria;
+        return self::comboCat("'1','5'");
     }
 
     public static function CategoriasFCComboSaida()
     {
-        /** @var CategoriaFcService $CategoriaFcService */
-        $CategoriaFcService = new CategoriaFcService();
-        /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
-        $CategoriaFcFilhaService = new CategoriaFcFilhaService();
+        return self::comboCat("'2','3','4','6'");
+    }
+
+    public static function comboCat($catsPai, $catNetas = true)
+    {
         /** @var CategoriaFcNetaService $CategoriaFcNetaService */
         $CategoriaFcNetaService = new CategoriaFcNetaService();
         $comboCategoria = [
             '' => 'Selecione uma Categoria Pai.'
         ];
         $i = 0;
-        $Categorias = $CategoriaFcService->PesquisaTodos([
-            "in#" . NU_CODIGO => "2','3','4','6"
-        ], 'A', NU_CODIGO);
-        /** @var CategoriaFcEntidade $cat */
+        $Categorias = $CategoriaFcNetaService->carregaComboCatPesquisaLanc(
+            AssinanteService::getCoAssinanteLogado(), $catsPai
+        );
+        $dadosCat = [];
         foreach ($Categorias as $cat) {
+            $dadosCat[$cat["cod"]]["cod"] = $cat["cod"];
+            $dadosCat[$cat["cod"]]["numero"] = $cat["numero"];
+            $dadosCat[$cat["cod"]]["nome"] = $cat["nome"];
+
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["codFil"] = $cat["codFil"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["numeroFil"] = $cat["numeroFil"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["nomeFil"] = $cat["nomeFil"];
+
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["codNet"] = $cat["codNet"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["numeroNet"] = $cat["numeroNet"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["nomeNet"] = $cat["nomeNet"];
+        }
+        foreach ($dadosCat as $cat) {
             $i++;
             $comboCategoria[$i]['nuCodigo'] =
-                'p-' . $cat->getCoCategoriaFc() . '-' . $cat->getNuCodigo();
+                'p-' . $cat["cod"] . '-' . $cat["numero"];
             $comboCategoria[$i]['dsTexto'] =
-                $cat->getNuCodigo() . ' - ' . $cat->getDsTexto();
+                $cat["cod"] . ' - ' . $cat["nome"];
 
-            $catFilhas = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $cat->getCoCategoriaFc()
-            ], 'A', NU_CODIGO);
-            /** @var CategoriaFcFilhaEntidade $catFilha */
-            foreach ($catFilhas as $catFilha) {
+            foreach ($cat["filhas"] as $catFilha) {
                 $i++;
                 $comboCategoria[$i]['nuCodigo'] =
-                    'f-' . $catFilha->getCoCategoriaFcFilha() . '-' . $catFilha->getNuCodigo();
+                    'f-' . $catFilha["codFil"] . '-' . $catFilha["numeroFil"];
                 $comboCategoria[$i]['dsTexto'] =
-                    '...' . $catFilha->getNuCodigo() .
-                    ' - ' . $catFilha->getDsTexto();
+                    '...' . $catFilha["numeroFil"] .
+                    ' - ' . $catFilha["nomeFil"];
 
-                $catNetas = $CategoriaFcNetaService->PesquisaTodos([
-                    CO_CATEGORIA_FC_FILHA => $catFilha->getCoCategoriaFcFilha()
-                ], 'A', NU_CODIGO);
-                /** @var CategoriaFcNetaEntidade $catNeta */
-                foreach ($catNetas as $catNeta) {
-                    $i++;
-                    $comboCategoria[$i]['nuCodigo'] =
-                        'n-' . $catNeta->getCoCategoriaFcNeta() . '-' . $catNeta->getNuCodigo();
-                    $comboCategoria[$i]['dsTexto'] =
-                        '......' . $catNeta->getNuCodigo() .
-                        ' - ' . $catNeta->getDsTexto();
+                if ($catNetas) {
+                    foreach ($catFilha["netas"] as $catNeta) {
+                        $i++;
+                        $comboCategoria[$i]['nuCodigo'] =
+                            'n-' . $catNeta["codNet"] . '-' . $catNeta["numeroNet"];
+                        $comboCategoria[$i]['dsTexto'] =
+                            '......' . $catNeta["numeroNet"] .
+                            ' - ' . $catNeta["nomeNet"];
+                    }
                 }
             }
         }
@@ -259,6 +189,7 @@ class  CategoriaFcService extends AbstractService
         $PDO->beginTransaction();
 
         if ($dados['tpCat'] == 'f') {
+            $retorno[SUCESSO] = $CategoriaFcNetaService->DeletaQuando([CO_CATEGORIA_FC_FILHA => $dados['coCat']]);
             $retorno[SUCESSO] = $CategoriaFcFilhaService->Deleta($dados['coCat']);
         } elseif ($dados['tpCat'] == 'n') {
             $retorno[SUCESSO] = $CategoriaFcNetaService->Deleta($dados['coCat']);
@@ -280,7 +211,7 @@ class  CategoriaFcService extends AbstractService
      * @param $dados
      * @return array
      */
-    public function PesquisaNuCodigo($dados)
+    public function PesquisaNuCodigo($dados, $coAssinante)
     {
         /** @var CategoriaFcFilhaService $CategoriaFcFilhaService */
         $CategoriaFcFilhaService = $this->getService(CATEGORIA_FC_FILHA_SERVICE);
@@ -294,16 +225,17 @@ class  CategoriaFcService extends AbstractService
 
         if ($dados['tpCat'] == 'p') {
             $cats = $CategoriaFcFilhaService->PesquisaTodos([
-                CO_CATEGORIA_FC => $dados['coCat']
+                CO_CATEGORIA_FC => $dados['coCat'],
+                CO_ASSINANTE => $coAssinante
             ]);
             $retorno['nuQtd'] = count($cats) - 1;
             $retorno[SUCESSO] = true;
         } elseif ($dados['tpCat'] == 'f') {
             $cats = $CategoriaFcNetaService->PesquisaTodos([
-                CO_CATEGORIA_FC_FILHA => $dados['coCat']
+                CO_CATEGORIA_FC_FILHA => $dados['coCat'],
+                CO_ASSINANTE => $coAssinante
             ]);
             $retorno['nuQtd'] = count($cats);
-//            $retorno[NU_CODIGO] = count($cats);
             $retorno[SUCESSO] = true;
         }
         return $retorno;
@@ -315,54 +247,65 @@ class  CategoriaFcService extends AbstractService
         $CategoriaFcNetaService = new CategoriaFcNetaService();
 
         $Categorias = $CategoriaFcNetaService->carregaComboCatPesquisaLanc(AssinanteService::getCoAssinanteLogado());
-
         $est = '';
         $dadosCat = [];
         foreach ($Categorias as $cat) {
-            if (empty($dadosCat[$cat["cod"]])) {
-                $est .= '<li class="catPai"><i class="fa fa-caret-right acao" title="Expandir"></i> ' .
-                    $cat["cod"] . ' - ' . $cat["nome"] . '</li>';
-                $dadosCat[$cat["cod"]] = $cat["nome"];
-            }
+            $dadosCat[$cat["cod"]]["cod"] = $cat["cod"];
+            $dadosCat[$cat["cod"]]["numero"] = $cat["numero"];
+            $dadosCat[$cat["cod"]]["nome"] = $cat["nome"];
+
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["codFil"] = $cat["codFil"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["numeroFil"] = $cat["numeroFil"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]["nomeFil"] = $cat["nomeFil"];
+
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["codNet"] = $cat["codNet"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["numeroNet"] = $cat["numeroNet"];
+            $dadosCat[$cat["cod"]]['filhas'][$cat["codFil"]]['netas'][$cat["codNet"]]["nomeNet"] = $cat["nomeNet"];
+        }
+        foreach ($dadosCat as $categ) {
+            $est .= '<li class="catPai"><i class="fa fa-caret-right acao" title="Expandir"></i> ' .
+                $categ["numero"] . ' - ' . $categ["nome"] . '</li>';
 
             $est .= '<ul class="estCatFilha">';
-
-            $est .= '<li class="catFilha">
+            foreach ($categ["filhas"] as $categFil) {
+                $est .= '<li class="catFilha">
                                 <i class="fa fa-caret-right acao" title="Expandir"></i> 
-                                ' . $cat["numeroFil"] . ' - <span class="dsTexto">' .
-                $cat["nomeFil"] . '</span> 
+                                ' . $categFil["numeroFil"] . ' - <span class="dsTexto">' .
+                    $categFil["nomeFil"] . '</span> 
                         <input type="text" class="form-control spanDsTexto"
-                                id="ds_texto_f-' . $cat["codFil"] . '" 
-                                name="ds_texto_f-' . $cat["codFil"] . '" 
-                                value="' . $cat["numeroFil"] . '">
+                                id="ds_texto_f-' . $categFil["codFil"] . '" 
+                                name="ds_texto_f-' . $categFil["codFil"] . '" 
+                                value="' . $categFil["nomeFil"] . '">
                         <i class="fa fa-save save-cat" title="Salvar"
-                            data-id="f-' . $cat["codFil"] . '"></i>
+                            data-id="f-' . $categFil["codFil"] . '"></i>
                         <i class="clip-pencil-2 edit-cat" title="Editar"
-                           data-id="f-' . $cat["codFil"] . '"></i>
+                           data-id="f-' . $categFil["codFil"] . '"></i>
                         <i class="fa fa-ban cancelar-cat" title="Cancelar"
-                           data-id="f-' . $cat["codFil"] . '"></i>
+                           data-id="f-' . $categFil["codFil"] . '"></i>
                         <i class="fa fa-trash-o exc-cat" title="Excluir"
-                           data-id="f-' . $cat["codFil"] . '"></i></li>';
-
-            $est .= '<ul class="estCatNeta">';
-
-            $est .= '<li class="catNeta">
-                                ' . $cat["numeroNet"] . ' -  <span class="dsTexto">' .
-                $cat["nomeNet"] . '</span> 
+                           data-id="f-' . $categFil["codFil"] . '"></i></li>';
+                $est .= '<ul class="estCatNeta">';
+                foreach ($categFil["netas"] as $categNet) {
+                    $est .= '<li class="catNeta">    
+                                ' . $categNet["numeroNet"] . ' -  <span class="dsTexto">' .
+                        $categNet["nomeNet"] . '</span> 
                         <input type="text" class="form-control spanDsTexto"
-                                id="ds_texto_n-' . $cat["codNet"] . '" 
-                                name="ds_texto_n-' . $cat["codNet"] . '" 
-                                value="' . $cat["nomeNet"] . '">
+                                id="ds_texto_n-' . $categNet["codNet"] . '" 
+                                name="ds_texto_n-' . $categNet["codNet"] . '" 
+                                value="' . $categNet["nomeNet"] . '">
                         <i class="fa fa-save save-cat" title="Salvar"
-                            data-id="n-' . $cat["codNet"] . '"></i>
+                            data-id="n-' . $categNet["codNet"] . '"></i>
                         <i class="clip-pencil-2 edit-cat" title="Editar" 
-                            data-id="n-' . $cat["codNet"] . '"></i>
+                            data-id="n-' . $categNet["codNet"] . '"></i>
                         <i class="fa fa-ban cancelar-cat" title="Cancelar" 
-                            data-id="n-' . $cat["codNet"] . '"></i>
+                            data-id="n-' . $categNet["codNet"] . '"></i>
                         <i class="fa fa-trash-o exc-cat" title="Excluir"
-                            data-id="n-' . $cat["codNet"] . '"></i></li>';
-            $est .= '</ul>
-            </ul>';
+                            data-id="n-' . $categNet["codNet"] . '"></i></li>';
+
+                }
+                $est .= '</ul>';
+            }
+            $est .= '</ul>';
         }
 
         $retorno['html'] = $est;

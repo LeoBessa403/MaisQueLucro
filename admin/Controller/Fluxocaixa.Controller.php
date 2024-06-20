@@ -133,7 +133,8 @@ class Fluxocaixa extends AbstractController
     {
         /** @var CategoriaFcService $CategoriaFcService */
         $CategoriaFcService = static::getServiceStatic(CATEGORIA_FC_SERVICE);
-        return $CategoriaFcService->PesquisaNuCodigo($dados);
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
+        return $CategoriaFcService->PesquisaNuCodigo($dados, $coAssinante);
     }
 
     public function CategoriasFCCombo()

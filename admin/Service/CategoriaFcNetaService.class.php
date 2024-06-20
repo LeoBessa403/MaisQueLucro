@@ -16,9 +16,9 @@ class  CategoriaFcNetaService extends AbstractService
         $this->ObjetoModel = New CategoriaFcNetaModel();
     }
 
-    public function carregaComboCatPesquisaLanc($coAssinante)
+    public function carregaComboCatPesquisaLanc($coAssinante, $tpFluxo = null)
     {
-        return $this->ObjetoModel->carregaComboCatPesquisaLanc($coAssinante);
+        return $this->ObjetoModel->carregaComboCatPesquisaLanc($coAssinante, $tpFluxo);
     }
 
 }
