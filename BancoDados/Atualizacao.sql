@@ -370,3 +370,7 @@ INSERT INTO TB_CATEGORIA_FC_NETA (co_assinante, ds_texto, nu_codigo, co_categori
 
 INSERT INTO sol.TB_USUARIO_PERFIL (co_perfil, co_usuario) VALUES ("2", "10");
 
+INSERT INTO TB_CATEGORIA_FC_FILHA (ds_texto, nu_codigo, co_categoria_fc) VALUES ("Imposto do Governo", "3.3", "3");
+
+INSERT INTO TB_CATEGORIA_FC_FILHA (ds_texto, nu_codigo, co_assinante, co_categoria_fc) VALUES ("Imposto do Governo", "3.3", "1", "3");
+

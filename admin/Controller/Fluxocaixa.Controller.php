@@ -254,15 +254,16 @@ class Fluxocaixa extends AbstractController
         /** @var FluxoCaixaService $FluxoCaixaService */
         $FluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
         $Condicoes = [];
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
 
         if (!empty($_POST)) {
             $Condicoes = $_POST;
-            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes, $coAssinante);
         } else {
             $Condicoes["anoPesquisa"] = date('Y');
             $Condicoes[CO_CENTRO_CUSTO] = '';
             $Condicoes["verEsperado"] = 1;
-            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes, $coAssinante);
         }
 
         $this->condicoes = $Condicoes;
@@ -1155,15 +1156,16 @@ class Fluxocaixa extends AbstractController
         /** @var FluxoCaixaService $FluxoCaixaService */
         $FluxoCaixaService = $this->getService(FLUXO_CAIXA_SERVICE);
         $Condicoes = [];
+        $coAssinante = AssinanteService::getCoAssinanteLogado();
 
         if (!empty($_POST)) {
             $Condicoes = $_POST;
-            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes, $coAssinante);
         } else {
             $Condicoes["anoPesquisa"] = date('Y');
             $Condicoes[CO_CENTRO_CUSTO] = '';
             $Condicoes["verEsperado"] = 1;
-            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes);
+            $fluxos = $FluxoCaixaService->PesquisaAvancadaFC($Condicoes, $coAssinante);
         }
 
         $this->condicoes = $Condicoes;

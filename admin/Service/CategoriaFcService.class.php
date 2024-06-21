@@ -108,6 +108,7 @@ class  CategoriaFcService extends AbstractService
         $PDO->beginTransaction();
         $cat[DS_TEXTO] = $dados['ds_texto'];
         $cat[NU_CODIGO] = $dados['nu_codigo'];
+        $cat[CO_ASSINANTE] = AssinanteService::getCoAssinanteLogado();
 
         if ($dados['tpCat'] == 'p') {
             $cat[CO_CATEGORIA_FC] = $dados['coCat'];

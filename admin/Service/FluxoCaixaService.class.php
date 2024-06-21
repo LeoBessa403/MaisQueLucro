@@ -492,9 +492,9 @@ class  FluxocaixaService extends AbstractService
         return $this->ObjetoModel->PesquisaAvancada($where);
     }
 
-    public function PesquisaAvancadaFC($dados)
+    public function PesquisaAvancadaFC($dados, $coAssinante)
     {
-        $where = $this->montaWherePesquisa2($dados);
+        $where = $this->montaWherePesquisa2($dados, $coAssinante);
         return $this->ObjetoModel->PesquisaAvancadaFC($where);
     }
 
@@ -623,7 +623,7 @@ class  FluxocaixaService extends AbstractService
         return $where;
     }
 
-    public function montaWherePesquisa2($dados)
+    public function montaWherePesquisa2($dados, $coAssinante)
     {
         $where = 'where 1 = 1';
 
@@ -646,7 +646,7 @@ class  FluxocaixaService extends AbstractService
             $where = $where . " and tfc." . DT_VENCIMENTO . " <= '" . Valida::DataDBDate(
                     '31/12/' . $dados["anoPesquisa"]) . "'))";
         }
-        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . AssinanteService::getCoAssinanteLogado() . ")";
+        $where = $where . " and tfc." . CO_ASSINANTE . " in (" . $coAssinante . ")";
         return $where;
     }
 
