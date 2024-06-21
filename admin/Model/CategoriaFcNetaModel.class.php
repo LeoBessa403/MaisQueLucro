@@ -17,7 +17,7 @@ class  CategoriaFcNetaModel extends AbstractModel
         $tabela = "TB_CATEGORIA_FC tc
                  inner join TB_CATEGORIA_FC_FILHA tcff
                     on tc.co_categoria_fc = tcff.co_categoria_fc
-                 inner join TB_CATEGORIA_FC_NETA tcfn
+                 left join TB_CATEGORIA_FC_NETA tcfn
                     on tcff.co_categoria_fc_filha = tcfn.co_categoria_fc_filha";
 
         $campos = "tc.co_categoria_fc as cod,
@@ -31,7 +31,7 @@ class  CategoriaFcNetaModel extends AbstractModel
                    tcfn.ds_texto as nomeNet";
 
         $pesquisa = new Pesquisa();
-        $where = 'where tcfn.co_assinante = ' . $coAssinante . ' order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
+        $where = 'where ((tcfn.co_assinante = ' . $coAssinante . ') or (tcff.co_assinante = ' . $coAssinante . ')) order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';
         if ($tpFluxo)
             $where = 'where tc.co_categoria_fc in (' . $tpFluxo . ') and tcfn.co_assinante = ' . $coAssinante
                 . ' order by tc.nu_codigo, tcff.nu_codigo, tcfn.nu_codigo';

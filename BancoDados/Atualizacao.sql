@@ -374,3 +374,13 @@ INSERT INTO TB_CATEGORIA_FC_FILHA (ds_texto, nu_codigo, co_categoria_fc) VALUES 
 
 INSERT INTO TB_CATEGORIA_FC_FILHA (ds_texto, nu_codigo, co_assinante, co_categoria_fc) VALUES ("Imposto do Governo", "3.3", "1", "3");
 
+UPDATE TB_CATEGORIA_FC_FILHA SET ds_texto = "Despesas Administrativas 22" where co_categoria_fc_filha = 22;
+
+UPDATE TB_CATEGORIA_FC_NETA SET ds_texto = "Mobiliário 22" where co_categoria_fc_neta = 120;
+
+INSERT INTO TB_HIST_SALDO_CB (dt_cadastro, co_usuario, nu_valor_pago, tp_fluxo, co_conta_bancaria, ds_observacao, nu_saldo) VALUES ("2024-06-21 14:42:42", "3", "1289.99", "2", "7", "", "19783.5");
+
+INSERT INTO TB_FLUXO_CAIXA (tp_pagamento, co_categoria_fc_neta, co_categoria_fc_filha, co_categoria_fc, dt_vencimento, dt_realizado, nu_valor, nu_valor_pago, co_conta_bancaria, co_representacao, co_centro_custo, ds_descricao, co_usuario, st_pagamento, tp_fluxo, dt_cadastro, co_assinante) VALUES ("2", "120", "26", "4", "", "2024-06-21", "", ""_pago, "7", "115", "", "", "3", "3", "2", "2024-06-21 14:42:42", "2");
+
+INSERT INTO TB_CATEGORIA_FC_FILHA (ds_texto, nu_codigo, co_assinante, co_categoria_fc) VALUES ("Imposto do Governo", "3.3", "2", "3");
+
