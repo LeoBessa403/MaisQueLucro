@@ -122,7 +122,7 @@ class  WhatsAppService extends AbstractService
         $Mensagem .= ". 
         _Ao acessar o Sistema pela primeira vez, deve trocar a senha._
               
-   Acesso pelo link: " . HOME . "admin para fazer a ATIVAÇÃO DO CADASTRO.
+   Acesso pelo link: " . HOME . " para fazer a ATIVAÇÃO DO CADASTRO.
    
    Acesse o SOL agora mesmo e começe a usar-lo para ter a Clareza Financeira. Esperamos por você!";
         return $this->enviarMensagem($dadosEmail[NU_TEL1], $Mensagem);

@@ -87,6 +87,9 @@ class  AssinanteService extends AbstractService
                 $dadosUsuario = $usuarioService->salvaUsuarioInicial($assinante[CO_PESSOA], $dadosEmail, $coAssinante);
                 $retorno = $PlanoAssinanteAssinaturaService->salvaPagamentoAssinanteFarol($coAssinante, $plano);
 
+                $codCats = CategoriaFcFilhaService::cadastrarCatFilhasAssinante($coAssinante);
+                CategoriaFcNetaService::cadastrarCatNetasAssinante($coAssinante, $codCats);
+
                 if ($retorno[SUCESSO]) {
                     $usuarioPerfil[CO_PERFIL] = 2;
                     $usuarioPerfil[CO_USUARIO] = $dadosUsuario[CO_USUARIO];
