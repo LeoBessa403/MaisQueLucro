@@ -501,6 +501,7 @@ $(function () {
                     carregaComboCategorias();
                     carregaEstruturaCategorias();
                     desabilitaCat('CadastrarFluxocaixa');
+                    atualizaPagina();
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -523,6 +524,7 @@ $(function () {
                     carregaComboCategorias();
                     carregaEstruturaCategorias();
                     desabilitaCat('CadastrarFluxocaixa');
+                    atualizaPagina();
                 } else {
                     Funcoes.Alerta(dados.msg)
                 }
@@ -697,13 +699,13 @@ $(function () {
         if (dados) {
             if (dados.sucesso) {
                 if (dados.tp_fluxo == 1) {
+                    $('.btn-entrada').click();
                     var Form = 'FCEntrada';
                     var preDT = 'e';
-                    $('.btn-entrada').click();
                 } else if (dados.tp_fluxo == 2) {
+                    $('.btn-saida').click();
                     var Form = 'FCSaida';
                     var preDT = 's';
-                    $('.btn-saida').click();
                 }
                 $('#' + Form + ' #tp_pagamento').val(dados.tp_pagamento).trigger('change');
                 $('#' + Form + ' #' + preDT + '-tp_lanc').select2("destroy").val(1).prop("disabled", true);

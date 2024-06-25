@@ -433,46 +433,31 @@ class  FluxocaixaService extends AbstractService
         return $retorno;
     }
 
-    public function getLancamentoFC($dados)
+    public function getLancamentoFC($coLancamento)
     {
         $retorno[SUCESSO] = true;
-        /** @var FluxocaixaEntidade $fc */
-        $fc = $this->PesquisaUmRegistro($dados);
+        $fc = $this->ObjetoModel->getLancamentoFC($coLancamento);
 
-        if
-        ($fc->getCoCategoriaFcNeta()) {
-            $retorno[CO_CATEGORIA_FC] = 'n-' .
-                $fc->getCoCategoriaFcNeta()->getCoCategoriaFcNeta() . '-' .
-                $fc->getCoCategoriaFcNeta()->getNuCodigo();
-        } elseif ($fc->getCoCategoriaFcFilha()) {
-            $retorno[CO_CATEGORIA_FC] = 'f-' .
-                $fc->getCoCategoriaFcFilha()->getCoCategoriaFcFilha() . '-' .
-                $fc->getCoCategoriaFcFilha()->getNuCodigo();
-        } elseif ($fc->getCoCategoriaFc()) {
-            $retorno[CO_CATEGORIA_FC] = 'p-' .
-                $fc->getCoCategoriaFc()->getCoCategoriaFc() . '-' .
-                $fc->getCoCategoriaFc()->getNuCodigo();
-        }
-
-        $retorno[TP_PAGAMENTO] = $fc->getTpPagamento();
-        $retorno[DT_VENCIMENTO] = ($fc->getDtVencimento())
-            ? Valida::DataShow($fc->getDtVencimento()) : null;
-        $retorno[DT_REALIZADO] = ($fc->getDtRealizado())
-            ? Valida::DataShow($fc->getDtRealizado()) : null;
-        $retorno[NU_VALOR] = ($fc->getNuValor())
-            ? Valida::FormataMoeda($fc->getNuValor()) : null;
-        $retorno[NU_VALOR_PAGO] = ($fc->getNuValorPago())
-            ? Valida::FormataMoeda($fc->getNuValorPago()) : null;
-        $retorno[CO_CONTA_BANCARIA] = ($fc->getCoContaBancaria())
-            ? $fc->getCoContaBancaria()->getCoContaBancaria() : null;
-        $retorno[CO_REPRESENTACAO] = ($fc->getCoRepresentacao())
-            ? $fc->getCoRepresentacao()->getCoRepresentacao() : null;
-        $retorno[CO_CENTRO_CUSTO] = ($fc->getCoCentroCusto())
-            ? $fc->getCoCentroCusto()->getCoCentroCusto() : null;
-        $retorno[DS_DESCRICAO] = $fc->getDsDescricao();
-        $retorno[ST_PAGAMENTO] = $fc->getStPagamento();
-        $retorno[CO_FLUXO_CAIXA] = $fc->getCoFluxoCaixa();
-        $retorno[TP_FLUXO] = $fc->getTpFluxo();
+        $retorno[CO_CATEGORIA_FC_NETA] = 'n-' . $fc["nu_codigo_f"] . '-' . $fc["nu_codigo_n"];
+        $retorno[TP_PAGAMENTO] = $fc["tp_pagamento"];
+        $retorno[DT_VENCIMENTO] = ($fc["dt_vencimento"])
+            ? Valida::DataShow($fc["dt_vencimento"]) : null;
+        $retorno[DT_REALIZADO] = ($fc["dt_realizado"])
+            ? Valida::DataShow($fc["dt_realizado"]) : null;
+        $retorno[NU_VALOR] = ($fc["nu_valor"])
+            ? Valida::FormataMoeda($fc["nu_valor"]) : null;
+        $retorno[NU_VALOR_PAGO] = ($fc["nu_valor_pago"])
+            ? Valida::FormataMoeda($fc["nu_valor_pago"]) : null;
+        $retorno[CO_CONTA_BANCARIA] = ($fc["co_conta_bancaria"])
+            ? $fc["co_conta_bancaria"] : null;
+        $retorno[CO_REPRESENTACAO] = ($fc["co_representacao"])
+            ? $fc["co_representacao"] : null;
+        $retorno[CO_CENTRO_CUSTO] = ($fc["co_centro_custo"])
+            ? $fc["co_centro_custo"] : null;
+        $retorno[DS_DESCRICAO] = $fc["ds_descricao"];
+        $retorno[ST_PAGAMENTO] = $fc["st_pagamento"];
+        $retorno[CO_FLUXO_CAIXA] = $fc["co_fluxo_caixa"];
+        $retorno[TP_FLUXO] = $fc["tp_fluxo"];
 
         return $retorno;
     }
