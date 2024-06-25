@@ -1,4 +1,4 @@
--- Atualizado em: 19/06/2024 14:56:13
+-- Atualizado em: 25/06/2024 12:02:49
 -- Link HOME: http://localhost/MaisQueLucro/
 -- AMBIENTE: 1
 -- BANCO: sol
@@ -36,12 +36,16 @@ CREATE TABLE `TB_ASSINANTE` (
   `co_empresa` int(11) NOT NULL,
   `co_pessoa` int(11) NOT NULL COMMENT 'Responsável pelo Assinante',
   PRIMARY KEY (`co_assinante`,`co_empresa`,`co_pessoa`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_ASSINANTE VALUES('1','2023-02-06 12:02:29','2033-10-13','N','A','M','1','2');
 
 INSERT INTO TB_ASSINANTE VALUES('2','2023-04-26 10:52:06','2033-10-13','S','A','M','2','3');
+
+INSERT INTO TB_ASSINANTE VALUES('7','2024-06-21 10:05:07','2024-12-21','N','A','M','7','8');
+
+INSERT INTO TB_ASSINANTE VALUES('9','2024-06-21 11:00:39','2024-12-21','N','A','M','9','10');
 
 
 
@@ -111,7 +115,7 @@ CREATE TABLE `TB_CATEGORIA_FC_FILHA` (
   `co_categoria_fc` int(11) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_categoria_fc_filha`,`co_categoria_fc`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('1','Receita de Vendas','1.0','1','1');
@@ -144,6 +148,94 @@ INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('14','Saídas não Operacionais','6.0',
 
 INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('15','Viagem para Compra de Produtos','2.5','2','1');
 
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('16','Receita de Vendas','1.0','1','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('19','Custos com Entregas','2.2','2','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('20','Custos com Embalagens','2.3','2','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('21','Custo com Vendas','2.4','2','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('22','Despesas Administrativas 22','3.0','3','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('23','Despesas com Pessoal','3.1','3','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('24','Despesas com Materiais e Equipamentos','3.2','3','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('25','Investimentos em Marketing','4.0','4','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('26','Investimentos em Bens Materiais','4.1','4','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('27','Investimentos em Desenvolvimento Empresarial','4.2','4','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('28','Entradas não Operacionais','5.0','5','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('29','Saídas não Operacionais','6.0','6','2');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('32','Receita de Vendas','1.0','1','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('33','Custos Tributários ou Financeiros','2.0','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('34','Custos com Fornecedores','2.1','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('35','Custos com Entregas','2.2','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('36','Custos com Embalagens','2.3','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('37','Custo com Vendas','2.4','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('38','Despesas Administrativas','3.0','3','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('39','Despesas com Pessoal','3.1','3','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('40','Despesas com Materiais e Equipamentos','3.2','3','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('41','Investimentos em Marketing','4.0','4','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('42','Investimentos em Bens Materiais','4.1','4','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('43','Investimentos em Desenvolvimento Empresarial','4.2','4','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('44','Entradas não Operacionais','5.0','5','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('45','Saídas não Operacionais','6.0','6','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('46','Viagem para Compra de Produtos','2.5','2','7');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('62','Receita de Vendas','1.0','1','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('63','Custos Tributários ou Financeiros','2.0','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('64','Custos com Fornecedores','2.1','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('65','Custos com Entregas','2.2','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('66','Custos com Embalagens','2.3','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('67','Custo com Vendas','2.4','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('68','Despesas Administrativas','3.0','3','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('69','Despesas com Pessoal','3.1','3','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('70','Despesas com Materiais e Equipamentos','3.2','3','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('71','Investimentos em Marketing','4.0','4','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('72','Investimentos em Bens Materiais','4.1','4','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('73','Investimentos em Desenvolvimento Empresarial','4.2','4','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('74','Entradas não Operacionais','5.0','5','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('75','Saídas não Operacionais','6.0','6','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('76','Viagem para Compra de Produtos','2.5','2','9');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('78','Imposto do Governo','3.3','3','1');
+
+INSERT INTO TB_CATEGORIA_FC_FILHA VALUES('79','Imposto do Governo','3.3','3','2');
+
 
 
 
@@ -157,7 +249,7 @@ CREATE TABLE `TB_CATEGORIA_FC_NETA` (
   `co_categoria_fc_filha` int(11) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_categoria_fc_neta`,`co_categoria_fc_filha`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_CATEGORIA_FC_NETA VALUES('1','Receitas em Dinheiro','1.0.1','1','1');
@@ -191,8 +283,6 @@ INSERT INTO TB_CATEGORIA_FC_NETA VALUES('14','Estacionamento','2.2.2','4','1');
 INSERT INTO TB_CATEGORIA_FC_NETA VALUES('15','Alimentação','2.2.3','4','1');
 
 INSERT INTO TB_CATEGORIA_FC_NETA VALUES('16','Manuteção de Veículos','2.2.4','4','1');
-
-INSERT INTO TB_CATEGORIA_FC_NETA VALUES('17','Terceirização da entrega','2.2.5','4','1');
 
 INSERT INTO TB_CATEGORIA_FC_NETA VALUES('18','Outros custos com Entregas','2.2.6','4','1');
 
@@ -294,6 +384,252 @@ INSERT INTO TB_CATEGORIA_FC_NETA VALUES('66','Viagem Alimentação','2.5.4','15'
 
 INSERT INTO TB_CATEGORIA_FC_NETA VALUES('67','Estorno de Capital','6.0.6','14','1');
 
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('69','Receitas em Dinheiro','1.0.1','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('70','Receitas em Boleto','1.0.2','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('71','Receitas em PIX','1.0.3','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('72','Receitas em Cartão de Crédito','1.0.4','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('73','Receitas em Cartão de Débito','1.0.5','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('74','Outros Produtos/Serviços','1.0.6','16','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('81','Combustível','2.2.1','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('82','Estacionamento','2.2.2','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('83','Alimentação','2.2.3','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('84','Manuteção de Veículos','2.2.4','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('85','Terceirização da entrega','2.2.5','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('86','Outros custos com Entregas','2.2.6','19','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('87','Embalagens','2.3.1','20','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('88','Sacolas','2.3.2','20','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('89','Caixas','2.3.3','20','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('90','Outros custos com Embalagens','2.3.4','20','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('91','Comissão Vendedor','2.4.1','21','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('92','Telefone e Internet','3.0.1','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('93','Energia Elétrica','3.0.2','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('94','Água','3.0.3','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('95','Aluguel e Condomínio','3.0.4','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('96','IPTU e Taxas Públicas','3.0.5','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('97','Almoço / Supermercado / Lanches 2','3.0.6','22','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('99','Salário de Funcionários','3.1.1','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('100','Bolsa de Estágio','3.1.2','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('101','VT e VR','3.1.3','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('102','Rescisão','3.1.4','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('103','FGTS','3.1.5','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('104','INSS - Sindicato - IR','3.1.6','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('105','13º e Férias','3.1.7','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('106','Exames ocupacionais','3.1.8','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('107','Pro-Labores','3.1.9','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('108','Plano de Saúde','3.1.10','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('109','Confraternizações / Festas da Empresa','3.1.11','23','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('110','Manutenção Máquinas e Equipamentos','3.2.1','24','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('111','Serviços Técnicos em geral','3.2.2','24','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('112','Materiais de Expediente/Escritório','3.2.3','24','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('113','Materiais de Limpeza e Manutenção da Loja','3.2.4','24','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('114','Papelaria Materiais impressos (folder, cartão visitas, etc.)','4.0.1','25','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('115','Site / Sistema','4.0.2','25','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('116','Mídias/ Propaganda','4.0.3','25','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('117','Prestadores de serviços de marketing','4.0.4','25','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('118','Compra de Equipamentos','4.1.1','26','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('119','Reformas / Estrutura','4.1.2','26','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('120','Mobiliário 22','4.1.3','26','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('121','Consultoria','4.2.1','27','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('122','Treinamentos','4.2.2','27','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('123','Capitalização dos sócios','5.0.1','28','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('124','Empréstimos obtidos','5.0.2','28','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('125','Venda de equipamentos usados','5.0.3','28','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('126','Pagamento de Empréstimos','6.0.1','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('127','Juros Bancários e por Atraso','6.0.2','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('128','Pagamento de dívidas passadas','6.0.3','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('129','Distribuição de Lucros ','6.0.4','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('130','Juros de Antecipação de Recebíveis','6.0.5','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('135','Estorno de Capital','6.0.6','29','2');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('136','Receitas em Dinheiro','1.0.1','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('137','Receitas em Boleto','1.0.2','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('138','Receitas em PIX','1.0.3','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('139','Receitas em Cartão de Crédito','1.0.4','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('140','Receitas em Cartão de Débito','1.0.5','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('141','Outros Produtos/Serviços','1.0.6','62','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('142','Simples Nacional','2.0.1','63','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('143','Taxas de Cartões','2.0.2','63','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('144','Taxas de Boleto','2.0.3','63','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('145','Compras com Fornecedores','2.1.1','64','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('146','Frete de Compras','2.1.2','64','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('147','Outros custos com Fornecedor','2.1.3','64','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('148','Combustível','2.2.1','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('149','Estacionamento','2.2.2','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('150','Alimentação','2.2.3','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('151','Manuteção de Veículos','2.2.4','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('152','Terceirização da entrega','2.2.5','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('153','Outros custos com Entregas','2.2.6','65','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('154','Embalagens','2.3.1','66','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('155','Sacolas','2.3.2','66','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('156','Caixas','2.3.3','66','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('157','Outros custos com Embalagens','2.3.4','66','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('158','Comissão Vendedor','2.4.1','67','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('159','Telefone e Internet','3.0.1','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('160','Energia Elétrica','3.0.2','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('161','Água','3.0.3','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('162','Aluguel e Condomínio','3.0.4','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('163','IPTU e Taxas Públicas','3.0.5','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('164','Almoço / Supermercado / Lanches','3.0.6','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('165','Contador','3.0.7','68','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('166','Salário de Funcionários','3.1.1','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('167','Bolsa de Estágio','3.1.2','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('168','VT e VR','3.1.3','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('169','Rescisão','3.1.4','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('170','FGTS','3.1.5','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('171','INSS - Sindicato - IR','3.1.6','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('172','13º e Férias','3.1.7','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('173','Exames ocupacionais','3.1.8','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('174','Pro-Labores','3.1.9','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('175','Plano de Saúde','3.1.10','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('176','Confraternizações / Festas da Empresa','3.1.11','69','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('177','Manutenção Máquinas e Equipamentos','3.2.1','70','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('178','Serviços Técnicos em geral','3.2.2','70','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('179','Materiais de Expediente/Escritório','3.2.3','70','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('180','Materiais de Limpeza e Manutenção da Loja','3.2.4','70','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('181','Papelaria Materiais impressos (folder, cartão visitas, etc.)','4.0.1','71','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('182','Site / Sistema','4.0.2','71','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('183','Mídias/ Propaganda','4.0.3','71','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('184','Prestadores de serviços de marketing','4.0.4','71','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('185','Compra de Equipamentos','4.1.1','72','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('186','Reformas / Estrutura','4.1.2','72','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('187','Mobiliário','4.1.3','72','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('188','Consultoria','4.2.1','73','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('189','Treinamentos','4.2.2','73','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('190','Capitalização dos sócios','5.0.1','74','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('191','Empréstimos obtidos','5.0.2','74','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('192','Venda de equipamentos usados','5.0.3','74','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('193','Pagamento de Empréstimos','6.0.1','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('194','Juros Bancários e por Atraso','6.0.2','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('195','Pagamento de dívidas passadas','6.0.3','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('196','Distribuição de Lucros ','6.0.4','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('197','Juros de Antecipação de Recebíveis','6.0.5','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('198','Estorno de Capital','6.0.6','75','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('199','Passagem','2.5.1','76','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('200','Viagem Uber / Taxi','2.5.2','76','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('201','Hospedagem','2.5.3','76','9');
+
+INSERT INTO TB_CATEGORIA_FC_NETA VALUES('202','Viagem Alimentação','2.5.4','76','9');
+
 
 
 
@@ -307,8 +643,12 @@ CREATE TABLE `TB_CENTRO_CUSTO` (
   `ds_descricao` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_centro_custo`,`co_assinante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_CENTRO_CUSTO VALUES('3','Delivery',NULL,NULL,'2');
+
+INSERT INTO TB_CENTRO_CUSTO VALUES('4','Matriz',NULL,NULL,'2');
 
 
 
@@ -390,7 +730,7 @@ CREATE TABLE `TB_CONTATO` (
   `ds_twitter` varchar(90) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ds_instagram` varchar(90) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`co_contato`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060',NULL,NULL,'sistema@maisquelucro.com.br',NULL,NULL,NULL,NULL);
@@ -398,6 +738,10 @@ INSERT INTO TB_CONTATO VALUES('1','61993274991','6130826060',NULL,NULL,'sistema@
 INSERT INTO TB_CONTATO VALUES('2','61993274991','6130826060',NULL,NULL,'gestor@maisquelucro.com.br',NULL,NULL,NULL,NULL);
 
 INSERT INTO TB_CONTATO VALUES('3','61992931084',NULL,NULL,NULL,'ramos.amaury96@gmail.com',NULL,NULL,NULL,'loja.sangiuseppe');
+
+INSERT INTO TB_CONTATO VALUES('8','61993055454',NULL,NULL,NULL,'leonardomcbessa@gmail.com',NULL,NULL,NULL,NULL);
+
+INSERT INTO TB_CONTATO VALUES('10','6193274991',NULL,NULL,NULL,'leonardomcbessa@gmail.com',NULL,NULL,NULL,NULL);
 
 
 
@@ -479,12 +823,16 @@ CREATE TABLE `TB_EMPRESA` (
   `co_contato` int(11) NOT NULL,
   `co_imagem` int(11) NOT NULL,
   PRIMARY KEY (`co_empresa`,`co_pessoa`,`co_endereco`,`co_contato`,`co_imagem`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_EMPRESA VALUES('1','Atacadão Bessa','Atacadão Bessa','2022-05-31 14:23:16','44777359000145',NULL,NULL,NULL,NULL,'2','2','2','2');
 
 INSERT INTO TB_EMPRESA VALUES('2','SAN GIUSEPPE ARTIGOS RELIGIOSOS E PRESENTES','LOJA SAN GIUSEPPE ARTIGOS RELIGIOSOS','2023-04-26 10:53:14',NULL,NULL,NULL,NULL,NULL,'3','3','3','3');
+
+INSERT INTO TB_EMPRESA VALUES('7',NULL,'LEONARDO MACHADO CARVALHO BESSA','2024-06-21 10:05:07',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
+INSERT INTO TB_EMPRESA VALUES('9',NULL,'LEONARDO MACHADO CARVALHO BESSA','2024-06-21 11:00:39',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 
 
@@ -552,804 +900,806 @@ CREATE TABLE `TB_FLUXO_CAIXA` (
   `co_usuario` int(10) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_fluxo_caixa`,`co_categoria_fc`,`co_categoria_fc_filha`,`co_categoria_fc_neta`,`co_conta_bancaria`,`co_usuario`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=420 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=421 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('1','2023-02-08 12:23:36','2023-01-20',NULL,NULL,'400.00','Adiantamento de passagem para viagem','1','1','3','5','13','55',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('1','2023-03-08 12:23:36','2023-02-20',NULL,NULL,'400.00','Adiantamento de passagem para viagem','1','1','3','5','13','55',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('2','2023-02-08 12:35:27','2023-01-23',NULL,NULL,'3700.00','Era 4mil porem sobrou 300','1','1','3','5','13','55',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('2','2023-03-08 12:35:27','2023-02-23',NULL,NULL,'3700.00','Era 4mil porem sobrou 300','1','1','3','5','13','55',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('3','2023-02-08 12:37:52','2023-02-01',NULL,NULL,'1800.00','Pagamento Toalhinhas de personagem','1','4','3','5','13','55',NULL,'2','21','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('3','2023-03-08 12:37:52','2023-03-01',NULL,NULL,'1800.00','Pagamento Toalhinhas de personagem','1','4','3','5','13','55',NULL,'2','21','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('4','2023-02-08 12:41:36','2023-02-01',NULL,NULL,'1800.00','COmpra de toalhas de personagem 52 duzias','2','4','3','2','3','10',NULL,'2','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('4','2023-03-08 12:41:36','2023-03-01',NULL,NULL,'1800.00','COmpra de toalhas de personagem 52 duzias','2','4','3','2','3','10',NULL,'2','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('5','2023-02-08 15:42:40','2023-01-22',NULL,NULL,'560.00','Passagem viagem Brás SP','2','4','3','2','15','63',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('5','2023-03-08 15:42:40','2023-02-22',NULL,NULL,'560.00','Passagem viagem Brás SP','2','4','3','2','15','63',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('6','2023-02-08 15:44:14','2023-01-22',NULL,NULL,'80.00','Locomoção na viagem','2','3','3','2','15','64',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('6','2023-03-08 15:44:14','2023-02-22',NULL,NULL,'80.00','Locomoção na viagem','2','3','3','2','15','64',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('7','2023-02-08 15:45:47','2023-01-22',NULL,NULL,'80.00','Pago cartão C6 CRÉDITO','1','3','3','5','13','55',NULL,'3','21','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('7','2023-03-08 15:45:47','2023-02-22',NULL,NULL,'80.00','Pago cartão C6 CRÉDITO','1','3','3','5','13','55',NULL,'3','21','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('8','2023-02-08 15:48:00','2023-01-22',NULL,NULL,'260.00','Custo da alimentação da viagem toda','2','3','3','2','15','66',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('8','2023-03-08 15:48:00','2023-02-22',NULL,NULL,'260.00','Custo da alimentação da viagem toda','2','3','3','2','15','66',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('9','2023-02-08 15:56:23','2023-01-25',NULL,NULL,'94.25','Hospedagem do site','2','3','3','4','10','47',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('9','2023-03-08 15:56:23','2023-02-25',NULL,NULL,'94.25','Hospedagem do site','2','3','3','4','10','47',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('10','2023-02-08 15:58:33','2023-01-22',NULL,NULL,'3600.00','Compra das mochilas','2','3','3','2','3','10',NULL,'3','6','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('10','2023-03-08 15:58:33','2023-02-22',NULL,NULL,'3600.00','Compra das mochilas','2','3','3','2','3','10',NULL,'3','6','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('11','2023-02-08 16:09:20','2023-01-22',NULL,NULL,'150.00','Compra dos talheres inox','2','3','3','2','3','10',NULL,'3','2','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('11','2023-03-08 16:09:20','2023-02-22',NULL,NULL,'150.00','Compra dos talheres inox','2','3','3','2','3','10',NULL,'3','2','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('12','2023-02-08 16:11:03','2023-01-22',NULL,NULL,'1530.00','Materiais diversos','2','1','3','2','3','10',NULL,'2','3','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('12','2023-03-08 16:11:03','2023-02-22',NULL,NULL,'1530.00','Materiais diversos','2','1','3','2','3','10',NULL,'2','3','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('13','2023-02-08 16:12:12','2023-01-22',NULL,NULL,'220.00','Compra de pilhas AAA e AA','2','4','3','2','3','10',NULL,'2','4','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('13','2023-03-08 16:12:12','2023-02-22',NULL,NULL,'220.00','Compra de pilhas AAA e AA','2','4','3','2','3','10',NULL,'2','4','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('15','2023-02-08 16:16:00','2023-01-23',NULL,NULL,'579.00','Compra porta lapis','2','1','3','2','3','10',NULL,'2','7','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('15','2023-03-08 16:16:00','2023-02-23',NULL,NULL,'579.00','Compra porta lapis','2','1','3','2','3','10',NULL,'2','7','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('16','2023-02-08 19:07:38','2023-01-23',NULL,NULL,'112.00','Compras porta lápis','2','1','3','2','3','10',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('16','2023-03-08 19:07:38','2023-02-23',NULL,NULL,'112.00','Compras porta lápis','2','1','3','2','3','10',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('17','2023-02-08 19:13:40','2023-01-23',NULL,NULL,'712.50','Compras dos panos de prato e panos de chão','2','1','3','2','3','10',NULL,'2','5','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('17','2023-03-08 19:13:40','2023-02-23',NULL,NULL,'712.50','Compras dos panos de prato e panos de chão','2','1','3','2','3','10',NULL,'2','5','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('19','2023-02-08 19:17:40','2023-01-24',NULL,NULL,'95.00','Porta lápis 2 ziper','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('19','2023-03-08 19:17:40','2023-02-24',NULL,NULL,'95.00','Porta lápis 2 ziper','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('21','2023-02-08 19:21:19','2023-01-24',NULL,NULL,'340.00','Porta lápis e mochila','1','4','3','1','1','3',NULL,'3','10','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('21','2023-03-08 19:21:19','2023-02-24',NULL,NULL,'340.00','Porta lápis e mochila','1','4','3','1','1','3',NULL,'3','10','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('22','2023-02-08 19:23:13','2023-01-25',NULL,NULL,'410.00','Mochilas e portas lápis','1','4','3','1','1','3',NULL,'3','24','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('22','2023-03-08 19:23:13','2023-02-25',NULL,NULL,'410.00','Mochilas e portas lápis','1','4','3','1','1','3',NULL,'3','24','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('24','2023-02-08 19:25:04','2023-02-08',NULL,NULL,'532.00','Porta lápis','1','4','3','1','1','3',NULL,'3','25','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('24','2023-03-08 19:25:04','2023-03-08',NULL,NULL,'532.00','Porta lápis','1','4','3','1','1','3',NULL,'3','25','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('25','2023-02-08 19:29:18','2023-02-13','2023-02-05','162.00','162.00','Mochilas','1','4','3','1','1','3',NULL,'3','26','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('25','2023-03-08 19:29:18','2023-03-13','2023-03-05','162.00','162.00','Mochilas','1','4','3','1','1','3',NULL,'3','26','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('26','2023-02-08 19:30:50','2023-01-26',NULL,NULL,'100.00','Mochilas','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('26','2023-03-08 19:30:50','2023-02-26',NULL,NULL,'100.00','Mochilas','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('29','2023-02-08 19:34:34','2023-01-31',NULL,NULL,'108.00','Pago depois pix','1','1','3','1','1','1',NULL,'2','10','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('29','2023-03-08 19:34:34','2023-02-28',NULL,NULL,'108.00','Pago depois pix','1','1','3','1','1','1',NULL,'2','10','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('30','2023-02-08 19:36:17','2023-02-10','2023-02-07','492.00','492.00','Toalha personagem e mochilas','1','4','3','1','1','3',NULL,'3','11','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('30','2023-03-08 19:36:17','2023-03-10','2023-03-07','492.00','492.00','Toalha personagem e mochilas','1','4','3','1','1','3',NULL,'3','11','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('31','2023-02-08 19:37:24','2023-05-12','2023-02-10','102.00','162.00','Mochilas','1','1','3','1','1','3',NULL,'2','27','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('31','2023-03-08 19:37:24','2023-06-12','2023-03-10','102.00','162.00','Mochilas','1','1','3','1','1','3',NULL,'2','27','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('33','2023-02-08 19:40:45','2023-01-31',NULL,NULL,'30.00','1 dz colher inox','1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('33','2023-03-08 19:40:45','2023-02-28',NULL,NULL,'30.00','1 dz colher inox','1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('34','2023-02-08 19:41:58','2023-02-01',NULL,NULL,'543.00','Toalhas personagem e porta lapis e mochilas','1','4','3','1','1','3',NULL,'3','12','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('34','2023-03-08 19:41:58','2023-03-01',NULL,NULL,'543.00','Toalhas personagem e porta lapis e mochilas','1','4','3','1','1','3',NULL,'3','12','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('35','2023-02-08 19:43:04','2023-02-10','2023-02-08','200.00','200.00','Toalhas personagem e porta lapis e mochilas','1','4','3','1','1','3',NULL,'3','12','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('35','2023-03-08 19:43:04','2023-03-10','2023-03-08','200.00','200.00','Toalhas personagem e porta lapis e mochilas','1','4','3','1','1','3',NULL,'3','12','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('38','2023-02-08 19:46:29','2023-02-03',NULL,NULL,'162.00','Toalhas pers.','1','1','3','1','1','1',NULL,'2','24','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('38','2023-03-08 19:46:29','2023-03-03',NULL,NULL,'162.00','Toalhas pers.','1','1','3','1','1','1',NULL,'2','24','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('39','2023-02-08 19:47:56','2023-02-01',NULL,NULL,'175.00','Toalhas','1','1','3','1','1','1',NULL,'2','29','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('39','2023-03-08 19:47:56','2023-03-01',NULL,NULL,'175.00','Toalhas','1','1','3','1','1','1',NULL,'2','29','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('41','2023-02-08 19:50:00','2023-03-04','2023-02-15','312.00','312.00','Toalhas mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','16','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('41','2023-03-08 19:50:00','2023-04-04','2023-03-15','312.00','312.00','Toalhas mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','16','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('42','2023-02-08 19:51:20','2023-02-03',NULL,NULL,'237.00','toalhas','1','1','3','1','1','1',NULL,'2','17','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('42','2023-03-08 19:51:20','2023-03-03',NULL,NULL,'237.00','toalhas','1','1','3','1','1','1',NULL,'2','17','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('43','2023-02-08 19:52:53','2023-02-05',NULL,NULL,'54.00','Toalhas','1','1','3','1','1','1',NULL,'2','30','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('43','2023-03-08 19:52:53','2023-03-05',NULL,NULL,'54.00','Toalhas','1','1','3','1','1','1',NULL,'2','30','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('44','2023-02-08 19:54:05','2023-02-05',NULL,NULL,'156.00','Mochilas','1','1','3','1','1','1',NULL,'2','28','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('44','2023-03-08 19:54:05','2023-03-05',NULL,NULL,'156.00','Mochilas','1','1','3','1','1','1',NULL,'2','28','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('45','2023-02-09 14:09:31','2023-02-06','2023-02-03','420.00','420.00',NULL,'1','4','3','1','1','3',NULL,'3','9','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('45','2023-03-09 14:09:31','2023-03-06','2023-03-03','420.00','420.00',NULL,'1','4','3','1','1','3',NULL,'3','9','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('46','2023-02-09 14:14:15','2023-02-06',NULL,NULL,'208.00',NULL,'1','1','3','1','1','1',NULL,'2','18','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('46','2023-03-09 14:14:15','2023-03-06',NULL,NULL,'208.00',NULL,'1','1','3','1','1','1',NULL,'2','18','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('47','2023-02-09 14:14:56','2023-02-06',NULL,NULL,'125.00',NULL,'1','4','3','1','1','3',NULL,'3','19','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('47','2023-03-09 14:14:56','2023-03-06',NULL,NULL,'125.00',NULL,'1','4','3','1','1','3',NULL,'3','19','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('48','2023-02-09 14:16:57','2023-02-15','2023-02-15','276.00','276.00',NULL,'1','4','3','1','1','3',NULL,'3','31','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('48','2023-03-09 14:16:57','2023-03-15','2023-03-15','276.00','276.00',NULL,'1','4','3','1','1','3',NULL,'3','31','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('49','2023-02-09 14:19:12','2023-02-23','2023-02-15','108.00','108.00',NULL,'1','4','3','1','1','3',NULL,'3','32','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('49','2023-03-09 14:19:12','2023-03-23','2023-03-15','108.00','108.00',NULL,'1','4','3','1','1','3',NULL,'3','32','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('50','2023-02-09 14:20:40','2023-02-08',NULL,NULL,'54.00',NULL,'1','1','3','1','1','1',NULL,'2','33','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('50','2023-03-09 14:20:40','2023-03-08',NULL,NULL,'54.00',NULL,'1','1','3','1','1','1',NULL,'2','33','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('51','2023-02-09 14:23:13','2023-02-07','2023-02-06','687.00','687.00','Toalhas personagem e porta lapis','1','4','3','1','1','3',NULL,'3','13','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('51','2023-03-09 14:23:13','2023-03-07','2023-03-06','687.00','687.00','Toalhas personagem e porta lapis','1','4','3','1','1','3',NULL,'3','13','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('52','2023-02-09 14:26:46','2023-02-07',NULL,NULL,'364.00','Pagamento Porta Lápis','2','4','3','6','14','60',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('52','2023-03-09 14:26:46','2023-03-07',NULL,NULL,'364.00','Pagamento Porta Lápis','2','4','3','6','14','60',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('53','2023-02-09 14:28:21','2023-02-07','2023-02-01','386.00','386.00','Mochilas e Porta Lápis','1','4','3','1','1','3',NULL,'3','8','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('53','2023-03-09 14:28:21','2023-03-07','2023-03-01','386.00','386.00','Mochilas e Porta Lápis','1','4','3','1','1','3',NULL,'3','8','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('54','2023-02-09 14:33:15','2023-01-26','2023-01-26','100.00','100.00','Mochilas','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('54','2023-03-09 14:33:15','2023-02-26','2023-02-26','100.00','100.00','Mochilas','1','4','3','1','1','3',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('55','2023-02-09 14:43:05','2023-01-27',NULL,NULL,'180.00','Pix Hélio Ferreira','2','4','3','6','14','67',NULL,'3','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('55','2023-03-09 14:43:05','2023-02-27',NULL,NULL,'180.00','Pix Hélio Ferreira','2','4','3','6','14','67',NULL,'3','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('57','2023-02-09 14:48:02','2023-01-31',NULL,NULL,'600.00',NULL,'2','4','3','6','14','67',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('57','2023-03-09 14:48:02','2023-02-28',NULL,NULL,'600.00',NULL,'2','4','3','6','14','67',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('58','2023-02-09 14:49:09','2023-01-30',NULL,NULL,'700.00',NULL,'2','4','3','6','14','67',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('58','2023-03-09 14:49:09','2023-02-28',NULL,NULL,'700.00',NULL,'2','4','3','6','14','67',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('59','2023-02-09 14:51:04','2023-02-09','2023-02-08','312.00','312.00','Toalhas mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','16','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('59','2023-03-09 14:51:04','2023-03-09','2023-03-08','312.00','312.00','Toalhas mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','16','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('60','2023-02-09 14:54:28','2023-01-20',NULL,NULL,'6360.00',NULL,'1','4','3','5','13','55',NULL,'3','21','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('60','2023-03-09 14:54:28','2023-02-20',NULL,NULL,'6360.00',NULL,'1','4','3','5','13','55',NULL,'3','21','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('61','2023-02-09 15:19:10','2023-01-23',NULL,NULL,'112.00','Porta lápis 2 xíper Troca de produto calça e blusa','1','1','3','1','1','1',NULL,'2','34','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('61','2023-03-09 15:19:10','2023-02-23',NULL,NULL,'112.00','Porta lápis 2 xíper Troca de produto calça e blusa','1','1','3','1','1','1',NULL,'2','34','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('62','2023-02-09 22:38:35','2023-03-04','2023-02-22','150.00','150.00','Pct toalhas coloridas','1','4','3','1','1','3',NULL,'3','16','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('62','2023-03-09 22:38:35','2023-04-04','2023-03-22','150.00','150.00','Pct toalhas coloridas','1','4','3','1','1','3',NULL,'3','16','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('63','2023-02-09 22:40:41','2023-02-09','2023-02-08','200.00','200.00','Toalhas mochilas','1','4','3','1','1','3',NULL,'3','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('63','2023-03-09 22:40:41','2023-03-09','2023-03-08','200.00','200.00','Toalhas mochilas','1','4','3','1','1','3',NULL,'3','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('64','2023-02-09 22:44:37','2023-02-27','2023-02-15','267.00','200.00','Toalhas personagem 39 unidades','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('64','2023-03-09 22:44:37','2023-03-27','2023-03-15','267.00','200.00','Toalhas personagem 39 unidades','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('65','2023-02-09 22:46:45','2023-02-03',NULL,NULL,'70.00',NULL,'2','1','3','2','6','23',NULL,'2','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('65','2023-03-09 22:46:45','2023-03-03',NULL,NULL,'70.00',NULL,'2','1','3','2','6','23',NULL,'2','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('66','2023-02-10 10:33:19','2023-02-08','2023-02-03','138.00','138.00','Porta lapis','1','4','3','1','1','3',NULL,'3','23','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('66','2023-03-10 10:33:19','2023-03-08','2023-03-03','138.00','138.00','Porta lapis','1','4','3','1','1','3',NULL,'3','23','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('71','2023-02-12 15:53:29','2023-02-13','2023-02-14','750.00','750.00','Toalhas coloridas','2','4','3','2','3','10',NULL,'5','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('71','2023-03-12 15:53:29','2023-03-13','2023-03-14','750.00','750.00','Toalhas coloridas','2','4','3','2','3','10',NULL,'5','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('72','2023-02-12 15:54:32','2023-02-13','2023-02-14','1050.00','1050.00','Toalhas Personagem','2','4','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('72','2023-03-12 15:54:32','2023-03-13','2023-03-14','1050.00','1050.00','Toalhas Personagem','2','4','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('73','2023-02-14 14:30:22','2023-02-10',NULL,NULL,'137.00','Toalha','1','1','3','1','1','3',NULL,'2','35','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('73','2023-03-14 14:30:22','2023-03-10',NULL,NULL,'137.00','Toalha','1','1','3','1','1','3',NULL,'2','35','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('74','2023-02-14 14:36:13','2023-02-13',NULL,NULL,'370.00',NULL,'1','4','3','1','1','3',NULL,'3','36','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('74','2023-03-14 14:36:13','2023-03-13',NULL,NULL,'370.00',NULL,'1','4','3','1','1','3',NULL,'3','36','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('76','2023-02-14 16:24:59','2023-02-14',NULL,NULL,'108.00','Lápis de cor','1','4','3','1','1','3',NULL,'3','29','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('76','2023-03-14 16:24:59','2023-03-14',NULL,NULL,'108.00','Lápis de cor','1','4','3','1','1','3',NULL,'3','29','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('77','2023-02-15 12:10:13','2023-02-15',NULL,NULL,'1000.00','Pagamento Cartão de Crédito Bradesco','2','4','3','6','14','67',NULL,'3','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('77','2023-03-15 12:10:13','2023-03-15',NULL,NULL,'1000.00','Pagamento Cartão de Crédito Bradesco','2','4','3','6','14','67',NULL,'3','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('78','2023-02-24 11:35:41','2023-02-23',NULL,NULL,'213.00',NULL,'2','4','3','2','6','23',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('78','2023-03-24 11:35:41','2023-03-23',NULL,NULL,'213.00',NULL,'2','4','3','2','6','23',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('79','2023-02-24 11:44:24','2023-02-15',NULL,NULL,'75.00','Grossa de lapis e toalhas','1','1','3','1','1','1',NULL,'2','10','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('79','2023-03-24 11:44:24','2023-03-15',NULL,NULL,'75.00','Grossa de lapis e toalhas','1','1','3','1','1','1',NULL,'2','10','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('80','2023-02-24 11:45:54','2023-02-22','2023-02-22','162.00','162.00',NULL,'1','4','3','1','1','3',NULL,'3','39','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('80','2023-03-24 11:45:54','2023-03-22','2023-03-22','162.00','162.00',NULL,'1','4','3','1','1','3',NULL,'3','39','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('81','2023-02-24 11:46:57','2023-02-15',NULL,NULL,'288.00','Mochilas e toalhas','1','4','3','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('81','2023-03-24 11:46:57','2023-03-15',NULL,NULL,'288.00','Mochilas e toalhas','1','4','3','1','1','3',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('82','2023-02-24 11:47:59','2023-02-23',NULL,NULL,'50.00','Mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('82','2023-03-24 11:47:59','2023-03-23',NULL,NULL,'50.00','Mochilas e porta lapis','1','4','3','1','1','3',NULL,'3','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('83','2023-02-24 11:48:37','2023-03-03','2023-02-23','196.00','100.00','Mochilas e toalhas','1','4','3','1','1','3',NULL,'3','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('83','2023-03-24 11:48:37','2023-04-03','2023-03-23','196.00','100.00','Mochilas e toalhas','1','4','3','1','1','3',NULL,'3','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('84','2023-02-24 11:50:12','2023-02-17',NULL,NULL,'54.00','Toalhas person.','1','1','3','1','1','1',NULL,'2','41','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('84','2023-03-24 11:50:12','2023-03-17',NULL,NULL,'54.00','Toalhas person.','1','1','3','1','1','1',NULL,'2','41','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('85','2023-02-24 11:51:22','2023-02-17','2023-02-17','30.00','30.00','Colher','1','4','3','1','1','3',NULL,'3','42','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('85','2023-03-24 11:51:22','2023-03-17','2023-03-17','30.00','30.00','Colher','1','4','3','1','1','3',NULL,'3','42','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('86','2023-02-24 11:53:12','2023-02-24',NULL,NULL,'153.00',NULL,'1','1','3','1','1','1',NULL,'2','43','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('86','2023-03-24 11:53:12','2023-03-24',NULL,NULL,'153.00',NULL,'1','1','3','1','1','1',NULL,'2','43','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('87','2023-03-04 11:22:13','2023-02-27',NULL,NULL,'2950.00','Havaianas','2','4','3','2','3','10',NULL,'3','45','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('87','2023-04-04 11:22:13','2023-03-27',NULL,NULL,'2950.00','Havaianas','2','4','3','2','3','10',NULL,'3','45','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('88','2023-03-04 11:24:03','2023-02-27',NULL,NULL,'670.00','Mochilqs','2','4','3','2','3','10',NULL,'3','44','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('88','2023-04-04 11:24:03','2023-03-27',NULL,NULL,'670.00','Mochilqs','2','4','3','2','3','10',NULL,'3','44','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('89','2023-03-04 11:32:15','2023-03-14','2023-03-01','46.00','96.00','Restante do pagamento','1','4','3','1','1','3',NULL,'4','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('89','2023-04-04 11:32:15','2023-04-14','2023-04-01','46.00','96.00','Restante do pagamento','1','4','3','1','1','3',NULL,'4','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('90','2023-03-04 11:33:53','2023-03-25','2023-03-01','67.00','67.00','Restante do pagamento','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('90','2023-04-04 11:33:53','2023-04-25','2023-04-01','67.00','67.00','Restante do pagamento','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('91','2023-03-06 08:45:10','2023-03-03',NULL,NULL,'310.00',NULL,'2','1','3','2','6','23',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('91','2023-04-06 08:45:10','2023-04-03',NULL,NULL,'310.00',NULL,'2','1','3','2','6','23',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('92','2023-03-06 08:48:49','2023-03-04',NULL,NULL,'180.00','Havaianas','1','1','3','1','1','1',NULL,'2','35','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('92','2023-04-06 08:48:49','2023-04-04',NULL,NULL,'180.00','Havaianas','1','1','3','1','1','1',NULL,'2','35','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('93','2023-03-06 08:49:32','2023-03-10',NULL,NULL,'225.00','Havaianas','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('93','2023-04-06 08:49:32','2023-04-10',NULL,NULL,'225.00','Havaianas','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('94','2023-03-06 08:58:13','2023-02-27',NULL,NULL,'120.00',NULL,'2','3','3','2','15','64',NULL,'5',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('94','2023-04-06 08:58:13','2023-03-27',NULL,NULL,'120.00',NULL,'2','3','3','2','15','64',NULL,'5',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('95','2023-03-06 08:58:46','2023-02-27',NULL,NULL,'80.00',NULL,'2','1','3','2','15','66',NULL,'5',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('95','2023-04-06 08:58:46','2023-03-27',NULL,NULL,'80.00',NULL,'2','1','3','2','15','66',NULL,'5',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('96','2023-03-06 08:59:13','2023-02-27',NULL,NULL,'400.00',NULL,'2','1','3','2','15','63',NULL,'5',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('96','2023-04-06 08:59:13','2023-03-27',NULL,NULL,'400.00',NULL,'2','1','3','2','15','63',NULL,'5',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('97','2023-03-07 14:04:02','2023-03-07',NULL,NULL,'16.50',NULL,'1','1','3','1','1','1',NULL,'2','48','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('97','2023-04-07 14:04:02','2023-04-07',NULL,NULL,'16.50',NULL,'1','1','3','1','1','1',NULL,'2','48','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('98','2023-03-07 14:05:28','2023-03-23','2023-03-10','110.00','110.00','Panos de prato','1','4','3','1','1','3',NULL,'2','47','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('98','2023-04-07 14:05:28','2023-04-23','2023-04-10','110.00','110.00','Panos de prato','1','4','3','1','1','3',NULL,'2','47','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('99','2023-03-09 10:59:23','2023-03-09',NULL,NULL,'107.00','Panos de prato','1','4','3','1','1','1',NULL,'3','49','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('99','2023-04-09 10:59:23','2023-04-09',NULL,NULL,'107.00','Panos de prato','1','4','3','1','1','1',NULL,'3','49','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('100','2023-03-09 11:04:05','2023-03-23','2023-03-20','476.50','476.50','Havaianas','1','1','3','1','1','3',NULL,'3','50','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('100','2023-04-09 11:04:05','2023-04-23','2023-04-20','476.50','476.50','Havaianas','1','1','3','1','1','3',NULL,'3','50','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('101','2023-03-09 11:05:02','2023-04-04','2023-04-01','476.50','353.50','Havaianas','1','4','3','1','1','3',NULL,'3','50','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('101','2023-04-09 11:05:02','2023-05-04','2023-05-01','476.50','353.50','Havaianas','1','4','3','1','1','3',NULL,'3','50','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('102','2023-03-09 11:06:41','2023-03-07',NULL,NULL,'84.00','Panos de chão','1','1','3','1','1','1',NULL,'4','51','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('102','2023-04-09 11:06:41','2023-04-07',NULL,NULL,'84.00','Panos de chão','1','1','3','1','1','1',NULL,'4','51','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('103','2023-03-09 11:08:11','2023-03-07',NULL,NULL,'140.00','Havaianas','1','1','3','1','1','1',NULL,'4','52','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('103','2023-04-09 11:08:11','2023-04-07',NULL,NULL,'140.00','Havaianas','1','1','3','1','1','1',NULL,'4','52','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('104','2023-03-14 08:45:00','2023-03-25','2023-03-20','294.25','294.25','Materias diversos','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('104','2023-04-14 08:45:00','2023-04-25','2023-04-20','294.25','294.25','Materias diversos','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('105','2023-03-14 08:46:23','2023-05-03','2023-03-27','149.75','150.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('105','2023-04-14 08:46:23','2023-06-03','2023-04-27','149.75','150.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('106','2023-03-14 08:46:23','2023-04-14','2023-04-03','294.25','200.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('106','2023-04-14 08:46:23','2023-05-14','2023-05-03','294.25','200.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('107','2023-03-14 08:46:23','2023-06-12','2023-04-10','144.25','150.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('107','2023-04-14 08:46:23','2023-07-12','2023-05-10','144.25','150.00','Materias DIversos','1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('108','2023-03-14 13:44:55','2023-03-14',NULL,NULL,'236.82','Havaianas e extensão','1','4','3','1','1','3',NULL,'3','10','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('108','2023-04-14 13:44:55','2023-04-14',NULL,NULL,'236.82','Havaianas e extensão','1','4','3','1','1','3',NULL,'3','10','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('109','2023-03-14 14:06:16','2023-03-10',NULL,NULL,'80.00',NULL,'1','4','3','1','1','3',NULL,'3','27','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('109','2023-04-14 14:06:16','2023-04-10',NULL,NULL,'80.00',NULL,'1','4','3','1','1','3',NULL,'3','27','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('110','2023-03-14 14:09:25','2023-03-11',NULL,NULL,'29.52',NULL,'1','1','3','1','1','1',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('110','2023-04-14 14:09:25','2023-04-11',NULL,NULL,'29.52',NULL,'1','1','3','1','1','1',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('111','2023-03-14 16:25:44','2023-03-14',NULL,NULL,'100.00','Havaianas','1','1','3','1','1','1',NULL,'4','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('111','2023-04-14 16:25:44','2023-04-14',NULL,NULL,'100.00','Havaianas','1','1','3','1','1','1',NULL,'4','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('112','2023-03-14 16:26:37','2023-04-01','2023-03-22','72.00','72.00','Havaianas','1','4','3','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('112','2023-04-14 16:26:37','2023-05-01','2023-04-22','72.00','72.00','Havaianas','1','4','3','1','1','3',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('113','2023-03-14 16:41:24','2023-03-14',NULL,NULL,'100.00','Havaianas','1','1','3','1','1','1',NULL,'4','10','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('113','2023-04-14 16:41:24','2023-04-14',NULL,NULL,'100.00','Havaianas','1','1','3','1','1','1',NULL,'4','10','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('114','2023-03-14 17:15:18','2023-04-05','2023-03-30','168.00','184.00','Havaianas','1','1','3','1','1','1',NULL,'2','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('114','2023-04-14 17:15:18','2023-05-05','2023-04-30','168.00','184.00','Havaianas','1','1','3','1','1','1',NULL,'2','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('115','2023-03-14 17:15:18','2023-04-29','2023-04-09','168.00','150.00','Havaianas','1','1','3','1','1','1',NULL,'2','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('115','2023-04-14 17:15:18','2023-05-29','2023-05-09','168.00','150.00','Havaianas','1','1','3','1','1','1',NULL,'2','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('116','2023-03-14 17:16:17','2023-03-14',NULL,NULL,'22.00','Esc e cola','1','1','3','1','1','1',NULL,'4','40','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('116','2023-04-14 17:16:17','2023-04-14',NULL,NULL,'22.00','Esc e cola','1','1','3','1','1','1',NULL,'4','40','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('117','2023-03-27 09:18:04','2023-03-22',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'2','27','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('117','2023-04-27 09:18:04','2023-04-22',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'2','27','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('118','2023-03-27 09:21:43','2023-03-24',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','53','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('118','2023-04-27 09:21:43','2023-04-24',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','53','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('119','2023-03-27 10:31:35','2023-03-14',NULL,NULL,'100.00',NULL,'2','1','3','2','6','23',NULL,'4','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('119','2023-04-27 10:31:35','2023-04-14',NULL,NULL,'100.00',NULL,'2','1','3','2','6','23',NULL,'4','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('120','2023-03-27 10:33:39','2023-03-16',NULL,NULL,'56.00',NULL,'1','1','3','1','1','1',NULL,'2','55','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('120','2023-04-27 10:33:39','2023-04-16',NULL,NULL,'56.00',NULL,'1','1','3','1','1','1',NULL,'2','55','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('121','2023-04-06 11:14:41','2023-04-24',NULL,NULL,'17.55',NULL,'2','3','3','2','2','8',NULL,'3','54','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('121','2023-05-06 11:14:41','2023-05-24',NULL,NULL,'17.55',NULL,'2','3','3','2','2','8',NULL,'3','54','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('122','2023-04-06 11:17:12','2023-04-27',NULL,NULL,'4.90','Segura da conta PagBank','2','3','3','2','2','8',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('122','2023-05-06 11:17:12','2023-05-27',NULL,NULL,'4.90','Segura da conta PagBank','2','3','3','2','2','8',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('123','2023-04-06 11:19:52','2023-04-28',NULL,NULL,'315.00',NULL,'1','4','3','1','1','3',NULL,'3','56','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('123','2023-05-06 11:19:52','2023-05-28',NULL,NULL,'315.00',NULL,'1','4','3','1','1','3',NULL,'3','56','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('124','2023-04-06 11:22:44','2023-03-30',NULL,NULL,'67.00',NULL,'1','4','3','1','1','3',NULL,'3','57','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('124','2023-05-06 11:22:44','2023-04-30',NULL,NULL,'67.00',NULL,'1','4','3','1','1','3',NULL,'3','57','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('125','2023-04-06 11:23:24','2023-03-30',NULL,NULL,'65.00',NULL,'1','1','3','1','1','1',NULL,'2','57','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('125','2023-05-06 11:23:24','2023-04-30',NULL,NULL,'65.00',NULL,'1','1','3','1','1','1',NULL,'2','57','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('126','2023-04-06 11:24:56','2023-03-24',NULL,NULL,'123.00',NULL,'1','1','3','1','1','1',NULL,'2','50','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('126','2023-05-06 11:24:56','2023-04-24',NULL,NULL,'123.00',NULL,'1','1','3','1','1','1',NULL,'2','50','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('127','2023-04-06 11:28:07','2023-03-30',NULL,NULL,'40.00',NULL,'1','1','3','1','1','1',NULL,'2','58','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('127','2023-05-06 11:28:07','2023-04-30',NULL,NULL,'40.00',NULL,'1','1','3','1','1','1',NULL,'2','58','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('128','2023-04-06 11:38:39','2023-03-30',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('128','2023-05-06 11:38:39','2023-04-30',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('129','2023-04-11 14:20:34','2023-04-01',NULL,NULL,'40.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('129','2023-05-11 14:20:34','2023-05-01',NULL,NULL,'40.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('130','2023-04-20 14:28:17','2023-04-13',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','59','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('130','2023-05-20 14:28:17','2023-05-13',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','59','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('131','2023-04-20 14:31:01','2023-04-14',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','60','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('131','2023-05-20 14:31:01','2023-05-14',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','60','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('132','2023-04-20 14:32:50','2023-04-20','2023-04-20','240.00','240.00',NULL,'1','1','3','1','1','1',NULL,'2','61','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('132','2023-05-20 14:32:50','2023-05-20','2023-05-20','240.00','240.00',NULL,'1','1','3','1','1','1',NULL,'2','61','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('133','2023-04-20 14:34:18','2023-04-19',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','15','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('133','2023-05-20 14:34:18','2023-05-19',NULL,NULL,'106.00',NULL,'1','1','3','1','1','1',NULL,'2','15','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('134','2023-04-20 14:35:02','2023-04-20','2023-04-20','100.00','205.00',NULL,'1','1','3','1','1','3',NULL,'3','15','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('134','2023-05-20 14:35:02','2023-05-20','2023-05-20','100.00','205.00',NULL,'1','1','3','1','1','3',NULL,'3','15','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('135','2023-04-20 14:37:40','2023-04-11',NULL,NULL,'80.00',NULL,'1','4','3','1','1','1',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('135','2023-05-20 14:37:40','2023-05-11',NULL,NULL,'80.00',NULL,'1','4','3','1','1','1',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('137','2023-04-20 14:39:19','2023-07-27','2023-04-26','60.00','60.00',NULL,'1','1','3','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('137','2023-05-20 14:39:19','2023-08-27','2023-05-26','60.00','60.00',NULL,'1','1','3','1','1','3',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('138','2023-04-20 14:52:44','2023-04-18',NULL,NULL,'580.00','Cadeado ao barbear filtro de linha','2','4','3','2','3','10',NULL,'3','62','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('138','2023-05-20 14:52:44','2023-05-18',NULL,NULL,'580.00','Cadeado ao barbear filtro de linha','2','4','3','2','3','10',NULL,'3','62','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('139','2023-04-22 12:11:55','2023-04-20',NULL,NULL,'953.00',NULL,'2','4','3','2','3','10',NULL,'3','62','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('139','2023-05-22 12:11:55','2023-05-20',NULL,NULL,'953.00',NULL,'2','4','3','2','3','10',NULL,'3','62','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('140','2023-04-25 14:54:15','2023-04-24',NULL,NULL,'80.00',NULL,'1','1','3','1','1','3',NULL,'2','27','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('140','2023-05-25 14:54:15','2023-05-24',NULL,NULL,'80.00',NULL,'1','1','3','1','1','3',NULL,'2','27','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('141','2023-04-25 14:59:57','2023-04-24',NULL,NULL,'95.00',NULL,'1','4','3','1','1','3',NULL,'3','63','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('141','2023-05-25 14:59:57','2023-05-24',NULL,NULL,'95.00',NULL,'1','4','3','1','1','3',NULL,'3','63','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('142','2023-04-25 15:02:28','2023-04-24',NULL,NULL,'30.00',NULL,'1','1','3','1','1','1',NULL,'2','64','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('142','2023-05-25 15:02:28','2023-05-24',NULL,NULL,'30.00',NULL,'1','1','3','1','1','1',NULL,'2','64','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('143','2023-04-25 17:34:31','2023-04-25',NULL,NULL,'136.00',NULL,'1','1','3','1','1','1',NULL,'4','66','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('143','2023-05-25 17:34:31','2023-05-25',NULL,NULL,'136.00',NULL,'1','1','3','1','1','1',NULL,'4','66','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('144','2023-04-25 17:35:27','2023-04-25',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'4','13','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('144','2023-05-25 17:35:27','2023-05-25',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'4','13','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('145','2023-04-25 17:36:22','2023-04-25',NULL,NULL,'50.00',NULL,'1','4','3','1','1','3',NULL,'3','13','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('145','2023-05-25 17:36:22','2023-05-25',NULL,NULL,'50.00',NULL,'1','4','3','1','1','3',NULL,'3','13','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('146','2023-04-25 17:37:48','2023-04-25',NULL,NULL,'169.95',NULL,'1','1','3','1','1','1',NULL,'4','65','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('146','2023-05-25 17:37:48','2023-05-25',NULL,NULL,'169.95',NULL,'1','1','3','1','1','1',NULL,'4','65','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('147','2023-04-25 17:46:52','2023-04-24',NULL,NULL,'26.00',NULL,'1','1','3','1','1','1',NULL,'2','67','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('147','2023-05-25 17:46:52','2023-05-24',NULL,NULL,'26.00',NULL,'1','1','3','1','1','1',NULL,'2','67','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('148','2023-04-26 22:36:00','2023-04-26',NULL,NULL,'470.00',NULL,'1','1','3','1','1','1',NULL,'2','68','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('148','2023-05-26 22:36:00','2023-05-26',NULL,NULL,'470.00',NULL,'1','1','3','1','1','1',NULL,'2','68','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('149','2023-04-27 14:24:07','2023-04-26',NULL,NULL,'38.00',NULL,'1','1','3','1','1','1',NULL,'2','69','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('149','2023-05-27 14:24:07','2023-05-26',NULL,NULL,'38.00',NULL,'1','1','3','1','1','1',NULL,'2','69','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('150','2023-04-27 14:26:26','2023-04-27',NULL,NULL,'80.00',NULL,'1','1','3','1','1','1',NULL,'2','53','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('150','2023-05-27 14:26:26','2023-05-27',NULL,NULL,'80.00',NULL,'1','1','3','1','1','1',NULL,'2','53','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('151','2023-04-27 14:28:15','2023-04-26',NULL,NULL,'220.00',NULL,'2','1','3','2','3','10',NULL,'4','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('151','2023-05-27 14:28:15','2023-05-26',NULL,NULL,'220.00',NULL,'2','1','3','2','3','10',NULL,'4','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('152','2023-04-27 14:29:46','2023-05-04','2023-05-02','88.00','88.00',NULL,'1','1','3','1','1','1',NULL,'2','71','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('152','2023-05-27 14:29:46','2023-06-04','2023-06-02','88.00','88.00',NULL,'1','1','3','1','1','1',NULL,'2','71','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('153','2023-04-27 17:34:46',NULL,'2023-04-29',NULL,'183.00',NULL,'1','1','3','1','1','1',NULL,'2','11','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('153','2023-05-27 17:34:46',NULL,'2023-05-29',NULL,'183.00',NULL,'1','1','3','1','1','1',NULL,'2','11','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('154','2023-04-27 18:55:41','2023-04-27',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'4','72','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('154','2023-05-27 18:55:41','2023-05-27',NULL,NULL,'50.00',NULL,'1','1','3','1','1','1',NULL,'4','72','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('155','2023-04-27 18:57:19','2023-04-27',NULL,NULL,'50.00',NULL,'2','1','3','2','4','13',NULL,'4','21','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('155','2023-05-27 18:57:19','2023-05-27',NULL,NULL,'50.00',NULL,'2','1','3','2','4','13',NULL,'4','21','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('156','2023-05-04 15:20:02','2023-05-01',NULL,NULL,'100.00','Toalhinhas','1','1','3','1','1','1',NULL,'2','74','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('156','2023-06-04 15:20:02','2023-06-01',NULL,NULL,'100.00','Toalhinhas','1','1','3','1','1','1',NULL,'2','74','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('157','2023-05-04 15:21:31','2023-06-08','2023-05-03','37.00','37.00','Restante toalhinhas','1','1','3','1','1','1',NULL,'2','74','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('157','2023-06-04 15:21:31','2023-07-08','2023-06-03','37.00','37.00','Restante toalhinhas','1','1','3','1','1','1',NULL,'2','74','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('158','2023-05-04 15:23:00','2023-05-03',NULL,NULL,'110.00',NULL,'1','1','3','1','1','1',NULL,'2','73','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('158','2023-06-04 15:23:00','2023-06-03',NULL,NULL,'110.00',NULL,'1','1','3','1','1','1',NULL,'2','73','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('159','2023-05-05 16:11:21','2023-05-04',NULL,NULL,'88.00',NULL,'2','1','3','2','6','23',NULL,'4','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('159','2023-06-05 16:11:21','2023-06-04',NULL,NULL,'88.00',NULL,'2','1','3','2','6','23',NULL,'4','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('160','2023-05-05 16:15:20','2023-05-04',NULL,NULL,'420.00',NULL,'2','1','3','2','3','10',NULL,'3','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('160','2023-06-05 16:15:20','2023-06-04',NULL,NULL,'420.00',NULL,'2','1','3','2','3','10',NULL,'3','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('161','2023-05-05 16:18:11','2023-05-04',NULL,NULL,'555.00',NULL,'2','1','3','2','3','10',NULL,'3','75','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('161','2023-06-05 16:18:11','2023-06-04',NULL,NULL,'555.00',NULL,'2','1','3','2','3','10',NULL,'3','75','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('162','2023-05-09 14:49:25','2023-05-08',NULL,NULL,'150.00',NULL,'1','4','3','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('162','2023-06-09 14:49:25','2023-06-08',NULL,NULL,'150.00',NULL,'1','4','3','1','1','3',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('163','2023-05-09 14:50:51','2023-05-03',NULL,NULL,'150.00',NULL,'2','1','3','2','4','13',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('163','2023-06-09 14:50:51','2023-06-03',NULL,NULL,'150.00',NULL,'2','1','3','2','4','13',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('164','2023-05-15 15:34:22','2023-05-11',NULL,NULL,'200.00','Vendas Arnaldo caldas','1','1','3','1','1','1',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('164','2023-06-15 15:34:22','2023-06-11',NULL,NULL,'200.00','Vendas Arnaldo caldas','1','1','3','1','1','1',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('165','2023-05-15 15:35:18','2023-05-09',NULL,NULL,'68.00','Vendas Arnaldo caldas','1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('165','2023-06-15 15:35:18','2023-06-09',NULL,NULL,'68.00','Vendas Arnaldo caldas','1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('166','2023-05-15 16:16:10','2023-05-15',NULL,NULL,'58.00','Cadeado 20','1','1','3','1','1','1',NULL,'4','76','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('166','2023-06-15 16:16:10','2023-06-15',NULL,NULL,'58.00','Cadeado 20','1','1','3','1','1','1',NULL,'4','76','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('167','2023-05-15 17:03:18','2023-05-15',NULL,NULL,'57.00',NULL,'1','1','3','1','1','1',NULL,'4','77','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('167','2023-06-15 17:03:18','2023-06-15',NULL,NULL,'57.00',NULL,'1','1','3','1','1','1',NULL,'4','77','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('168','2023-05-18 16:56:31','2023-05-18',NULL,NULL,'229.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('168','2023-06-18 16:56:31','2023-06-18',NULL,NULL,'229.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('169','2023-05-23 15:34:16','2023-05-16',NULL,NULL,'125.00',NULL,'1','1','3','1','1','1',NULL,'4','78','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('169','2023-06-23 15:34:16','2023-06-16',NULL,NULL,'125.00',NULL,'1','1','3','1','1','1',NULL,'4','78','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('170','2023-05-23 15:38:29','2023-06-02','2023-06-02','180.00','180.00',NULL,'1','4','3','1','1','3',NULL,'3','79','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('170','2023-06-23 15:38:29','2023-07-02','2023-07-02','180.00','180.00',NULL,'1','4','3','1','1','3',NULL,'3','79','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('171','2023-05-23 15:40:26','2023-05-16',NULL,NULL,'194.00',NULL,'1','1','3','1','1','1',NULL,'2','80','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('171','2023-06-23 15:40:26','2023-06-16',NULL,NULL,'194.00',NULL,'1','1','3','1','1','1',NULL,'2','80','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('172','2023-05-23 16:54:54','2023-05-16',NULL,NULL,'128.00',NULL,'2','1','3','2','3','10',NULL,'4','75','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('172','2023-06-23 16:54:54','2023-06-16',NULL,NULL,'128.00',NULL,'2','1','3','2','3','10',NULL,'4','75','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('173','2023-05-23 16:56:12','2023-05-16',NULL,NULL,'130.00',NULL,'2','1','3','2','3','10',NULL,'2','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('173','2023-06-23 16:56:12','2023-06-16',NULL,NULL,'130.00',NULL,'2','1','3','2','3','10',NULL,'2','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('174','2023-05-23 16:58:00','2023-05-12',NULL,NULL,'1528.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('174','2023-06-23 16:58:00','2023-06-12',NULL,NULL,'1528.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('175','2023-05-23 16:59:56','2023-06-01','2023-06-02','296.00','446.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('175','2023-06-23 16:59:56','2023-07-01','2023-07-02','296.00','446.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('176','2023-05-23 22:59:26','2023-05-23',NULL,NULL,'50.28',NULL,'2','1','3','2','4','15',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('176','2023-06-23 22:59:26','2023-06-23',NULL,NULL,'50.28',NULL,'2','1','3','2','4','15',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('177','2023-05-23 23:00:43','2023-05-23',NULL,NULL,'126.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('177','2023-06-23 23:00:43','2023-06-23',NULL,NULL,'126.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('178','2023-05-25 14:47:59','2023-06-01','2023-06-02','1584.00','1584.00','Sandálias','2','4','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('178','2023-06-25 14:47:59','2023-07-01','2023-07-02','1584.00','1584.00','Sandálias','2','4','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('179','2023-05-25 14:49:33','2023-05-25',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('179','2023-06-25 14:49:33','2023-06-25',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('180','2023-05-25 15:00:04','2023-05-24',NULL,NULL,'110.00',NULL,'1','4','3','1','1','3',NULL,'3','81','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('180','2023-06-25 15:00:04','2023-06-24',NULL,NULL,'110.00',NULL,'1','4','3','1','1','3',NULL,'3','81','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('181','2023-05-25 15:04:29','2023-05-24',NULL,NULL,'35.00',NULL,'1','1','3','1','1','1',NULL,'2','82','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('181','2023-06-25 15:04:29','2023-06-24',NULL,NULL,'35.00',NULL,'1','1','3','1','1','1',NULL,'2','82','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('182','2023-05-25 15:05:29','2023-05-24',NULL,NULL,'30.00',NULL,'1','1','3','1','1','1',NULL,'2','83','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('182','2023-06-25 15:05:29','2023-06-24',NULL,NULL,'30.00',NULL,'1','1','3','1','1','1',NULL,'2','83','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('183','2023-05-25 15:07:30','2023-05-24',NULL,NULL,'70.00',NULL,'1','4','3','1','1','3',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('183','2023-06-25 15:07:30','2023-06-24',NULL,NULL,'70.00',NULL,'1','4','3','1','1','3',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('184','2023-05-26 18:02:34','2023-05-23',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('184','2023-06-26 18:02:34','2023-06-23',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('185','2023-05-30 16:10:03','2023-05-30',NULL,NULL,'168.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('185','2023-06-30 16:10:03','2023-06-30',NULL,NULL,'168.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('186','2023-05-30 16:11:02','2023-08-03','2023-06-22','100.00','100.00',NULL,'1','1','3','1','1','3',NULL,'2','84','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('186','2023-06-30 16:11:02','2023-09-03','2023-07-22','100.00','100.00',NULL,'1','1','3','1','1','3',NULL,'2','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('187','2023-05-30 17:15:54','2023-06-10','2023-06-10','695.00','695.00',NULL,'1','1','3','1','1','1',NULL,'2','85','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('187','2023-06-30 17:15:54','2023-07-10','2023-07-10','695.00','695.00',NULL,'1','1','3','1','1','1',NULL,'2','85','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('188','2023-05-30 17:15:54',NULL,'2023-06-25','295.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','85','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('188','2023-06-30 17:15:54',NULL,'2023-07-25','295.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','85','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('189','2023-05-30 17:15:54',NULL,'2023-07-10','695.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','85','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('189','2023-06-30 17:15:54',NULL,'2023-08-10','695.00',NULL,NULL,'1','1','4','1','1','1',NULL,'2','85','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('190','2023-05-30 17:17:45','2023-05-17',NULL,NULL,'82.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('190','2023-06-30 17:17:45','2023-06-17',NULL,NULL,'82.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('191','2023-05-30 18:02:42','2023-05-30',NULL,NULL,'356.00',NULL,'1','4','3','1','1','1',NULL,'3','86','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('191','2023-06-30 18:02:42','2023-06-30',NULL,NULL,'356.00',NULL,'1','4','3','1','1','1',NULL,'3','86','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('192','2023-05-30 18:04:30','2023-07-01','2023-06-30','300.00','300.00',NULL,'1','4','3','1','1','3',NULL,'3','86','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('192','2023-06-30 18:04:30','2023-08-01','2023-07-30','300.00','300.00',NULL,'1','4','3','1','1','3',NULL,'3','86','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('193','2023-05-30 19:00:10','2023-05-30',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'4','87','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('193','2023-06-30 19:00:10','2023-06-30',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'4','87','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('194','2023-05-30 22:56:13','2023-05-30',NULL,NULL,'75.60',NULL,'2','1','3','3','7','29',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('194','2023-06-30 22:56:13','2023-06-30',NULL,NULL,'75.60',NULL,'2','1','3','3','7','29',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('195','2023-05-30 22:57:39','2023-05-30',NULL,NULL,'1000.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('195','2023-06-30 22:57:39','2023-06-30',NULL,NULL,'1000.00',NULL,'2','1','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('196','2023-06-01 14:17:45','2023-06-01',NULL,NULL,'75.00',NULL,'2','4','3','2','6','23',NULL,'3','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('196','2023-07-01 14:17:45','2023-07-01',NULL,NULL,'75.00',NULL,'2','4','3','2','6','23',NULL,'3','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('197','2023-06-01 14:20:08','2023-06-01',NULL,NULL,'80.00',NULL,'2','1','3','2','6','23',NULL,'2','20','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('197','2023-07-01 14:20:08','2023-07-01',NULL,NULL,'80.00',NULL,'2','1','3','2','6','23',NULL,'2','20','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('198','2023-06-05 15:30:57','2023-06-05',NULL,NULL,'50.00',NULL,'1','1','3','1','1','3',NULL,'3',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('198','2023-07-05 15:30:57','2023-07-05',NULL,NULL,'50.00',NULL,'1','1','3','1','1','3',NULL,'3',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('199','2023-06-05 15:33:21','2023-06-05','2023-06-05','100.00','100.00',NULL,'1','1','3','1','1','1',NULL,'2','88','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('199','2023-07-05 15:33:21','2023-07-05','2023-07-05','100.00','100.00',NULL,'1','1','3','1','1','1',NULL,'2','88','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('200','2023-06-05 15:36:35','2023-06-01',NULL,NULL,'63.50',NULL,'2','4','3','2','3','10',NULL,'3','75','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('200','2023-07-05 15:36:35','2023-07-01',NULL,NULL,'63.50',NULL,'2','4','3','2','3','10',NULL,'3','75','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('201','2023-06-05 15:38:05','2023-06-01',NULL,NULL,'196.83',NULL,'2','1','3','2','3','10',NULL,'2','75','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('201','2023-07-05 15:38:05','2023-07-01',NULL,NULL,'196.83',NULL,'2','1','3','2','3','10',NULL,'2','75','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('202','2023-06-05 15:42:32','2023-06-02',NULL,NULL,'180.00',NULL,'1','4','3','1','1','3',NULL,'3','79','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('202','2023-07-05 15:42:32','2023-07-02',NULL,NULL,'180.00',NULL,'1','4','3','1','1','3',NULL,'3','79','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('203','2023-06-05 15:47:11','2023-06-10','2023-06-15','1635.00','1635.00',NULL,'2','1','3','2','3','10',NULL,'2','89','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('203','2023-07-05 15:47:11','2023-07-10','2023-07-15','1635.00','1635.00',NULL,'2','1','3','2','3','10',NULL,'2','89','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('204','2023-06-05 15:57:04','2023-06-09','2023-06-09','500.00','500.00',NULL,'2','1','3','2','3','10',NULL,'3','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('204','2023-07-05 15:57:04','2023-07-09','2023-07-09','500.00','500.00',NULL,'2','1','3','2','3','10',NULL,'3','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('205','2023-06-05 16:40:59','2023-06-10','2023-06-09','299.00','299.00',NULL,'1','4','3','1','1','3',NULL,'3','90','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('205','2023-07-05 16:40:59','2023-07-10','2023-07-09','299.00','299.00',NULL,'1','4','3','1','1','3',NULL,'3','90','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('206','2023-06-08 10:22:14','2023-06-07',NULL,NULL,'189.00',NULL,'1','4','3','1','1','3',NULL,'3','54','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('206','2023-07-08 10:22:14','2023-07-07',NULL,NULL,'189.00',NULL,'1','4','3','1','1','3',NULL,'3','54','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('207','2023-06-08 10:27:02','2023-06-07',NULL,NULL,'109.00',NULL,'1','4','3','1','1','3',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('207','2023-07-08 10:27:02','2023-07-07',NULL,NULL,'109.00',NULL,'1','4','3','1','1','3',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('208','2023-06-09 15:01:42','2023-06-07',NULL,NULL,'50.00',NULL,'1','4','3','1','1','3',NULL,'3','91','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('208','2023-07-09 15:01:42','2023-07-07',NULL,NULL,'50.00',NULL,'1','4','3','1','1','3',NULL,'3','91','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('209','2023-06-09 15:15:22','2023-06-06',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','92','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('209','2023-07-09 15:15:22','2023-07-06',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','92','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('210','2023-06-09 15:23:57','2023-06-07',NULL,NULL,'397.00',NULL,'1','1','3','1','1','1',NULL,'2','93','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('210','2023-07-09 15:23:57','2023-07-07',NULL,NULL,'397.00',NULL,'1','1','3','1','1','1',NULL,'2','93','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('211','2023-06-09 15:25:19','2023-06-06',NULL,NULL,'19.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('211','2023-07-09 15:25:19','2023-07-06',NULL,NULL,'19.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('212','2023-06-09 17:38:43','2023-06-09',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('212','2023-07-09 17:38:43','2023-07-09',NULL,NULL,'150.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('213','2023-06-12 14:21:57',NULL,'2023-07-04','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('213','2023-07-12 14:21:57',NULL,'2023-08-04','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('214','2023-06-12 14:21:57','2023-07-24','2023-07-24','355.00','355.00',NULL,'2','4','3','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('214','2023-07-12 14:21:57','2023-08-24','2023-08-24','355.00','355.00',NULL,'2','4','3','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('215','2023-06-12 14:21:57',NULL,'2023-08-13','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('215','2023-07-12 14:21:57',NULL,'2023-09-13','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('216','2023-06-12 14:21:57',NULL,'2023-09-02','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('216','2023-07-12 14:21:57',NULL,'2023-10-02','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('217','2023-06-12 14:21:57',NULL,'2023-09-22','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('217','2023-07-12 14:21:57',NULL,'2023-10-22','355.00',NULL,NULL,'2','4','4','2','3','10',NULL,'3','94','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('218','2023-06-12 14:28:23','2023-06-10',NULL,NULL,'660.00',NULL,'1','1','3','1','1','1',NULL,'2','95','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('218','2023-07-12 14:28:23','2023-07-10',NULL,NULL,'660.00',NULL,'1','1','3','1','1','1',NULL,'2','95','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('219','2023-06-12 14:29:58','2023-07-03','2023-06-16','50.00','50.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('219','2023-07-12 14:29:58','2023-08-03','2023-07-16','50.00','50.00',NULL,'1','1','3','1','1','1',NULL,'2','14','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('220','2023-06-12 14:32:50','2023-06-12',NULL,NULL,'24.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('220','2023-07-12 14:32:50','2023-07-12',NULL,NULL,'24.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('221','2023-06-13 15:01:53','2023-06-13',NULL,NULL,'70.00',NULL,'1','1','3','1','1','1',NULL,'2','96','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('221','2023-07-13 15:01:53','2023-07-13',NULL,NULL,'70.00',NULL,'1','1','3','1','1','1',NULL,'2','96','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('222','2023-06-13 15:03:32','2023-06-13',NULL,NULL,'260.00',NULL,'2','1','3','2','5','22',NULL,'2','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('222','2023-07-13 15:03:32','2023-07-13',NULL,NULL,'260.00',NULL,'2','1','3','2','5','22',NULL,'2','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('223','2023-06-13 16:50:02','2023-06-13',NULL,NULL,'28.00',NULL,'1','1','3','1','1','1',NULL,'4','12','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('223','2023-07-13 16:50:02','2023-07-13',NULL,NULL,'28.00',NULL,'1','1','3','1','1','1',NULL,'4','12','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('224','2023-06-13 16:51:30','2023-06-19','2023-06-13','264.00','264.00',NULL,'1','4','3','1','1','1',NULL,'3','24','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('224','2023-07-13 16:51:30','2023-07-19','2023-07-13','264.00','264.00',NULL,'1','4','3','1','1','1',NULL,'3','24','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('225','2023-06-13 17:19:12','2023-06-13',NULL,NULL,'45.00',NULL,'1','4','3','1','1','3',NULL,'3','30','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('225','2023-07-13 17:19:12','2023-07-13',NULL,NULL,'45.00',NULL,'1','4','3','1','1','3',NULL,'3','30','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('226','2023-06-13 17:55:59','2023-06-26','2023-06-16','40.00','40.00',NULL,'1','1','3','1','1','3',NULL,'2','98','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('226','2023-07-13 17:55:59','2023-07-26','2023-07-16','40.00','40.00',NULL,'1','1','3','1','1','3',NULL,'2','98','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('227','2023-06-14 16:08:59','2023-06-14',NULL,NULL,'100.00',NULL,'1','4','3','1','1','1',NULL,'3','38','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('227','2023-07-14 16:08:59','2023-07-14',NULL,NULL,'100.00',NULL,'1','4','3','1','1','1',NULL,'3','38','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('228','2023-06-15 11:51:43','2023-06-30','2023-06-17','500.00','500.00','Compras de sandálias','2','4','3','2','3','10',NULL,'3','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('228','2023-07-15 11:51:43','2023-07-30','2023-07-17','500.00','500.00','Compras de sandálias','2','4','3','2','3','10',NULL,'3','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('229','2023-06-15 16:00:05','2023-06-15',NULL,NULL,'470.00','Havaianas','1','1','3','1','1','1',NULL,'4','99','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('229','2023-07-15 16:00:05','2023-07-15',NULL,NULL,'470.00','Havaianas','1','1','3','1','1','1',NULL,'4','99','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('230','2023-06-19 16:11:54','2023-06-26','2023-06-23','62.00','62.00',NULL,'1','4','3','1','1','3',NULL,'3','100','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('230','2023-07-19 16:11:54','2023-07-26','2023-07-23','62.00','62.00',NULL,'1','4','3','1','1','3',NULL,'3','100','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('231','2023-06-19 16:14:28','2023-06-17',NULL,NULL,'89.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('231','2023-07-19 16:14:28','2023-07-17',NULL,NULL,'89.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('232','2023-06-19 16:17:14','2023-06-15',NULL,NULL,'562.00',NULL,'1','1','3','1','1','1',NULL,'4','101','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('232','2023-07-19 16:17:14','2023-07-15',NULL,NULL,'562.00',NULL,'1','1','3','1','1','1',NULL,'4','101','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('233','2023-06-19 16:20:45','2023-06-15',NULL,NULL,'123.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('233','2023-07-19 16:20:45','2023-07-15',NULL,NULL,'123.00',NULL,'1','1','3','1','1','1',NULL,'4',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('234','2023-06-19 16:33:01','2023-06-17',NULL,NULL,'1760.00',NULL,'2','1','3','2','3','10',NULL,'4','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('234','2023-07-19 16:33:01','2023-07-17',NULL,NULL,'1760.00',NULL,'2','1','3','2','3','10',NULL,'4','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('235','2023-06-19 17:58:23','2023-06-16',NULL,NULL,'878.00',NULL,'1','1','3','1','1','3',NULL,'3','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('235','2023-07-19 17:58:23','2023-07-16',NULL,NULL,'878.00',NULL,'1','1','3','1','1','3',NULL,'3','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('236','2023-06-19 17:59:34','2023-06-16',NULL,NULL,'112.00',NULL,'1','1','3','1','1','1',NULL,'2','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('236','2023-07-19 17:59:34','2023-07-16',NULL,NULL,'112.00',NULL,'1','1','3','1','1','1',NULL,'2','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('237','2023-06-19 18:03:41','2023-06-16',NULL,NULL,'62.00',NULL,'2','1','3','2','6','23',NULL,'3','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('237','2023-07-19 18:03:41','2023-07-16',NULL,NULL,'62.00',NULL,'2','1','3','2','6','23',NULL,'3','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('238','2023-06-22 16:26:31','2023-06-22',NULL,NULL,'92.40',NULL,'1','4','3','1','1','1',NULL,'3','103','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('238','2023-07-22 16:26:31','2023-07-22',NULL,NULL,'92.40',NULL,'1','4','3','1','1','1',NULL,'3','103','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('239','2023-06-22 16:30:32','2023-06-27','2023-06-26','50.00','50.00',NULL,'1','4','3','1','1','3',NULL,'3','103','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('239','2023-07-22 16:30:32','2023-07-27','2023-07-26','50.00','50.00',NULL,'1','4','3','1','1','3',NULL,'3','103','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('240','2023-06-22 16:37:20','2023-06-21',NULL,NULL,'100.00',NULL,'1','4','3','1','1','1',NULL,'3','104','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('240','2023-07-22 16:37:20','2023-07-21',NULL,NULL,'100.00',NULL,'1','4','3','1','1','1',NULL,'3','104','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('241','2023-06-22 16:38:19','2023-06-21',NULL,NULL,'20.00',NULL,'1','1','3','1','1','1',NULL,'2','104','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('241','2023-07-22 16:38:19','2023-07-21',NULL,NULL,'20.00',NULL,'1','1','3','1','1','1',NULL,'2','104','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('242','2023-06-22 16:39:33','2023-07-03','2023-06-28','83.00','83.00',NULL,'1','4','3','1','1','3',NULL,'3','104','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('242','2023-07-22 16:39:33','2023-08-03','2023-07-28','83.00','83.00',NULL,'1','4','3','1','1','3',NULL,'3','104','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('243','2023-06-22 16:45:31',NULL,'2023-06-28','27.00',NULL,NULL,'1','4','4','1','1','3',NULL,'3','105','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('243','2023-07-22 16:45:31',NULL,'2023-07-28','27.00',NULL,NULL,'1','4','4','1','1','3',NULL,'3','105','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('244','2023-06-22 16:53:22','2023-06-21',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','98','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('244','2023-07-22 16:53:22','2023-07-21',NULL,NULL,'60.00',NULL,'1','1','3','1','1','1',NULL,'2','98','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('245','2023-06-27 14:53:07','2023-06-27',NULL,NULL,'90.00',NULL,'1','1','3','1','1','1',NULL,'2','106','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('245','2023-07-27 14:53:07','2023-07-27',NULL,NULL,'90.00',NULL,'1','1','3','1','1','1',NULL,'2','106','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('246','2023-06-27 14:55:24','2023-06-23',NULL,NULL,'740.00','Colas','1','1','3','1','1','1',NULL,'2','70','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('246','2023-07-27 14:55:24','2023-07-23',NULL,NULL,'740.00','Colas','1','1','3','1','1','1',NULL,'2','70','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('247','2023-06-27 17:17:34','2023-06-27',NULL,NULL,'180.00',NULL,'1','1','3','1','1','1',NULL,'4','84','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('247','2023-07-27 17:17:34','2023-07-27',NULL,NULL,'180.00',NULL,'1','1','3','1','1','1',NULL,'4','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('248','2023-06-29 09:42:32','2023-06-30','2023-06-30','486.00','486.00',NULL,'2','4','3','2','3','10',NULL,'4','22','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('248','2023-07-29 09:42:32','2023-07-30','2023-07-30','486.00','486.00',NULL,'2','4','3','2','3','10',NULL,'4','22','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('249','2023-07-03 12:37:50','2023-07-28',NULL,NULL,'100.00',NULL,'2','4','3','2','6','23',NULL,'3','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('249','2023-08-03 12:37:50','2023-08-28',NULL,NULL,'100.00',NULL,'2','4','3','2','6','23',NULL,'3','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('250','2023-07-03 13:51:45','2023-06-29',NULL,NULL,'130.00',NULL,'1','4','3','1','1','3',NULL,'3','105','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('250','2023-08-03 13:51:45','2023-07-29',NULL,NULL,'130.00',NULL,'1','4','3','1','1','3',NULL,'3','105','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('251','2023-07-03 13:54:38','2023-06-29',NULL,NULL,'200.00',NULL,'1','4','3','1','1','3',NULL,'3','85','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('251','2023-08-03 13:54:38','2023-07-29',NULL,NULL,'200.00',NULL,'1','4','3','1','1','3',NULL,'3','85','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('254','2023-07-03 14:16:51','2023-06-30',NULL,NULL,'138.50',NULL,'2','1','3','2','4','15',NULL,'3','1','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('254','2023-08-03 14:16:51','2023-07-30',NULL,NULL,'138.50',NULL,'2','1','3','2','4','15',NULL,'3','1','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('255','2023-07-05 17:26:27','2023-08-28','2023-07-14','90.00','90.00',NULL,'1','1','3','1','1','1',NULL,'4','108','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('255','2023-08-05 17:26:27','2023-09-28','2023-08-14','90.00','90.00',NULL,'1','1','3','1','1','1',NULL,'4','108','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('256','2023-07-05 17:29:22','2023-07-05',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'4','109','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('256','2023-08-05 17:29:22','2023-08-05',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'4','109','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('257','2023-07-07 13:04:39','2023-07-07','2023-07-07','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('257','2023-08-07 13:04:39','2023-08-07','2023-08-07','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('258','2023-07-07 13:04:39','2023-07-27','2023-07-22','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('258','2023-08-07 13:04:39','2023-08-27','2023-08-22','268.00','268.00',NULL,'1','4','3','1','1','3',NULL,'3','110','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('259','2023-07-07 15:20:19','2023-07-07',NULL,NULL,'333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('259','2023-08-07 15:20:19','2023-08-07',NULL,NULL,'333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('260','2023-07-07 15:20:19','2023-07-25','2023-07-25','333.00','333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('260','2023-08-07 15:20:19','2023-08-25','2023-08-25','333.00','333.00',NULL,'1','4','3','1','1','3',NULL,'3','111','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('261','2023-07-20 20:50:55','2023-04-06',NULL,NULL,'6788.90',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('261','2023-08-20 20:50:55','2023-05-06',NULL,NULL,'6788.90',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('262','2023-07-20 20:53:32','2023-04-04',NULL,NULL,'18766.59',NULL,'1','4','3','1','1','3',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('262','2023-08-20 20:53:32','2023-05-04',NULL,NULL,'18766.59',NULL,'1','4','3','1','1','3',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('263','2023-07-20 20:55:01','2023-04-12',NULL,NULL,'38765.35',NULL,'1','3','3','1','1','4',NULL,'7','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('263','2023-08-20 20:55:01','2023-05-12',NULL,NULL,'38765.35',NULL,'1','3','3','1','1','4',NULL,'7','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('264','2023-07-20 20:55:58','2023-04-18',NULL,NULL,'11789.23',NULL,'1','2','3','1','1','5',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('264','2023-08-20 20:55:58','2023-05-18',NULL,NULL,'11789.23',NULL,'1','2','3','1','1','5',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('265','2023-07-20 20:57:59','2023-05-11',NULL,NULL,'5789.33',NULL,'1','1','3','1','1','1',NULL,'9','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('265','2023-08-20 20:57:59','2023-06-11',NULL,NULL,'5789.33',NULL,'1','1','3','1','1','1',NULL,'9','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('266','2023-07-20 20:58:57','2023-05-10',NULL,NULL,'13465.69',NULL,'1','4','3','1','1','3',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('266','2023-08-20 20:58:57','2023-06-10',NULL,NULL,'13465.69',NULL,'1','4','3','1','1','3',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('267','2023-07-20 20:59:41','2023-05-14',NULL,NULL,'43511.23',NULL,'1','3','3','1','1','4',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('267','2023-08-20 20:59:41','2023-06-14',NULL,NULL,'43511.23',NULL,'1','3','3','1','1','4',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('268','2023-07-20 21:00:27','2023-05-24',NULL,NULL,'15435.55',NULL,'1','2','3','1','1','5',NULL,'8','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('268','2023-08-20 21:00:27','2023-06-24',NULL,NULL,'15435.55',NULL,'1','2','3','1','1','5',NULL,'8','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('269','2023-07-20 21:01:50','2023-05-12',NULL,NULL,'6789.99',NULL,'1','3','3','1','1','4',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('269','2023-08-20 21:01:50','2023-06-12',NULL,NULL,'6789.99',NULL,'1','3','3','1','1','4',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('270','2023-07-20 21:02:44','2023-06-06',NULL,NULL,'18977.72',NULL,'1','1','3','1','1','1',NULL,'9','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('270','2023-08-20 21:02:44','2023-07-06',NULL,NULL,'18977.72',NULL,'1','1','3','1','1','1',NULL,'9','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('271','2023-07-20 21:04:20','2023-06-21',NULL,NULL,'11099.88',NULL,'1','4','3','1','1','3',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('271','2023-08-20 21:04:20','2023-07-21',NULL,NULL,'11099.88',NULL,'1','4','3','1','1','3',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('272','2023-07-20 21:05:03','2023-06-19',NULL,NULL,'46712.12',NULL,'1','3','3','1','1','4',NULL,'8','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('272','2023-08-20 21:05:03','2023-07-19',NULL,NULL,'46712.12',NULL,'1','3','3','1','1','4',NULL,'8','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('273','2023-07-20 21:05:46','2023-06-14',NULL,NULL,'9877.85',NULL,'1','2','3','1','1','5',NULL,'7','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('273','2023-08-20 21:05:46','2023-07-14',NULL,NULL,'9877.85',NULL,'1','2','3','1','1','5',NULL,'7','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('274','2023-07-20 21:07:11','2023-07-10',NULL,NULL,'29077.34',NULL,'1','3','3','1','1','4',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('274','2023-08-20 21:07:11','2023-08-10',NULL,NULL,'29077.34',NULL,'1','3','3','1','1','4',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('275','2023-07-20 21:08:00','2023-07-03',NULL,NULL,'5678.88',NULL,'1','2','3','1','1','5',NULL,'9','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('275','2023-08-20 21:08:00','2023-08-03',NULL,NULL,'5678.88',NULL,'1','2','3','1','1','5',NULL,'9','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('276','2023-07-20 21:08:54','2023-07-17',NULL,NULL,'3790.01',NULL,'1','4','3','1','1','3',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('276','2023-08-20 21:08:54','2023-08-17',NULL,NULL,'3790.01',NULL,'1','4','3','1','1','3',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('277','2023-07-20 21:10:36','2023-04-05',NULL,NULL,'42334.43',NULL,'2','4','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('277','2023-08-20 21:10:36','2023-05-05',NULL,NULL,'42334.43',NULL,'2','4','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('278','2023-07-20 21:11:45','2023-04-21',NULL,NULL,'3908.82',NULL,'2','4','3','2','3','11',NULL,'8','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('278','2023-08-20 21:11:45','2023-05-21',NULL,NULL,'3908.82',NULL,'2','4','3','2','3','11',NULL,'8','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('279','2023-07-20 21:12:46','2023-04-20',NULL,NULL,'4612.33',NULL,'2','3','3','2','4','17',NULL,'8','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('279','2023-08-20 21:12:46','2023-05-20',NULL,NULL,'4612.33',NULL,'2','3','3','2','4','17',NULL,'8','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('280','2023-07-20 21:14:21','2023-04-26',NULL,NULL,'230.00',NULL,'2','1','3','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('280','2023-08-20 21:14:21','2023-05-26',NULL,NULL,'230.00',NULL,'2','1','3','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('281','2023-07-20 21:14:21',NULL,'2023-05-26','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('281','2023-08-20 21:14:21',NULL,'2023-06-26','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('282','2023-07-20 21:14:21',NULL,'2023-06-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('282','2023-08-20 21:14:21',NULL,'2023-07-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('283','2023-07-20 21:14:21',NULL,'2023-07-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('283','2023-08-20 21:14:21',NULL,'2023-08-25','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('284','2023-07-20 21:14:21',NULL,'2023-08-24','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('284','2023-08-20 21:14:21',NULL,'2023-09-24','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('285','2023-07-20 21:14:21',NULL,'2023-09-23','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('285','2023-08-20 21:14:21',NULL,'2023-10-23','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('286','2023-07-20 21:14:21',NULL,'2023-10-23','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('286','2023-08-20 21:14:21',NULL,'2023-11-23','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('287','2023-07-20 21:14:21',NULL,'2023-11-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('287','2023-08-20 21:14:21',NULL,'2023-12-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('288','2023-07-20 21:14:21',NULL,'2023-12-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('288','2023-08-20 21:14:21',NULL,'2024-01-22','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('289','2023-07-20 21:14:21',NULL,'2024-01-21','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('289','2023-08-20 21:14:21',NULL,'2024-02-21','230.00',NULL,NULL,'2','1','4','3','7','24',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('290','2023-07-20 21:16:00','2023-04-28',NULL,NULL,'6550.00',NULL,'2','4','3','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('290','2023-08-20 21:16:00','2023-05-28',NULL,NULL,'6550.00',NULL,'2','4','3','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('291','2023-07-20 21:16:00','2023-05-28','2023-05-28','6550.00','6550.00',NULL,'2','4','3','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('291','2023-08-20 21:16:00','2023-06-28','2023-06-28','6550.00','6550.00',NULL,'2','4','3','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('292','2023-07-20 21:16:00',NULL,'2023-06-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('292','2023-08-20 21:16:00',NULL,'2023-07-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('293','2023-07-20 21:16:00',NULL,'2023-07-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('293','2023-08-20 21:16:00',NULL,'2023-08-27','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('294','2023-07-20 21:16:00',NULL,'2023-08-26','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('294','2023-08-20 21:16:00',NULL,'2023-09-26','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('295','2023-07-20 21:16:00',NULL,'2023-09-25','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('295','2023-08-20 21:16:00',NULL,'2023-10-25','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('296','2023-07-20 21:16:00',NULL,'2023-10-25','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('296','2023-08-20 21:16:00',NULL,'2023-11-25','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('297','2023-07-20 21:16:00',NULL,'2023-11-24','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('297','2023-08-20 21:16:00',NULL,'2023-12-24','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('298','2023-07-20 21:16:00',NULL,'2023-12-24','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('298','2023-08-20 21:16:00',NULL,'2024-01-24','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('299','2023-07-20 21:16:00',NULL,'2024-01-23','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('299','2023-08-20 21:16:00',NULL,'2024-02-23','6550.00',NULL,NULL,'2','4','4','3','7','27',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('300','2023-07-20 21:18:20','2023-04-25',NULL,NULL,'18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('300','2023-08-20 21:18:20','2023-05-25',NULL,NULL,'18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('301','2023-07-20 21:18:20','2023-05-25','2023-05-25','18789.90','18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('301','2023-08-20 21:18:20','2023-06-25','2023-06-25','18789.90','18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('302','2023-07-20 21:18:20','2023-06-24','2023-06-24','18789.90','18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('302','2023-08-20 21:18:20','2023-07-24','2023-07-24','18789.90','18789.90',NULL,'2','4','3','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('303','2023-07-20 21:18:20',NULL,'2023-07-24','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('303','2023-08-20 21:18:20',NULL,'2023-08-24','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('304','2023-07-20 21:18:20',NULL,'2023-08-23','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('304','2023-08-20 21:18:20',NULL,'2023-09-23','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('305','2023-07-20 21:18:20',NULL,'2023-09-22','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('305','2023-08-20 21:18:20',NULL,'2023-10-22','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('306','2023-07-20 21:18:20',NULL,'2023-10-22','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('306','2023-08-20 21:18:20',NULL,'2023-11-22','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('307','2023-07-20 21:18:20',NULL,'2023-11-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('307','2023-08-20 21:18:20',NULL,'2023-12-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('308','2023-07-20 21:18:20',NULL,'2023-12-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('308','2023-08-20 21:18:20',NULL,'2024-01-21','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('309','2023-07-20 21:18:20',NULL,'2024-01-20','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('309','2023-08-20 21:18:20',NULL,'2024-02-20','18789.90',NULL,NULL,'2','4','4','3','8','31',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('310','2023-07-22 10:57:51','2023-04-19',NULL,NULL,'897.65',NULL,'2','4','3','2','5','19',NULL,'8',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('310','2023-08-22 10:57:51','2023-05-19',NULL,NULL,'897.65',NULL,'2','4','3','2','5','19',NULL,'8',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('311','2023-07-22 11:02:47','2023-05-04',NULL,NULL,'762.34',NULL,'2','1','3','2','2','8',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('311','2023-08-22 11:02:47','2023-06-04',NULL,NULL,'762.34',NULL,'2','1','3','2','2','8',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('312','2023-07-22 11:03:49','2023-04-14',NULL,NULL,'456.11',NULL,'2','4','3','2','2','8',NULL,'8','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('312','2023-08-22 11:03:49','2023-05-14',NULL,NULL,'456.11',NULL,'2','4','3','2','2','8',NULL,'8','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('313','2023-07-22 11:08:11','2023-05-22',NULL,NULL,'39876.11',NULL,'2','1','3','2','3','10',NULL,'9','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('313','2023-08-22 11:08:11','2023-06-22',NULL,NULL,'39876.11',NULL,'2','1','3','2','3','10',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('314','2023-07-22 11:09:51','2023-05-16',NULL,NULL,'3451.15',NULL,'2','1','3','2','4','17',NULL,'7','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('314','2023-08-22 11:09:51','2023-06-16',NULL,NULL,'3451.15',NULL,'2','1','3','2','4','17',NULL,'7','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('316','2023-07-22 11:12:50','2023-05-08',NULL,NULL,'1466.68',NULL,'2','1','3','2','5','19',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('316','2023-08-22 11:12:50','2023-06-08',NULL,NULL,'1466.68',NULL,'2','1','3','2','5','19',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('317','2023-07-22 11:14:11','2023-05-09',NULL,NULL,'10544.80',NULL,'2','1','3','3','8','37',NULL,'9','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('317','2023-08-22 11:14:11','2023-06-09',NULL,NULL,'10544.80',NULL,'2','1','3','3','8','37',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('318','2023-07-22 11:16:48','2023-05-27',NULL,NULL,'2250.00',NULL,'2','1','3','4','10','49',NULL,'9',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('318','2023-08-22 11:16:48','2023-06-27',NULL,NULL,'2250.00',NULL,'2','1','3','4','10','49',NULL,'9',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('319','2023-07-22 11:22:48','2023-06-06',NULL,NULL,'37662.21',NULL,'2','3','3','2','3','10',NULL,'8','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('319','2023-08-22 11:22:48','2023-07-06',NULL,NULL,'37662.21',NULL,'2','3','3','2','3','10',NULL,'8','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('320','2023-07-22 11:24:20','2023-06-06',NULL,NULL,'1456.88',NULL,'2','2','3','2','2','8',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('320','2023-08-22 11:24:20','2023-07-06',NULL,NULL,'1456.88',NULL,'2','2','3','2','2','8',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('321','2023-07-22 11:25:26','2023-06-12',NULL,NULL,'7612.20',NULL,'2','1','3','2','4','17',NULL,'9','117','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('321','2023-08-22 11:25:26','2023-07-12',NULL,NULL,'7612.20',NULL,'2','1','3','2','4','17',NULL,'9','117','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('322','2023-07-22 11:26:30','2023-06-12',NULL,NULL,'4562.39',NULL,'2','4','3','2','5','19',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('322','2023-08-22 11:26:30','2023-07-12',NULL,NULL,'4562.39',NULL,'2','4','3','2','5','19',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('323','2023-07-22 11:28:28','2023-06-29',NULL,NULL,'2564.42',NULL,'2','4','3','2','4','16',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('323','2023-08-22 11:28:28','2023-07-29',NULL,NULL,'2564.42',NULL,'2','4','3','2','4','16',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('324','2023-07-22 11:31:47','2023-07-03',NULL,NULL,'22567.23',NULL,'2','4','3','2','3','10',NULL,'9','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('324','2023-08-22 11:31:47','2023-08-03',NULL,NULL,'22567.23',NULL,'2','4','3','2','3','10',NULL,'9','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('325','2023-07-22 11:33:02',NULL,'2023-07-31','4098.86',NULL,NULL,'2','1','4','2','4','17',NULL,'9','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('325','2023-08-22 11:33:02',NULL,'2023-08-31','4098.86',NULL,NULL,'2','1','4','2','4','17',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('326','2023-07-22 11:34:02',NULL,'2023-07-28','1234.56',NULL,NULL,'2','1','4','2','5','19',NULL,'9','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('326','2023-08-22 11:34:02',NULL,'2023-08-28','1234.56',NULL,NULL,'2','1','4','2','5','19',NULL,'9','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('327','2023-07-22 11:34:46','2023-07-21',NULL,NULL,'3209.88',NULL,'2','1','3','2','2','8',NULL,'9','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('327','2023-08-22 11:34:46','2023-08-21',NULL,NULL,'3209.88',NULL,'2','1','3','2','2','8',NULL,'9','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('328','2023-07-22 14:32:32',NULL,'2023-07-31','28906.00',NULL,NULL,'1','3','4','1','1','4',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('328','2023-08-22 14:32:32',NULL,'2023-08-31','28906.00',NULL,NULL,'1','3','4','1','1','4',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('329','2023-07-26 06:58:28','2023-06-20',NULL,NULL,'2145.69',NULL,'1','1','3','1','1','3',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('329','2023-08-26 06:58:28','2023-07-20',NULL,NULL,'2145.69',NULL,'1','1','3','1','1','3',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('330','2023-07-27 14:44:36','2023-07-21',NULL,NULL,'100.00',NULL,'1','1','3','1','1','1',NULL,'2','108','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('330','2023-08-27 14:44:36','2023-08-21',NULL,NULL,'100.00',NULL,'1','1','3','1','1','1',NULL,'2','108','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('331','2023-07-27 14:46:02','2023-07-27',NULL,NULL,'100.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('331','2023-08-27 14:46:02','2023-08-27',NULL,NULL,'100.00',NULL,'1','4','3','1','1','3',NULL,'3','84','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('332','2023-07-27 21:37:30',NULL,'2023-08-01','50.00',NULL,NULL,'1','3','4','1','1','4',NULL,'3','118','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('332','2023-08-27 21:37:30',NULL,'2023-09-01','50.00',NULL,NULL,'1','3','4','1','1','4',NULL,'3','118','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('333','2023-07-27 21:39:42','2023-07-19',NULL,NULL,'115.00',NULL,'1','1','3','1','1','1',NULL,'2','119','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('333','2023-08-27 21:39:42','2023-08-19',NULL,NULL,'115.00',NULL,'1','1','3','1','1','1',NULL,'2','119','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('334','2023-07-27 21:45:26','2023-07-18',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'2','86','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('334','2023-08-27 21:45:26','2023-08-18',NULL,NULL,'200.00',NULL,'1','1','3','1','1','1',NULL,'2','86','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('336','2023-07-27 21:49:07',NULL,'2023-07-24','110.00',NULL,NULL,'1','1','4','1','1','3',NULL,'2','105','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('336','2023-08-27 21:49:07',NULL,'2023-08-24','110.00',NULL,NULL,'1','1','4','1','1','3',NULL,'2','105','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('337','2023-07-27 21:56:23','2023-07-14',NULL,NULL,'274.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('337','2023-08-27 21:56:23','2023-08-14',NULL,NULL,'274.00',NULL,'1','1','3','1','1','1',NULL,'2',NULL,'2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('338','2023-08-10 16:26:03','2023-08-08',NULL,NULL,'228.00',NULL,'1','3','3','1','1','4',NULL,'3','118','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('338','2023-09-10 16:26:03','2023-09-08',NULL,NULL,'228.00',NULL,'1','3','3','1','1','4',NULL,'3','118','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('339','2023-08-10 16:28:53','2023-07-27',NULL,NULL,'200.00',NULL,'1','4','3','1','1','1',NULL,'2','85','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('339','2023-09-10 16:28:53','2023-08-27',NULL,NULL,'200.00',NULL,'1','4','3','1','1','1',NULL,'2','85','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('340','2023-08-10 16:34:50','2023-08-16','2023-08-04','42.00','42.00',NULL,'1','1','3','1','1','1',NULL,'3','61','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('340','2023-09-10 16:34:50','2023-09-16','2023-09-04','42.00','42.00',NULL,'1','1','3','1','1','1',NULL,'3','61','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('341','2023-08-16 15:42:55','2023-08-05',NULL,NULL,'90.00',NULL,'1','1','3','1','1','1',NULL,'2','120','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('341','2023-09-16 15:42:55','2023-09-05',NULL,NULL,'90.00',NULL,'1','1','3','1','1','1',NULL,'2','120','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('342','2023-08-16 15:50:13','2023-08-23','2023-08-19','521.00','521.00',NULL,'1','4','3','1','1','1',NULL,'2','73','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('342','2023-09-16 15:50:13','2023-09-23','2023-09-19','521.00','521.00',NULL,'1','4','3','1','1','1',NULL,'2','73','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('343','2023-08-22 16:48:53','2023-08-22',NULL,NULL,'213.30',NULL,'1','1','3','1','1','1',NULL,'4','101','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('343','2023-09-22 16:48:53','2023-09-22',NULL,NULL,'213.30',NULL,'1','1','3','1','1','1',NULL,'4','101','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('344','2023-08-22 16:53:52','2023-08-22',NULL,NULL,'162.30','Fita adesiva','1','1','3','1','1','1',NULL,'2','13','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('344','2023-09-22 16:53:52','2023-09-22',NULL,NULL,'162.30','Fita adesiva','1','1','3','1','1','1',NULL,'2','13','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('345','2023-08-22 16:59:50','2023-08-22',NULL,NULL,'530.00',NULL,'1','1','3','1','1','1',NULL,'3','121','2','1');
+INSERT INTO TB_FLUXO_CAIXA VALUES('345','2023-09-22 16:59:50','2023-09-22',NULL,NULL,'530.00',NULL,'1','1','3','1','1','1',NULL,'3','121','2','1');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('346','2024-06-07 16:52:16','2024-03-01',NULL,NULL,'23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('346','2024-07-07 16:52:16','2024-04-01',NULL,NULL,'23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('347','2024-06-07 16:52:16','2024-03-31','2024-03-31','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('347','2024-07-07 16:52:16','2024-04-30','2024-04-30','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('348','2024-06-07 16:52:16','2024-04-30','2024-04-30','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('348','2024-07-07 16:52:16','2024-05-30','2024-05-30','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('349','2024-06-07 16:52:16','2024-05-30','2024-05-30','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('349','2024-07-07 16:52:16','2024-06-30','2024-06-30','23897.66','23897.66',NULL,'1','1','3','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('350','2024-06-07 16:52:16',NULL,'2024-06-29','23897.66',NULL,NULL,'1','1','2','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('350','2024-07-07 16:52:16',NULL,'2024-07-29','23897.66',NULL,NULL,'1','1','2','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('351','2024-06-07 16:52:16',NULL,'2024-07-29','23897.66',NULL,NULL,'1','1','2','1','1','1',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('351','2024-07-07 16:52:16',NULL,'2024-08-29','23897.66',NULL,NULL,'1','1','2','1','1','1',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('352','2024-06-07 16:53:28','2024-04-03',NULL,NULL,'35667.78',NULL,'1','1','3','1','1','4',NULL,'8','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('352','2024-07-07 16:53:28','2024-05-03',NULL,NULL,'35667.78',NULL,'1','1','3','1','1','4',NULL,'8','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('353','2024-06-07 16:53:28','2024-05-03','2024-05-03','35667.78','35667.78',NULL,'1','1','3','1','1','4',NULL,'8','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('353','2024-07-07 16:53:28','2024-06-03','2024-06-03','35667.78','35667.78',NULL,'1','1','3','1','1','4',NULL,'8','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('354','2024-06-07 16:53:28',NULL,'2024-06-02','35667.78',NULL,NULL,'1','1','4','1','1','4',NULL,'8','114','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('354','2024-07-07 16:53:28',NULL,'2024-07-02','35667.78',NULL,NULL,'1','1','4','1','1','4',NULL,'8','114','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('355','2024-06-07 16:54:24','2024-03-14',NULL,NULL,'4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('355','2024-07-07 16:54:24','2024-04-14',NULL,NULL,'4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('356','2024-06-07 16:54:24','2024-04-13','2024-04-13','4877.66','4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('356','2024-07-07 16:54:24','2024-05-13','2024-05-13','4877.66','4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('357','2024-06-07 16:54:24','2024-05-13','2024-05-13','4877.66','4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('357','2024-07-07 16:54:24','2024-06-13','2024-06-13','4877.66','4877.66',NULL,'2','1','3','2','2','8',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('358','2024-06-07 16:54:24',NULL,'2024-06-12','4877.66',NULL,NULL,'2','1','1','2','2','8',NULL,'7','115','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('358','2024-07-07 16:54:24',NULL,'2024-07-12','4877.66',NULL,NULL,'2','1','4','2','2','8',NULL,'7','115','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('359','2024-06-07 16:55:18','2024-02-21',NULL,NULL,'878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('359','2024-07-07 16:55:18','2024-03-21',NULL,NULL,'878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('360','2024-06-07 16:55:18','2024-03-22','2024-03-22','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('360','2024-07-07 16:55:18','2024-04-22','2024-04-22','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('361','2024-06-07 16:55:18','2024-04-21','2024-04-21','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('361','2024-07-07 16:55:18','2024-05-21','2024-05-21','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('362','2024-06-07 16:55:18','2024-05-21','2024-05-21','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('362','2024-07-07 16:55:18','2024-06-21','2024-06-21','878.99','878.99',NULL,'2','3','3','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('363','2024-06-07 16:55:18',NULL,'2024-06-20','878.99',NULL,NULL,'2','3','1','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('363','2024-07-07 16:55:18',NULL,'2024-07-20','878.99',NULL,NULL,'2','3','1','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('364','2024-06-07 16:55:18',NULL,'2024-07-20','878.99',NULL,NULL,'2','3','1','3','7','24',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('364','2024-07-07 16:55:18',NULL,'2024-08-20','878.99',NULL,NULL,'2','3','1','3','7','24',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('365','2024-06-07 16:56:38','2024-03-12',NULL,NULL,'14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('365','2024-07-07 16:56:38','2024-04-12',NULL,NULL,'14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('366','2024-06-07 16:56:38','2024-04-11','2024-04-11','14556.77','14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('366','2024-07-07 16:56:38','2024-05-11','2024-05-11','14556.77','14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('367','2024-06-07 16:56:38','2024-05-11','2024-05-11','14556.77','14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('367','2024-07-07 16:56:38','2024-06-11','2024-06-11','14556.77','14556.77',NULL,'2','4','3','2','4','17',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('368','2024-06-07 16:56:38',NULL,'2024-06-10','14556.77',NULL,NULL,'2','4','4','2','4','17',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('368','2024-07-07 16:56:38',NULL,'2024-07-10','14556.77',NULL,NULL,'2','4','4','2','4','17',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('369','2024-06-07 16:56:38',NULL,'2024-07-10','14556.77',NULL,NULL,'2','4','1','2','4','17',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('369','2024-07-07 16:56:38',NULL,'2024-08-10','14556.77',NULL,NULL,'2','4','1','2','4','17',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('370','2024-06-07 17:00:09','2024-02-15',NULL,NULL,'8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('370','2024-07-07 17:00:09','2024-03-15',NULL,NULL,'8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('371','2024-06-07 17:00:09','2024-03-16','2024-03-16','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('371','2024-07-07 17:00:09','2024-04-16','2024-04-16','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('372','2024-06-07 17:00:09','2024-04-15','2024-04-15','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('372','2024-07-07 17:00:09','2024-05-15','2024-05-15','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('373','2024-06-07 17:00:09','2024-05-15','2024-05-15','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('373','2024-07-07 17:00:09','2024-06-15','2024-06-15','8679.87','8679.87',NULL,'2','4','3','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('374','2024-06-07 17:00:09',NULL,'2024-06-14','8679.87',NULL,NULL,'2','4','1','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('374','2024-07-07 17:00:09',NULL,'2024-07-14','8679.87',NULL,NULL,'2','4','4','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('375','2024-06-07 17:00:09',NULL,'2024-07-14','8679.87',NULL,NULL,'2','4','1','3','7','27',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('375','2024-07-07 17:00:09',NULL,'2024-08-14','8679.87',NULL,NULL,'2','4','1','3','7','27',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('376','2024-06-07 17:01:13','2024-02-14',NULL,NULL,'18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('376','2024-07-07 17:01:13','2024-03-14',NULL,NULL,'18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('377','2024-06-07 17:01:13','2024-03-15','2024-03-15','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('377','2024-07-07 17:01:13','2024-04-15','2024-04-15','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('378','2024-06-07 17:01:13','2024-04-14','2024-04-14','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('378','2024-07-07 17:01:13','2024-05-14','2024-05-14','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('379','2024-06-07 17:01:13','2024-05-14','2024-05-14','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('379','2024-07-07 17:01:13','2024-06-14','2024-06-14','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('380','2024-06-07 17:01:13','2024-06-07','2024-06-13','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('380','2024-07-07 17:01:13','2024-07-07','2024-07-13','18776.63','18776.63',NULL,'2','2','3','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('381','2024-06-07 17:01:13',NULL,'2024-07-13','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('381','2024-07-07 17:01:13',NULL,'2024-08-13','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('382','2024-06-07 17:01:13',NULL,'2024-08-12','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('382','2024-07-07 17:01:13',NULL,'2024-09-12','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('383','2024-06-07 17:01:13',NULL,'2024-09-11','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('383','2024-07-07 17:01:13',NULL,'2024-10-11','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('384','2024-06-07 17:01:13',NULL,'2024-10-11','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('384','2024-07-07 17:01:13',NULL,'2024-11-11','18776.63',NULL,NULL,'2','2','1','3','8','31',NULL,'7','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('385','2024-06-07 17:03:23','2024-02-20',NULL,NULL,'9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('385','2024-07-07 17:03:23','2024-03-20',NULL,NULL,'9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('386','2024-06-07 17:03:23','2024-03-21','2024-03-21','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('386','2024-07-07 17:03:23','2024-04-21','2024-04-21','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('387','2024-06-07 17:03:23','2024-04-20','2024-04-20','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('387','2024-07-07 17:03:23','2024-05-20','2024-05-20','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('388','2024-06-07 17:03:23','2024-05-20','2024-05-20','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('388','2024-07-07 17:03:23','2024-06-20','2024-06-20','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('389','2024-06-07 17:03:23','2024-06-07','2024-06-19','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('389','2024-07-07 17:03:23','2024-07-07','2024-07-19','9667.83','9667.83',NULL,'2','3','3','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('390','2024-06-07 17:03:23',NULL,'2024-07-19','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('390','2024-07-07 17:03:23',NULL,'2024-08-19','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('391','2024-06-07 17:03:23',NULL,'2024-08-18','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('391','2024-07-07 17:03:23',NULL,'2024-09-18','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('392','2024-06-07 17:03:23',NULL,'2024-09-17','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('392','2024-07-07 17:03:23',NULL,'2024-10-17','9667.83',NULL,NULL,'2','3','1','2','3','10',NULL,'7','116','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('393','2024-06-07 17:05:38','2024-03-12',NULL,NULL,'599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('393','2024-07-07 17:05:38','2024-04-12',NULL,NULL,'599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('394','2024-06-07 17:05:38','2024-04-11','2024-04-11','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('394','2024-07-07 17:05:38','2024-05-11','2024-05-11','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('395','2024-06-07 17:05:38','2024-05-11','2024-05-11','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('395','2024-07-07 17:05:38','2024-06-11','2024-06-11','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('396','2024-06-07 17:05:38','2024-06-07','2024-06-10','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('396','2024-07-07 17:05:38','2024-07-07','2024-07-10','599.39','599.39',NULL,'2','4','3','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('397','2024-06-07 17:05:38',NULL,'2024-07-10','599.39',NULL,NULL,'2','4','1','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('397','2024-07-07 17:05:38',NULL,'2024-08-10','599.39',NULL,NULL,'2','4','1','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('398','2024-06-07 17:05:38',NULL,'2024-08-09','599.39',NULL,NULL,'2','4','1','4','12','53',NULL,'8','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('398','2024-07-07 17:05:38',NULL,'2024-09-09','599.39',NULL,NULL,'2','4','1','4','12','53',NULL,'8','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('399','2024-06-07 17:09:08','2024-03-11',NULL,NULL,'3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('399','2024-07-07 17:09:08','2024-04-11',NULL,NULL,'3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('400','2024-06-07 17:09:08','2024-04-10','2024-04-10','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('400','2024-07-07 17:09:08','2024-05-10','2024-05-10','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('401','2024-06-07 17:09:08','2024-05-10','2024-05-10','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('401','2024-07-07 17:09:08','2024-06-10','2024-06-10','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('402','2024-06-07 17:09:08','2024-06-07','2024-06-09','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('402','2024-07-07 17:09:08','2024-07-07','2024-07-09','3600.00','3600.00',NULL,'1','4','3','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('403','2024-06-07 17:09:08',NULL,'2024-07-09','3600.00',NULL,NULL,'1','4','2','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('403','2024-07-07 17:09:08',NULL,'2024-08-09','3600.00',NULL,NULL,'1','4','2','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('404','2024-06-07 17:09:08',NULL,'2024-08-08','3600.00',NULL,NULL,'1','4','2','5','13','55',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('404','2024-07-07 17:09:08',NULL,'2024-09-08','3600.00',NULL,NULL,'1','4','2','5','13','55',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('405','2024-06-07 17:10:04','2024-03-11',NULL,NULL,'4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('405','2024-07-07 17:10:04','2024-04-11',NULL,NULL,'4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('406','2024-06-07 17:10:04','2024-04-10','2024-04-10','4133.56','4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('406','2024-07-07 17:10:04','2024-05-10','2024-05-10','4133.56','4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('407','2024-06-07 17:10:04','2024-05-10','2024-05-10','4133.56','4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('407','2024-07-07 17:10:04','2024-06-10','2024-06-10','4133.56','4133.56',NULL,'2','3','3','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('408','2024-06-07 17:10:04',NULL,'2024-06-09','4133.56',NULL,NULL,'2','3','4','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('408','2024-07-07 17:10:04',NULL,'2024-07-09','4133.56',NULL,NULL,'2','3','4','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('409','2024-06-07 17:10:04',NULL,'2024-07-09','4133.56',NULL,NULL,'2','3','1','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('409','2024-07-07 17:10:04',NULL,'2024-08-09','4133.56',NULL,NULL,'2','3','1','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('410','2024-06-07 17:10:04',NULL,'2024-08-08','4133.56',NULL,NULL,'2','3','1','6','14','58',NULL,'9','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('410','2024-07-07 17:10:04',NULL,'2024-09-08','4133.56',NULL,NULL,'2','3','1','6','14','58',NULL,'9','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('411','2024-06-07 17:11:25',NULL,'2024-06-07','1644.22',NULL,NULL,'1','1','4','1','1','3',NULL,'7','113','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('411','2024-07-07 17:11:25',NULL,'2024-07-07','1644.22',NULL,NULL,'1','1','4','1','1','3',NULL,'7','113','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('412','2024-06-07 17:12:06',NULL,'2024-06-07','1233.45',NULL,NULL,'2','3','4','2','6','23',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('412','2024-07-07 17:12:06',NULL,'2024-07-07','1233.45',NULL,NULL,'2','3','4','2','6','23',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('413','2024-06-07 20:44:58','2024-06-07',NULL,NULL,'189.76',NULL,'1','4','3','1','1','3',NULL,'7',NULL,'3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('413','2024-07-07 20:44:58','2024-07-07',NULL,NULL,'189.76',NULL,'1','4','3','1','1','3',NULL,'7',NULL,'3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('414','2024-06-07 20:46:19','2024-06-01',NULL,NULL,'3560.00',NULL,'2','4','3','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('414','2024-07-07 20:46:19','2024-07-01',NULL,NULL,'3560.00',NULL,'2','4','3','3','7','27',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('415','2024-06-07 20:46:19',NULL,'2024-07-01','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('415','2024-07-07 20:46:19',NULL,'2024-08-01','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('416','2024-06-07 20:46:19',NULL,'2024-07-31','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('416','2024-07-07 20:46:19',NULL,'2024-08-31','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('417','2024-06-07 20:46:19',NULL,'2024-08-30','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('417','2024-07-07 20:46:19',NULL,'2024-09-30','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('418','2024-06-07 20:46:19',NULL,'2024-09-29','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('418','2024-07-07 20:46:19',NULL,'2024-10-29','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
 
-INSERT INTO TB_FLUXO_CAIXA VALUES('419','2024-06-07 20:46:19',NULL,'2024-10-29','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+INSERT INTO TB_FLUXO_CAIXA VALUES('419','2024-07-07 20:46:19',NULL,'2024-11-29','3560.00',NULL,NULL,'2','4','1','3','7','27',NULL,'8','112','3','2');
+
+INSERT INTO TB_FLUXO_CAIXA VALUES('420','2024-06-21 14:42:42','2024-06-21',NULL,NULL,'1289.99',NULL,'2','2','3','4','26','120',NULL,'7','115','3','2');
 
 
 
@@ -1442,7 +1792,7 @@ INSERT INTO TB_FUNCIONALIDADE VALUES('44','Detalhar Assinatura Assinante','Detal
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('45','Notificação PagSeguro','NotificacaoPagSeguro','A','S','12');
 
-INSERT INTO TB_FUNCIONALIDADE VALUES('46','ChatGPT','ChatGPT','A','S','13');
+INSERT INTO TB_FUNCIONALIDADE VALUES('46','ChatGPT','ChatGPT','A','N','13');
 
 INSERT INTO TB_FUNCIONALIDADE VALUES('47','Planejamento','PlanejamentoFinanceiro','A','S','10');
 
@@ -1466,7 +1816,7 @@ CREATE TABLE `TB_HIST_SALDO_CB` (
   `co_conta_bancaria` int(11) NOT NULL,
   `co_usuario` int(10) NOT NULL,
   PRIMARY KEY (`co_hist_saldo_cb`,`co_conta_bancaria`,`co_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=507 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=508 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_HIST_SALDO_CB VALUES('1','2023-02-06 12:26:41',NULL,NULL,'0.01',NULL,'2','2');
@@ -2452,6 +2802,8 @@ INSERT INTO TB_HIST_SALDO_CB VALUES('504','2024-06-07 17:10:25','2','4133.56','1
 INSERT INTO TB_HIST_SALDO_CB VALUES('505','2024-06-07 20:44:58','1','189.76','21073.49',NULL,'7','3');
 
 INSERT INTO TB_HIST_SALDO_CB VALUES('506','2024-06-07 20:46:19','2','3560.00','43430.07',NULL,'8','3');
+
+INSERT INTO TB_HIST_SALDO_CB VALUES('507','2024-06-21 14:42:42','2','1289.99','19783.50',NULL,'7','3');
 
 
 
@@ -3470,8 +3822,12 @@ CREATE TABLE `TB_HISTORICO_PAG_ASSINATURA` (
   `st_pagamento` int(1) DEFAULT NULL COMMENT '0 - Pendente / 1 - Aguardando pagamento / 2 - Em análise / 3 - Pago / 4 - Disponível / 5 - Em disputa / 6 - Devolvida / 7 - Cancelada\n',
   `co_plano_assinante_assinatura` int(11) NOT NULL,
   PRIMARY KEY (`co_historico_pag_assinatura`,`co_plano_assinante_assinatura`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_HISTORICO_PAG_ASSINATURA VALUES('5','2024-06-21 10:05:07','Cadastro no Sistema','Leo Bessa Fez o Cadastro','3','16');
+
+INSERT INTO TB_HISTORICO_PAG_ASSINATURA VALUES('7','2024-06-21 11:00:40','Cadastro no Sistema','Leo Bessa Fez o Cadastro','3','18');
 
 
 
@@ -3610,8 +3966,12 @@ CREATE TABLE `TB_PACOTE` (
   `dt_cadastro` datetime DEFAULT NULL,
   `dt_lancamento` date DEFAULT NULL,
   PRIMARY KEY (`co_pacote`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_PACOTE VALUES('1','Assinante','Gestão do assinante no sistema da beleza','2018-07-30 14:00:00','2018-11-02');
+
+INSERT INTO TB_PACOTE VALUES('2','Principal','Onde consta todas as funcionalidades padrões e básicas do sistema','2018-07-30 14:00:00','2018-11-02');
 
 
 
@@ -3663,15 +4023,11 @@ CREATE TABLE `TB_PERFIL_FUNCIONALIDADE` (
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('1','1','1','1');
 
-INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('2','45','2','1');
-
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('3','44','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('4','43','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('5','42','2','1');
-
-INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('6','41','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('7','40','2','1');
 
@@ -3687,15 +4043,11 @@ INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('13','32','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('14','31','2','1');
 
-INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('15','30','2','1');
-
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('16','11','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('17','6','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('19','35','2','1');
-
-INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('20','46','2','1');
 
 INSERT INTO TB_PERFIL_FUNCIONALIDADE VALUES('21','47','2','1');
 
@@ -3721,7 +4073,7 @@ CREATE TABLE `TB_PESSOA` (
   `co_contato` int(11) NOT NULL,
   `co_imagem` int(10) NOT NULL,
   PRIMARY KEY (`co_pessoa`,`co_endereco`,`co_contato`,`co_imagem`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_PESSOA VALUES('1',NULL,'Leo Bessa',NULL,'2016-10-31 00:00:00',NULL,'M','1','1','1');
@@ -3729,6 +4081,10 @@ INSERT INTO TB_PESSOA VALUES('1',NULL,'Leo Bessa',NULL,'2016-10-31 00:00:00',NUL
 INSERT INTO TB_PESSOA VALUES('2',NULL,'Usuário Atacadão',NULL,'2016-10-31 00:00:00',NULL,'M','2','2','2');
 
 INSERT INTO TB_PESSOA VALUES('3',NULL,'AMAURY RAMOS',NULL,'2023-04-26 10:54:17',NULL,'M','3','3','3');
+
+INSERT INTO TB_PESSOA VALUES('8',NULL,'LEONARDO MACHADO CARVALHO BESSA',NULL,'2024-06-21 10:05:07',NULL,NULL,NULL,'8',NULL);
+
+INSERT INTO TB_PESSOA VALUES('10',NULL,'LEONARDO MACHADO CARVALHO BESSA',NULL,'2024-06-21 11:00:39',NULL,NULL,NULL,'10',NULL);
 
 
 
@@ -3743,8 +4099,24 @@ CREATE TABLE `TB_PLANO` (
   `nu_mes_ativo` int(1) DEFAULT NULL COMMENT 'Número de meses ativo do plano (1, 3, 6, 12 e 24)',
   `st_status` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT 'A' COMMENT 'Status do plano A - Ativo / I - Inativo',
   PRIMARY KEY (`co_plano`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_PLANO VALUES('1','2018-07-31 10:17:46','Padrão','1','A');
+
+INSERT INTO TB_PLANO VALUES('2','2020-01-29 18:49:51','Mensal','1','A');
+
+INSERT INTO TB_PLANO VALUES('3','2020-01-29 18:59:12','Trimestral','3','I');
+
+INSERT INTO TB_PLANO VALUES('4','2020-01-29 19:00:40','Semestral','6','A');
+
+INSERT INTO TB_PLANO VALUES('5','2020-01-29 19:01:53','Anual','12','A');
+
+INSERT INTO TB_PLANO VALUES('6','2020-01-29 19:03:13','Bienal','24','I');
+
+INSERT INTO TB_PLANO VALUES('7','2020-03-18 10:39:16','Trienal','36','I');
+
+INSERT INTO TB_PLANO VALUES('8','2021-08-02 17:53:18','Novidades','1','I');
 
 
 
@@ -3759,8 +4131,42 @@ CREATE TABLE `TB_PLANO_ASSINANTE` (
   `ds_observacao` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `co_plano` int(11) NOT NULL,
   PRIMARY KEY (`co_plano_assinante`,`co_plano`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('1','0.00','2018-07-31 10:17:46','Plano Padrão','1');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('2','29.90','2020-03-18 10:33:16','Por 1 meses','2');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('3','79.90','2020-03-18 10:33:46','Por 3 meses','3');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('4','139.90','2020-03-18 10:34:07','Por 6 Meses','4');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('5','249.90','2020-03-18 10:35:36','Por 12 Meses','5');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('6','449.90','2020-03-18 10:35:18','Por 24 Meses','6');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('7','599.90','2020-03-18 10:39:16','Por 36 Meses','7');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('8','599.90','2021-06-17 17:04:49','Por 36 Meses','7');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('9','449.90','2021-06-17 17:04:57','Por 24 Meses','6');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('10','187.97','2021-06-17 17:05:21','Por 12 Meses','5');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('11','127.97','2021-06-17 17:05:34','Por 6 Meses','4');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('12','79.90','2021-06-17 17:05:40','Por 3 meses','3');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('13','27.97','2021-06-17 17:05:52','Por 1 meses','2');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('14','599.97','2021-08-02 17:51:58','Por 36 Meses','7');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('15','599.97','2021-08-02 17:52:40','Por 36 Meses','7');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('16','0.99','2021-08-02 17:53:18',NULL,'8');
+
+INSERT INTO TB_PLANO_ASSINANTE VALUES('17','0.99','2021-08-02 17:54:00',NULL,'8');
 
 
 
@@ -3787,8 +4193,24 @@ CREATE TABLE `TB_PLANO_ASSINANTE_ASSINATURA` (
   `co_assinante` int(11) NOT NULL,
   `co_plano_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_plano_assinante_assinatura`,`co_assinante`,`co_plano_assinante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('1','2020-04-11 18:29:34','2020-04-26',NULL,'5','3','2020-04-11 18:29:34',NULL,NULL,NULL,NULL,NULL,'I','null','0.00','1','1');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('2','2020-04-11 18:35:42','2020-04-26',NULL,'5','3','2020-04-11 18:35:42',NULL,NULL,NULL,NULL,NULL,'A','null','0.00','2','1');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('3','2020-04-13 17:01:04','2020-04-28',NULL,'5','3','2020-04-13 17:01:04',NULL,NULL,NULL,NULL,NULL,'A','null','0.00','3','1');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('4','2020-04-24 20:48:52','2020-10-26','2020-04-24 20:50:09','5','3','2020-04-24 20:50:09','3.19','66.71','https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=dc32d79804b4792135fdf414dc5b8bde71bdbe5abc6f9198850cbcc0f58ca6f8c51fa4a9e8452e21',NULL,'1','A','1416BF63-2C4D-40CE-8DC9-D0050F281A5D','69.90','1','4');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('5','2021-03-24 11:56:56','2020-11-26',NULL,'5','1','2021-03-24 11:57:01','1.59','28.31','https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=cf048c50827b4ca54f151c24101678ed2f79652ee39aea3e31a5aedba857a890c48b41754b5c6b1c',NULL,'4','I','EAFFE1DE-25A7-41F8-B825-420C272F5366','29.90','1','2');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('11','2021-08-02 18:37:11','2021-04-26',NULL,'5','1','2021-08-02 18:37:17','7.90','180.07','https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=aaf6480ac797fa3c8b616e4c8268f6928a55911ca955d9a7867ea517fc887b51ebae6017dc1a22d1',NULL,'2','I','76C6DB19-2E89-45B9-A4DF-D86246EE951E','187.97','2','10');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('16','2024-06-21 10:05:07','2025-06-21',NULL,'9','3','2024-06-21 10:05:07',NULL,NULL,NULL,NULL,NULL,'A','null','127.97','7','11');
+
+INSERT INTO TB_PLANO_ASSINANTE_ASSINATURA VALUES('18','2024-06-21 11:00:40','2025-06-21',NULL,'9','3','2024-06-21 11:00:40',NULL,NULL,NULL,NULL,NULL,'A','null','127.97','9','11');
 
 
 
@@ -3801,8 +4223,40 @@ CREATE TABLE `TB_PLANO_PACOTE` (
   `co_plano` int(11) NOT NULL,
   `co_pacote` int(11) NOT NULL,
   PRIMARY KEY (`co_plano_pacote`,`co_plano`,`co_pacote`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+INSERT INTO TB_PLANO_PACOTE VALUES('1','1','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('2','1','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('17','6','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('18','6','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('19','5','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('20','5','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('21','4','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('22','4','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('23','3','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('24','3','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('25','2','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('26','2','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('29','7','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('30','7','2');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('33','8','1');
+
+INSERT INTO TB_PLANO_PACOTE VALUES('34','8','2');
 
 
 
@@ -4207,7 +4661,7 @@ CREATE TABLE `TB_USUARIO` (
   `co_pessoa` int(11) NOT NULL,
   `co_assinante` int(11) NOT NULL,
   PRIMARY KEY (`co_usuario`,`co_imagem`,`co_pessoa`,`co_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_USUARIO VALUES('1','123456**','TVRJek5EVTJLaW89','A','S','2016-10-31 00:00:00','1','1','1');
@@ -4215,6 +4669,10 @@ INSERT INTO TB_USUARIO VALUES('1','123456**','TVRJek5EVTJLaW89','A','S','2016-10
 INSERT INTO TB_USUARIO VALUES('2','123456**','TVRJek5EVTJLaW89','A','S','2016-10-31 00:00:00','2','2','1');
 
 INSERT INTO TB_USUARIO VALUES('3','123456**','TVRJek5EVTJLaW89','A','S','2023-04-26 10:57:31','3','3','2');
+
+INSERT INTO TB_USUARIO VALUES('8','ZRU6GCF9','V2xKVk5rZERSams9','A','N','2024-06-21 10:05:07',NULL,'8','7');
+
+INSERT INTO TB_USUARIO VALUES('10','KXX9LOS9','UzFoWU9VeFBVems9','A','N','2024-06-21 11:00:40',NULL,'10','9');
 
 
 
@@ -4228,7 +4686,7 @@ CREATE TABLE `TB_USUARIO_PERFIL` (
   `co_perfil` int(11) NOT NULL,
   `co_perfil_assinante` int(10) NOT NULL,
   PRIMARY KEY (`co_usuario_perfil`,`co_usuario`,`co_perfil`,`co_perfil_assinante`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 INSERT INTO TB_USUARIO_PERFIL VALUES('1','1','1','1');
@@ -4236,6 +4694,10 @@ INSERT INTO TB_USUARIO_PERFIL VALUES('1','1','1','1');
 INSERT INTO TB_USUARIO_PERFIL VALUES('2','2','2','1');
 
 INSERT INTO TB_USUARIO_PERFIL VALUES('3','3','2','1');
+
+INSERT INTO TB_USUARIO_PERFIL VALUES('4','8','2',NULL);
+
+INSERT INTO TB_USUARIO_PERFIL VALUES('5','10','2',NULL);
 
 
 

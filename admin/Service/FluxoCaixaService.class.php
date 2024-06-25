@@ -297,15 +297,20 @@ class  FluxocaixaService extends AbstractService
 
         /** @var FluxocaixaEntidade $fc */
         $fc = $this->PesquisaUmRegistro($dados);
-        $valorLancamento = ($fc->getNuValorPago())
-            ? $fc->getNuValorPago() : $fc->getNuValor();
 
-        if ($fc->getTpFluxo() == TipoFluxoCaixaEnum::ENTRADA) {
-            $saldoCb = ($fc->getCoContaBancaria()->getCoUltimoHistSaldoCb()->getNuSaldo() -
-                $valorLancamento);
+        if ($fc->getStPagamento() == StatusPagamentoEnum::PAGO) {
+            $valorLancamento = ($fc->getNuValorPago())
+                ? $fc->getNuValorPago() : $fc->getNuValor();
+            if ($fc->getTpFluxo() == TipoFluxoCaixaEnum::ENTRADA) {
+                $saldoCb = ($fc->getCoContaBancaria()->getCoUltimoHistSaldoCb()->getNuSaldo() -
+                    $valorLancamento);
+            } else {
+                $saldoCb = ($fc->getCoContaBancaria()->getCoUltimoHistSaldoCb()->getNuSaldo() +
+                    $valorLancamento);
+            }
         } else {
-            $saldoCb = ($fc->getCoContaBancaria()->getCoUltimoHistSaldoCb()->getNuSaldo() +
-                $valorLancamento);
+            $saldoCb = $fc->getCoContaBancaria()->getCoUltimoHistSaldoCb()->getNuSaldo();
+            $valorLancamento = 0;
         }
 
         $histSaldoCB[DT_CADASTRO] = Valida::DataHoraAtualBanco();
