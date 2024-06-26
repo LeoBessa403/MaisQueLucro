@@ -78,6 +78,7 @@ $(function () {
         $('#' + TpLanc + '-nu_repetidos').val(1).trigger('change');
         $('#' + TpLanc + '-intervalo').val(30).trigger('change');
         Funcoes.TiraValidacao(TpLanc + '-nu_repetidos');
+        limpaDadosLancamento(TpLanc);
     }
 
     $('.btn-baixa').click(function () {
@@ -377,7 +378,7 @@ $(function () {
     $('#CentroCustos .btn-success').click(function () {
 
         var data5 = {
-            no_centro_custos : $("#CentroCustos #no_centro_custos").val(),
+            no_centro_custos: $("#CentroCustos #no_centro_custos").val(),
             co_centro_custo: $('#CentroCustos #co_centro_custo').val()
         };
 
@@ -699,14 +700,31 @@ $(function () {
         if (dados) {
             if (dados.sucesso) {
                 if (dados.tp_fluxo == 1) {
-                    $('.btn-entrada').click();
+
+                    if (carregaComboCatEnt) {
+                        carregaComboCategoriasEntrada();
+                        carregaComboCatEnt = false;
+                    }
+                    limpaCamposTpLanc('e');
+                    $("#j_entrada").click();
+                    desabilitaCat('FCEntrada', true);
+
                     var Form = 'FCEntrada';
                     var preDT = 'e';
                 } else if (dados.tp_fluxo == 2) {
-                    $('.btn-saida').click();
+                    if (carregaComboCatSaida) {
+                        carregaComboCategoriasSaida();
+                        carregaComboCatSaida = false;
+                    }
+                    limpaCamposTpLanc('s');
+                    $("#j_saida").click();
+                    desabilitaCat('FCSaida', true);
+
                     var Form = 'FCSaida';
                     var preDT = 's';
                 }
+
+                Funcoes.Informativo(dados.co_categoria_fc);
                 $('#' + Form + ' #tp_pagamento').val(dados.tp_pagamento).trigger('change');
                 $('#' + Form + ' #' + preDT + '-tp_lanc').select2("destroy").val(1).prop("disabled", true);
                 $('#' + Form + ' #co_categoria_fc').val(dados.co_categoria_fc).trigger('change');
@@ -727,6 +745,10 @@ $(function () {
             Funcoes.Erro("Erro: " + dados.msg);
         }
         return false;
+    });
+
+    $(".modal-scrollable .close").click(function () {
+        $(this).remove();
     });
 
     function limpaTransferencia() {
@@ -776,6 +798,22 @@ $(function () {
 
     function limpaDadosCentro_custo() {
         $('#CentroCustos #no_centro_custos, #CentroCustos #co_centro_custo').val('');
+    }
+
+    function limpaDadosLancamento(TpLanc) {
+        if (TpLanc == "s") {
+            var preDT = 'Saida';
+        } else {
+            var preDT = 'Entrada';
+        }
+        $('#FC' + preDT + ' #nu_valor, #FC' + preDT + ' #nu_valor_pago,  ' +
+            '#FC' + preDT + ' #' + TpLanc + '-dt_realizado, ' +
+            '#FC' + preDT + ' #' + TpLanc + '-dt_vencimento, #FC' + preDT + ' #ds_descricao, ' +
+            '#FC' + preDT + ' #co_fluxo_caixa').val('');
+
+        $('#FC' + preDT + ' #co_conta_bancaria, #FC' + preDT + ' #co_categoria_fc, ' +
+            '#FC' + preDT + ' #tp_pagamento, #FC' + preDT + ' #co_representacao, #FC' + preDT + ' #co_centro_custo')
+            .val(null).trigger('change').select2({allowClear: !1});
     }
 
     function desabilitaCat(id, filha = false) {

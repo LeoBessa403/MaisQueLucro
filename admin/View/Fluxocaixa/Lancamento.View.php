@@ -14,7 +14,6 @@
                             <small>Lançamentos Cadastrados</small>
                         </h2>
                         <?php
-                        Modal::load();
                         $cpTodos = '<label class="divCheck tooltips" data-original-title="Marcar/Desmarcar Todos" 
                                     data-placement="top">
                                           <input type="checkbox" id="selTodosLanc">
