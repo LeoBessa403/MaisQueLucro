@@ -723,8 +723,6 @@ $(function () {
                     var Form = 'FCSaida';
                     var preDT = 's';
                 }
-
-                Funcoes.Informativo(dados.co_categoria_fc);
                 $('#' + Form + ' #tp_pagamento').val(dados.tp_pagamento).trigger('change');
                 $('#' + Form + ' #' + preDT + '-tp_lanc').select2("destroy").val(1).prop("disabled", true);
                 $('#' + Form + ' #co_categoria_fc').val(dados.co_categoria_fc).trigger('change');
