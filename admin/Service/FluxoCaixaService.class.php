@@ -438,7 +438,7 @@ class  FluxocaixaService extends AbstractService
         $retorno[SUCESSO] = true;
         $fc = $this->ObjetoModel->getLancamentoFC($coLancamento);
 
-        $retorno[CO_CATEGORIA_FC] = 'n-' . $fc["nu_codigo_f"] . '-' . $fc["nu_codigo_n"];
+        $retorno[CO_CATEGORIA_FC] = 'n-' . $fc["co_categoria_fc_neta"] . '-' . $fc["nu_codigo_n"];
         $retorno[TP_PAGAMENTO] = $fc["tp_pagamento"];
         $retorno[DT_VENCIMENTO] = ($fc["dt_vencimento"])
             ? Valida::DataShow($fc["dt_vencimento"]) : null;
