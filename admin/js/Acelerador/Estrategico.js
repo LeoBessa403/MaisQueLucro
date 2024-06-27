@@ -93,7 +93,8 @@ $(function () {
             /// SIMULADOR DE GASTO
             $('.denominador5').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
-            var peo = parseFloat((cf / mc) * 100);
+            var peo = (cf / mc) * 100;
+
             $('.res' + cenario).text(converteReal(peo));
             atualGrafPE();
 
@@ -115,7 +116,7 @@ $(function () {
             /// SIMULADOR DE GASTO
             $('.denominador6').text(mc + "%");
             var cf = valorFloat($('.numerador' + cenario).text());
-            var peo = parseFloat((cf / mc) * 100);
+            var peo = (cf / mc) * 100;
             $('.res' + cenario).text(converteReal(peo));
             atualGrafPE2();
 
@@ -146,38 +147,44 @@ $(function () {
         });
 
         $('.despInd, .pro').blur(function () {
-            var tipo = '';
-            var CENARIO = $(this).attr('alt');
-            var cf = valorFloat($('#valor_des_' + CENARIO).val());
-            var pro = valorFloat($('#valor_pro_' + CENARIO).val());
-
-            if (CENARIO == 'base') {
-                tipo = 1;
-            } else {
-                tipo = 2;
-            }
-            var total = formatReal(parseFloat(cf + pro));
-
-            $('.numerador' + tipo).text(total);
-            calculaMC(tipo);
+            calculaNumerador(1, $(this));
         });
 
         $('.despInd2, .pro2').blur(function () {
-            var tipo = '';
-            var CENARIO = $(this).attr('alt');
-            var cf = valorFloat($('#valor_des_' + CENARIO + '_lucro').val());
-            var pro = valorFloat($('#valor_pro_' + CENARIO + '_lucro').val());
-
-            if (CENARIO == 'base') {
-                tipo = 3;
-            } else {
-                tipo = 4;
-            }
-            var total = formatReal(parseFloat(cf + pro));
-
-            $('.numerador' + tipo).text(total);
-            calculaMC2(tipo);
+            calculaNumerador(2, $(this));
         });
+
+        function calculaNumerador(modulo, element) {
+            var tipo = '';
+            var campo = '';
+            var CENARIO = element.attr('alt');
+            if (modulo == 1) {
+                if (CENARIO == 'base') {
+                    tipo = 1;
+                } else {
+                    tipo = 2;
+                }
+            } else {
+                if (CENARIO == 'base') {
+                    tipo = 3;
+                } else {
+                    tipo = 4;
+                }
+                campo = '_lucro';
+            }
+
+            var cf = valorFloat($('#valor_des_' + CENARIO + campo).val()).toFixed(2);
+            var pro = valorFloat($('#valor_pro_' + CENARIO + campo).val()).toFixed(2);
+            var total = parseFloat(cf) + parseFloat(pro);
+
+            $('.numerador' + tipo).text(converteReal(total));
+
+            if (modulo == 1) {
+                calculaMC(tipo);
+            } else {
+                calculaMC2(tipo);
+            }
+        }
 
         $('.gasto').blur(function () {
             var CENARIO = $(this).attr('alt');
