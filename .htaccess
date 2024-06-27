@@ -1,5 +1,14 @@
 RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula4\-material$ "https\:\/\/maisquelucro\.com\.br\/Documentos\/Aula\ 04\ \-\ Gerando\ Lucro\ Agora\ \(Caixa\ Rápido\)\.pdf" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula04$ "https\:\/\/us06web\.zoom\.us\/rec\/share\/IddSZXJFwvUEsAe5wmNnofGl27yS9nt5rvUCEJrsgFnulCB4XvxCmoBCO6_JRKIm\.TmwQxyS\-8JllBt4G" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
+RewriteRule ^farol\-aula4$ "https\:\/\/us06web\.zoom\.us\/j\/86472753277\?pwd\=l9GO9nnaIhzNYqO9fehDyoYaHL30bJ\.1" [R=301,L]
+RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
 RewriteRule ^farol\-aula03\-pt1$ "https\:\/\/zoom\.us\/rec\/play\/uro\-Mv9iIkOnK0SJK90LvSScTmmS_2wxgBIGNJUOT0pFSpxQODHANJn5kko\-vLuhhGrCD7GD_uKrny_L\.ZYjJjgXa51sFitta\?autoplay\=true\&startTime\=1718144180000" [R=301,L]
 RewriteCond %{HTTP_HOST} ^maisquelucro\.com\.br$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.maisquelucro\.com\.br$
@@ -28,5 +37,6 @@ RewriteRule ^fale\-conosco$ "https\:\/\/api\.whatsapp\.com\/send\?phone\=5561993
 
 RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteRule ^(.*)$ index.php?url=$1
+#RewriteRule ^(.*)$ index.php?url=$1
+RewriteRule ^(.*)$ index.html
 
