@@ -120,7 +120,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">% Texa de Cartão</td>
+                                                        <td class="titulo">% Taxa de Cartão</td>
                                                         <td class="titulo">
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_tax_base"
@@ -344,7 +344,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr class="linha-tabela odd">
-                                                        <td class="titulo">% Texa de Cartão</td>
+                                                        <td class="titulo">% Taxa de Cartão</td>
                                                         <td class="titulo">
                                                             <div class="input-group">
                                                                 <input type="text" name="valor_tax_base_lucro"

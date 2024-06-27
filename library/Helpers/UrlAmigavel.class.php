@@ -210,7 +210,7 @@ class UrlAmigavel
                    </li>';
         if (TEM_SITE) {
             echo '<li>
-                           <a href="' . HOME . '" target="_blank"><i class="clip-earth"></i>
+                           <a href="https://maisquelucro.com.br/" target="_blank"><i class="clip-earth"></i>
                                    <span class="title"> SITE </span><span class="selected"></span>
                            </a>
                    </li>';
