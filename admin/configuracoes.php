@@ -36,7 +36,7 @@ function servidor_inicial()
                 'PROD' => true,
                 'TOKEN_PAGSEGURO' => "5FDD35645CC1412296CE57A3542E48D0",
                 'URL_PAGSEGURO' =>
-                    "https://ws.sandbox.pagseguro.uol.com.br/v2/",
+                    "https://sandbox.api.pagseguro.com/v2/",
                 'JS_PAGSEGURO' =>
                     "sandbox.pagseguro.js",
             );
@@ -52,9 +52,9 @@ function servidor_inicial()
                 'AMBI' => 3, // 1 = Desenvolvimento, 2 = Teste , 3 = Produção
                 'DEBUG' => false,
                 'PROD' => true,
-                'TOKEN_PAGSEGURO' => "e420df9f-b88a-4ba4-acfc-ef3dc796abd129194be145c3878bd1e90a4f65786848b0c0-51de-48b2-a242-7ae275f26890",
+                'TOKEN_PAGSEGURO' => "effa0b78-f895-427c-a4dd-b278eb4e033b67c44d314815876e154251b756ee39394bda-512b-42de-8687-4f4c6b299f23",
                 'URL_PAGSEGURO' =>
-                    "https://ws.pagseguro.uol.com.br/v2/",
+                    "https://api.pagseguro.com/",
                 'JS_PAGSEGURO' =>
                     "pagseguro.js",
             );
@@ -76,8 +76,8 @@ function servidor_inicial()
     define("TOKEN_PAGSEGURO", $config['TOKEN_PAGSEGURO']);
     define("URL_PAGSEGURO", $config['URL_PAGSEGURO']);
     define("JS_PAGSEGURO", HOME . 'library/js/' . $config['JS_PAGSEGURO']);
-    define("EMAIL_PAGSEGURO", "leodjx@hotmail.com");
-    define("EMAIL_LOJA", "leodjx@hotmail.com");
+    define("EMAIL_PAGSEGURO", "pagamentos@maisquelucro.com.br");
+    define("EMAIL_LOJA", "pagamentos@maisquelucro.com.br");
     define("MOEDA_PAGAMENTO", "BRL");
     define("URL_NOTIFICACAO", HOME . "library/NotificacaoPagSeguro.php");
     define("PERFIL_USUARIO_PADRAO", 3);
